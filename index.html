@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en_US">
+
 <head>
-<link href="common.css" rel="stylesheet" type="text/css">
-<link href="sprite.css" rel="stylesheet" type="text/css">
-<link href="multi2.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="common.css" rel="stylesheet" type="text/css">
+    <link href="sprite.css" rel="stylesheet" type="text/css">
+    <link href="multi2.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .tier__icon {
+            vertical-align: baseline !important;
+        }
+        .multi2__item .summoner-summary .last-updated {
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
     <div class="ContentWrap">
         <div class="multi2">
@@ -15,64 +25,52 @@
                 <ul class="multi2__list">
                     <template class="player_template">
                         <li class="multi2__item">
-                            <div class="prev-seasons">
-                                <button class="prev-seasons__btn prev-seasons__btn--active" value="11">
-                                    <strong>Preseason</strong>
-                                </button>
-                                <button class="prev-seasons__btn " value="10"><strong>S2020</strong>
-                                    Platinum</button>
-                            </div>
                             <div class="summoner-summary">
                                 <div class="last-updated">
-                                    Last updated: <span class="_timeago _timeCountAssigned tip"
-                                        data-datetime="1606939710" data-type="" data-interval="60"
-                                        title="Dec 2 2020 12:08 PM">4 days ago</span>
+                                    Last played: <span class="_timeago _timeCountAssigned tip" data-datetime=""
+                                        data-type="" data-interval="60" title="">4 days ago</span>
                                 </div>
                                 <div class="tier-position">
                                     <div class="tier">
-                                        <img class="tier__icon" src="platinum_4.png">
+                                        <img class="tier__icon" src="">
                                     </div>
+                                <!--
                                     <div class="most-position">
                                         <i class="most-position__icon most-position__icon--MID"></i>
                                     </div>
+                                -->
                                 </div>
                                 <div class="summoner-name">
                                     <a class="name" href="#" target="_blank">
-                                        null
                                     </a>
                                 </div>
                                 <div class="lp"></div>
                                 <div class="graph">
-                                    <div class="bar-graph">
-                                        <div class="base">
-                                            <div class="win" style="width: 50%">0W</div>
-                                            0L
-                                        </div>
-                                        <span class="winratio">50%</span>
-                                    </div>
+                                    <span class="winratio">50%</span>
                                 </div>
                                 <div class="win-streak win-streak--wins">
-                                    3 game win streak
                                 </div>
                             </div>
                             <div class="recent-matches">
+                            <!--
                                 <div class="title">Recently Played</div>
                                 <div class="positions">
                                     <div class="position">
                                         <i class="position__icon position__icon--MID"></i>
                                         <div class="position__info">
-                                            <div class="role-rate role-rate--high">80%</div>
-                                            <div class="win-rate">W/R <strong>75%</strong></div>
+                                            <div class="role-rate role-rate--high">50%</div>
+                                            <div class="win-rate">W/R <strong>50%</strong></div>
                                         </div>
                                     </div>
                                     <div class="position">
                                         <i class="position__icon position__icon--TOP"></i>
                                         <div class="position__info">
-                                            <div class="role-rate ">20%</div>
-                                            <div class="win-rate">W/R <strong>0%</strong></div>
+                                            <div class="role-rate ">50%</div>
+                                            <div class="win-rate">W/R <strong>50%</strong></div>
                                         </div>
                                     </div>
                                 </div>
+                            -->
                                 <ul class="recent-games">
                                 </ul>
                             </div>
@@ -81,17 +79,16 @@
                 </ul>
                 <template class="recent_game_template">
                     <li class="recent-games__item">
-                        <div class="champion __sprite __spc20 __spc20-2 tip" title="Akali"></div>
+                        <div class="champion __sprite __spc20 __spc20-2 tip" title=""></div>
                         <img class="champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1">
                         <div class="is-win is-win--true ">
                             <span class="kill"></span> /
                             <span class="death"></span> /
                             <span class="assist"></span>
                         </div>
-                        <div class="time-stamp"><span
-                            class="_timeago _timeCountAssigned tip tpd-delegation-uid-1"
-                            data-datetime="1607304446" data-type="" data-interval="60"
-                            title="Dec 6 2020 5:27 PM" data-toggle="tooltip">an hour ago</span></div>
+                        <div class="time-stamp"><span class="_timeago _timeCountAssigned tip tpd-delegation-uid-1"
+                                data-datetime="" data-type="" data-interval="60" title="" data-toggle="tooltip"></span>
+                        </div>
                     </li>
                 </template>
             </div>
@@ -101,37 +98,33 @@
 <script>
 
     function timeConverter(UNIX_timestamp) {
-        var a = new Date(UNIX_timestamp * 1000);
-        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        var year = a.getFullYear();
-        var month = months[a.getMonth()];
-        var date = a.getDate();
-        var hour = a.getHours();
-        var min = a.getMinutes();
-        var sec = a.getSeconds();
-        var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
+        a = new Date(UNIX_timestamp * 1000);
+        months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        year = a.getFullYear();
+        month = months[a.getMonth()];
+        date = a.getDate();
+        hour = a.getHours();
+        min = a.getMinutes();
+        sec = a.getSeconds();
+        time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
         return time;
     }
-    /*
-    {
-    "username":"FrankerZ",
-    "rank":"Platinum 4 (40LP)",
-    "wins":75,
-    "losses":75,
-    "lastupdate":"4 days ago",
-    "streak":"+5"
+
+    function secondsToDhms(seconds) {
+        seconds = Number(seconds);
+        var d = Math.floor(seconds / (3600 * 24));
+        var h = Math.floor(seconds % (3600 * 24) / 3600);
+        var m = Math.floor(seconds % 3600 / 60);
+        var s = Math.floor(seconds % 60);
+
+        var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+        var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours ") : "";
+        var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+        var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+        return dDisplay + hDisplay + " ago"
     }
-    */
 
-    //OPGG Image URLS
-    //https://opgg-static.akamaized.net/images/lol/champion/Talon.png
-
-    ////window.location.href will get the params from the window
-    //var queryString = window.location.href;
-
-    //get data from url
-
-    var user1Param = {
+    user1Param = {
         "data": [{
             "all_champion_num": 152,
             "all_skin_num": 1144,
@@ -164,7 +157,9 @@
             "total_kill": 16623,
             "total_placed": 16152,
             "total_time": 7655674,
-            "win_rate": 53
+            "win_rate": 53,
+            "continue_lose": 4,
+            "continue_win": 0,
         }],
         "player_battle_brief_list": [
             {
@@ -349,55 +344,101 @@
             }]
     };
 
-    var queryString = '1=' + JSON.stringify(user1Param) + '&2=' + JSON.stringify(user1Param) + '&3=' + JSON.stringify(user1Param) + '&4=' + JSON.stringify(user1Param) + '&5=' + JSON.stringify(user1Param);
+    /**
+
+    format of json
+
+    json = {
+        data: [{
+            playinfo
+        }],
+        player_battle_brief_list: [{
+            recent-gameinfo
+        }]
+        
+    }
+
+    */
+
+    //queryString = '1=' + JSON.stringify(user1Param) + '&2=' + JSON.stringify(user1Param) + '&3=' + JSON.stringify(user1Param) + '&4=' + JSON.stringify(user1Param) + '&5=' + JSON.stringify(user1Param);
+    const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const opggCDN = "	https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/champions/"
+    const weCDN = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/champions/"
+    const wegameRank = "https://wegame.gtimg.com/app/lol/score_souces/division/"
     i = 0;
     for (const [key, value] of urlParams) {
         jsonData = JSON.parse(value)
         console.log(jsonData)
 
         //begin create users
-        var temp = document.getElementsByTagName("template")[0];
-        var view = document.getElementsByClassName("multi2__list")[0];
+        temp = document.getElementsByTagName("template")[0];
+        view = document.getElementsByClassName("multi2__list")[0];
         startElement = temp.content.querySelector("li");
+        posArray = [0, 0, 0, 0, 0]
         a = document.importNode(startElement, true);
 
-        //
-        var player = jsonData["data"][0]
+        //shorthand
+        player = jsonData["data"][0]
+        battle_list = jsonData["player_battle_brief_list"]
+        f = function (arguments) { return a.getElementsByClassName(arguments); }
+
+        for (z = 0; z < Object.keys(battle_list).length; z++) {
+            posArray[battle_list[z]["position"]] += 1
+        }
+        console.log(posArray)
+
 
         //populate user data from JSON
-        a.getElementsByClassName("summoner-name")[0].innerHTML = "<a class='name' href='#'>" + player["role_name"] + "</a>"
-        a.getElementsByClassName("lp")[0].innerText = player["league_point"] + "LP"
-        a.getElementsByClassName("win")[0].innerText = player["win_rate"]
+        f("summoner-name")[0].innerHTML = "<a class='name' href='#'>" + player["role_name"] + "</a>"
+        f("tier__icon")[0].src = wegameRank + player["rank"] + ".png"
+        f("lp")[0].innerText = player["league_point"] + "LP"
+        f("winratio")[0].innerText = player["win_rate"] + "%"
+
+        if (player["continue_lose"] > 0) {
+            f("win-streak")[0].innerText = player["continue_lose"] + " game lose streak"
+            f("win-streak")[0].style.backgroundColor = "red";
+        } else if (player["continue_win"] > 0) {
+            f("win-streak")[0].innerText = player["continue_win"] + " game win streak"
+        } else {
+            f("win-streak")[0].innerText = ""
+        }
+
         view.appendChild(a);
 
+        //top last played text
+        if (battle_list[0]["battle_time"]) {
+            deltaT = Date.now()/1000 - battle_list[0]["battle_time"]
+            lastPlayed = (secondsToDhms(deltaT))
+            f("_timeago")[0].innerText = lastPlayed
+        } else {
+            f("_timeago")[0].innerText = "No recent games on record"
+        }
+
         recentview = view.getElementsByClassName("recent-games")[i]
-        var z = 0;
+        recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
 
-        var battle_list = jsonData["player_battle_brief_list"]
+        f = function (arguments) { return b.getElementsByClassName(arguments); }
 
-        while (Object.keys(battle_list).length > z) {
+        for (z = 0; z < Object.keys(battle_list).length; z++) {
             //begin create user match history
-            var recent_matches = document.getElementsByTagName("template")[1];
-            recentList = recent_matches.content.querySelector("li");
             b = document.importNode(recentList, true);
             if (jsonData["player_battle_brief_list"][z]["champion_id"]) {
-                b.getElementsByClassName("champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1")[0].src = opggCDN + battle_list[z]["champion_id"] + ".png"
-                b.getElementsByClassName("kill")[0].innerText = battle_list[z]["kill_num"]
-                b.getElementsByClassName("death")[0].innerText = battle_list[z]["death_num"]
-                b.getElementsByClassName("assist")[0].innerText = battle_list[z]["assist_num"]
-                b.getElementsByClassName("_timeago _timeCountAssigned tip tpd-delegation-uid-1")[0].setAttribute("data-datetime", battle_list[z]["battle_time"]);
-                b.getElementsByClassName("_timeago _timeCountAssigned tip tpd-delegation-uid-1")[0].innerText = timeConverter(battle_list[z]["battle_time"]);
-                b.getElementsByClassName("_timeago _timeCountAssigned tip tpd-delegation-uid-1")[0].title = timeConverter(battle_list[z]["battle_time"]);
-                $('[data-toggle="tooltip"]').tooltip(); 
+                f("champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1")[0].src = weCDN + battle_list[z]["champion_id"] + ".png"
+                f("kill")[0].innerText = battle_list[z]["kill_num"]
+                f("death")[0].innerText = battle_list[z]["death_num"]
+                f("assist")[0].innerText = battle_list[z]["assist_num"]
+                f("_timeago")[0].setAttribute("data-datetime", battle_list[z]["battle_time"]);
+                f("_timeago")[0].innerText = timeConverter(battle_list[z]["battle_time"]);
+                f("_timeago")[0].title = timeConverter(battle_list[z]["battle_time"]);
+                $('[data-toggle="tooltip"]').tooltip();
                 recentview.appendChild(b);
             }
-            z += 1
         }
         //move to next players match history
         i += 1;
     }
+
+    // pos 0 mid
 </script>
 
 </html>

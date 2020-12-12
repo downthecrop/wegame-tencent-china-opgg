@@ -10,7 +10,7 @@
 .multi2__item .no-data{height:55px;}
 .multi2__item .summoner-summary{height:188px;padding:8px 15px 15px;text-align:center;}.multi2__item .summoner-summary .last-updated{font-size:11px;text-align:left;line-height:1.27;color:#9aa4af;}
 .multi2__item .summoner-summary .tier-position{height:38px;margin-top:12px;font-size:0;}.multi2__item .summoner-summary .tier-position .tier{display:inline-block;width:38px;height:38px;background-color:#f7f7f9;border-radius:50%;}.multi2__item .summoner-summary .tier-position .tier__icon{width:38px;height:38px;}
-.multi2__item .summoner-summary .tier-position .most-position{display:inline-block;width:38px;height:38px;background-color:#f7f7f9;border-radius:50%;margin-left:8px;}.multi2__item .summoner-summary .tier-position .most-position__icon{display:block;width:38px;height:38px;background-size:20px;background-repeat:no-repeat;background-position:center;}.multi2__item .summoner-summary .tier-position .most-position__icon--TOP{background-image:url("../images/multi/icon-position-TOP@2x.png");}
+.multi2__item .summoner-summary .tier-position .most-position{display:inline-block;width:38px;height:38px;background-color:#f7f7f9;border-radius:50%;margin-left:8px;}.multi2__item .summoner-summary .tier-position .most-position__icon{display:block;width:38px;height:38px;background-size:20px;background-repeat:no-repeat;background-position:center;}.multi2__item .summoner-summary .tier-position .most-position__icon--TOP{background-image:url("icon-position-TOP@2x.png");}
 .multi2__item .summoner-summary .tier-position .most-position__icon--JUNGLE{background-image:url("icon-position-JUNGLE@2x.png");}
 .multi2__item .summoner-summary .tier-position .most-position__icon--MID{background-image:url("icon-position-MID@2x.png");}
 .multi2__item .summoner-summary .tier-position .most-position__icon--ADC{background-image:url("icon-position-ADC@2x.png");}
@@ -18,10 +18,10 @@
 .multi2__item .summoner-summary .summoner-name{margin-top:12px;line-height:22px;}.multi2__item .summoner-summary .summoner-name .name{font-size:15px;font-weight:bold;color:#202d37;text-decoration:none;}
 .multi2__item .summoner-summary .lp{margin-top:3px;line-height:14px;font-size:11px;text-align:center;color:#57646f;}
 .multi2__item .summoner-summary .graph{margin-top:7px;margin-bottom:4px;}
-.multi2__item .summoner-summary .summoner-series{margin-top:6px;}.multi2__item .summoner-summary .summoner-series__result{display:inline-block;width:56px;height:16px;background-image:url("../images/multi/W-L@2x.png");background-size:96px 16px;overflow:hidden;text-align:left;font-size:0;}.multi2__item .summoner-summary .summoner-series__result--highest{width:96px;}
+.multi2__item .summoner-summary .summoner-series{margin-top:6px;}.multi2__item .summoner-summary .summoner-series__result{display:inline-block;width:56px;height:16px;background-image:url("W-L@2x.png");background-size:96px 16px;overflow:hidden;text-align:left;font-size:0;}.multi2__item .summoner-summary .summoner-series__result--highest{width:96px;}
 .multi2__item .summoner-summary .summoner-series__item{display:inline-block;width:16px;height:16px;background-size:16px;margin-left:4px;}.multi2__item .summoner-summary .summoner-series__item:first-child{margin-left:0;}
-.multi2__item .summoner-summary .summoner-series__item--win{background-image:url("../images/multi/img_win_mark@2x.png");}
-.multi2__item .summoner-summary .summoner-series__item--loss{background-image:url("../images/multi/img_los_mark@2x.png");}
+.multi2__item .summoner-summary .summoner-series__item--win{background-image:url("img_win_mark@2x.png");}
+.multi2__item .summoner-summary .summoner-series__item--loss{background-image:url("img_los_mark@2x.png");}
 .multi2__item .summoner-summary .win-streak{display:inline-block;height:20px;line-height:20px;padding:0 8px;margin-top:4px;border-radius:10px;font-size:12px;color:#fff;}.multi2__item .summoner-summary .win-streak--wins{background-color:#5383e8;}
 .multi2__item .summoner-summary .win-streak--losses{background-color:#e84057;}
 .multi2__item .bar-graph{width:100%;line-height:16px;font-size:0;display:flex;}.multi2__item .bar-graph .base{position:relative;width:155px;height:16px;padding-right:4px;background-color:#e84057;color:#fff;text-align:right;font-size:11px;border-radius:4px;box-sizing:border-box;}
@@ -41,10 +41,10 @@
 .multi2 .recent-matches{height:305px;padding:15px;border-top:1px solid #ebeef1;}.multi2 .recent-matches .title{line-height:16px;font-size:12px;text-align:center;color:#9aa4af;}
 .multi2 .recent-matches .graph{margin-top:12px;}
 .multi2 .recent-matches .positions{margin-top:8px;font-size:0;}.multi2 .recent-matches .positions .position{display:inline-block;width:50%;}.multi2 .recent-matches .positions .position__icon{display:inline-block;width:28px;height:28px;border-radius:4px;background-color:#ebeef1;vertical-align:middle;background-size:18px;background-position:center;background-repeat:no-repeat;}.multi2 .recent-matches .positions .position__icon--TOP{background-image:url("icon-position-TOP@2x.png");}
-.multi2 .recent-matches .positions .position__icon--JUNGLE{background-image:url("../images/multi/icon-position-JUNGLE@2x.png");}
-.multi2 .recent-matches .positions .position__icon--MID{background-image:url("../images/multi/icon-position-MID@2x.png");}
-.multi2 .recent-matches .positions .position__icon--ADC{background-image:url("../images/multi/icon-position-ADC@2x.png");}
-.multi2 .recent-matches .positions .position__icon--SUPPORT{background-image:url("../images/multi/icon-position-SUPPORT@2x.png");}
+.multi2 .recent-matches .positions .position__icon--JUNGLE{background-image:url("icon-position-JUNGLE@2x.png");}
+.multi2 .recent-matches .positions .position__icon--MID{background-image:url("icon-position-MID@2x.png");}
+.multi2 .recent-matches .positions .position__icon--ADC{background-image:url("icon-position-ADC@2x.png");}
+.multi2 .recent-matches .positions .position__icon--SUPPORT{background-image:url("icon-position-SUPPORT@2x.png");}
 .multi2 .recent-matches .positions .position__info{display:inline-block;margin-left:8px;vertical-align:middle;}.multi2 .recent-matches .positions .position__info .role-rate{line-height:16px;font-size:12px;color:#758592;}.multi2 .recent-matches .positions .position__info .role-rate--high{color:#d31a45;}
 .multi2 .recent-matches .positions .position__info .win-rate{line-height:14px;font-size:11px;color:#4171d6;}
 .multi2 .recent-matches .recent-games{margin-top:15px;}.multi2 .recent-matches .recent-games__item{line-height:20px;font-size:0;margin-top:4px;}.multi2 .recent-matches .recent-games__item:first-child{margin-top:0;}
