@@ -443,6 +443,7 @@
     window.addEventListener('message', function(event) {
         var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
         if (origin !== "https://downthecrop.github.io/opgg-clone/")
+            console.log("I got a message from myself")
             return;
         if (typeof event.data == 'object' && event.data.call=='sendValue') {
         console.log("I got a message!" + event.data.value)
