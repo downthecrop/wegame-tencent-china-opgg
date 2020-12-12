@@ -12,6 +12,7 @@
         .tier__icon {
             vertical-align: baseline !important;
         }
+
         .multi2__item .summoner-summary .last-updated {
             text-align: center;
         }
@@ -34,7 +35,7 @@
                                     <div class="tier">
                                         <img class="tier__icon" src="">
                                     </div>
-                                <!--
+                                    <!--
                                     <div class="most-position">
                                         <i class="most-position__icon most-position__icon--MID"></i>
                                     </div>
@@ -52,7 +53,7 @@
                                 </div>
                             </div>
                             <div class="recent-matches">
-                            <!--
+                                <!--
                                 <div class="title">Recently Played</div>
                                 <div class="positions">
                                     <div class="position">
@@ -409,7 +410,7 @@
 
         //top last played text
         if (battle_list[0]["battle_time"]) {
-            deltaT = Date.now()/1000 - battle_list[0]["battle_time"]
+            deltaT = Date.now() / 1000 - battle_list[0]["battle_time"]
             lastPlayed = (secondsToDhms(deltaT))
             f("_timeago")[0].innerText = lastPlayed
         } else {
@@ -440,15 +441,25 @@
         i += 1;
     }
 
-    window.addEventListener('message', function(event) {
-        var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
-        if (origin !== "https://downthecrop.github.io/opgg-clone/")
-            console.log("I got a message from myself")
-            return;
-        if (typeof event.data == 'object' && event.data.call=='sendValue') {
-        console.log("I got a message!" + event.data.value)
+    window.onload = function () {
+        // Get a reference to the div on the page that will display the
+        // message text.
+
+        // A function to process messages received by the window.
+        function receiveMessage(e) {
+            // Check to make sure that this message came from the correct domain.
+            if (e.origin !== "https://downthecrop.github.io/"){
+                alert("message from myself")
+                return;
+            }
+            // Update the div element to display the message.
+            alert("Message Received: " + e.data);
         }
-    }, false);
+
+        // Setup an event listener that calls receiveMessage() when the window
+        // receives a new MessageEvent.
+        window.addEventListener('message', receiveMessage);
+    }
 
 </script>
 
