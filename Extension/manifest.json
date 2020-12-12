@@ -1,0 +1,18 @@
+{
+  "name": "Cropsearch",
+  "description": "OP.GG like mutlisearch for WeGame Servers",
+  "version": "2.0",
+  "icons": {
+    "32": "icon.png"
+  },
+  "permissions": [
+    "tabs"
+ ],
+  "content_scripts": [
+    {
+      "matches": ["*://www.wegame.com.cn/*"],
+      "js": ["script.js", "jquery.min.js"]
+    }
+  ],
+  "manifest_version": 2
+}
