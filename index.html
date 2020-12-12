@@ -440,7 +440,15 @@
         i += 1;
     }
 
-    // pos 0 mid
+    window.addEventListener('message', function(event) {
+        var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+        if (origin !== "https://downthecrop.github.io/opgg-clone/")
+            return;
+        if (typeof event.data == 'object' && event.data.call=='sendValue') {
+        console.log("I got a message!" + event.data.value)
+        }
+    }, false);
+
 </script>
 
 </html>
