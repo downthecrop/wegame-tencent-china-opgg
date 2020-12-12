@@ -378,7 +378,7 @@
         a = document.importNode(startElement, true);
 
         //shorthand
-        player = jsonData["data"][0]
+        player = jsonData
         battle_list = jsonData["player_battle_brief_list"]
         f = function (arguments) { return a.getElementsByClassName(arguments); }
 
@@ -386,6 +386,8 @@
             posArray[battle_list[z]["position"]] += 1
         }
         console.log(posArray)
+
+        console.log(player)
 
 
         //populate user data from JSON
