@@ -5,6 +5,7 @@ var htmlEmbed = '<div id="myModal" class="modal">\
     <input style="background:white;" id="name-input"></input>\
     <button style="background:white;" id="submit-name">Submit</button>\
     <div style="color:white;" id="myValdiv"></div>\
+    <iframe id="myiFrame" style="width:100%;height:100%;" src="https://downthecrop.github.io/opgg-clone/"></iframe>\
     </div>\
 </div>'
 
@@ -66,6 +67,12 @@ function buildJSON(user,games,topbar){
     user = Object.assign(topbar["data"], user)
     console.log(user)
     return user;
+}
+
+function sendToFrame(message) {
+    var receiver = document.getElementById('myiFrame').contentWindow;
+    receiver.postMessage(message, 'https://downthecrop.github.io/opgg-clone/');
+    console.log("I sent a message")
 }
 
 function main() {
@@ -134,31 +141,30 @@ function main() {
                 modal.style.display = "none";
             }
         }
-    }
-    document.getElementById("submit-name").addEventListener('click',function(){
-        nickJSON["search_nick"] = document.getElementById("name-input").value;
-        apiRequest(query_by_nick, nickJSON).then((data) => {
-            console.log(data);
-            for (var i = 0; i < Object.keys(data["data"]["player_list"]).length; i += 1) {
-                if (data["data"]["player_list"][i]["area_id"] == area_id) {
-                    var player_data = data["data"]["player_list"][i]
-                    battleJSON["slol_id"] = data["data"]["player_list"][i]["slol_id"]
-                    console.log("User " + nickJSON["search_nick"] + " Found on Ionia with slol_id=" + battleJSON["slol_id"])
-                    console.log(battleJSON)
-                    apiRequest(battle_list, battleJSON).then((battle_data) => {
-                        apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
-                            jVal = buildJSON(player_data,battle_data,topbar_data)
-                            console.log(JSON.stringify(jVal))
-                            console.log('https://downthecrop.github.io/opgg-clone/?1='+JSON.stringify(jVal))
-                            var superStr = 'https://downthecrop.github.io/opgg-clone/?1='+JSON.stringify(jVal)
-                            document.getElementById("myValdiv").innerHTML = "<a href='"+superStr+"'/>Link</a>"
+
+        document.getElementById("submit-name").addEventListener('click',function(){
+            nickJSON["search_nick"] = document.getElementById("name-input").value;
+            apiRequest(query_by_nick, nickJSON).then((data) => {
+                console.log(data);
+                for (var i = 0; i < Object.keys(data["data"]["player_list"]).length; i += 1) {
+                    if (data["data"]["player_list"][i]["area_id"] == area_id) {
+                        var player_data = data["data"]["player_list"][i]
+                        battleJSON["slol_id"] = data["data"]["player_list"][i]["slol_id"]
+                        console.log("User " + nickJSON["search_nick"] + " Found on Ionia with slol_id=" + battleJSON["slol_id"])
+                        console.log(battleJSON)
+                        apiRequest(battle_list, battleJSON).then((battle_data) => {
+                            apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
+                                jVal = buildJSON(player_data,battle_data,topbar_data)
+                                console.log(JSON.stringify(jVal))
+                                sendToFrame("1="+JSON.stringify(jVal)+"&2="+JSON.stringify(jVal)+"&3="+JSON.stringify(jVal)+"&4="+JSON.stringify(jVal)+"&5="+JSON.stringify(jVal))
+                            })
                         })
-                    })
-                    i = 999;
+                        i = 999;
+                    }
                 }
-            }
+            })
         })
-    })
+    }
 }
 
 var checkExist = setInterval(function () {
