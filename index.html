@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <div class="loader" style="display:none;">Loading...</div>
+    <div class="loader" id="loader" style="display:none;">Loading...</div>
     <div class="ContentWrap">
         <div class="multi2">
             <div class="multi2__box">
@@ -130,7 +130,7 @@
     function receiveMessage(messageData) {
 
         if (messageData.data == "loading"){
-            document.getElementById("loading").style.display = "inline"
+            document.getElementById("loader").style.display = "inline"
         }
 
         else{
