@@ -429,6 +429,9 @@
                 b = document.importNode(recentList, true);
                 if (jsonData["player_battle_brief_list"][z]["champion_id"]) {
                     f("champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1")[0].src = weCDN + battle_list[z]["champion_id"] + ".png"
+                    if (battle_list[z]["game_result"] != 1){
+                        f("is-win is-win--true")[0].setAttribute("class","is-win is-win--false")
+                    }
                     f("kill")[0].innerText = battle_list[z]["kill_num"]
                     f("death")[0].innerText = battle_list[z]["death_num"]
                     f("assist")[0].innerText = battle_list[z]["assist_num"]
