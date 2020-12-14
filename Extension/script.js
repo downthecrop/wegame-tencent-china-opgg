@@ -3,6 +3,7 @@ var htmlEmbed = '<div id="myModal" class="modal">\
     <span class="close">&times;</span>\
     <textarea style="background:white;" id="name-input"></textarea>\
     <button style="background:white;" id="submit-name">Submit</button>\
+    <button style="background:white;" id="submit-name">Submit</button>\
     <div style="color:white;" id="myValdiv"></div>\
     <iframe id="myiFrame" style="width:100%;height:100%;" src="https://downthecrop.github.io/opgg-clone/"></iframe>\
     </div>\
@@ -32,6 +33,7 @@ var cssEmbed = '.modal {\
   .close {\
     color: #aaaaaa;\
     float: right;\
+    padding: 10px;\
     font-size: 28px;\
     font-weight: bold;\
   }\
@@ -178,6 +180,7 @@ function main() {
         }
 
         document.getElementById("submit-name").addEventListener('click',function(){
+            sendToFrame("loading")
             names = document.getElementById("name-input").value
             usernames = names.replaceAll("加入了队伍聊天","").split(/\r?\n/)
             console.log(usernames)
