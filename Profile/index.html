@@ -1,562 +1,796 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="title" content="Wowee - Summoner Stats - League of Legends">
-    <title>Profile - Template</title>
-    <link href="./css/common.css" rel="stylesheet" type="text/css">
-    <link href="./css/sprite.css" rel="stylesheet" type="text/css">
-    <link href="./css/forum.css" rel="stylesheet" type="text/css">
-    <link href="./css/new.css" rel="stylesheet" type="text/css">
-    <link href="./css/summoner.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-    <div class="ContentWrap tabItems" id="SummonerLayoutContent">
-        <div class="tabItem Content SummonerLayoutContent summonerLayout-summary"
-            data-tab-data-url="/summoner/userName=Wowee" data-tab-spinner-height="800" data-tab-is-loaded-already="true"
-            style="display: block;">
+   <head>
+      <title>Profile - Template</title>
+      <link href="./css/common.css" rel="stylesheet" type="text/css">
+      <link href="./css/sprite.css" rel="stylesheet" type="text/css">
+      <link href="./css/forum.css" rel="stylesheet" type="text/css">
+      <link href="./css/new.css" rel="stylesheet" type="text/css">
+      <link href="./css/summoner.css" rel="stylesheet" type="text/css">
+   </head>
+   <body>
+      <div class="ContentWrap tabItems" id="SummonerLayoutContent">
+         <div class="tabItem Content SummonerLayoutContent summonerLayout-summary" data-tab-data-url="#"
+            data-tab-spinner-height="800" data-tab-is-loaded-already="true" style="display: block;">
             <div class="SideContent">
-                <div class="TierBox Box">
-                    <div class="SummonerRatingMedium">
-                        <div class="Medal tip tpd-delegation-uid-1" title=""> <img
-                                src="./img/gold_2.png" class="Image">
+               <div class="TierBox Box">
+                  <div class="SummonerRatingMedium">
+                     <div class="Medal tip tpd-delegation-uid-1" title=""> <img id="rank-metal" src="./img/gold_2.png" class="Image">
+                     </div>
+                     <div class="TierRankInfo">
+                        <div class="RankType">Ranked Solo</div>
+                        <div class="TierRank">Undefined 0</div>
+                        <div class="TierInfo"> <span class="LeaguePoints">
+                           0 LP
+                           </span> / <span class="WinLose">
+                           <span class="wins">0W</span> <span class="losses">0L</span>
+                           <br> <span class="winratio">Win Ratio 50%</span> </span>
                         </div>
-                        <div class="TierRankInfo">
-                            <div class="RankType">Ranked Solo</div>
-                            <div class="TierRank">Undefined 0</div>
-                            <div class="TierInfo"> <span class="LeaguePoints">
-                                    0 LP
-                                </span> / <span class="WinLose">
-                                    <span class="wins">0W</span> <span class="losses">0L</span>
-                                    <br> <span class="winratio">Win Ratio 50%</span> </span>
-                            </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="Box tabWrap stats-box _recognized">
+                  <div class="Tab">
+                     <ul class="TabList tabHeaders">
+                        <li id="left_champion_all" class="Item tabHeader active"
+                           data-tab-show-class="overview-stats--all" data-type="Total"> <a href="#">
+                           Preseason<br>
+                           Total </a> 
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="Content tabItems">
+                     <div class="MostChampionContent tabItem overview-stats--all" style="display: block;">
+                        <div class="MostChampionContent">
+                        <template>
+                           <div class="ChampionBox Ranked">
+                              <div class="Face" title="Gangplank">
+                                 <a href="https://na.op.gg/champion/gangplank/statistics" target="_blank"> <img
+                                    src="./img/Gangplank.png" width="45" class="ChampionImage"
+                                    alt="Gangplank"> </a>
+                              </div>
+                              <div class="ChampionInfo">
+                                 <div class="ChampionName" title="Gangplank"> <a
+                                    href="https://na.op.gg/champion/gangplank/statistics" target="_blank">
+                                    Gangplank
+                                    </a> 
+                                 </div>
+                                 <div class="ChampionMinionKill tip" title="avg. CS (CS/m)"> CS 165.0 (6.9)
+                                 </div>
+                              </div>
+                              <div class="PersonalKDA">
+                                 <div class="KDA green tip" title="(K 2.57 + A 8) / D 3.43"> <span
+                                    class="KDA">3.08:1</span> <span class="Text">KDA</span> </div>
+                                 <div class="KDAEach"> <span class="Kill">2.6</span> <span class="Bar">/</span>
+                                    <span class="Death">3.4</span> <span class="Bar">/</span> <span
+                                       class="Assist">8.0</span> 
+                                 </div>
+                              </div>
+                              <div class="Played">
+                                 <div class="WinRatio normal tip" title="Win Ratio"> 29% </div>
+                                 <div id="played-num" class="Title">7 Played</div>
+                              </div>
+                           </div>
+                        </template>
                         </div>
-                    </div>
-                </div>
-                <div class="Box tabWrap stats-box _recognized">
-                    <div class="Tab">
-                        <ul class="TabList tabHeaders">
-                            <li id="left_champion_all" class="Item tabHeader active"
-                                data-tab-show-class="overview-stats--all" data-type="Total"> <a
-                                    href="https://na.op.gg/summoner/userName=Wowee#">
-                                    Preseason<br>
-                                    Total </a> </li>
-                        </ul>
-                    </div>
-                    <div class="Content tabItems">
-                        <div class="MostChampionContent tabItem overview-stats--all" style="display: block;">
-                            <div class="MostChampionContent" data-summoner-id="61970089" data-season="16"
-                                data-last-info="2">
-                                <div class="ChampionBox Ranked">
-                                    <div class="Face" title="Gangplank">
-                                        <a href="https://na.op.gg/champion/gangplank/statistics" target="_blank"> <img
-                                                src="./img/Gangplank.png"
-                                                width="45" class="ChampionImage" alt="Gangplank"> </a>
-                                    </div>
-                                    <div class="ChampionInfo">
-                                        <div class="ChampionName" title="Gangplank"> <a
-                                                href="https://na.op.gg/champion/gangplank/statistics" target="_blank">
-                                                Gangplank
-                                            </a> </div>
-                                        <div class="ChampionMinionKill tip" title="avg. CS (CS/m)"> CS 165.0 (6.9)
-                                        </div>
-                                    </div>
-                                    <div class="PersonalKDA">
-                                        <div class="KDA green tip" title="(K 2.57 + A 8) / D 3.43"> <span
-                                                class="KDA">3.08:1</span> <span class="Text">KDA</span> </div>
-                                        <div class="KDAEach"> <span class="Kill">2.6</span> <span class="Bar">/</span>
-                                            <span class="Death">3.4</span> <span class="Bar">/</span> <span
-                                                class="Assist">8.0</span> </div>
-                                    </div>
-                                    <div class="Played">
-                                        <div class="WinRatio normal tip" title="Win Ratio"> 29% </div>
-                                        <div class="Title">7 Played</div>
-                                    </div>
-                                </div>
-                                <div class="ChampionBox Ranked">
-                                    <div class="Face" title="Draven">
-                                        <a href="https://na.op.gg/champion/draven/statistics" target="_blank"> <img
-                                                src="./img/Draven.png"
-                                                width="45" class="ChampionImage" alt="Draven"> </a>
-                                    </div>
-                                    <div class="ChampionInfo">
-                                        <div class="ChampionName" title="Draven"> <a
-                                                href="https://na.op.gg/champion/draven/statistics" target="_blank">
-                                                Draven
-                                            </a> </div>
-                                        <div class="ChampionMinionKill tip" title="avg. CS (CS/m)"> CS 147.0 (5.7)
-                                        </div>
-                                    </div>
-                                    <div class="PersonalKDA">
-                                        <div class="KDA normal tip" title="(K 7 + A 4) / D 5"> <span
-                                                class="KDA">2.20:1</span> <span class="Text">KDA</span> </div>
-                                        <div class="KDAEach"> <span class="Kill">7.0</span> <span class="Bar">/</span>
-                                            <span class="Death">5.0</span> <span class="Bar">/</span> <span
-                                                class="Assist">4.0</span> </div>
-                                    </div>
-                                    <div class="Played">
-                                        <div class="WinRatio normal tip" title="Win Ratio"> 0% </div>
-                                        <div class="Title">1 Played</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                     </div>
+                  </div>
+               </div>
             </div>
             <div class="RealContent">
-                <div class="GameListContainer" data-summoner-id="61970089" data-last-info="1604529087">
-                    <div class="Content">
-                        <div class="GameAverageStatsBox" id="GameAverageStatsBox-summary">
-                            <div class="Box">
-                                <table class="GameAverageStats">
-                                    <tbody>
-                                        <tr>
-                                            <td class="Title" colspan="2">
-                                                <div class="WinRatioTitle"> <span class="total">10</span>G <span
-                                                        class="win">2</span>W <span class="lose">8</span>L </div>
-                                            </td>
-                                            <td class="MostChampion" rowspan="2">
-                                                <ul>
-                                                    <li>
-                                                        <div class="NotFound" style="display: none;">
-                                                            <div class="Image"> <i class="__spSite __spSite-88"></i>
-                                                            </div>
-                                                            <div class="Message">Not found Champion</div>
-                                                        </div>
-                                                        <div class="Content" style="">
-                                                            <div class="Image"> <img
-                                                                    src="./img/Gangplank(1).png"
-                                                                    alt=""> </div>
-                                                            <div class="Name">Gangplank</div>
-                                                            <div class="WonLose"> <b class="tip"
-                                                                    title="Win Ratio">29%</b> (<span
-                                                                    class="win">2</span>W <span class="lose">5</span>L)
-                                                            </div>
-                                                            <div class="KDA green"><span>3.08</span> KDA</div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="NotFound" style="display: none;">
-                                                            <div class="Image"> <i class="__spSite __spSite-88"></i>
-                                                            </div>
-                                                            <div class="Message">Not found Champion</div>
-                                                        </div>
-                                                        <div class="Content" style="">
-                                                            <div class="Image"> <img
-                                                                    src="./img/Draven(1).png"
-                                                                    alt=""> </div>
-                                                            <div class="Name">Draven</div>
-                                                            <div class="WonLose"> <b class="tip"
-                                                                    title="Win Ratio">0%</b> (<span
-                                                                    class="win">0</span>W <span class="lose">1</span>L)
-                                                            </div>
-                                                            <div class="KDA normal"><span>2.2</span> KDA</div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="NotFound" style="display: none;">
-                                                            <div class="Image"> <i class="__spSite __spSite-88"></i>
-                                                            </div>
-                                                            <div class="Message">Not found Champion</div>
-                                                        </div>
-                                                        <div class="Content" style="">
-                                                            <div class="Image"> <img
-                                                                    src="./img/Garen.png"
-                                                                    alt=""> </div>
-                                                            <div class="Name">Garen</div>
-                                                            <div class="WonLose"> <b class="tip"
-                                                                    title="Win Ratio">0%</b> (<span
-                                                                    class="win">0</span>W <span class="lose">1</span>L)
-                                                            </div>
-                                                            <div class="KDA normal"><span>0.5</span> KDA</div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                            <td class="Title">Preferred Position (Rank)</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="Summary">
-                                                <div class="WinRatioGraph">
-                                                    <div id="WinRatioGraph-summary" class="Graph"
-                                                        style="width: 90px;height: 90px;" data-highcharts-chart="0">
-                                                        <div class="highcharts-container" id="highcharts-0"
-                                                            style="position: relative; overflow: hidden; width: 90px; height: 90px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                                                            <svg version="1.1"
-                                                                style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;"
-                                                                xmlns="http://www.w3.org/2000/svg" width="90"
-                                                                height="90">
-                                                                <desc>Created with Highcharts 4.2.3</desc>
-                                                                <defs>
-                                                                    <clippath id="highcharts-1">
-                                                                        <rect x="0" y="0" width="90" height="90"></rect>
-                                                                    </clippath>
-                                                                </defs>
-                                                                <g class="highcharts-series-group" zIndex="3">
-                                                                    <g class="highcharts-series highcharts-series-0"
-                                                                        zIndex="0.1"
-                                                                        transform="translate(0,0) scale(1 1)">
-                                                                        <path fill="#ee5a52"
-                                                                            d="M 44.99083470583372 9.333624220175807e-7 A 45 45 0 1 1 2.192012858174998 31.126419464848112 L 14.558764699146664 35.13434273055866 A 32 32 0 1 0 44.993482457481754 13.00000066372439 Z"
-                                                                            stroke-linejoin="round"
-                                                                            transform="translate(0,0)"></path>
-                                                                        <path fill="#1f8ecd"
-                                                                            d="M 2.2059078403896777 31.083618421630646 A 45 45 0 0 1 44.93749590278678 0.00004340848947492759 L 44.95555264198171 13.00003086825918 A 32 32 0 0 0 14.568645575388214 35.10390643315957 Z"
-                                                                            stroke-linejoin="round"
-                                                                            transform="translate(0,0)"></path>
-                                                                    </g>
-                                                                    <g class="highcharts-markers highcharts-series-0"
-                                                                        zIndex="0.1"
-                                                                        transform="translate(0,0) scale(1 1)"></g>
-                                                                </g>
-                                                                <g class="highcharts-tooltip" zIndex="8"
-                                                                    style="cursor:default;padding:0;pointer-events:none;white-space:nowrap;"
-                                                                    transform="translate(0,-9999)">
-                                                                    <path fill="none"
-                                                                        d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
-                                                                        isShadow="true" stroke="black"
-                                                                        stroke-opacity="0.049999999999999996"
-                                                                        stroke-width="5" transform="translate(1, 1)">
-                                                                    </path>
-                                                                    <path fill="none"
-                                                                        d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
-                                                                        isShadow="true" stroke="black"
-                                                                        stroke-opacity="0.09999999999999999"
-                                                                        stroke-width="3" transform="translate(1, 1)">
-                                                                    </path>
-                                                                    <path fill="none"
-                                                                        d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
-                                                                        isShadow="true" stroke="black"
-                                                                        stroke-opacity="0.15" stroke-width="1"
-                                                                        transform="translate(1, 1)"></path>
-                                                                    <path fill="rgba(249, 249, 249, .85)"
-                                                                        d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5">
-                                                                    </path>
-                                                                    <text x="8" zIndex="1"
-                                                                        style="font-size:12px;color:#333333;fill:#333333;"
-                                                                        y="20"></text>
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="Text">20%</div>
+               <div class="GameListContainer" data-summoner-id="61970089" data-last-info="1604529087">
+                  <div class="Content">
+                     <div class="GameAverageStatsBox" id="GameAverageStatsBox-summary">
+                        <div class="Box">
+                           <table class="GameAverageStats">
+                              <tbody>
+                                 <tr>
+                                    <td class="Title" colspan="2">
+                                       <div class="WinRatioTitle"> <span class="total">10</span>G <span
+                                          class="win">2</span>W <span class="lose">8</span>L </div>
+                                    </td>
+                                    <td class="MostChampion" rowspan="2">
+                                       <ul>
+                                          <li>
+                                             <div class="NotFound" style="display: none;">
+                                                <div class="Image"> <i class="__spSite __spSite-88"></i>
                                                 </div>
-                                            </td>
-                                            <td class="KDA">
-                                                <div class="KDA"> <span class="Kill">2.8</span> / <span
-                                                        class="Death">3.6</span> / <span class="Assist">6.0</span>
+                                                <div class="Message">Not found Champion</div>
+                                             </div>
+                                             <div class="Content" style="">
+                                                <div class="Image"> <img src="./img/Gangplank(1).png"
+                                                   alt=""> </div>
+                                                <div class="Name">Gangplank</div>
+                                                <div class="WonLose"> <b class="tip"
+                                                   title="Win Ratio">29%</b> (<span
+                                                   class="win">2</span>W <span class="lose">5</span>L)
                                                 </div>
-                                                <div class="KDARatio"> <span class="KDARatio">2.44:1</span> <span
-                                                        class="CKRate tip"
-                                                        title="Kill Participation">(<span>44%</span>)</span>
+                                                <div class="KDA green"><span>3.08</span> KDA</div>
+                                             </div>
+                                          </li>
+                                          <li>
+                                             <div class="NotFound" style="display: none;">
+                                                <div class="Image"> <i class="__spSite __spSite-88"></i>
                                                 </div>
-                                            </td>
-                                            <td class="PositionStats">
-                                                <ul class="Content" style="">
-                                                    <li style="">
-                                                        <div class="Image"> <i class="__spSite __spSite-147"></i> </div>
-                                                        <div class="PositionStatContent">
-                                                            <div class="Name">Top</div> <span
-                                                                class="RoleRate"><b>90</b>%</span> <span
-                                                                class="WinRatio">Win Ratio
-                                                                <span><b>22</b>%</span></span>
-                                                        </div>
-                                                    </li>
-                                                    <li style="">
-                                                        <div class="Image"> <i class="__spSite __spSite-139"></i> </div>
-                                                        <div class="PositionStatContent">
-                                                            <div class="Name">ADC</div> <span
-                                                                class="RoleRate"><b>10</b>%</span> <span
-                                                                class="WinRatio">Win Ratio <span><b>0</b>%</span></span>
-                                                        </div>
-                                                    </li>
-                                                    <li style="display: none;">
-                                                        <div class="Image"> <i></i> </div>
-                                                        <div class="PositionStatContent">
-                                                            <div class="Name">?</div> <span
-                                                                class="RoleRate"><b>?</b>%</span> <span
-                                                                class="WinRatio">Win Ratio <span><b>?</b>%</span></span>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                                <ul class="NotFound" style="display: none;">
-                                                    <li>
-                                                        <div class="Image"> <i class="__spSite __spSite-149"></i> </div>
-                                                        <div class="PositionStatContent">
-                                                            <div class="Message">Not found Position</div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="Message"> Data analysis of recent <span>10</span> games </div>
+                                                <div class="Message">Not found Champion</div>
+                                             </div>
+                                             <div class="Content" style="">
+                                                <div class="Image"> <img src="./img/Draven(1).png" alt="">
+                                                </div>
+                                                <div class="Name">Draven</div>
+                                                <div class="WonLose"> <b class="tip"
+                                                   title="Win Ratio">0%</b> (<span
+                                                   class="win">0</span>W <span class="lose">1</span>L)
+                                                </div>
+                                                <div class="KDA normal"><span>2.2</span> KDA</div>
+                                             </div>
+                                          </li>
+                                          <li>
+                                             <div class="NotFound" style="display: none;">
+                                                <div class="Image"> <i class="__spSite __spSite-88"></i>
+                                                </div>
+                                                <div class="Message">Not found Champion</div>
+                                             </div>
+                                             <div class="Content" style="">
+                                                <div class="Image"> <img src="./img/Garen.png" alt="">
+                                                </div>
+                                                <div class="Name">Garen</div>
+                                                <div class="WonLose"> <b class="tip"
+                                                   title="Win Ratio">0%</b> (<span
+                                                   class="win">0</span>W <span class="lose">1</span>L)
+                                                </div>
+                                                <div class="KDA normal"><span>0.5</span> KDA</div>
+                                             </div>
+                                          </li>
+                                       </ul>
+                                    </td>
+                                    <td class="Title">Preferred Position (Rank)</td>
+                                 </tr>
+                                 <tr>
+                                    <td class="Summary">
+                                       <div class="WinRatioGraph">
+                                          <div id="WinRatioGraph-summary" class="Graph"
+                                             style="width: 90px;height: 90px;" data-highcharts-chart="0">
+                                             <div class="highcharts-container" id="highcharts-0"
+                                                style="position: relative; overflow: hidden; width: 90px; height: 90px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                                <svg version="1.1"
+                                                   style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;"
+                                                   xmlns="http://www.w3.org/2000/svg" width="90"
+                                                   height="90">
+                                                   <desc>Created with Highcharts 4.2.3</desc>
+                                                   <defs>
+                                                      <clippath id="highcharts-1">
+                                                         <rect x="0" y="0" width="90" height="90"></rect>
+                                                      </clippath>
+                                                   </defs>
+                                                   <g class="highcharts-series-group" zIndex="3">
+                                                      <g class="highcharts-series highcharts-series-0"
+                                                         zIndex="0.1"
+                                                         transform="translate(0,0) scale(1 1)">
+                                                         <path fill="#ee5a52"
+                                                            d="M 44.99083470583372 9.333624220175807e-7 A 45 45 0 1 1 2.192012858174998 31.126419464848112 L 14.558764699146664 35.13434273055866 A 32 32 0 1 0 44.993482457481754 13.00000066372439 Z"
+                                                            stroke-linejoin="round"
+                                                            transform="translate(0,0)"></path>
+                                                         <path fill="#1f8ecd"
+                                                            d="M 2.2059078403896777 31.083618421630646 A 45 45 0 0 1 44.93749590278678 0.00004340848947492759 L 44.95555264198171 13.00003086825918 A 32 32 0 0 0 14.568645575388214 35.10390643315957 Z"
+                                                            stroke-linejoin="round"
+                                                            transform="translate(0,0)"></path>
+                                                      </g>
+                                                      <g class="highcharts-markers highcharts-series-0"
+                                                         zIndex="0.1"
+                                                         transform="translate(0,0) scale(1 1)"></g>
+                                                   </g>
+                                                   <g class="highcharts-tooltip" zIndex="8"
+                                                      style="cursor:default;padding:0;pointer-events:none;white-space:nowrap;"
+                                                      transform="translate(0,-9999)">
+                                                      <path fill="none"
+                                                         d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+                                                         isShadow="true" stroke="black"
+                                                         stroke-opacity="0.049999999999999996"
+                                                         stroke-width="5" transform="translate(1, 1)">
+                                                      </path>
+                                                      <path fill="none"
+                                                         d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+                                                         isShadow="true" stroke="black"
+                                                         stroke-opacity="0.09999999999999999"
+                                                         stroke-width="3" transform="translate(1, 1)">
+                                                      </path>
+                                                      <path fill="none"
+                                                         d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+                                                         isShadow="true" stroke="black"
+                                                         stroke-opacity="0.15" stroke-width="1"
+                                                         transform="translate(1, 1)"></path>
+                                                      <path fill="rgba(249, 249, 249, .85)"
+                                                         d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5">
+                                                      </path>
+                                                      <text x="8" zIndex="1"
+                                                         style="font-size:12px;color:#333333;fill:#333333;"
+                                                         y="20"></text>
+                                                   </g>
+                                                </svg>
+                                             </div>
+                                          </div>
+                                          <div class="Text">20%</div>
+                                       </div>
+                                    </td>
+                                    <td class="KDA">
+                                       <div class="KDA"> <span class="Kill">2.8</span> / <span
+                                          class="Death">3.6</span> / <span class="Assist">6.0</span>
+                                       </div>
+                                       <div class="KDARatio"> <span class="KDARatio">2.44:1</span> <span
+                                          class="CKRate tip"
+                                          title="Kill Participation">(<span>44%</span>)</span>
+                                       </div>
+                                    </td>
+                                    <td class="PositionStats">
+                                       <ul class="Content" style="">
+                                          <li style="">
+                                             <div class="Image"> <i class="__spSite __spSite-147"></i> </div>
+                                             <div class="PositionStatContent">
+                                                <div class="Name">Top</div>
+                                                <span
+                                                   class="RoleRate"><b>50</b>%</span> <span
+                                                   class="WinRatio">Win Ratio
+                                                <span><b>50</b>%</span></span>
+                                             </div>
+                                          </li>
+                                          <li style="">
+                                             <div class="Image"> <i class="__spSite __spSite-139"></i> </div>
+                                             <div class="PositionStatContent">
+                                                <div class="Name">ADC</div>
+                                                <span
+                                                   class="RoleRate"><b>50</b>%</span> <span
+                                                   class="WinRatio">Win Ratio
+                                                <span><b>50</b>%</span></span>
+                                             </div>
+                                          </li>
+                                       </ul>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
                         </div>
-                        <div class="opscore-banner">
-                            <div class="GameItemList">
-                                <div class="GameItemWrap">
-                                    <div class="GameItem Win  " data-summoner-id="61970089" data-game-time="1607645691"
-                                        data-game-id="3699994160" data-game-result="win">
-                                        <div class="Content">
-                                            <div class="GameStats">
-                                                <div class="GameType" title="Ranked Solo"> Ranked Solo </div>
-                                                <div class="TimeStamp"><span
-                                                        class="_timeago _timeCountAssigned tip tpd-delegation-uid-1"
-                                                        data-datetime="1607645691" data-type="" data-interval="60"
-                                                        title="">2 hours ago</span></div>
-                                                <div class="Bar"></div>
-                                                <div class="GameResult"> Victory </div>
-                                                <div class="GameLength">34m 38s</div>
-                                            </div>
-                                            <div class="GameSettingInfo">
-                                                <div class="ChampionImage">
-                                                    <a href="https://na.op.gg/champion/gangplank/statistics"
-                                                        target="_blank"><img
-                                                            src="./img/Gangplank(2).png"
-                                                            class="Image" alt="Gangplank"></a>
-                                                </div>
-                                                <div class="SummonerSpell">
-                                                    <div class="Spell"> <img
-                                                            src="./img/SummonerTeleport.png"
-                                                            class="Image tip tpd-delegation-uid-1" title=""
-                                                            alt="Teleport"> </div>
-                                                    <div class="Spell"> <img
-                                                            src="./img/SummonerFlash.png"
-                                                            class="Image tip tpd-delegation-uid-1" title="" alt="Flash">
-                                                    </div>
-                                                </div>
-                                                <div class="Runes">
-                                                    <div class="Rune"> <img
-                                                            src="./img/8437.png"
-                                                            class="Image tip tpd-delegation-uid-1" title=""
-                                                            alt="Grasp of the Undying"> </div>
-                                                    <div class="Rune"> <img
-                                                            src="./img/8300.png"
-                                                            class="Image tip tpd-delegation-uid-1" title=""
-                                                            alt="Inspiration"> </div>
-                                                </div>
-                                                <div class="ChampionName"> <a
-                                                        href="https://na.op.gg/champion/gangplank/statistics"
-                                                        target="_blank">Gangplank</a> </div>
-                                            </div>
-                                            <div class="KDA">
-                                                <div class="KDA"> <span class="Kill">3</span> / <span
-                                                        class="Death">2</span> / <span class="Assist">16</span> </div>
-                                                <div class="KDARatio"> <span class="KDARatio ">9.50:1</span> KDA </div>
-                                                <div class="Badge"><span class="Text MVP">MVP</span></div>
-                                            </div>
-                                            <div class="Stats">
-                                                <div class="Level"> Level17 </div>
-                                                <div class="CS"> <span class="CS tip tpd-delegation-uid-1" title="">281
-                                                        (8.1)</span> CS </div>
-                                                <div class="CKRate tip" title="Kill Participation"> P/Kill 56% </div>
-                                                <div class="MMR"> <span>Tier Average</span>
-                                                    <br> <b>Gold 3</b> </div>
-                                            </div>
-                                            <div class="Items">
-                                                <div class="ItemList">
-                                                    <div class="Item"> <img
-                                                            src="./img/2033.png"
-                                                            class="Image tip"
-                                                            title="&lt;b style=&#39;color: #00cfbc&#39;&gt;Corrupting Potion&lt;/b&gt;&lt;br&gt;&lt;span&gt;Restores Health and Mana over time and boosts combat power - Refills at Shop&lt;/span&gt;&lt;br&gt;&lt;span&gt;&lt;mainText&gt;&lt;stats&gt;&lt;/stats&gt; &lt;active&gt;Active - Consume:&lt;/active&gt; Consumes a charge to restore &lt;healing&gt;125 Health&lt;/healing&gt; and &lt;scaleMana&gt;75 Mana&lt;/scaleMana&gt; over 12 seconds. During this time, damaging Abilities and Attacks burn enemy champions for &lt;magicDamage&gt;15 (20 if you cannot gain Mana) magic damage&lt;/magicDamage&gt; over 3 seconds. Holds up to 3 charges and refills upon visiting the shop.&lt;br&gt;&lt;br&gt;&lt;rules&gt;Corrupting damage is reduced to 50% when triggered by area of effect or periodic damage.&lt;/rules&gt;&lt;/mainText&gt;&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span&gt;Cost:&lt;/span&gt; &lt;span style=&#39;color: #ffc659&#39;&gt;500 (350)&lt;/span&gt;"
-                                                            alt="Corrupting Potion"> </div>
-                                                    <div class="Item"> <img
-                                                            src="./img/6632.png"
-                                                            class="Image tip tpd-delegation-uid-1" title=""
-                                                            alt="Divine Sunderer"> </div>
-                                                    <div class="Item"> <img
-                                                            src="./img/3111.png"
-                                                            class="Image tip tpd-delegation-uid-1" title=""
-                                                            alt="Mercury&#39;s Treads"> </div>
-                                                    <div class="Item"> <img
-                                                            src="./img/3340.png"
-                                                            class="Image tip"
-                                                            title="&lt;b style=&#39;color: #00cfbc&#39;&gt;Stealth Ward&lt;/b&gt;&lt;br&gt;&lt;span&gt;Periodically place a Stealth Ward&lt;/span&gt;&lt;br&gt;&lt;span&gt;&lt;mainText&gt;&lt;stats&gt;&lt;/stats&gt; &lt;active&gt;Active - Trinket:&lt;/active&gt; Place a Stealth Ward on the ground that lasts between &lt;scaleLevel&gt;90 - 120&lt;/scaleLevel&gt; seconds, is &lt;keywordStealth&gt;Invisible&lt;/keywordStealth&gt; to enemies but grants your team vision of the surrounding area. Stores up to 2 Stealth Wards, generating a new Ward every &lt;scaleLevel&gt;240 - 120&lt;/scaleLevel&gt; seconds. &lt;/mainText&gt;&lt;br&gt;&lt;/span&gt;"
-                                                            alt="Stealth Ward"> </div>
-                                                    <div class="Item"> <img
-                                                            src="./img/3074.png"
-                                                            class="Image tip"
-                                                            title="&lt;b style=&#39;color: #00cfbc&#39;&gt;Ravenous Hydra&lt;/b&gt;&lt;br&gt;&lt;span&gt;Melee attacks hit nearby enemies, dealing damage and restoring Health&lt;/span&gt;&lt;br&gt;&lt;span&gt;&lt;mainText&gt;&lt;stats&gt;&lt;attention&gt; 65&lt;/attention&gt; Attack Damage&lt;br&gt;&lt;attention&gt; 20&lt;/attention&gt; Ability Haste&lt;br&gt;&lt;attention&gt; 15%&lt;/attention&gt; Omnivamp&lt;/stats&gt;&lt;br&gt;&lt;li&gt;&lt;passive&gt;Cleave:&lt;/passive&gt; Attacks and Abilities deal up to &lt;physicalDamage&gt;(60% Attack Damage) physical damage&lt;/physicalDamage&gt; to other enemies near target hit.&lt;br&gt;&lt;br&gt;&lt;rules&gt;Deals a minimum of (12% Attack Damage) damage to units at the end of its range, can only hit each target once per Attack or Ability, and doesn&#39;t trigger off of periodic damage.&lt;/rules&gt;&lt;br&gt;&lt;/mainText&gt;&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span&gt;Cost:&lt;/span&gt; &lt;span style=&#39;color: #ffc659&#39;&gt;3300 (100)&lt;/span&gt;"
-                                                            alt="Ravenous Hydra"> </div>
-                                                    <div class="Item"> <img
-                                                            src="./img/6676.png"
-                                                            class="Image tip"
-                                                            title="&lt;b style=&#39;color: #00cfbc&#39;&gt;The Collector&lt;/b&gt;&lt;br&gt;&lt;span&gt;&lt;mainText&gt;&lt;stats&gt;&lt;attention&gt; 55&lt;/attention&gt; Attack Damage&lt;br&gt;&lt;attention&gt; 20%&lt;/attention&gt; Critical Strike Chance&lt;br&gt;&lt;attention&gt; 12&lt;/attention&gt; Lethality&lt;/stats&gt;&lt;br&gt;&lt;li&gt;&lt;passive&gt;Death and Taxes:&lt;/passive&gt; Dealing damage that would leave an enemy champion below 5% Health executes them. Champion kills grant an additional 25 gold.&lt;/mainText&gt;&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span&gt;Cost:&lt;/span&gt; &lt;span style=&#39;color: #ffc659&#39;&gt;3000 (425)&lt;/span&gt;"
-                                                            alt="The Collector"> </div>
-                                                    <div class="Item"> <img
-                                                            src="./img/3123.png"
-                                                            class="Image tip"
-                                                            title="&lt;b style=&#39;color: #00cfbc&#39;&gt;Executioner&#39;s Calling&lt;/b&gt;&lt;br&gt;&lt;span&gt;Overcomes enemies with high health gain&lt;/span&gt;&lt;br&gt;&lt;span&gt;&lt;mainText&gt;&lt;stats&gt;&lt;attention&gt; 15&lt;/attention&gt; Attack Damage&lt;/stats&gt;&lt;br&gt;&lt;li&gt;&lt;passive&gt;Rend:&lt;/passive&gt; Dealing physical damage applies &lt;status&gt;40% Grievous Wounds&lt;/status&gt; to champions for 2 seconds. &lt;br&gt;&lt;br&gt;&lt;rules&gt;&lt;status&gt;Grievous Wounds&lt;/status&gt; reduces the effectiveness of Healing and Regeneration effects.&lt;/rules&gt;&lt;/mainText&gt;&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span&gt;Cost:&lt;/span&gt; &lt;span style=&#39;color: #ffc659&#39;&gt;800 (450)&lt;/span&gt;"
-                                                            alt="Executioner&#39;s Calling"> </div>
-                                                    <button class="Button OpenBuildButton tip" title="Builds"
-                                                        type="button"> <img class="On"
-                                                            src="./img/icon-buildblue-p.png">
-                                                        <img class="Off"
-                                                            src="./img/icon-buildblue-p.png">
-                                                    </button>
-                                                </div>
-                                                <div class="Trinket"> <img
-                                                        src="./img/icon-ward-blue.png">
-                                                    Control Ward <span class="wards vision">3</span> </div>
-                                            </div>
-                                            <div class="FollowPlayers Names">
-                                                <div class="Team">
-                                                    <div class="Summoner Requester">
-                                                        <div class="ChampionImage">
-                                                            <div class="Image16 __sprite __spc16 __spc16-32 tip"
-                                                                title="Gangplank">Gangplank</div>
-                                                            <div class="Image20 __sprite __spc20 __spc20-32 tip"
-                                                                title="Gangplank">Gangplank</div>
-                                                        </div>
-                                                        <div class="SummonerName"> <a
-                                                                href="https://na.op.gg/summoner/userName=Wowee"
-                                                                class="Link" target="_blank">Wowee</a> </div>
-                                                    </div>
-                                                    <div class="Summoner ">
-                                                        <div class="ChampionImage">
-                                                            <div class="Image16 __sprite __spc16 __spc16-23 tip"
-                                                                title="Dr. Mundo">Dr. Mundo</div>
-                                                            <div class="Image20 __sprite __spc20 __spc20-23 tip"
-                                                                title="Dr. Mundo">Dr. Mundo</div>
-                                                        </div>
-                                                        <div class="SummonerName"> <a
-                                                                href="https://na.op.gg/summoner/userName=Poragami"
-                                                                class="Link" target="_blank">Poragami</a> </div>
-                                                    </div>
-                                                    <div class="Summoner ">
-                                                        <div class="ChampionImage">
-                                                            <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                title="Fizz">Fizz</div>
-                                                            <div class="Image20 __sprite __spc20 __spc20-30 tip"
-                                                                title="Fizz">Fizz</div>
-                                                        </div>
-                                                        <div class="SummonerName"> <a
-                                                                href="https://na.op.gg/summoner/userName=Veltropical"
-                                                                class="Link" target="_blank">Veltropical</a> </div>
-                                                    </div>
-                                                    <div class="Summoner ">
-                                                        <div class="ChampionImage">
-                                                            <div class="Image16 __sprite __spc16 __spc16-46 tip"
-                                                                title="Jhin">Jhin</div>
-                                                            <div class="Image20 __sprite __spc20 __spc20-46 tip"
-                                                                title="Jhin">Jhin</div>
-                                                        </div>
-                                                        <div class="SummonerName"> <a
-                                                                href="https://na.op.gg/summoner/userName=Boradori"
-                                                                class="Link" target="_blank">Boradori</a> </div>
-                                                    </div>
-                                                    <div class="Summoner ">
-                                                        <div class="ChampionImage">
-                                                            <div class="Image16 __sprite __spc16 __spc16-68 tip"
-                                                                title="Lux">Lux</div>
-                                                            <div class="Image20 __sprite __spc20 __spc20-68 tip"
-                                                                title="Lux">Lux</div>
-                                                        </div>
-                                                        <div class="SummonerName"> <a
-                                                                href="https://na.op.gg/summoner/userName=iboxbotz"
-                                                                class="Link" target="_blank">iboxbotz</a> </div>
-                                                    </div>
-                                                </div>
-                                                <div class="Team">
-                                                    <div class="Summoner ">
-                                                        <div class="ChampionImage">
-                                                            <div class="Image16 __sprite __spc16 __spc16-107 tip"
-                                                                title="Shen">Shen</div>
-                                                            <div class="Image20 __sprite __spc20 __spc20-107 tip"
-                                                                title="Shen">Shen</div>
-                                                        </div>
-                                                        <div class="SummonerName"> <a
-                                                                href="https://na.op.gg/summoner/userName=DMS+Voctpropi"
-                                                                class="Link" target="_blank">DMS Voctpropi</a> </div>
-                                                    </div>
-                                                    <div class="Summoner ">
-                                                        <div class="ChampionImage">
-                                                            <div class="Image16 __sprite __spc16 __spc16-41 tip tpd-delegation-uid-1"
-                                                                title="">Ivern</div>
-                                                            <div class="Image20 __sprite __spc20 __spc20-41 tip"
-                                                                title="Ivern">Ivern</div>
-                                                        </div>
-                                                        <div class="SummonerName"> <a
-                                                                href="https://na.op.gg/summoner/userName=ShadowCrossuwu"
-                                                                class="Link" target="_blank">ShadowCrossuwu</a> </div>
-                                                    </div>
-                                                    <div class="Summoner ">
-                                                        <div class="ChampionImage">
-                                                            <div class="Image16 __sprite __spc16 __spc16-85 tip"
-                                                                title="Orianna">Orianna</div>
-                                                            <div class="Image20 __sprite __spc20 __spc20-85 tip"
-                                                                title="Orianna">Orianna</div>
-                                                        </div>
-                                                        <div class="SummonerName"> <a
-                                                                href="https://na.op.gg/summoner/userName=Kevinchu"
-                                                                class="Link" target="_blank">Kevinchu</a> </div>
-                                                    </div>
-                                                    <div class="Summoner ">
-                                                        <div class="ChampionImage">
-                                                            <div class="Image16 __sprite __spc16 __spc16-132 tip"
-                                                                title="Vayne">Vayne</div>
-                                                            <div class="Image20 __sprite __spc20 __spc20-132 tip"
-                                                                title="Vayne">Vayne</div>
-                                                        </div>
-                                                        <div class="SummonerName"> <a
-                                                                href="https://na.op.gg/summoner/userName=yourmomma4444"
-                                                                class="Link" target="_blank">yourmomma4444</a> </div>
-                                                    </div>
-                                                    <div class="Summoner ">
-                                                        <div class="ChampionImage">
-                                                            <div class="Image16 __sprite __spc16 __spc16-103 tip"
-                                                                title="Senna">Senna</div>
-                                                            <div class="Image20 __sprite __spc20 __spc20-103 tip"
-                                                                title="Senna">Senna</div>
-                                                        </div>
-                                                        <div class="SummonerName"> <a
-                                                                href="https://na.op.gg/summoner/userName=6inchmeep"
-                                                                class="Link" target="_blank">6inchmeep</a> </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="StatsButton">
-                                                <div class="Content">
-                                                    <div class="Item">
-                                                        <a id="right_match"
-                                                            href="https://na.op.gg/summoner/userName=Wowee#"
-                                                            class="Button MatchDetail"> <span
-                                                                class="__spSite __spSite-194 Off"></span> <span
-                                                                class="__spSite __spSite-193 On"></span> </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="GameDetail"></div>
+                        <div class="Message"> Data analysis of recent <span>10</span> games </div>
+                     </div>
+                     <div class="opscore-banner">
+                        <div class="GameItemList">
+                           <div class="GameItemWrap">
+                               <template>
+                              <div class="GameItem Win  " data-summoner-id="61970089" data-game-time="1607645691"
+                                 data-game-id="3699994160">
+                                 <div class="Content">
+                                    <div class="GameStats">
+                                       <div class="GameType" title="Ranked Solo"> Ranked Solo </div>
+                                       <div class="TimeStamp"><span
+                                          class="_timeago _timeCountAssigned tip tpd-delegation-uid-1"
+                                          data-datetime="1607645691" data-type="" data-interval="60"
+                                          title="">2 hours ago</span></div>
+                                       <div class="Bar"></div>
+                                       <div class="GameResult"> Victory </div>
+                                       <div class="GameLength">34m 38s</div>
                                     </div>
-                                </div>
-                            </div>
+                                    <div class="GameSettingInfo">
+                                       <div class="ChampionImage">
+                                          <a href="https://na.op.gg/champion/gangplank/statistics"
+                                             target="_blank"><img src="./img/Gangplank(2).png" class="Image"
+                                             alt="Gangplank"></a>
+                                       </div>
+                                       <div class="SummonerSpell">
+                                          <div class="Spell"> <img src="./img/SummonerTeleport.png"
+                                             class="Image tip tpd-delegation-uid-1" title=""
+                                             alt="Teleport"> </div>
+                                          <div class="Spell"> <img src="./img/SummonerFlash.png"
+                                             class="Image tip tpd-delegation-uid-1" title="" alt="Flash">
+                                          </div>
+                                       </div>
+                                       <div class="Runes">
+                                          <div class="Rune"> <img src="./img/8437.png"
+                                             class="Image tip tpd-delegation-uid-1" title=""
+                                             alt="Grasp of the Undying"> </div>
+                                          <div class="Rune"> <img src="./img/8300.png"
+                                             class="Image tip tpd-delegation-uid-1" title=""
+                                             alt="Inspiration"> </div>
+                                       </div>
+                                       <div class="ChampionName"> <a
+                                          href="https://na.op.gg/champion/gangplank/statistics"
+                                          target="_blank">Gangplank</a> </div>
+                                    </div>
+                                    <div class="KDA">
+                                       <div class="KDA"> <span class="Kill">3</span> / <span
+                                          class="Death">2</span> / <span class="Assist">16</span> </div>
+                                       <div class="KDARatio"> <span class="KDARatio ">9.50:1</span> KDA </div>
+                                       <div class="Badge"><span class="Text MVP">MVP</span></div>
+                                    </div>
+                                    <div class="Stats">
+                                       <div class="Level"> Level17 </div>
+                                       <div class="CS"> <span class="CS tip tpd-delegation-uid-1" title="">281
+                                          (8.1)</span> CS 
+                                       </div>
+                                       <div class="CKRate tip" title="Kill Participation"> P/Kill 56% </div>
+                                       <div class="MMR"> <span>Tier Average</span>
+                                          <br> <b>NaN</b> 
+                                       </div>
+                                    </div>
+                                    <div class="Items">
+                                       <div class="ItemList">
+                                          <div class="Item"> <img src="./img/2033.png" class="Image tip"
+                                             title="&lt;b style=&#39;color: #00cfbc&#39;&gt;Corrupting Potion&lt;/b&gt;&lt;br&gt;&lt;span&gt;Restores Health and Mana over time and boosts combat power - Refills at Shop&lt;/span&gt;&lt;br&gt;&lt;span&gt;&lt;mainText&gt;&lt;stats&gt;&lt;/stats&gt; &lt;active&gt;Active - Consume:&lt;/active&gt; Consumes a charge to restore &lt;healing&gt;125 Health&lt;/healing&gt; and &lt;scaleMana&gt;75 Mana&lt;/scaleMana&gt; over 12 seconds. During this time, damaging Abilities and Attacks burn enemy champions for &lt;magicDamage&gt;15 (20 if you cannot gain Mana) magic damage&lt;/magicDamage&gt; over 3 seconds. Holds up to 3 charges and refills upon visiting the shop.&lt;br&gt;&lt;br&gt;&lt;rules&gt;Corrupting damage is reduced to 50% when triggered by area of effect or periodic damage.&lt;/rules&gt;&lt;/mainText&gt;&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span&gt;Cost:&lt;/span&gt; &lt;span style=&#39;color: #ffc659&#39;&gt;500 (350)&lt;/span&gt;"
+                                             alt="Corrupting Potion"> </div>
+                                          <div class="Item"> <img src="./img/6632.png"
+                                             class="Image tip tpd-delegation-uid-1" title=""
+                                             alt="Divine Sunderer"> </div>
+                                          <div class="Item"> <img src="./img/3111.png"
+                                             class="Image tip tpd-delegation-uid-1" title=""
+                                             alt="Mercury&#39;s Treads"> </div>
+                                          <div class="Item"> <img src="./img/3340.png" class="Image tip"
+                                             title="&lt;b style=&#39;color: #00cfbc&#39;&gt;Stealth Ward&lt;/b&gt;&lt;br&gt;&lt;span&gt;Periodically place a Stealth Ward&lt;/span&gt;&lt;br&gt;&lt;span&gt;&lt;mainText&gt;&lt;stats&gt;&lt;/stats&gt; &lt;active&gt;Active - Trinket:&lt;/active&gt; Place a Stealth Ward on the ground that lasts between &lt;scaleLevel&gt;90 - 120&lt;/scaleLevel&gt; seconds, is &lt;keywordStealth&gt;Invisible&lt;/keywordStealth&gt; to enemies but grants your team vision of the surrounding area. Stores up to 2 Stealth Wards, generating a new Ward every &lt;scaleLevel&gt;240 - 120&lt;/scaleLevel&gt; seconds. &lt;/mainText&gt;&lt;br&gt;&lt;/span&gt;"
+                                             alt="Stealth Ward"> </div>
+                                          <div class="Item"> <img src="./img/3074.png" class="Image tip"
+                                             title="&lt;b style=&#39;color: #00cfbc&#39;&gt;Ravenous Hydra&lt;/b&gt;&lt;br&gt;&lt;span&gt;Melee attacks hit nearby enemies, dealing damage and restoring Health&lt;/span&gt;&lt;br&gt;&lt;span&gt;&lt;mainText&gt;&lt;stats&gt;&lt;attention&gt; 65&lt;/attention&gt; Attack Damage&lt;br&gt;&lt;attention&gt; 20&lt;/attention&gt; Ability Haste&lt;br&gt;&lt;attention&gt; 15%&lt;/attention&gt; Omnivamp&lt;/stats&gt;&lt;br&gt;&lt;li&gt;&lt;passive&gt;Cleave:&lt;/passive&gt; Attacks and Abilities deal up to &lt;physicalDamage&gt;(60% Attack Damage) physical damage&lt;/physicalDamage&gt; to other enemies near target hit.&lt;br&gt;&lt;br&gt;&lt;rules&gt;Deals a minimum of (12% Attack Damage) damage to units at the end of its range, can only hit each target once per Attack or Ability, and doesn&#39;t trigger off of periodic damage.&lt;/rules&gt;&lt;br&gt;&lt;/mainText&gt;&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span&gt;Cost:&lt;/span&gt; &lt;span style=&#39;color: #ffc659&#39;&gt;3300 (100)&lt;/span&gt;"
+                                             alt="Ravenous Hydra"> </div>
+                                          <div class="Item"> <img src="./img/6676.png" class="Image tip"
+                                             title="&lt;b style=&#39;color: #00cfbc&#39;&gt;The Collector&lt;/b&gt;&lt;br&gt;&lt;span&gt;&lt;mainText&gt;&lt;stats&gt;&lt;attention&gt; 55&lt;/attention&gt; Attack Damage&lt;br&gt;&lt;attention&gt; 20%&lt;/attention&gt; Critical Strike Chance&lt;br&gt;&lt;attention&gt; 12&lt;/attention&gt; Lethality&lt;/stats&gt;&lt;br&gt;&lt;li&gt;&lt;passive&gt;Death and Taxes:&lt;/passive&gt; Dealing damage that would leave an enemy champion below 5% Health executes them. Champion kills grant an additional 25 gold.&lt;/mainText&gt;&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span&gt;Cost:&lt;/span&gt; &lt;span style=&#39;color: #ffc659&#39;&gt;3000 (425)&lt;/span&gt;"
+                                             alt="The Collector"> </div>
+                                          <div class="Item"> <img src="./img/3123.png" class="Image tip"
+                                             title="&lt;b style=&#39;color: #00cfbc&#39;&gt;Executioner&#39;s Calling&lt;/b&gt;&lt;br&gt;&lt;span&gt;Overcomes enemies with high health gain&lt;/span&gt;&lt;br&gt;&lt;span&gt;&lt;mainText&gt;&lt;stats&gt;&lt;attention&gt; 15&lt;/attention&gt; Attack Damage&lt;/stats&gt;&lt;br&gt;&lt;li&gt;&lt;passive&gt;Rend:&lt;/passive&gt; Dealing physical damage applies &lt;status&gt;40% Grievous Wounds&lt;/status&gt; to champions for 2 seconds. &lt;br&gt;&lt;br&gt;&lt;rules&gt;&lt;status&gt;Grievous Wounds&lt;/status&gt; reduces the effectiveness of Healing and Regeneration effects.&lt;/rules&gt;&lt;/mainText&gt;&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;span&gt;Cost:&lt;/span&gt; &lt;span style=&#39;color: #ffc659&#39;&gt;800 (450)&lt;/span&gt;"
+                                             alt="Executioner&#39;s Calling"> </div>
+                                          <button class="Button OpenBuildButton tip" title="Builds"
+                                             type="button"> <img class="On" src="./img/icon-buildblue-p.png">
+                                          <img class="Off" src="./img/icon-buildblue-p.png">
+                                          </button>
+                                       </div>
+                                       <div class="Trinket"> <img src="./img/icon-ward-blue.png">
+                                          Control Ward <span class="wards vision">3</span> 
+                                       </div>
+                                    </div>
+                                    <div class="FollowPlayers Names">
+                                       <div class="Team">
+                                          <div class="Summoner Requester">
+                                             <div class="ChampionImage">
+                                                <div class="Image16 __sprite __spc16 __spc16-32 tip"
+                                                   title="Gangplank">Gangplank</div>
+                                                <div class="Image20 __sprite __spc20 __spc20-32 tip"
+                                                   title="Gangplank">Gangplank</div>
+                                             </div>
+                                             <div class="SummonerName"> <a href="#" class="Link"
+                                                target="_blank">You</a> </div>
+                                          </div>
+                                          <div class="Summoner ">
+                                             <div class="ChampionImage">
+                                                <div class="Image16 __sprite __spc16 __spc16-23 tip"
+                                                   title="Dr. Mundo">Dr. Mundo</div>
+                                                <div class="Image20 __sprite __spc20 __spc20-23 tip"
+                                                   title="Dr. Mundo">Dr. Mundo</div>
+                                             </div>
+                                             <div class="SummonerName"> <a href="#" class="Link"
+                                                target="_blank">Team2</a> </div>
+                                          </div>
+                                          <div class="Summoner ">
+                                             <div class="ChampionImage">
+                                                <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                                   title="Fizz">Fizz</div>
+                                                <div class="Image20 __sprite __spc20 __spc20-30 tip"
+                                                   title="Fizz">Fizz</div>
+                                             </div>
+                                             <div class="SummonerName"> <a href="#" class="Link"
+                                                target="_blank">Team3</a> </div>
+                                          </div>
+                                          <div class="Summoner ">
+                                             <div class="ChampionImage">
+                                                <div class="Image16 __sprite __spc16 __spc16-46 tip"
+                                                   title="Jhin">Jhin</div>
+                                                <div class="Image20 __sprite __spc20 __spc20-46 tip"
+                                                   title="Jhin">Jhin</div>
+                                             </div>
+                                             <div class="SummonerName"> <a href="#" class="Link"
+                                                target="_blank">Team4</a> </div>
+                                          </div>
+                                          <div class="Summoner ">
+                                             <div class="ChampionImage">
+                                                <div class="Image16 __sprite __spc16 __spc16-68 tip"
+                                                   title="Lux">Lux</div>
+                                                <div class="Image20 __sprite __spc20 __spc20-68 tip"
+                                                   title="Lux">Lux</div>
+                                             </div>
+                                             <div class="SummonerName"> <a href="#" class="Link"
+                                                target="_blank">Team5</a> </div>
+                                          </div>
+                                       </div>
+                                       <div class="Team">
+                                          <div class="Summoner ">
+                                             <div class="ChampionImage">
+                                                <div class="Image16 __sprite __spc16 __spc16-107 tip"
+                                                   title="Shen">Shen</div>
+                                                <div class="Image20 __sprite __spc20 __spc20-107 tip"
+                                                   title="Shen">Shen</div>
+                                             </div>
+                                             <div class="SummonerName"> <a href="#" class="Link"
+                                                target="_blank">Opp1</a> </div>
+                                          </div>
+                                          <div class="Summoner ">
+                                             <div class="ChampionImage">
+                                                <div class="Image16 __sprite __spc16 __spc16-41 tip tpd-delegation-uid-1"
+                                                   title="">Ivern</div>
+                                                <div class="Image20 __sprite __spc20 __spc20-41 tip"
+                                                   title="Ivern">Ivern</div>
+                                             </div>
+                                             <div class="SummonerName"> <a href="#" class="Link"
+                                                target="_blank">Opp2</a> </div>
+                                          </div>
+                                          <div class="Summoner ">
+                                             <div class="ChampionImage">
+                                                <div class="Image16 __sprite __spc16 __spc16-85 tip"
+                                                   title="Orianna">Orianna</div>
+                                                <div class="Image20 __sprite __spc20 __spc20-85 tip"
+                                                   title="Orianna">Orianna</div>
+                                             </div>
+                                             <div class="SummonerName"> <a href="#" class="Link"
+                                                target="_blank">Opp3</a> </div>
+                                          </div>
+                                          <div class="Summoner ">
+                                             <div class="ChampionImage">
+                                                <div class="Image16 __sprite __spc16 __spc16-132 tip"
+                                                   title="Vayne">Vayne</div>
+                                                <div class="Image20 __sprite __spc20 __spc20-132 tip"
+                                                   title="Vayne">Vayne</div>
+                                             </div>
+                                             <div class="SummonerName"> <a href="#" class="Link"
+                                                target="_blank">Opp4</a> </div>
+                                          </div>
+                                          <div class="Summoner ">
+                                             <div class="ChampionImage">
+                                                <div class="Image16 __sprite __spc16 __spc16-103 tip"
+                                                   title="Senna">Senna</div>
+                                                <div class="Image20 __sprite __spc20 __spc20-103 tip"
+                                                   title="Senna">Senna</div>
+                                             </div>
+                                             <div class="SummonerName"> <a href="#" class="Link"
+                                                target="_blank">Opp5</a> </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="StatsButton">
+                                       <div class="Content">
+                                          <div class="Item">
+                                             <a id="right_match" href="#" class="Button MatchDetail"> <span
+                                                class="__spSite __spSite-194 Off"></span> <span
+                                                class="__spSite __spSite-193 On"></span> </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                </template>
+                              </div>
+                           </div>
                         </div>
-                    </div>
-                    <div class="tabItem Content SummonerLayoutContent summonerLayout-champions"
-                        data-tab-data-url="/summoner/champions/userName=Wowee" data-tab-spinner-height="800"
-                        style="display: none;"></div>
-                    <div class="tabItem Content SummonerLayoutContent summonerLayout-league"
-                        data-tab-data-url="/summoner/league/userName=Wowee" data-tab-spinner-height="800"
-                        style="display: none;"></div>
-                    <div class="tabItem Content SummonerLayoutContent summonerLayout-rune"
-                        data-tab-data-url="/summoner/rune/userName=Wowee" data-tab-spinner-height="800"
-                        style="display: none;"></div>
-                    <div class="tabItem Content SummonerLayoutContent summonerLayout-mastery"
-                        data-tab-data-url="/summoner/mastery/userName=Wowee" data-tab-spinner-height="800"
-                        style="display: none;"></div>
-                    <div class="tabItem Content SummonerLayoutContent summonerLayout-spectator"
-                        data-tab-data-url="/summoner/spectator/userName=Wowee" data-tab-spinner-height="800"
-                        style="display: none;"></div>
-                    <div class="tabItem Content SummonerLayoutContent summonerLayout-plus"
-                        data-tab-data-url="/summoner/plus/userName=Wowee" data-tab-spinner-height="800"
-                        style="display: none;"></div>
-                </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </div>
-</body>
+         </div>
+      </div>
+   </body>
+<script>
+    var most_used = {
+    "code": 0,
+    "data": {
+        "area_id": 31,
+        "game_id": 26,
+        "info_list": [
+            {
+                "champion_id": 4,
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/TwistedFate.png",
+                "use_num": 176,
+                "used_exp": 48191,
+                "win_rate": 51
+            },
+            {
+                "champion_id": 61,
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Orianna.png",
+                "use_num": 138,
+                "used_exp": 40082,
+                "win_rate": 54
+            },
+            {
+                "champion_id": 38,
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Kassadin.png",
+                "use_num": 33,
+                "used_exp": 28829,
+                "win_rate": 55
+            },
+            {
+                "champion_id": 22,
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Ashe.png",
+                "use_num": 26,
+                "used_exp": 18163,
+                "win_rate": 43
+            },
+            {
+                "champion_id": 266,
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Aatrox.png",
+                "use_num": 23,
+                "used_exp": 31909,
+                "win_rate": 44
+            }
+        ],
+        "result": 0,
+        "slol_id": "zp0eea3d20V",
+        "weekly_report_status": {
+            "has_weekly_report": 0,
+            "report_jump_url": "https://act.tgp.qq.com/wegame/newlolweekly/index.html",
+            "report_new_flag": 0
+        }
+    },
+    "msg": "succ"
+}
+
+var battle_list = {
+    "code": 0,
+    "data": {
+        "continue_lose": 0,
+        "continue_win": 1,
+        "is_finish": 0,
+        "next_index": 10,
+        "player_battle_brief_list": [
+            {
+                "assist_num": 16,
+                "battle_id": 91552135,
+                "battle_time": 1607957015,
+                "champion_en_name": "Viktor",
+                "champion_id": 112,
+                "death_num": 4,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 1,
+                "game_score": 970,
+                "kill_num": 3,
+                "position": 0,
+                "pv_delta": 70
+            },
+            {
+                "assist_num": 12,
+                "battle_id": 91531918,
+                "battle_time": 1607953816,
+                "champion_en_name": "TwistedFate",
+                "champion_id": 4,
+                "death_num": 6,
+                "ext_tag_desc": "\u7529\u9505\u5c40",
+                "ext_tag_id": 10,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 2,
+                "game_score": 960,
+                "kill_num": 6,
+                "position": 3,
+                "pv_delta": -86
+            },
+            {
+                "assist_num": 10,
+                "battle_id": 91551541,
+                "battle_time": 1607951406,
+                "champion_en_name": "TwistedFate",
+                "champion_id": 4,
+                "death_num": 5,
+                "ext_tag_desc": "\u7529\u9505\u5c40",
+                "ext_tag_id": 10,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 2,
+                "game_score": 770,
+                "kill_num": 2,
+                "position": 0,
+                "pv_delta": -89
+            },
+            {
+                "assist_num": 19,
+                "battle_id": 91561049,
+                "battle_time": 1607949301,
+                "champion_en_name": "Lulu",
+                "champion_id": 117,
+                "death_num": 5,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 1,
+                "game_score": 890,
+                "kill_num": 3,
+                "position": 1,
+                "pv_delta": 70
+            },
+            {
+                "assist_num": 11,
+                "battle_id": 91531160,
+                "battle_time": 1607946424,
+                "champion_en_name": "TwistedFate",
+                "champion_id": 4,
+                "death_num": 5,
+                "ext_tag_desc": "\u7529\u9505\u5c40",
+                "ext_tag_id": 10,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 2,
+                "game_score": 870,
+                "kill_num": 4,
+                "position": 0,
+                "pv_delta": -91
+            },
+            {
+                "assist_num": 12,
+                "battle_flags": [
+                    1
+                ],
+                "battle_id": 91560578,
+                "battle_time": 1607944294,
+                "champion_en_name": "TwistedFate",
+                "champion_id": 4,
+                "death_num": 2,
+                "ext_tag_desc": "Carry\u5c40",
+                "ext_tag_id": 1,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 1,
+                "game_score": 1330,
+                "kill_num": 6,
+                "position": 0,
+                "pv_delta": 90
+            },
+            {
+                "assist_num": 7,
+                "battle_id": 91546085,
+                "battle_time": 1607861557,
+                "champion_en_name": "Orianna",
+                "champion_id": 61,
+                "death_num": 2,
+                "ext_tag_desc": "Carry\u5c40",
+                "ext_tag_id": 1,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 1,
+                "game_score": 1360,
+                "kill_num": 6,
+                "position": 0,
+                "pv_delta": 82
+            },
+            {
+                "assist_num": 7,
+                "battle_flags": [
+                    1
+                ],
+                "battle_id": 91536043,
+                "battle_time": 1607859553,
+                "champion_en_name": "Viktor",
+                "champion_id": 112,
+                "death_num": 1,
+                "ext_tag_desc": "Carry\u5c40",
+                "ext_tag_id": 1,
+                "ext_tag_ids": [
+                    19
+                ],
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 1,
+                "game_score": 1420,
+                "kill_num": 15,
+                "position": 0,
+                "pv_delta": 96
+            },
+            {
+                "assist_num": 2,
+                "battle_id": 91515749,
+                "battle_time": 1607857698,
+                "champion_en_name": "TwistedFate",
+                "champion_id": 4,
+                "death_num": 5,
+                "ext_tag_desc": "\u7529\u9505\u5c40",
+                "ext_tag_id": 10,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 2,
+                "game_score": 710,
+                "kill_num": 2,
+                "position": 0,
+                "pv_delta": -84
+            },
+            {
+                "assist_num": 6,
+                "battle_id": 91515600,
+                "battle_time": 1607856045,
+                "champion_en_name": "",
+                "champion_id": 164,
+                "death_num": 4,
+                "ext_tag_desc": "\u8eba\u8d62\u5c40",
+                "ext_tag_id": 11,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 1,
+                "game_score": 410,
+                "kill_num": 2,
+                "position": 0,
+                "pv_delta": 69
+            }
+        ],
+        "result": 0,
+        "total_num": 498
+    },
+    "msg": "succ"
+}
+
+var player_info = {
+    "code": 0,
+    "data": {
+        "all_champion_num": 153,
+        "all_skin_num": 1155,
+        "area_id": 31,
+        "area_name": "\u5ce1\u8c37\u4e4b\u5dc5",
+        "champion_num": 112,
+        "game_age": 0,
+        "game_id": 26,
+        "game_level": 153,
+        "game_logo_url": "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/usericon/1387.png",
+        "gender": 0,
+        "league_point": 809,
+        "measure_unit": 0,
+        "online_status": 0,
+        "online_zone_id": 0,
+        "power_value": 100183,
+        "praise_time": 0,
+        "rank": 0,
+        "recent_kda": 863,
+        "recent_total_games": 91,
+        "recent_total_kill": 332,
+        "recent_win_rate": 52,
+        "result": 0,
+        "role_name": "1993y",
+        "skin_num": 54,
+        "slol_id": "zp0eea3d20V",
+        "tier": 0,
+        "total_assist": 11233,
+        "total_games": 964,
+        "total_kill": 6766,
+        "total_placed": 17532,
+        "total_time": 733153,
+        "win_rate": 56
+    },
+    "msg": "succ"
+}
+
+f = function (arguments) { return document.getElementsByClassName(arguments); }
+
+var weRank = "https://wegame.gtimg.com/app/lol/score_souces/division/"
+
+var rankJSON = {
+    "0":"Challenger"
+}
+
+//Profile Top Left Picture and Win Rate
+document.getElementsByClassName("TierRank")[0].innerText = rankJSON[player_info["data"]["rank"]]
+document.getElementsByClassName("winratio")[0].innerText = "Win Ratio "+player_info["data"]["win_rate"]+"%"
+document.getElementById("rank-metal").src = weRank + player_info["data"]["rank"] + ".png"
+
+//Most Played
+for (z = 0; z < Object.keys(most_used["data"]["info_list"]).length; z++) {
+    var temp = document.getElementsByTagName("template")[0];
+    var view = document.getElementsByClassName("MostChampionContent")[0];
+    var startElement = temp.content.querySelector("div");
+    var a = document.importNode(startElement, true);
+    var played_box = a.getElementsByClassName("Played")[0]
+    played_box.getElementsByClassName("WinRatio normal tip")[0].innerText = most_used["data"]["info_list"][z]["win_rate"] + "%"
+    played_box.getElementsByClassName("Title")[0].innerText = most_used["data"]["info_list"][z]["use_num"] + " Played"
+    view.appendChild(a)
+}
+
+//Match history
+for (z = 0; z < Object.keys(battle_list["data"]["player_battle_brief_list"]).length; z++) {
+    var temp = document.getElementsByTagName("template")[1];
+    var view = document.getElementsByClassName("GameItemWrap")[0];
+    var startElement = temp.content.querySelector("div");
+    var a = document.importNode(startElement, true);
+
+
+
+
+    view.appendChild(a)
+}
+
+
+</script>
 </html>
