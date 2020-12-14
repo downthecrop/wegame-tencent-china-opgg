@@ -3,7 +3,7 @@ var htmlEmbed = '<div id="myModal" class="modal">\
     <span class="close">&times;</span>\
     <textarea style="background:white;" id="name-input"></textarea>\
     <button style="background:white;" id="submit-name">Submit</button>\
-    <button style="background:white;" id="submit-name">Submit</button>\
+    <button style="background:white;" id="clear-cookies">Clear Cookies</button>\
     <div style="color:white;" id="myValdiv"></div>\
     <iframe id="myiFrame" style="width:100%;height:100%;" src="https://downthecrop.github.io/opgg-clone/"></iframe>\
     </div>\
@@ -45,6 +45,18 @@ var cssEmbed = '.modal {\
   }'
 
 var jResultArray = []
+
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        console.log("deleting cookie"+cookie)
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+}
 
 async function getUserData(uname,area_id){
     var nickJSON = {
@@ -188,6 +200,10 @@ function main() {
                 getUserData(usernames[k],area_id)
             }
 
+        })
+
+        document.getElementById("clear-cookies").addEventListener('click',function(){
+            deleteAllCookies()
         })
     }
 }
