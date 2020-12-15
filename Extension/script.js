@@ -167,6 +167,7 @@ function main() {
 
         document.getElementById("submit-name").addEventListener('click',function(){
             sendToFrame("loading")
+            jResultArray = []
             names = document.getElementById("name-input").value
             usernames = names.replaceAll("加入了队伍聊天","").split(/\r?\n/)
             console.log(usernames)
@@ -178,8 +179,10 @@ function main() {
         document.getElementById("clear-cookies").addEventListener('click',function(){
             deleteAllCookies()
         })
+        
         document.getElementById("reload-frame").addEventListener('click',function(){
-            //document.getElementById("myiFrame").contentWindow.location.reload();
+            document.getElementById("myiFrame").src = "";
+            document.getElementById("myiFrame").src = "https://downthecrop.github.io/opgg-clone/Multi/";
         })
     }
 }
