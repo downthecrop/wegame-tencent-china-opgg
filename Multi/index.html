@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en_US">
+
 <head>
     <link href="common.css" rel="stylesheet" type="text/css">
     <link href="sprite.css" rel="stylesheet" type="text/css">
@@ -127,11 +128,11 @@
 
     function receiveMessage(messageData) {
 
-        if (messageData.data == "loading"){
+        if (messageData.data == "loading") {
             document.getElementById("loader").style.display = "inline"
         }
 
-        else{
+        else {
             document.getElementById("loader").style.display = "none"
             const queryString = messageData.data;
             const urlParams = new URLSearchParams(queryString);
@@ -155,7 +156,7 @@
                 f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
 
                 for (z = 0; z < Object.keys(battle_list).length; z++) {
-                    posArray[b_list["position"]] += 1
+                    posArray[battle_list[z]["position"]] += 1
                 }
 
                 console.log(posArray)
@@ -178,7 +179,7 @@
 
                 view.appendChild(a);
 
-                //top last played text
+                //battle_list[0] for most recent game.
                 if (battle_list[0]["battle_time"]) {
                     deltaT = Date.now() / 1000 - battle_list[0]["battle_time"]
                     lastPlayed = (secondsToDhms(deltaT))
@@ -197,8 +198,8 @@
                     b = document.importNode(recentList, true);
                     var b_list = battle_list[z]
                     f("champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1").src = weCDN + b_list["champion_id"] + ".png"
-                    if (b_list["game_result"] != 1){
-                        f("is-win is-win--true").setAttribute("class","is-win is-win--false")
+                    if (b_list["game_result"] === 2) {
+                        f("is-win is-win--true").setAttribute("class", "is-win is-win--false")
                     }
                     f("kill").innerText = b_list["kill_num"]
                     f("death").innerText = b_list["death_num"]
