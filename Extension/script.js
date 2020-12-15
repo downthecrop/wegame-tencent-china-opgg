@@ -5,44 +5,9 @@ var htmlEmbed = '<div id="myModal" class="modal">\
     <button style="background:white;" id="submit-name">Submit</button>\
     <button style="background:white;" id="clear-cookies">Clear Cookies</button>\
     <div style="color:white;" id="myValdiv"></div>\
-    <iframe id="myiFrame" style="width:100%;height:100%;" src="https://downthecrop.github.io/opgg-clone/"></iframe>\
+    <iframe id="myiFrame" style="width:100%;height:100%;" src="https://downthecrop.github.io/opgg-clone/Multi/"></iframe>\
     </div>\
 </div>'
-
-var cssEmbed = '.modal {\
-    display: none;\
-    position: fixed;\
-    z-index: 999999;\
-    padding-top: 10px;\
-    left: 0;\
-    top: 0;\
-    width: 100%;\
-    height: 100%;\
-    overflow: auto;\
-    background-color: rgb(0,0,0);\
-    background-color: rgba(0,0,0,0.4);\
-  }\
-  .modal-content {\
-    background-color: #333;\
-    margin: auto;\
-    height: 95%;\
-    padding:10px\
-    border: 1px solid #888;\
-    width: 95%;\
-  }\
-  .close {\
-    color: #aaaaaa;\
-    float: right;\
-    padding: 10px;\
-    font-size: 28px;\
-    font-weight: bold;\
-  }\
-  .close:hover,\
-  .close:focus {\
-    color: #000;\
-    text-decoration: none;\
-    cursor: pointer;\
-  }'
 
 var jResultArray = []
 
@@ -169,8 +134,7 @@ function main() {
     if (loginStatus) {
 
         document.body.innerHTML = htmlEmbed + document.body.innerHTML;
-        document.querySelector('head').innerHTML += '<style type="text/css">' + cssEmbed + '</style>';
-
+        
         //begin GUI injection
         topbar = document.getElementsByClassName("widget-header-nav")[0];
         topbar.getElementsByClassName("cur")[0].innerHTML = "<a id='myBtn' href='#'>Cropsearch</a>";
@@ -199,7 +163,6 @@ function main() {
             for (k in usernames){
                 getUserData(usernames[k],area_id)
             }
-
         })
 
         document.getElementById("clear-cookies").addEventListener('click',function(){
