@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en_US">
-
 <head>
     <link href="common.css" rel="stylesheet" type="text/css">
     <link href="sprite.css" rel="stylesheet" type="text/css">
@@ -31,7 +30,7 @@
                             <div class="summoner-summary">
                                 <div class="last-updated">
                                     Last played: <span class="_timeago _timeCountAssigned tip" data-datetime=""
-                                        data-type="" data-interval="60" title="">4 days ago</span>
+                                        data-type="" data-interval="60" title="">0 days ago</span>
                                 </div>
                                 <div class="tier-position">
                                     <div class="tier">
@@ -153,29 +152,28 @@
                 //shorthand
                 player = jsonData
                 battle_list = jsonData["player_battle_brief_list"]
-                f = function (arguments) { return a.getElementsByClassName(arguments); }
+                f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
 
                 for (z = 0; z < Object.keys(battle_list).length; z++) {
-                    posArray[battle_list[z]["position"]] += 1
+                    posArray[b_list["position"]] += 1
                 }
-                console.log(posArray)
 
+                console.log(posArray)
                 console.log(player)
 
-
                 //populate user data from JSON
-                f("summoner-name")[0].innerHTML = "<a class='name' href='#'>" + player["role_name"] + "</a>"
-                f("tier__icon")[0].src = weRank + player["rank"] + ".png"
-                f("lp")[0].innerText = player["league_point"] + "LP"
-                f("winratio")[0].innerText = player["win_rate"] + "%"
+                f("summoner-name").innerHTML = "<a class='name' href='#'>" + player["role_name"] + "</a>"
+                f("tier__icon").src = weRank + player["rank"] + ".png"
+                f("lp").innerText = player["league_point"] + "LP"
+                f("winratio").innerText = player["win_rate"] + "%"
 
                 if (player["continue_lose"] > 0) {
-                    f("win-streak")[0].innerText = player["continue_lose"] + " game lose streak"
-                    f("win-streak")[0].style.backgroundColor = "red";
+                    f("win-streak").innerText = player["continue_lose"] + " game lose streak"
+                    f("win-streak").style.backgroundColor = "red";
                 } else if (player["continue_win"] > 0) {
-                    f("win-streak")[0].innerText = player["continue_win"] + " game win streak"
+                    f("win-streak").innerText = player["continue_win"] + " game win streak"
                 } else {
-                    f("win-streak")[0].innerText = ""
+                    f("win-streak").innerText = ""
                 }
 
                 view.appendChild(a);
@@ -184,33 +182,32 @@
                 if (battle_list[0]["battle_time"]) {
                     deltaT = Date.now() / 1000 - battle_list[0]["battle_time"]
                     lastPlayed = (secondsToDhms(deltaT))
-                    f("_timeago")[0].innerText = lastPlayed
+                    f("_timeago").innerText = lastPlayed
                 } else {
-                    f("_timeago")[0].innerText = "No recent games on record"
+                    f("_timeago").innerText = "No recent games on record"
                 }
 
                 recentview = view.getElementsByClassName("recent-games")[i]
                 recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
 
-                f = function (arguments) { return b.getElementsByClassName(arguments); }
+                f = function (arguments) { return b.getElementsByClassName(arguments)[0]; }
 
                 for (z = 0; z < Object.keys(battle_list).length; z++) {
                     //begin create user match history
                     b = document.importNode(recentList, true);
-                    if (jsonData["player_battle_brief_list"][z]["champion_id"]) {
-                        f("champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1")[0].src = weCDN + battle_list[z]["champion_id"] + ".png"
-                        if (battle_list[z]["game_result"] != 1){
-                            f("is-win is-win--true")[0].setAttribute("class","is-win is-win--false")
-                        }
-                        f("kill")[0].innerText = battle_list[z]["kill_num"]
-                        f("death")[0].innerText = battle_list[z]["death_num"]
-                        f("assist")[0].innerText = battle_list[z]["assist_num"]
-                        f("_timeago")[0].setAttribute("data-datetime", battle_list[z]["battle_time"]);
-                        f("_timeago")[0].innerText = timeConverter(battle_list[z]["battle_time"]);
-                        f("_timeago")[0].title = timeConverter(battle_list[z]["battle_time"]);
-                        $('[data-toggle="tooltip"]').tooltip();
-                        recentview.appendChild(b);
+                    var b_list = battle_list[z]
+                    f("champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1").src = weCDN + b_list["champion_id"] + ".png"
+                    if (b_list["game_result"] != 1){
+                        f("is-win is-win--true").setAttribute("class","is-win is-win--false")
                     }
+                    f("kill").innerText = b_list["kill_num"]
+                    f("death").innerText = b_list["death_num"]
+                    f("assist").innerText = b_list["assist_num"]
+                    f("_timeago").setAttribute("data-datetime", b_list["battle_time"]);
+                    f("_timeago").innerText = timeConverter(b_list["battle_time"]);
+                    f("_timeago").title = timeConverter(b_list["battle_time"]);
+                    $('[data-toggle="tooltip"]').tooltip();
+                    recentview.appendChild(b);
                 }
                 //move to next players match history
                 i += 1;
