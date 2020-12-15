@@ -15,6 +15,7 @@ const battle_list = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_
 const battle_details = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_detail'
 const query_by_nick = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/query_by_nick'
 const get_battle_topbar_info = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_topbar_info'
+var ticket_flag = false
 
 var jResultArray = []
 
@@ -48,14 +49,15 @@ async function getUserData(uname,area_id){
         console.log(data);
         if (data.code === 402){
             console.log("ticket error")
+            ticket_flag = true;
             sendToFrame("ticket-error")
         }
         else{
-            for (var i = 0; i < Object.keys(data["data"]["player_list"]).length; i += 1) {
-                if (data["data"]["player_list"][i]["area_id"] == area_id) {
-                    var player_data = data["data"]["player_list"][i]
-                    battleJSON["slol_id"] = data["data"]["player_list"][i]["slol_id"]
-                    console.log("User " + nickJSON["search_nick"] + " Found on Ionia with slol_id=" + battleJSON["slol_id"])
+            for (var i = 0; i < Object.keys(data.data.player_list).length; i += 1) {
+                if (data.data.player_list[i]["area_id"] == area_id) {
+                    var player_data = data.data.player_list[i]
+                    battleJSON.slol_id = data.data.player_list[i].slol_id
+                    console.log("User " + nickJSON["search_nick"] + " Found on Ionia with slol_id=" + battleJSON.slol_id)
                     console.log(battleJSON)
                     apiRequest(battle_list, battleJSON).then((battle_data) => {
                         apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
@@ -93,8 +95,8 @@ function apiRequest(myurl, body) {
 }
 
 function buildJSON(user,games,topbar){
-    user = Object.assign(games["data"], user)
-    user = Object.assign(topbar["data"], user)
+    user = Object.assign(games.data, user)
+    user = Object.assign(topbar.data, user)
     console.log(user)
     return user;
 }
@@ -189,9 +191,14 @@ function main() {
       _push.apply(this, arguments);
       if (jResultArray.length != 0 && usernames.length === jResultArray.length){
         console.log("SYNCED")
-        message = buildMessage()
-        console.log(message)
-        sendToFrame(message)
+        if (ticket_flag === false){
+            message = buildMessage()
+            console.log(message)
+            sendToFrame(message)
+        }
+        else{
+            console.log("Message wasn't send due to ticket error")
+        }
       }
       return;
     }
