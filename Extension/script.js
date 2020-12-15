@@ -1,9 +1,10 @@
-var htmlEmbed = '<div id="myModal" class="modal">\
-  <div class="modal-content">\
-    <span class="close">&times;</span>\
+var htmlEmbed = '<div id="myModal" class="modal-crop">\
+  <div class="modal-content-crop">\
+    <span class="close-crop">&times;</span>\
     <textarea style="background:white;" id="name-input"></textarea>\
     <button style="background:white;" id="submit-name">Submit</button>\
     <button style="background:white;" id="clear-cookies">Clear Cookies</button>\
+    <button style="background:white;" id="reload-frame">Reload Frame</button>\
     <div style="color:white;" id="myValdiv"></div>\
     <iframe id="myiFrame" style="width:100%;height:100%;" src="https://downthecrop.github.io/opgg-clone/Multi/"></iframe>\
     </div>\
@@ -134,7 +135,8 @@ function main() {
     if (loginStatus) {
 
         document.body.innerHTML = htmlEmbed + document.body.innerHTML;
-        
+        document.head.innerHTML += '<link rel="stylesheet" href="https://raw.githubusercontent.com/downthecrop/opgg-clone/master/Extension/crop.css">'
+
         //begin GUI injection
         topbar = document.getElementsByClassName("widget-header-nav")[0];
         topbar.getElementsByClassName("cur")[0].innerHTML = "<a id='myBtn' href='#'>Cropsearch</a>";
@@ -167,6 +169,9 @@ function main() {
 
         document.getElementById("clear-cookies").addEventListener('click',function(){
             deleteAllCookies()
+        })
+        document.getElementById("reload-frame").addEventListener('click',function(){
+            document.getElementById("myiFrame").contentWindow.location.reload();
         })
     }
 }

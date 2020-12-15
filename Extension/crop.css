@@ -1,4 +1,4 @@
-.modal {
+.modal-crop {
     display: none;
     position: fixed;
     z-index: 999999;
@@ -10,25 +10,25 @@
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
-  }
-  .modal-content {
+}
+.modal-content-crop {
     background-color: #333;
     margin: auto;
     height: 95%;
     padding:10px;
     border: 1px solid #888;
     width: 95%;
-  }
-  .close {
+}
+.close-crop {
     color: #aaaaaa;
     float: right;
     padding: 10px;
     font-size: 28px;
     font-weight: bold;
-  }
-  .close:hover,
-  .close:focus {
+}
+.close-crop:hover,
+.close-crop:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
+}
