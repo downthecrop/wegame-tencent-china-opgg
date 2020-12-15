@@ -1,14 +1,20 @@
-var htmlEmbed = '<div id="myModal" class="modal-crop">\
-  <div class="modal-content-crop">\
-    <span class="close-crop">&times;</span>\
-    <textarea style="background:white;" id="name-input"></textarea>\
-    <button style="background:white;" id="submit-name">Submit</button>\
-    <button style="background:white;" id="clear-cookies">Clear Cookies</button>\
-    <button style="background:white;" id="reload-frame">Reload Frame</button>\
-    <div style="color:white;" id="myValdiv"></div>\
-    <iframe id="myiFrame" style="width:100%;height:100%;" src="https://downthecrop.github.io/opgg-clone/Multi/"></iframe>\
+var htmlEmbed =  '\
+<div id="myModal" class="modal-crop">\
+    <div class="modal-content-crop">\
+        <span class="close-crop">&times;</span>\
+        <textarea id="name-input"></textarea>\
+        <button id="submit-name">Submit</button>\
+        <button id="clear-cookies">Clear Cookies</button>\
+        <button id="reload-frame">Reload Frame</button>\
+        <iframe id="myiFrame" src="https://downthecrop.github.io/opgg-clone/Multi/"></iframe>\
     </div>\
 </div>'
+
+
+const battle_list = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_list'
+const battle_details = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_detail'
+const query_by_nick = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/query_by_nick'
+const get_battle_topbar_info = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_topbar_info'
 
 var jResultArray = []
 
@@ -40,20 +46,26 @@ async function getUserData(uname,area_id){
     }
     apiRequest(query_by_nick, nickJSON).then((data) => {
         console.log(data);
-        for (var i = 0; i < Object.keys(data["data"]["player_list"]).length; i += 1) {
-            if (data["data"]["player_list"][i]["area_id"] == area_id) {
-                var player_data = data["data"]["player_list"][i]
-                battleJSON["slol_id"] = data["data"]["player_list"][i]["slol_id"]
-                console.log("User " + nickJSON["search_nick"] + " Found on Ionia with slol_id=" + battleJSON["slol_id"])
-                console.log(battleJSON)
-                apiRequest(battle_list, battleJSON).then((battle_data) => {
-                    apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
-                        var jVal = buildJSON(player_data,battle_data,topbar_data)
-                        console.log(JSON.stringify(jVal))
-                        jResultArray.push(JSON.stringify(jVal))
+        if (data.code === 402){
+            console.log("ticket error")
+            sendToFrame("ticket-error")
+        }
+        else{
+            for (var i = 0; i < Object.keys(data["data"]["player_list"]).length; i += 1) {
+                if (data["data"]["player_list"][i]["area_id"] == area_id) {
+                    var player_data = data["data"]["player_list"][i]
+                    battleJSON["slol_id"] = data["data"]["player_list"][i]["slol_id"]
+                    console.log("User " + nickJSON["search_nick"] + " Found on Ionia with slol_id=" + battleJSON["slol_id"])
+                    console.log(battleJSON)
+                    apiRequest(battle_list, battleJSON).then((battle_data) => {
+                        apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
+                            var jVal = buildJSON(player_data,battle_data,topbar_data)
+                            console.log(JSON.stringify(jVal))
+                            jResultArray.push(JSON.stringify(jVal))
+                        })
                     })
-                })
-                i = Infinity;
+                    i = Infinity;
+                }
             }
         }
     })
@@ -110,11 +122,6 @@ function main() {
 
     var area_id = 31;
 
-    battle_list = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_list'
-    battle_details = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_detail'
-    query_by_nick = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/query_by_nick'
-    get_battle_topbar_info = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_topbar_info'
-
     var loginStatus = false;
 
     if (window.location.href.includes("https://www.wegame.com.cn/")) {
@@ -135,7 +142,6 @@ function main() {
     if (loginStatus) {
 
         document.body.innerHTML = htmlEmbed + document.body.innerHTML;
-        document.head.innerHTML += '<link rel="stylesheet" href="https://raw.githubusercontent.com/downthecrop/opgg-clone/master/Extension/crop.css">'
 
         //begin GUI injection
         topbar = document.getElementsByClassName("widget-header-nav")[0];
@@ -144,7 +150,7 @@ function main() {
         var modal = document.getElementById("myModal");
 
         // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+        var span = document.getElementsByClassName("close-crop")[0];
         btn.onclick = function () {
             modal.style.display = "block";
         }
@@ -171,7 +177,7 @@ function main() {
             deleteAllCookies()
         })
         document.getElementById("reload-frame").addEventListener('click',function(){
-            document.getElementById("myiFrame").contentWindow.location.reload();
+            //document.getElementById("myiFrame").contentWindow.location.reload();
         })
     }
 }

@@ -131,6 +131,10 @@
         if (messageData.data == "loading") {
             document.getElementById("loader").style.display = "inline"
         }
+        if (messageData.data == "ticket-error") {
+            document.getElementById("loader").style.display = "none"
+            document.body.innerHTML = "<h1>Ticket Error</h1>"
+        }
 
         else {
             document.getElementById("loader").style.display = "none"
