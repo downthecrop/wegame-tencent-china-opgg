@@ -99,7 +99,6 @@
     </div>
 </body>
 <script>
-
     function timeConverter(UNIX_timestamp) {
         a = new Date(UNIX_timestamp * 1000);
         months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -138,7 +137,7 @@
             const queryString = messageData.data;
             const urlParams = new URLSearchParams(queryString);
             const weCDN = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/champions/"
-            const wegameRank = "https://wegame.gtimg.com/app/lol/score_souces/division/"
+            const weRank = "https://wegame.gtimg.com/app/lol/score_souces/division/"
             i = 0;
             for (const [key, value] of urlParams) {
                 jsonData = JSON.parse(value)
@@ -166,7 +165,7 @@
 
                 //populate user data from JSON
                 f("summoner-name")[0].innerHTML = "<a class='name' href='#'>" + player["role_name"] + "</a>"
-                f("tier__icon")[0].src = wegameRank + player["rank"] + ".png"
+                f("tier__icon")[0].src = weRank + player["rank"] + ".png"
                 f("lp")[0].innerText = player["league_point"] + "LP"
                 f("winratio")[0].innerText = player["win_rate"] + "%"
 

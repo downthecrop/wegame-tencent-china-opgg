@@ -256,7 +256,8 @@
                         <div class="GameItemList">
                            <div class="GameItemWrap">
                                <template>
-                              <div class="GameItem Win  " data-summoner-id="61970089" data-game-time="1607645691"
+                                <div id="FrankerZ">
+                              <div class="GameItem Win" data-summoner-id="61970089" data-game-time="1607645691"
                                  data-game-id="3699994160">
                                  <div class="Content">
                                     <div class="GameStats">
@@ -299,7 +300,7 @@
                                        <div class="KDA"> <span class="Kill">3</span> / <span
                                           class="Death">2</span> / <span class="Assist">16</span> </div>
                                        <div class="KDARatio"> <span class="KDARatio ">9.50:1</span> KDA </div>
-                                       <div class="Badge"><span class="Text MVP">MVP</span></div>
+                                       <div class="Badge" style="display:none;"><span class="Text MVP"></span></div>
                                     </div>
                                     <div class="Stats">
                                        <div class="Level"> Level17 </div>
@@ -459,6 +460,7 @@
                                        </div>
                                     </div>
                                  </div>
+                              </div>
                                 </template>
                               </div>
                            </div>
@@ -755,7 +757,8 @@ var player_info = {
 
 f = function (arguments) { return document.getElementsByClassName(arguments); }
 
-var weRank = "https://wegame.gtimg.com/app/lol/score_souces/division/"
+const weRank = "https://wegame.gtimg.com/app/lol/score_souces/division/"
+const weCDN = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/champions/"
 
 var rankJSON = {
     "0":"Challenger"
@@ -784,6 +787,24 @@ for (z = 0; z < Object.keys(battle_list["data"]["player_battle_brief_list"]).len
     var view = document.getElementsByClassName("GameItemWrap")[0];
     var startElement = temp.content.querySelector("div");
     var a = document.importNode(startElement, true);
+
+    //Main card data
+    a.getElementsByClassName("Kill")[0].innerText = battle_list["data"]["player_battle_brief_list"][z]["kill_num"]
+    a.getElementsByClassName("Death")[0].innerText = battle_list["data"]["player_battle_brief_list"][z]["death_num"]
+    a.getElementsByClassName("Assist")[0].innerText = battle_list["data"]["player_battle_brief_list"][z]["assist_num"]
+    if (battle_list["data"]["player_battle_brief_list"][z]["ext_tag_desc"]){
+        a.getElementsByClassName("Badge")[0].style.display = "block";
+        a.getElementsByClassName("Text MVP")[0].innerText = battle_list["data"]["player_battle_brief_list"][z]["ext_tag_desc"]
+    }
+
+    //is loss
+    if (battle_list["data"]["player_battle_brief_list"][z]["game_result"] === 1){
+        a.getElementsByClassName("GameItem Win")[0].setAttribute("class","GameItem Lose")
+    }
+
+    var champ_id = battle_list["data"]["player_battle_brief_list"][z]["champion_id"]
+
+    a.getElementsByClassName("ChampionImage")[0].getElementsByClassName("Image")[0].src = weCDN + champ_id + ".png"
 
 
 
