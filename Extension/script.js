@@ -6,6 +6,7 @@ var htmlEmbed =  '\
         <button id="submit-name">Submit</button>\
         <button id="clear-cookies">Clear Cookies</button>\
         <button id="reload-frame">Reload Frame</button>\
+        <button id="profile-page">Profile</button>\
         <iframe id="myiFrame" src="https://downthecrop.github.io/opgg-clone/Multi/"></iframe>\
     </div>\
 </div>'
@@ -184,6 +185,9 @@ function main() {
             document.getElementById("myiFrame").src = "";
             document.getElementById("myiFrame").src = "https://downthecrop.github.io/opgg-clone/Multi/";
         })
+        document.getElementById("profile-page").addEventListener('click',function(){
+            document.getElementById("myiFrame").src = "https://downthecrop.github.io/opgg-clone/Profile/";
+        })
     }
 }
 
@@ -206,6 +210,8 @@ function main() {
       return;
     }
   })();
+
+  window.addEventListener('message', function(){console.log("I got a message from the iframe")});
 
 var checkExist = setInterval(function () {
     if ($('.widget-header-nav').length) {
