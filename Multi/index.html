@@ -128,6 +128,8 @@
 
     function receiveMessage(messageData) {
 
+        console.log(messageData.origin)
+
         if (messageData.data == "loading") {
             document.getElementById("loader").style.display = "inline"
         }

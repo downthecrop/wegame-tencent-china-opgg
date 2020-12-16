@@ -211,7 +211,15 @@ function main() {
     }
   })();
 
-  window.addEventListener('message', function(){console.log("I got a message from the iframe")});
+  window.addEventListener('message', function(message){
+      console.log(message)
+      console.log(message.origin)
+    if (message.origin === "https://downthecrop.github.io"){
+        console.log("message from downthecrop: "+message.data)
+    }
+  });
+
+
 
 var checkExist = setInterval(function () {
     if ($('.widget-header-nav').length) {
