@@ -1254,11 +1254,12 @@
     console.log(team_data_own)
     
     function sendToFrame(message) {
-    var receiver = document.getElementById('myiFrame').contentWindow;
-    window.parent.postMessage(message, 'https://downthecrop.github.io/opgg-clone/');
-    console.log("I sent a message")
+        window.parent.postMessage(message, 'https://www.wegame.com.cn/');
+        console.log("I sent a message")
     }
 
+    sendToFrame("test");
+    sendToFrame("test");
     sendToFrame("test");
 
 
