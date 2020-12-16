@@ -178,7 +178,8 @@ function main() {
         })
 
         document.getElementById("clear-cookies").addEventListener('click',function(){
-            deleteAllCookies()
+            //deleteAllCookies()
+            sendToFrame("from wegame")
         })
         
         document.getElementById("reload-frame").addEventListener('click',function(){
@@ -187,6 +188,7 @@ function main() {
         })
         document.getElementById("profile-page").addEventListener('click',function(){
             document.getElementById("myiFrame").src = "https://downthecrop.github.io/opgg-clone/Profile/";
+            //sendToFrame("from wegame")
         })
     }
 }
