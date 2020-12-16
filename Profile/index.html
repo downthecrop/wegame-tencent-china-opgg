@@ -1254,7 +1254,7 @@
     console.log(team_data_own)
     
     function sendToFrame(message) {
-        window.parent.postMessage(message, 'https://www.wegame.com.cn/');
+        parent.postMessage(message, '*');
         console.log("I sent a message")
     }
 
