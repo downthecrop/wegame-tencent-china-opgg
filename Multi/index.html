@@ -13,7 +13,6 @@
         .tier__icon {
             vertical-align: baseline !important;
         }
-
         .multi2__item .summoner-summary .last-updated {
             text-align: center;
         }
@@ -21,6 +20,8 @@
 </head>
 
 <body>
+    <textarea id="name-input"></textarea>
+    <button id="submit-name">Submit</button>
     <div class="loader" id="loader" style="display:none;">Loading...</div>
     <div class="ContentWrap">
         <div class="multi2">
@@ -126,6 +127,15 @@
         return dDisplay + hDisplay + " ago"
     }
 
+    document.getElementById("submit-name").addEventListener('click',function(){
+            names = document.getElementById("name-input").value
+            usernames = names.replaceAll("加入了队伍聊天","").split(/\r?\n/)
+            console.log(usernames)
+            for (k in usernames){
+                sendToFrame(usernames)
+            }
+        })
+
     function receiveMessage(messageData) {
         if (messageData.origin === "https://www.wegame.com.cn"){
             if (messageData.data == "loading") {
@@ -219,6 +229,13 @@
             }
         }
     }
+
+    //past sendtoframe from other page
+    function sendToFrame(message) {
+        parent.postMessage(message, '*');
+        console.log("I sent a message")
+    }
+
     window.addEventListener('message', receiveMessage);
 </script>
 

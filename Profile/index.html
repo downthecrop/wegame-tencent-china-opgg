@@ -1259,7 +1259,10 @@
     }
 
     sendToFrame("test");
-    window.addEventListener('message', console.log());
+    
+    window.addEventListener('message', function(message){
+        console.log("I got a message: "+message.data)
+    });
 
    </script>
 </html>

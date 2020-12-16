@@ -178,17 +178,15 @@ function main() {
         })
 
         document.getElementById("clear-cookies").addEventListener('click',function(){
-            //deleteAllCookies()
-            sendToFrame("from wegame")
+            deleteAllCookies()
+            //sendToFrame("from wegame")
         })
         
         document.getElementById("reload-frame").addEventListener('click',function(){
-            document.getElementById("myiFrame").src = "";
             document.getElementById("myiFrame").src = "https://downthecrop.github.io/opgg-clone/Multi/";
         })
         document.getElementById("profile-page").addEventListener('click',function(){
             document.getElementById("myiFrame").src = "https://downthecrop.github.io/opgg-clone/Profile/";
-            //sendToFrame("from wegame")
         })
     }
 }
