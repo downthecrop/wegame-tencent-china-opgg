@@ -133,10 +133,7 @@
             console.log(usernames)
 
             for (k in usernames){
-                var userJ = {
-                    String(k): usernames[k]
-                }
-                sendToFrame(JSON.stringify(userJ))
+                sendToFrame('{'+k+':'+usernames[k]+'}')
             }
         })
 
