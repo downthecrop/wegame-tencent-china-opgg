@@ -121,9 +121,6 @@ function sendToFrame(message) {
 }
 
 function main() {
-
-    var area_id = 31;
-
     var loginStatus = false;
 
     if (window.location.href.includes("https://www.wegame.com.cn/")) {
@@ -217,7 +214,9 @@ function main() {
         try {
             var jMessage = JSON.parse(message.data)
             for (key in jMessage){
+                var area_id = 31;
                 console.log(jMessage[key])
+                getUserData(jMessage[key],area_id)
             }
         } catch (e) {
             console.log("Message isn't json")
