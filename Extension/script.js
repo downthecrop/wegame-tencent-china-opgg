@@ -197,17 +197,18 @@ function main() {
     console.log(message.origin)
     if (message.origin === "https://downthecrop.github.io"){
         try {
-            var jMessage = JSON.parse(message.data)
-            sendToFrame("loading")
-            for (key in jMessage){
-                var area_id = 31;
-                console.log(jMessage[key])
-                getUserData(jMessage[key],area_id)
-                usernames.push(jMessage[key])
-            }
+            JSON.parse(message.data)
         } catch (e) {
             console.log("Message isn't json")
             return
+        }
+        var jMessage = JSON.parse(message.data)
+        sendToFrame("loading")
+        for (key in jMessage){
+            var area_id = 31;
+            console.log(jMessage[key])
+            getUserData(jMessage[key],area_id)
+            usernames.push(jMessage[key])
         }
     }
   });

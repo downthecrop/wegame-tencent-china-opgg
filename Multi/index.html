@@ -99,6 +99,10 @@
     </template>
 </body>
 <script>
+
+    const weCDN = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/champions/"
+    const weRank = "https://wegame.gtimg.com/app/lol/score_souces/division/"
+
     function timeConverter(UNIX_timestamp) {
         a = new Date(UNIX_timestamp * 1000);
         months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -130,7 +134,6 @@
             names = document.getElementById("name-input").value
             usernames = names.replaceAll("加入了队伍聊天","").split(/\r?\n/)
             console.log(usernames)
-
             for (k in usernames){
                 sendToFrame('{"user":"'+usernames[k]+'"}')
             }
@@ -149,25 +152,21 @@
             }
             else {
                 document.getElementById("loader").style.display = "none"
-                const queryString = messageData.data;
                 const urlParams = new URLSearchParams(queryString);
-                const weCDN = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/champions/"
-                const weRank = "https://wegame.gtimg.com/app/lol/score_souces/division/"
-                i = 0;
                 for (const [key, value] of urlParams) {
-                    jsonData = JSON.parse(value)
-                    console.log(jsonData)
+                    var jsonData = JSON.parse(value)
 
                     //begin create users
-                    temp = document.getElementsByTagName("template")[0];
-                    view = document.getElementsByClassName("multi2__list")[0];
-                    startElement = temp.content.querySelector("li");
-                    posArray = [0, 0, 0, 0, 0]
-                    a = document.importNode(startElement, true);
+                    const temp = document.getElementsByTagName("template")[0];
+                    const view = document.getElementsByClassName("multi2__list")[0];
+                    const startElement = temp.content.querySelector("li");
+
+                    var posArray = [0, 0, 0, 0, 0]
+                    var a = document.importNode(startElement, true);
 
                     //shorthand
-                    player = jsonData
-                    battle_list = jsonData["player_battle_brief_list"]
+                    var player = jsonData
+                    var battle_list = jsonData["player_battle_brief_list"]
                     f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
 
                     for (z = 0; z < Object.keys(battle_list).length; z++) {
@@ -196,21 +195,21 @@
 
                     //battle_list[0] for most recent game.
                     if (battle_list[0]["battle_time"]) {
-                        deltaT = Date.now() / 1000 - battle_list[0]["battle_time"]
-                        lastPlayed = (secondsToDhms(deltaT))
+                        var deltaT = Date.now() / 1000 - battle_list[0]["battle_time"]
+                        var lastPlayed = (secondsToDhms(deltaT))
                         f("_timeago").innerText = lastPlayed
                     } else {
                         f("_timeago").innerText = "No recent games on record"
                     }
 
-                    recentview = view.getElementsByClassName("recent-games")[i]
-                    recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
+                    const recentview = view.getElementsByClassName("recent-games")[i]
+                    const recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
 
                     f = function (arguments) { return b.getElementsByClassName(arguments)[0]; }
 
                     for (z = 0; z < Object.keys(battle_list).length; z++) {
                         //begin create user match history
-                        b = document.importNode(recentList, true);
+                        const b = document.importNode(recentList, true);
                         var b_list = battle_list[z]
                         f("champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1").src = weCDN + b_list["champion_id"] + ".png"
                         if (b_list["game_result"] === 2) {
@@ -225,8 +224,6 @@
                         $('[data-toggle="tooltip"]').tooltip();
                         recentview.appendChild(b);
                     }
-                    //move to next players match history
-                    i += 1;
                 }
             }
         }
