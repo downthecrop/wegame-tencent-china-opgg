@@ -1,4 +1,14 @@
-var htmlEmbed =  '\
+const battle_list = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_list'
+const battle_details = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_detail'
+const query_by_nick = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/query_by_nick'
+const get_battle_topbar_info = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_topbar_info'
+
+var loginStatus = false
+var ticket_flag = false
+var jResultArray = []
+var usernames = []
+
+const htmlEmbed =  '\
 <div id="myModal" class="modal-crop">\
     <div class="modal-content-crop">\
         <span class="close-crop">&times;</span>\
@@ -7,27 +17,6 @@ var htmlEmbed =  '\
         <iframe id="myiFrame" src="https://downthecrop.github.io/opgg-clone/Multi/"></iframe>\
     </div>\
 </div>'
-
-
-const battle_list = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_list'
-const battle_details = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_detail'
-const query_by_nick = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/query_by_nick'
-const get_battle_topbar_info = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_topbar_info'
-var ticket_flag = false
-
-var jResultArray = []
-
-function deleteAllCookies() {
-    var cookies = document.cookie.split(";");
-
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i];
-        console.log("deleting cookie"+cookie)
-        var eqPos = cookie.indexOf("=");
-        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    }
-}
 
 async function getUserData(uname,area_id){
     var nickJSON = {
@@ -48,14 +37,14 @@ async function getUserData(uname,area_id){
         if (data.code === 402){
             console.log("ticket error")
             ticket_flag = true;
-            sendToFrame("ticket-error")
+            sendMessage("ticket-error")
         }
         else{
             for (var i = 0; i < Object.keys(data.data.player_list).length; i += 1) {
-                if (data.data.player_list[i]["area_id"] == area_id) {
+                if (data.data.player_list[i].area_id === area_id) {
                     var player_data = data.data.player_list[i]
                     battleJSON.slol_id = data.data.player_list[i].slol_id
-                    console.log("User " + nickJSON["search_nick"] + " Found on Ionia with slol_id=" + battleJSON.slol_id)
+                    console.log("User " + nickJSON.search_nick + " Found on Ionia with slol_id=" + battleJSON.slol_id)
                     console.log(battleJSON)
                     apiRequest(battle_list, battleJSON).then((battle_data) => {
                         apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
@@ -71,9 +60,7 @@ async function getUserData(uname,area_id){
     })
 }
 
-var usernames = []
-
-function apiRequest(myurl, body) {
+async function apiRequest(myurl, body) {
     return fetch(myurl, {
         method: 'post',
         credentials: 'include',
@@ -99,27 +86,25 @@ function buildJSON(user,games,topbar){
     return user;
 }
 
-function buildMessage(){
-    var mString = "";
-    for (i in jResultArray){
-        if (i == 0){
-            mString += i+"="+jResultArray[i]
+function buildMultiMessage(r_data){
+    var m = "";
+    for (i in r_data){
+        if (i === 0){
+            m += i+"="+r_data[i]
         }
         else{
-            mString += "&"+i+"="+jResultArray[i]
+            m += "&"+i+"="+r_data[i]
         }
     }
-    return mString;
+    return m;
 }
 
-function sendToFrame(message) {
+function sendMessage(message) {
     var receiver = document.getElementById('myiFrame').contentWindow;
     receiver.postMessage(message, 'https://downthecrop.github.io/opgg-clone/');
 }
 
 function main() {
-    var loginStatus = false;
-
     if (window.location.href.includes("https://www.wegame.com.cn/")) {
         function listCookies() {
             var theCookies = document.cookie.split(';');
@@ -140,13 +125,13 @@ function main() {
         document.body.innerHTML = htmlEmbed + document.body.innerHTML;
 
         //begin GUI injection
-        topbar = document.getElementsByClassName("widget-header-nav")[0];
+        var topbar = document.getElementsByClassName("widget-header-nav")[0];
         topbar.getElementsByClassName("cur")[0].innerHTML = "<a id='myBtn' href='#'>Cropsearch</a>";
-        var btn = document.getElementById("myBtn");
-        var modal = document.getElementById("myModal");
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close-crop")[0];
+        const btn = document.getElementById("myBtn");
+        const modal = document.getElementById("myModal");
+        const span = document.getElementsByClassName("close-crop")[0];
+        
         btn.onclick = function () {
             modal.style.display = "block";
         }
@@ -154,7 +139,7 @@ function main() {
             modal.style.display = "none";
         }
         window.onclick = function (event) {
-            if (event.target == modal) {
+            if (event.target === modal) {
                 modal.style.display = "none";
             }
         }
@@ -174,11 +159,10 @@ function main() {
       ///this is probably a really bad way to handle async but I don't care for now.
       _push.apply(this, arguments);
       if (jResultArray.length != 0 && usernames.length === jResultArray.length){
-        console.log("SYNCED")
         if (ticket_flag === false){
-            message = buildMessage()
+            message = buildMultiMessage(jResultArray)
             console.log(message)
-            sendToFrame(message)
+            sendMessage(message)
             
             //reset
             usernames = []
@@ -190,20 +174,19 @@ function main() {
       }
       return;
     }
-  })();
+})();
 
-  window.addEventListener('message', function(message){
+window.addEventListener('message', function(message){
     console.log(message)
-    console.log(message.origin)
     if (message.origin === "https://downthecrop.github.io"){
         try {
             JSON.parse(message.data)
         } catch (e) {
             console.log("Message isn't json")
-            return
+            console.log(message.data)
         }
         var jMessage = JSON.parse(message.data)
-        sendToFrame("loading")
+        sendMessage("loading")
         for (key in jMessage){
             var area_id = 31;
             console.log(jMessage[key])
@@ -211,9 +194,7 @@ function main() {
             usernames.push(jMessage[key])
         }
     }
-  });
-
-
+});
 
 var checkExist = setInterval(function () {
     if ($('.widget-header-nav').length) {
