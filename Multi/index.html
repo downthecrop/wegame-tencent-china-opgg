@@ -140,7 +140,6 @@
         })
 
     function receiveMessage(messageData) {
-        console.log("downthecropgithub "+messageData)
         if (messageData.origin === "https://www.wegame.com.cn"){
             if (messageData.data == "loading") {
                 document.getElementById("loader").style.display = "inline"
@@ -230,11 +229,9 @@
         }
     }
 
-//past sendtoframe from other page
 function sendToFrame(message) {
     parent.postMessage(message, '*');
 }
-
 window.addEventListener('message', receiveMessage);
 </script>
 
