@@ -132,9 +132,9 @@
             usernames = names.replaceAll("加入了队伍聊天","").split(/\r?\n/)
             console.log(usernames)
 
-            for (k in usernames){
+            for (var k in usernames){
                 var userJ = {
-                    k: usernames[k]
+                    String(k): usernames[k]
                 }
                 sendToFrame(JSON.stringify(userJ))
             }
