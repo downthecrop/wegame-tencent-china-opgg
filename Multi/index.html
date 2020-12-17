@@ -152,7 +152,7 @@
             }
             else {
                 document.getElementById("loader").style.display = "none"
-                const urlParams = new URLSearchParams(queryString);
+                const urlParams = new URLSearchParams(messageData.data);
                 for (const [key, value] of urlParams) {
                     var jsonData = JSON.parse(value)
 
