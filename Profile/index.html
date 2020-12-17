@@ -1197,6 +1197,7 @@
         var view = d("MostChampionContent");
         var startElement = temp.content.querySelector("div");
         var a = document.importNode(startElement, true);
+        f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
         var wr_played_box = f("Played")
         var container = f("ChampionBox Ranked")
         
@@ -1217,8 +1218,6 @@
         var view = d("GameItemWrap");
         var startElement = temp.content.querySelector("div");
         var a = document.importNode(startElement, true);
-
-        f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
         
         var match = battle_list.data.player_battle_brief_list[z]
         
