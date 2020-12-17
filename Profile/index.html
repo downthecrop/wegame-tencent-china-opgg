@@ -1174,8 +1174,8 @@
       },
       "msg": "succ"
       }
-      
-      f = function (arguments) { return document.getElementsByClassName(arguments); }
+
+      d = function (arguments) { return document.getElementsByClassName(arguments)[0]; }
       
       const weRank = "https://wegame.gtimg.com/app/lol/score_souces/division/"
       const weCDN = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/champions/"
@@ -1184,81 +1184,84 @@
       "0":"Challenger"
       }
       
-      //Profile Top Left Picture and Win Rate
-      document.getElementsByClassName("TierRank")[0].innerText = rankJSON[player_info["data"]["rank"]]
-      document.getElementsByClassName("winratio")[0].innerText = "Win Ratio "+player_info["data"]["win_rate"]+"%"
-      document.getElementsByClassName("Username")[0].innerText = player_info["data"]["role_name"]
-      document.getElementById("rank-metal").src = weRank + player_info["data"]["rank"] + ".png"
+      //Profile Top Left Picture and Win Rat
+
+      d("TierRank").innerText = rankJSON[player_info.data.rank]
+      d("winratio").innerText = "Win Ratio "+player_info.data.win_rate+"%"
+      d("Username").innerText = player_info.data.role_name
+      document.getElementById("rank-metal").src = weRank + player_info.data.rank + ".png"
       
       //Most Played
-      for (z = 0; z < Object.keys(most_used["data"]["info_list"]).length; z++) {
+      for (z = 0; z < Object.keys(most_used.data.info_list).length; z++) {
         var temp = document.getElementsByTagName("template")[0];
-        var view = document.getElementsByClassName("MostChampionContent")[0];
+        var view = d("MostChampionContent");
         var startElement = temp.content.querySelector("div");
         var a = document.importNode(startElement, true);
-        var wr_played_box = a.getElementsByClassName("Played")[0]
-        var container = a.getElementsByClassName("ChampionBox Ranked")[0]
+        var wr_played_box = f("Played")
+        var container = f("ChampionBox Ranked")
         
-        wr_played_box.getElementsByClassName("WinRatio normal tip")[0].innerText = most_used["data"]["info_list"][z]["win_rate"] + "%"
-        wr_played_box.getElementsByClassName("Title")[0].innerText = most_used["data"]["info_list"][z]["use_num"] + " Played"
+        wr_played_box.getElementsByClassName("WinRatio normal tip")[0].innerText = most_used.data.info_list[z].win_rate + "%"
+        wr_played_box.getElementsByClassName("Title")[0].innerText = most_used.data.info_list[z].use_num + " Played"
         
         
-        container.getElementsByClassName("ChampionImage")[0].src = weCDN + most_used["data"]["info_list"][z]["champion_id"] + ".png"
+        container.getElementsByClassName("ChampionImage")[0].src = weCDN + most_used.data.info_list[z].champion_id + ".png"
         
         //when we have a champion name array we just use this id.
-        container.getElementsByClassName("ChampionName")[0].innerText = most_used["data"]["info_list"][z]["champion_id"]
+        container.getElementsByClassName("ChampionName")[0].innerText = most_used.data.info_list[z].champion_id
         view.appendChild(a)
       }
       
       //Match history
-      for (z = 0; z < Object.keys(battle_list["data"]["player_battle_brief_list"]).length; z++) {
+      for (z = 0; z < Object.keys(battle_list.data.player_battle_brief_list).length; z++) {
         var temp = document.getElementsByTagName("template")[1];
-        var view = document.getElementsByClassName("GameItemWrap")[0];
+        var view = d("GameItemWrap");
         var startElement = temp.content.querySelector("div");
         var a = document.importNode(startElement, true);
+
+        f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
         
-        var match = battle_list["data"]["player_battle_brief_list"][z]
+        var match = battle_list.data.player_battle_brief_list[z]
         
         //Main card data
-        a.getElementsByClassName("Kill")[0].innerText = match["kill_num"]
-        a.getElementsByClassName("Death")[0].innerText = match["death_num"]
-        a.getElementsByClassName("Assist")[0].innerText = match["assist_num"]
-        a.getElementsByClassName("KDARatio")[0].innerText = ((parseInt(match["kill_num"])+parseInt(match["assist_num"]))/parseInt(match["death_num"])) + ":1 KDA"
+        f("Kill").innerText = match.kill_num
+        f("Death").innerText = match.death_num
+        f("Assist").innerText = match.assist_num
+        f("KDARatio").innerText = ((parseInt(match.kill_num)+parseInt(match.assist_num))/parseInt(match.death_num)) + ":1 KDA"
         
-        if (match["ext_tag_desc"]){
-            a.getElementsByClassName("Badge")[0].style.display = "block";
-            a.getElementsByClassName("Text MVP")[0].innerText = match["ext_tag_desc"]
-            if (match["game_result"] === 2){
-                a.getElementsByClassName("Text MVP")[0].style.backgroundColor = "#8c51c5";
-                a.getElementsByClassName("Text MVP")[0].style.border = "#7f3590";
+        if (match.ext_tag_desc){
+            f("Badge").style.display = "block";
+            f("Text MVP").innerText = match.ext_tag_desc
+            if (match.game_result === 2){
+                f("Text MVP").style.backgroundColor = "#8c51c5";
+                f("Text MVP").style.border = "#7f3590";
             }
         }
         
         //is loss
-        if (match["game_result"] === 2){
-            a.getElementsByClassName("GameItem Win")[0].setAttribute("class","GameItem Lose")
-            a.getElementsByClassName("GameResult")[0].innerText = "Defeat"
+        if (match.game_result === 2){
+            f("GameItem Win").setAttribute("class","GameItem Lose")
+            f("GameResult").innerText = "Defeat"
         }
         
-        var champ_id = match["champion_id"]
-        a.getElementsByClassName("ChampionImage")[0].getElementsByClassName("Image")[0].src = weCDN + champ_id + ".png"
+        var champ_id = match.champion_id
+        f("ChampionImage").getElementsByClassName("Image")[0].src = weCDN + champ_id + ".png"
         //when we have a name array put that here.
-        a.getElementsByClassName("ChampionName")[0].getElementsByTagName("a")[0].innerText = champ_id
+        f("ChampionName").getElementsByTagName("a")[0].innerText = champ_id
         view.appendChild(a)
       }
       
-    var team_data_opp = game_details["data"]["battle_info"]["team_data_opp"]["battle_player_record"]
-    var team_data_own = game_details["data"]["battle_info"]["team_data_own"]["battle_player_record"]
+    var team_data_opp = game_details.data["battle_info"]["team_data_opp"]["battle_player_record"]
+    var team_data_own = game_details.data["battle_info"]["team_data_own"]["battle_player_record"]
     console.log(team_data_opp)
     console.log("#####")
     console.log(team_data_own)
     
-    function sendToFrame(message) {
+    function sendMessage(message) {
         parent.postMessage(message, '*');
         console.log("I sent a message")
     }
 
-    sendToFrame("test");
+    sendMessage("test");
     
     window.addEventListener('message', function(message){
         console.log("I got a message: "+message.data)
