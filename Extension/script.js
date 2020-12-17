@@ -2,9 +2,6 @@ var htmlEmbed =  '\
 <div id="myModal" class="modal-crop">\
     <div class="modal-content-crop">\
         <span class="close-crop">&times;</span>\
-        <textarea id="name-input"></textarea>\
-        <button id="submit-name">Submit</button>\
-        <button id="clear-cookies">Clear Cookies</button>\
         <button id="reload-frame">Reload Frame</button>\
         <button id="profile-page">Profile</button>\
         <iframe id="myiFrame" src="https://downthecrop.github.io/opgg-clone/Multi/"></iframe>\
@@ -161,22 +158,6 @@ function main() {
                 modal.style.display = "none";
             }
         }
-
-        document.getElementById("submit-name").addEventListener('click',function(){
-            sendToFrame("loading")
-            jResultArray = []
-            names = document.getElementById("name-input").value
-            usernames = names.replaceAll("加入了队伍聊天","").split(/\r?\n/)
-            console.log(usernames)
-            for (k in usernames){
-                getUserData(usernames[k],area_id)
-            }
-        })
-
-        document.getElementById("clear-cookies").addEventListener('click',function(){
-            deleteAllCookies()
-            //sendToFrame("from wegame")
-        })
         
         document.getElementById("reload-frame").addEventListener('click',function(){
             document.getElementById("myiFrame").src = "https://downthecrop.github.io/opgg-clone/Multi/";
@@ -198,6 +179,10 @@ function main() {
             message = buildMessage()
             console.log(message)
             sendToFrame(message)
+            
+            //reset
+            usernames = []
+            jResultArray = []
         }
         else{
             console.log("Message wasn't send due to ticket error")
@@ -213,10 +198,12 @@ function main() {
     if (message.origin === "https://downthecrop.github.io"){
         try {
             var jMessage = JSON.parse(message.data)
+            sendToFrame("loading")
             for (key in jMessage){
                 var area_id = 31;
                 console.log(jMessage[key])
                 getUserData(jMessage[key],area_id)
+                usernames.push(jMessage[key])
             }
         } catch (e) {
             console.log("Message isn't json")

@@ -27,77 +27,77 @@
         <div class="multi2">
             <div class="multi2__box">
                 <ul class="multi2__list">
-                    <template class="player_template">
-                        <li class="multi2__item">
-                            <div class="summoner-summary">
-                                <div class="last-updated">
-                                    Last played: <span class="_timeago _timeCountAssigned tip" data-datetime=""
-                                        data-type="" data-interval="60" title="">0 days ago</span>
-                                </div>
-                                <div class="tier-position">
-                                    <div class="tier">
-                                        <img class="tier__icon" src="">
-                                    </div>
-                                    <!--
-                                    <div class="most-position">
-                                        <i class="most-position__icon most-position__icon--MID"></i>
-                                    </div>
-                                -->
-                                </div>
-                                <div class="summoner-name">
-                                    <a class="name" href="#" target="_blank">
-                                    </a>
-                                </div>
-                                <div class="lp"></div>
-                                <div class="graph">
-                                    <span class="winratio">50%</span>
-                                </div>
-                                <div class="win-streak win-streak--wins">
-                                </div>
-                            </div>
-                            <div class="recent-matches">
-                                <!--
-                                <div class="title">Recently Played</div>
-                                <div class="positions">
-                                    <div class="position">
-                                        <i class="position__icon position__icon--MID"></i>
-                                        <div class="position__info">
-                                            <div class="role-rate role-rate--high">50%</div>
-                                            <div class="win-rate">W/R <strong>50%</strong></div>
-                                        </div>
-                                    </div>
-                                    <div class="position">
-                                        <i class="position__icon position__icon--TOP"></i>
-                                        <div class="position__info">
-                                            <div class="role-rate ">50%</div>
-                                            <div class="win-rate">W/R <strong>50%</strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            -->
-                                <ul class="recent-games">
-                                </ul>
-                            </div>
-                        </li>
-                    </template>
                 </ul>
-                <template class="recent_game_template">
-                    <li class="recent-games__item">
-                        <div class="champion __sprite __spc20 __spc20-2 tip" title=""></div>
-                        <img class="champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1">
-                        <div class="is-win is-win--true ">
-                            <span class="kill"></span> /
-                            <span class="death"></span> /
-                            <span class="assist"></span>
-                        </div>
-                        <div class="time-stamp"><span class="_timeago _timeCountAssigned tip tpd-delegation-uid-1"
-                                data-datetime="" data-type="" data-interval="60" title="" data-toggle="tooltip"></span>
-                        </div>
-                    </li>
-                </template>
             </div>
         </div>
     </div>
+    <template class="player_template">
+        <li class="multi2__item">
+            <div class="summoner-summary">
+                <div class="last-updated">
+                    Last played: <span class="_timeago _timeCountAssigned tip" data-datetime=""
+                        data-type="" data-interval="60" title="">0 days ago</span>
+                </div>
+                <div class="tier-position">
+                    <div class="tier">
+                        <img class="tier__icon" src="">
+                    </div>
+                    <!--
+                    <div class="most-position">
+                        <i class="most-position__icon most-position__icon--MID"></i>
+                    </div>
+                -->
+                </div>
+                <div class="summoner-name">
+                    <a class="name" href="#" target="_blank">
+                    </a>
+                </div>
+                <div class="lp"></div>
+                <div class="graph">
+                    <span class="winratio">50%</span>
+                </div>
+                <div class="win-streak win-streak--wins">
+                </div>
+            </div>
+            <div class="recent-matches">
+                <!--
+                <div class="title">Recently Played</div>
+                <div class="positions">
+                    <div class="position">
+                        <i class="position__icon position__icon--MID"></i>
+                        <div class="position__info">
+                            <div class="role-rate role-rate--high">50%</div>
+                            <div class="win-rate">W/R <strong>50%</strong></div>
+                        </div>
+                    </div>
+                    <div class="position">
+                        <i class="position__icon position__icon--TOP"></i>
+                        <div class="position__info">
+                            <div class="role-rate ">50%</div>
+                            <div class="win-rate">W/R <strong>50%</strong></div>
+                        </div>
+                    </div>
+                </div>
+            -->
+                <ul class="recent-games">
+                </ul>
+            </div>
+        </li>
+    </template>
+    <template class="recent_game_template">
+        <li class="recent-games__item">
+            <div class="champion __sprite __spc20 __spc20-2 tip" title=""></div>
+            <img class="champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1">
+            <div class="is-win is-win--true ">
+                <span class="kill"></span> /
+                <span class="death"></span> /
+                <span class="assist"></span>
+            </div>
+            <div class="time-stamp"><span class="_timeago _timeCountAssigned tip tpd-delegation-uid-1"
+                    data-datetime="" data-type="" data-interval="60" title="" data-toggle="tooltip"></span>
+            </div>
+        </li>
+    </template>
 </body>
 <script>
     function timeConverter(UNIX_timestamp) {
@@ -142,6 +142,7 @@
         if (messageData.origin === "https://www.wegame.com.cn"){
             if (messageData.data == "loading") {
                 document.getElementById("loader").style.display = "inline"
+
             }
             else if (messageData.data == "ticket-error") {
                 document.getElementById("loader").style.display = "none"
@@ -232,13 +233,12 @@
         }
     }
 
-    //past sendtoframe from other page
-    function sendToFrame(message) {
-        parent.postMessage(message, '*');
-        console.log("I sent a message")
-    }
+//past sendtoframe from other page
+function sendToFrame(message) {
+    parent.postMessage(message, '*');
+}
 
-    window.addEventListener('message', receiveMessage);
+window.addEventListener('message', receiveMessage);
 </script>
 
 </html>
