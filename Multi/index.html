@@ -230,10 +230,10 @@
         }
     }
 
-function sendToFrame(message) {
-    parent.postMessage(message, '*');
-}
-window.addEventListener('message', receiveMessage);
+    function sendToFrame(message) {
+        parent.postMessage(message, '*');
+    }
+    window.addEventListener('message', receiveMessage);
 </script>
 
 </html>

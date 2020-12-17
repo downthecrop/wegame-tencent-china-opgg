@@ -281,7 +281,7 @@
                                                 <div class="Item">
                                                    <a id="right_match" href="#" class="Button MatchDetail"> <span
                                                       class="__spSite __spSite-194 Off"></span> <span
-                                                      class="__spSite __spSite-193 On"></span> </a>
+                                                      class="__spSite __spSite-193 On"></span>&#x21BB;</a>
                                                 </div>
                                              </div>
                                           </div>
@@ -1183,9 +1183,9 @@
       var rankJSON = {
       "0":"Challenger"
       }
+
       
       //Profile Top Left Picture and Win Rat
-
       d("TierRank").innerText = rankJSON[player_info.data.rank]
       d("winratio").innerText = "Win Ratio "+player_info.data.win_rate+"%"
       d("Username").innerText = player_info.data.role_name
@@ -1246,11 +1246,20 @@
         f("ChampionImage").getElementsByClassName("Image")[0].src = weCDN + champ_id + ".png"
         //when we have a name array put that here.
         f("ChampionName").getElementsByTagName("a")[0].innerText = champ_id
+        f("Button MatchDetail").setAttribute("match_id",match.battle_id)
+        f("Button MatchDetail").addEventListener("click",function(caller){
+            console.log(caller.path[0].getAttribute('match_id'))
+            
+        })
+
         view.appendChild(a)
+
+
       }
       
     var team_data_opp = game_details.data["battle_info"]["team_data_opp"]["battle_player_record"]
     var team_data_own = game_details.data["battle_info"]["team_data_own"]["battle_player_record"]
+    
     console.log(team_data_opp)
     console.log("#####")
     console.log(team_data_own)
