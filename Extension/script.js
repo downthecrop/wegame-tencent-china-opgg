@@ -118,7 +118,6 @@ function buildMessage(){
 function sendToFrame(message) {
     var receiver = document.getElementById('myiFrame').contentWindow;
     receiver.postMessage(message, 'https://downthecrop.github.io/opgg-clone/');
-    console.log("I sent a message")
 }
 
 function main() {
@@ -212,10 +211,18 @@ function main() {
   })();
 
   window.addEventListener('message', function(message){
-      console.log(message)
-      console.log(message.origin)
+    console.log(message)
+    console.log(message.origin)
     if (message.origin === "https://downthecrop.github.io"){
-        console.log("message from downthecrop: "+message.data)
+        try {
+            var jMessage = JSON.parse(message.data)
+            for (key in jMessage){
+                console.log(jMessage[key])
+            }
+        } catch (e) {
+            console.log("Message isn't json")
+            return
+        }
     }
   });
 

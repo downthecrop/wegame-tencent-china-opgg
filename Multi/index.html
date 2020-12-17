@@ -133,7 +133,7 @@
             console.log(usernames)
 
             for (k in usernames){
-                sendToFrame('{'+k+':'+usernames[k]+'}')
+                sendToFrame('{"user":"'+usernames[k]+'"}')
             }
         })
 
