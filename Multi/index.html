@@ -142,7 +142,7 @@
         if (messageData.origin === "https://www.wegame.com.cn"){
             if (messageData.data == "loading") {
                 document.getElementById("loader").style.display = "inline"
-
+                document.getElementsByClassName("multi2__list")[0].innerHTML = ""
             }
             else if (messageData.data == "ticket-error") {
                 document.getElementById("loader").style.display = "none"
