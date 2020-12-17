@@ -205,11 +205,12 @@
                     const recentview = view.getElementsByClassName("recent-games")[key]
                     const recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
 
-                    f = function (arguments) { return b.getElementsByClassName(arguments)[0]; }
-
                     for (z = 0; z < Object.keys(battle_list).length; z++) {
                         //begin create user match history
                         const b = document.importNode(recentList, true);
+
+                        f = function (arguments) { return b.getElementsByClassName(arguments)[0]; }
+
                         var b_list = battle_list[z]
                         f("champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1").src = weCDN + b_list["champion_id"] + ".png"
                         if (b_list["game_result"] === 2) {
