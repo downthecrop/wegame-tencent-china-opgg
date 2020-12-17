@@ -2,7 +2,7 @@ var htmlEmbed =  '\
 <div id="myModal" class="modal-crop">\
     <div class="modal-content-crop">\
         <span class="close-crop">&times;</span>\
-        <button id="reload-frame">Reload Frame</button>\
+        <button id="multi-page">Mutlisearch</button>\
         <button id="profile-page">Profile</button>\
         <iframe id="myiFrame" src="https://downthecrop.github.io/opgg-clone/Multi/"></iframe>\
     </div>\
@@ -159,7 +159,7 @@ function main() {
             }
         }
         
-        document.getElementById("reload-frame").addEventListener('click',function(){
+        document.getElementById("multi-page").addEventListener('click',function(){
             document.getElementById("myiFrame").src = "https://downthecrop.github.io/opgg-clone/Multi/";
         })
         document.getElementById("profile-page").addEventListener('click',function(){
