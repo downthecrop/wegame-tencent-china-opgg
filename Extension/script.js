@@ -19,10 +19,10 @@ const htmlEmbed =  '\
 </div>'
 
 async function getUserData(uname,area_id){
-    var nickJSON = {
+    const nickJSON = {
             "search_nick": uname,
     }
-    var battleJSON = {
+    const battleJSON = {
         "area_id": area_id,
         "area_name": "",
         "filter_type": 0,

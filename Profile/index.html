@@ -1,1198 +1,1250 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Profile - Template</title>
-      <link href="./css/common.css" rel="stylesheet" type="text/css">
-      <link href="./css/sprite.css" rel="stylesheet" type="text/css">
-      <link href="./css/forum.css" rel="stylesheet" type="text/css">
-      <link href="./css/new.css" rel="stylesheet" type="text/css">
-      <link href="./css/summoner.css" rel="stylesheet" type="text/css">
-   </head>
-   <body>
-      <div class="ContentWrap tabItems" id="SummonerLayoutContent">
-         <div class="tabItem Content SummonerLayoutContent summonerLayout-summary" data-tab-data-url="#"
+
+<head>
+    <title>Profile - Template</title>
+    <link href="./css/common.css" rel="stylesheet" type="text/css">
+    <link href="./css/sprite.css" rel="stylesheet" type="text/css">
+    <link href="./css/forum.css" rel="stylesheet" type="text/css">
+    <link href="./css/new.css" rel="stylesheet" type="text/css">
+    <link href="./css/summoner.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="ContentWrap tabItems" id="SummonerLayoutContent">
+        <div class="tabItem Content SummonerLayoutContent summonerLayout-summary" data-tab-data-url="#"
             data-tab-spinner-height="800" data-tab-is-loaded-already="true" style="display: block;">
             <div class="SideContent">
-               <div class="TierBox Box">
-                  <div class="SummonerRatingMedium">
-                     <div class="Medal tip tpd-delegation-uid-1" title=""> <img id="rank-metal" src="./img/255.png" class="Image">
-                     </div>
-                     <div class="TierRankInfo">
-                        <div class="RankType">Ranked Solo</div>
-                        <div class="Username" style="font-size:20px;">Name</div>
-                        <div class="TierRank">Undefined 0</div>
-                        <div class="TierInfo"> <span class="LeaguePoints">
-                           0 LP
-                           </span> / <span class="WinLose">
-                           <span class="wins">0W</span> <span class="losses">0L</span>
-                           <br> <span class="winratio">Win Ratio 50%</span> </span>
+                <div class="TierBox Box">
+                    <div class="SummonerRatingMedium">
+                        <div class="Medal tip tpd-delegation-uid-1" title=""> <img id="rank-metal" src="./img/255.png"
+                                class="Image">
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="Box tabWrap stats-box _recognized">
-                  <div class="Tab">
-                     <ul class="TabList tabHeaders">
-                        <li id="left_champion_all" class="Item tabHeader active"
-                           data-tab-show-class="overview-stats--all" data-type="Total"> <a href="#">
-                           Preseason<br>
-                           Total </a> 
-                        </li>
-                     </ul>
-                  </div>
-                  <div class="Content tabItems">
-                     <div class="MostChampionContent tabItem overview-stats--all" style="display: block;">
-                        <div class="MostChampionContent">
-                           <template>
-                              <div id="FrankerZ1">
-                                 <div class="ChampionBox Ranked">
-                                    <div class="Face" title="Gangplank">
-                                       <a href="https://na.op.gg/champion/gangplank/statistics" target="_blank"> <img
-                                          src="./img/Gangplank.png" width="45" class="ChampionImage"
-                                          alt="Gangplank"> </a>
-                                    </div>
-                                    <div class="ChampionInfo">
-                                       <div class="ChampionName" title="Gangplank"> <a
-                                          href="https://na.op.gg/champion/gangplank/statistics" target="_blank">
-                                          Gangplank
-                                          </a> 
-                                       </div>
-                                       <div class="ChampionMinionKill tip" title="avg. CS (CS/m)"> CS cs (cs/m)
-                                       </div>
-                                    </div>
-                                    <div class="PersonalKDA">
-                                       <div class="KDA green tip"> <span
-                                          class="KDA">0:1</span> <span class="Text">KDA</span> </div>
-                                       <div class="KDAEach"> <span class="Kill">0</span> <span class="Bar">/</span>
-                                          <span class="Death">0</span> <span class="Bar">/</span> <span
-                                             class="Assist">0</span> 
-                                       </div>
-                                    </div>
-                                    <div class="Played">
-                                       <div class="WinRatio normal tip" title="Win Ratio"> 29% </div>
-                                       <div id="played-num" class="Title">7 Played</div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </template>
+                        <div class="TierRankInfo">
+                            <div class="RankType">Ranked Solo</div>
+                            <div class="Username" style="font-size:20px;">Name</div>
+                            <div class="TierRank">Undefined 0</div>
+                            <div class="TierInfo"> <span class="LeaguePoints">
+                                    0 LP
+                                </span> / <span class="WinLose">
+                                    <span class="wins">0W</span> <span class="losses">0L</span>
+                                    <br> <span class="winratio">Win Ratio 50%</span> </span>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
+                <div class="Box tabWrap stats-box _recognized">
+                    <div class="Tab">
+                        <ul class="TabList tabHeaders">
+                            <li id="left_champion_all" class="Item tabHeader active"
+                                data-tab-show-class="overview-stats--all" data-type="Total"> <a href="#">
+                                    Preseason<br>
+                                    Total </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="Content tabItems">
+                        <div class="MostChampionContent tabItem overview-stats--all" style="display: block;">
+                            <div class="MostChampionContent">
+                                <template>
+                                    <div id="FrankerZ1">
+                                        <div class="ChampionBox Ranked">
+                                            <div class="Face" title="Gangplank">
+                                                <a href="https://na.op.gg/champion/gangplank/statistics"
+                                                    target="_blank"> <img src="./img/Gangplank.png" width="45"
+                                                        class="ChampionImage" alt="Gangplank"> </a>
+                                            </div>
+                                            <div class="ChampionInfo">
+                                                <div class="ChampionName" title="Gangplank"> <a
+                                                        href="https://na.op.gg/champion/gangplank/statistics"
+                                                        target="_blank">
+                                                        Gangplank
+                                                    </a>
+                                                </div>
+                                                <div class="ChampionMinionKill tip" title="avg. CS (CS/m)"> CS cs (cs/m)
+                                                </div>
+                                            </div>
+                                            <div class="PersonalKDA">
+                                                <div class="KDA green tip"> <span class="KDA">0:1</span> <span
+                                                        class="Text">KDA</span> </div>
+                                                <div class="KDAEach"> <span class="Kill">0</span> <span
+                                                        class="Bar">/</span>
+                                                    <span class="Death">0</span> <span class="Bar">/</span> <span
+                                                        class="Assist">0</span>
+                                                </div>
+                                            </div>
+                                            <div class="Played">
+                                                <div class="WinRatio normal tip" title="Win Ratio"> 29% </div>
+                                                <div id="played-num" class="Title">7 Played</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="RealContent">
-               <div class="GameListContainer">
-                  <div class="Content">
-                     <div class="opscore-banner">
-                        <div class="GameItemList">
-                           <div class="GameItemWrap">
-                              <template>
-                                 <div id="FrankerZ">
-                                    <div class="GameItem Win" 
-                                       data-game-id="3699994160">
-                                       <div class="Content">
-                                          <div class="GameStats">
-                                             <div class="GameType" title="Ranked Solo"> Ranked Solo </div>
-                                             <div class="TimeStamp"><span
-                                                class="_timeago _timeCountAssigned tip tpd-delegation-uid-1"
-                                                data-datetime="1607645691" data-type="" data-interval="60"
-                                                title="">0 hours ago</span></div>
-                                             <div class="Bar"></div>
-                                             <div class="GameResult"> Victory </div>
-                                             <div class="GameLength">0m 0s</div>
-                                          </div>
-                                          <div class="GameSettingInfo">
-                                             <div class="ChampionImage">
-                                                <a href="https://na.op.gg/champion/gangplank/statistics"
-                                                   target="_blank"><img src="./img/Gangplank(2).png" class="Image"
-                                                   alt="Gangplank"></a>
-                                             </div>
-                                             <div class="SummonerSpell">
-                                                <div class="Spell"> <img src="./img/Unknown.png"
-                                                   class="Image tip tpd-delegation-uid-1" title=""
-                                                   alt="Teleport"> </div>
-                                                <div class="Spell"> <img src="./img/Unknown.png"
-                                                   class="Image tip tpd-delegation-uid-1" title="" alt="Flash">
+                <div class="GameListContainer">
+                    <div class="Content">
+                        <div class="opscore-banner">
+                            <div class="GameItemList">
+                                <div class="GameItemWrap">
+                                    <template>
+                                        <div id="FrankerZ">
+                                            <div class="GameItem Win" data-game-id="3699994160">
+                                                <div class="Content">
+                                                    <div class="GameStats">
+                                                        <div class="GameType" title="Ranked Solo"> Ranked Solo </div>
+                                                        <div class="TimeStamp"><span
+                                                                class="_timeago _timeCountAssigned tip tpd-delegation-uid-1"
+                                                                data-datetime="1607645691" data-type=""
+                                                                data-interval="60" title="">0 hours ago</span></div>
+                                                        <div class="Bar"></div>
+                                                        <div class="GameResult"> Victory </div>
+                                                        <div class="GameLength">0m 0s</div>
+                                                    </div>
+                                                    <div class="GameSettingInfo">
+                                                        <div class="ChampionImage">
+                                                            <a href="https://na.op.gg/champion/gangplank/statistics"
+                                                                target="_blank"><img src="./img/Gangplank(2).png"
+                                                                    class="Image" alt="Gangplank"></a>
+                                                        </div>
+                                                        <div class="SummonerSpell">
+                                                            <div class="Spell"><img src="./img/Unknown.png" class="Image tip tpd-delegation-uid-1" title="">
+                                                            </div>
+                                                            <div class="Spell"> <img src="./img/Unknown.png"class="Image tip tpd-delegation-uid-1" title="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="Runes">
+                                                            <!--
+                                                            <div class="Rune"> <img src="./img/Unknown.png"
+                                                                    class="Image tip tpd-delegation-uid-1" title=""
+                                                                    alt="Grasp of the Undying"> </div>
+                                                            <div class="Rune"> <img src="./img/Unknown.png"
+                                                                    class="Image tip tpd-delegation-uid-1" title=""
+                                                                    alt="Inspiration"> </div>
+                                                            -->
+                                                        </div>
+                                                        <div class="ChampionName"> <a
+                                                                href="https://na.op.gg/champion/gangplank/statistics"
+                                                                target="_blank">Gangplank</a> </div>
+                                                    </div>
+                                                    <div class="KDA">
+                                                        <div class="KDA"> <span class="Kill">0</span> / <span
+                                                                class="Death">2</span> / <span class="Assist">0</span>
+                                                        </div>
+                                                        <div class="KDARatio"> <span class="KDARatio ">0:1</span> KDA
+                                                        </div>
+                                                        <div class="Badge" style="display:none;"><span
+                                                                class="Text MVP"></span></div>
+                                                    </div>
+                                                    <div class="Stats">
+                                                        <div class="Level"> Level </div>
+                                                        <div class="CS"> <span class="CS tip tpd-delegation-uid-1"
+                                                                title="">cs
+                                                                (cs/m)</span> CS
+                                                        </div>
+                                                        <div class="CKRate tip" title="Kill Participation"> P/Kill 50%
+                                                        </div>
+                                                        <div class="MMR"> <span>Tier Average</span>
+                                                            <br> <b>NaN</b>
+                                                        </div>
+                                                    </div>
+                                                    <div class="Items">
+                                                        <div class="ItemList">
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <button class="Button OpenBuildButton tip" title="Builds"
+                                                                type="button"> <img class="On"
+                                                                    src="./img/icon-buildblue-p.png">
+                                                                <img class="Off" src="./img/icon-buildblue-p.png">
+                                                            </button>
+                                                        </div>
+                                                        <div class="Trinket"> <img src="./img/icon-ward-blue.png">
+                                                            Control Ward <span class="wards vision">?</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="FollowPlayers Names">
+                                                        <div class="Team">
+                                                            <div class="Summoner Requester">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-32 tip"
+                                                                        title="Gangplank">Gangplank</div>
+                                                                    <div class="Image20 __sprite __spc20 __spc20-32 tip"
+                                                                        title="Gangplank">Gangplank</div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">You</a> </div>
+                                                            </div>
+                                                            <div class="Summoner">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-23 tip"
+                                                                        title="Dr. Mundo">Dr. Mundo</div>
+                                                                    <div class="Image20 __sprite __spc20 __spc20-23 tip"
+                                                                        title="Dr. Mundo">Dr. Mundo</div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">Team2</a> </div>
+                                                            </div>
+                                                            <div class="Summoner">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                                                        title="Fizz">Fizz</div>
+                                                                    <div class="Image20 __sprite __spc20 __spc20-30 tip"
+                                                                        title="Fizz">Fizz</div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">Team3</a> </div>
+                                                            </div>
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-46 tip"
+                                                                        title="Jhin">Jhin</div>
+                                                                    <div class="Image20 __sprite __spc20 __spc20-46 tip"
+                                                                        title="Jhin">Jhin</div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">Team4</a> </div>
+                                                            </div>
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-68 tip"
+                                                                        title="Lux">Lux</div>
+                                                                    <div class="Image20 __sprite __spc20 __spc20-68 tip"
+                                                                        title="Lux">Lux</div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">Team5</a> </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="Team">
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-107 tip"
+                                                                        title="Shen">Shen</div>
+                                                                    <div class="Image20 __sprite __spc20 __spc20-107 tip"
+                                                                        title="Shen">Shen</div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">Opp1</a> </div>
+                                                            </div>
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-41 tip tpd-delegation-uid-1"
+                                                                        title="">Ivern</div>
+                                                                    <div class="Image20 __sprite __spc20 __spc20-41 tip"
+                                                                        title="Ivern">Ivern</div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">Opp2</a> </div>
+                                                            </div>
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-85 tip"
+                                                                        title="Orianna">Orianna</div>
+                                                                    <div class="Image20 __sprite __spc20 __spc20-85 tip"
+                                                                        title="Orianna">Orianna</div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">Opp3</a> </div>
+                                                            </div>
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-132 tip"
+                                                                        title="Vayne">Vayne</div>
+                                                                    <div class="Image20 __sprite __spc20 __spc20-132 tip"
+                                                                        title="Vayne">Vayne</div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">Opp4</a> </div>
+                                                            </div>
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-103 tip"
+                                                                        title="Senna">Senna</div>
+                                                                    <div class="__sprite-unkown __spc20" title="Senna">
+                                                                        Senna</div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">Opp5</a> </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="StatsButton">
+                                                        <div class="Content">
+                                                            <div class="Item">
+                                                                <a id="right_match" href="#" class="Button MatchDetail">
+                                                                    <span class="__spSite __spSite-194 Off"></span>
+                                                                    <span
+                                                                        class="__spSite __spSite-193 On"></span>&#x21BB;</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                             </div>
-                                             <div class="Runes">
-                                                <div class="Rune"> <img src="./img/Unknown.png"
-                                                   class="Image tip tpd-delegation-uid-1" title=""
-                                                   alt="Grasp of the Undying"> </div>
-                                                <div class="Rune"> <img src="./img/Unknown.png"
-                                                   class="Image tip tpd-delegation-uid-1" title=""
-                                                   alt="Inspiration"> </div>
-                                             </div>
-                                             <div class="ChampionName"> <a
-                                                href="https://na.op.gg/champion/gangplank/statistics"
-                                                target="_blank">Gangplank</a> </div>
-                                          </div>
-                                          <div class="KDA">
-                                             <div class="KDA"> <span class="Kill">0</span> / <span
-                                                class="Death">2</span> / <span class="Assist">0</span> </div>
-                                             <div class="KDARatio"> <span class="KDARatio ">0:1</span> KDA </div>
-                                             <div class="Badge" style="display:none;"><span class="Text MVP"></span></div>
-                                          </div>
-                                          <div class="Stats">
-                                             <div class="Level"> Level </div>
-                                             <div class="CS"> <span class="CS tip tpd-delegation-uid-1" title="">cs
-                                                (cs/m)</span> CS 
-                                             </div>
-                                             <div class="CKRate tip" title="Kill Participation"> P/Kill 50% </div>
-                                             <div class="MMR"> <span>Tier Average</span>
-                                                <br> <b>NaN</b> 
-                                             </div>
-                                          </div>
-                                          <div class="Items">
-                                             <div class="ItemList">
-                                                <div class="Item"> <img src="./img/Unknown.png" class="Image tip"
-                                                   alt="Corrupting Potion"> </div>
-                                                <div class="Item"> <img src="./img/Unknown.png"
-                                                   class="Image tip tpd-delegation-uid-1" title=""
-                                                   alt="Divine Sunderer"> </div>
-                                                <div class="Item"> <img src="./img/Unknown.png"
-                                                   class="Image tip tpd-delegation-uid-1" title=""
-                                                   alt="Mercury&#39;s Treads"> </div>
-                                                <div class="Item"> <img src="./img/Unknown.png" class="Image tip"
-                                                   alt="Stealth Ward"> </div>
-                                                <div class="Item"> <img src="./img/Unknown.png" class="Image tip"
-                                                   alt="Ravenous Hydra"> </div>
-                                                <div class="Item"> <img src="./img/Unknown.png" class="Image tip"
-                                                   alt="The Collector"> </div>
-                                                <div class="Item"> <img src="./img/Unknown.png" class="Image tip"
-                                                   alt="Executioner&#39;s Calling"> </div>
-                                                <button class="Button OpenBuildButton tip" title="Builds"
-                                                   type="button"> <img class="On" src="./img/icon-buildblue-p.png">
-                                                <img class="Off" src="./img/icon-buildblue-p.png">
-                                                </button>
-                                             </div>
-                                             <div class="Trinket"> <img src="./img/icon-ward-blue.png">
-                                                Control Ward <span class="wards vision">?</span> 
-                                             </div>
-                                          </div>
-                                          <div class="FollowPlayers Names">
-                                             <div class="Team">
-                                                <div class="Summoner Requester">
-                                                   <div class="ChampionImage">
-                                                      <div class="Image16 __sprite __spc16 __spc16-32 tip"
-                                                         title="Gangplank">Gangplank</div>
-                                                      <div class="Image20 __sprite __spc20 __spc20-32 tip"
-                                                         title="Gangplank">Gangplank</div>
-                                                   </div>
-                                                   <div class="SummonerName"> <a href="#" class="Link"
-                                                      target="_blank">You</a> </div>
-                                                </div>
-                                                <div class="Summoner">
-                                                   <div class="ChampionImage">
-                                                      <div class="Image16 __sprite __spc16 __spc16-23 tip"
-                                                         title="Dr. Mundo">Dr. Mundo</div>
-                                                      <div class="Image20 __sprite __spc20 __spc20-23 tip"
-                                                         title="Dr. Mundo">Dr. Mundo</div>
-                                                   </div>
-                                                   <div class="SummonerName"> <a href="#" class="Link"
-                                                      target="_blank">Team2</a> </div>
-                                                </div>
-                                                <div class="Summoner">
-                                                   <div class="ChampionImage">
-                                                      <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                         title="Fizz">Fizz</div>
-                                                      <div class="Image20 __sprite __spc20 __spc20-30 tip"
-                                                         title="Fizz">Fizz</div>
-                                                   </div>
-                                                   <div class="SummonerName"> <a href="#" class="Link"
-                                                      target="_blank">Team3</a> </div>
-                                                </div>
-                                                <div class="Summoner ">
-                                                   <div class="ChampionImage">
-                                                      <div class="Image16 __sprite __spc16 __spc16-46 tip"
-                                                         title="Jhin">Jhin</div>
-                                                      <div class="Image20 __sprite __spc20 __spc20-46 tip"
-                                                         title="Jhin">Jhin</div>
-                                                   </div>
-                                                   <div class="SummonerName"> <a href="#" class="Link"
-                                                      target="_blank">Team4</a> </div>
-                                                </div>
-                                                <div class="Summoner ">
-                                                   <div class="ChampionImage">
-                                                      <div class="Image16 __sprite __spc16 __spc16-68 tip"
-                                                         title="Lux">Lux</div>
-                                                      <div class="Image20 __sprite __spc20 __spc20-68 tip"
-                                                         title="Lux">Lux</div>
-                                                   </div>
-                                                   <div class="SummonerName"> <a href="#" class="Link"
-                                                      target="_blank">Team5</a> </div>
-                                                </div>
-                                             </div>
-                                             <div class="Team">
-                                                <div class="Summoner ">
-                                                   <div class="ChampionImage">
-                                                      <div class="Image16 __sprite __spc16 __spc16-107 tip"
-                                                         title="Shen">Shen</div>
-                                                      <div class="Image20 __sprite __spc20 __spc20-107 tip"
-                                                         title="Shen">Shen</div>
-                                                   </div>
-                                                   <div class="SummonerName"> <a href="#" class="Link"
-                                                      target="_blank">Opp1</a> </div>
-                                                </div>
-                                                <div class="Summoner ">
-                                                   <div class="ChampionImage">
-                                                      <div class="Image16 __sprite __spc16 __spc16-41 tip tpd-delegation-uid-1"
-                                                         title="">Ivern</div>
-                                                      <div class="Image20 __sprite __spc20 __spc20-41 tip"
-                                                         title="Ivern">Ivern</div>
-                                                   </div>
-                                                   <div class="SummonerName"> <a href="#" class="Link"
-                                                      target="_blank">Opp2</a> </div>
-                                                </div>
-                                                <div class="Summoner ">
-                                                   <div class="ChampionImage">
-                                                      <div class="Image16 __sprite __spc16 __spc16-85 tip"
-                                                         title="Orianna">Orianna</div>
-                                                      <div class="Image20 __sprite __spc20 __spc20-85 tip"
-                                                         title="Orianna">Orianna</div>
-                                                   </div>
-                                                   <div class="SummonerName"> <a href="#" class="Link"
-                                                      target="_blank">Opp3</a> </div>
-                                                </div>
-                                                <div class="Summoner ">
-                                                   <div class="ChampionImage">
-                                                      <div class="Image16 __sprite __spc16 __spc16-132 tip"
-                                                         title="Vayne">Vayne</div>
-                                                      <div class="Image20 __sprite __spc20 __spc20-132 tip"
-                                                         title="Vayne">Vayne</div>
-                                                   </div>
-                                                   <div class="SummonerName"> <a href="#" class="Link"
-                                                      target="_blank">Opp4</a> </div>
-                                                </div>
-                                                <div class="Summoner ">
-                                                   <div class="ChampionImage">
-                                                      <div class="Image16 __sprite __spc16 __spc16-103 tip"
-                                                         title="Senna">Senna</div>
-                                                      <div class="__sprite-unkown __spc20"
-                                                         title="Senna">Senna</div>
-                                                   </div>
-                                                   <div class="SummonerName"> <a href="#" class="Link"
-                                                      target="_blank">Opp5</a> </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="StatsButton">
-                                             <div class="Content">
-                                                <div class="Item">
-                                                   <a id="right_match" href="#" class="Button MatchDetail"> <span
-                                                      class="__spSite __spSite-194 Off"></span> <span
-                                                      class="__spSite __spSite-193 On"></span>&#x21BB;</a>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                              </template>
-                              </div>
-                           </div>
+                                            </div>
+                                    </template>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-   </body>
-   <script>
-      var most_used = {
-      "code": 0,
-      "data": {
-          "area_id": 31,
-          "game_id": 26,
-          "info_list": [
-              {
-                  "champion_id": 4,
-                  "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/TwistedFate.png",
-                  "use_num": 176,
-                  "used_exp": 48191,
-                  "win_rate": 51
-              },
-              {
-                  "champion_id": 61,
-                  "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Orianna.png",
-                  "use_num": 138,
-                  "used_exp": 40082,
-                  "win_rate": 54
-              },
-              {
-                  "champion_id": 38,
-                  "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Kassadin.png",
-                  "use_num": 33,
-                  "used_exp": 28829,
-                  "win_rate": 55
-              },
-              {
-                  "champion_id": 22,
-                  "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Ashe.png",
-                  "use_num": 26,
-                  "used_exp": 18163,
-                  "win_rate": 43
-              },
-              {
-                  "champion_id": 266,
-                  "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Aatrox.png",
-                  "use_num": 23,
-                  "used_exp": 31909,
-                  "win_rate": 44
-              }
-          ],
-          "result": 0,
-          "slol_id": "zp0eea3d20V",
-          "weekly_report_status": {
-              "has_weekly_report": 0,
-              "report_jump_url": "https://act.tgp.qq.com/wegame/newlolweekly/index.html",
-              "report_new_flag": 0
-          }
-      },
-      "msg": "succ"
-      }
-      
-      var battle_list = {
-      "code": 0,
-      "data": {
-          "continue_lose": 0,
-          "continue_win": 1,
-          "is_finish": 0,
-          "next_index": 10,
-          "player_battle_brief_list": [
-              {
-                  "assist_num": 16,
-                  "battle_id": 91552135,
-                  "battle_time": 1607957015,
-                  "champion_en_name": "Viktor",
-                  "champion_id": 112,
-                  "death_num": 4,
-                  "game_mode_id": 4,
-                  "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                  "game_result": 1,
-                  "game_score": 970,
-                  "kill_num": 3,
-                  "position": 0,
-                  "pv_delta": 70
-              },
-              {
-                  "assist_num": 12,
-                  "battle_id": 91531918,
-                  "battle_time": 1607953816,
-                  "champion_en_name": "TwistedFate",
-                  "champion_id": 4,
-                  "death_num": 6,
-                  "ext_tag_desc": "\u7529\u9505\u5c40",
-                  "ext_tag_id": 10,
-                  "game_mode_id": 4,
-                  "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                  "game_result": 2,
-                  "game_score": 960,
-                  "kill_num": 6,
-                  "position": 3,
-                  "pv_delta": -86
-              },
-              {
-                  "assist_num": 10,
-                  "battle_id": 91551541,
-                  "battle_time": 1607951406,
-                  "champion_en_name": "TwistedFate",
-                  "champion_id": 4,
-                  "death_num": 5,
-                  "ext_tag_desc": "\u7529\u9505\u5c40",
-                  "ext_tag_id": 10,
-                  "game_mode_id": 4,
-                  "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                  "game_result": 2,
-                  "game_score": 770,
-                  "kill_num": 2,
-                  "position": 0,
-                  "pv_delta": -89
-              },
-              {
-                  "assist_num": 19,
-                  "battle_id": 91561049,
-                  "battle_time": 1607949301,
-                  "champion_en_name": "Lulu",
-                  "champion_id": 117,
-                  "death_num": 5,
-                  "game_mode_id": 4,
-                  "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                  "game_result": 1,
-                  "game_score": 890,
-                  "kill_num": 3,
-                  "position": 1,
-                  "pv_delta": 70
-              },
-              {
-                  "assist_num": 11,
-                  "battle_id": 91531160,
-                  "battle_time": 1607946424,
-                  "champion_en_name": "TwistedFate",
-                  "champion_id": 4,
-                  "death_num": 5,
-                  "ext_tag_desc": "\u7529\u9505\u5c40",
-                  "ext_tag_id": 10,
-                  "game_mode_id": 4,
-                  "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                  "game_result": 2,
-                  "game_score": 870,
-                  "kill_num": 4,
-                  "position": 0,
-                  "pv_delta": -91
-              },
-              {
-                  "assist_num": 12,
-                  "battle_flags": [
-                      1
-                  ],
-                  "battle_id": 91560578,
-                  "battle_time": 1607944294,
-                  "champion_en_name": "TwistedFate",
-                  "champion_id": 4,
-                  "death_num": 2,
-                  "ext_tag_desc": "Carry\u5c40",
-                  "ext_tag_id": 1,
-                  "game_mode_id": 4,
-                  "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                  "game_result": 1,
-                  "game_score": 1330,
-                  "kill_num": 6,
-                  "position": 0,
-                  "pv_delta": 90
-              },
-              {
-                  "assist_num": 7,
-                  "battle_id": 91546085,
-                  "battle_time": 1607861557,
-                  "champion_en_name": "Orianna",
-                  "champion_id": 61,
-                  "death_num": 2,
-                  "ext_tag_desc": "Carry\u5c40",
-                  "ext_tag_id": 1,
-                  "game_mode_id": 4,
-                  "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                  "game_result": 1,
-                  "game_score": 1360,
-                  "kill_num": 6,
-                  "position": 0,
-                  "pv_delta": 82
-              },
-              {
-                  "assist_num": 7,
-                  "battle_flags": [
-                      1
-                  ],
-                  "battle_id": 91536043,
-                  "battle_time": 1607859553,
-                  "champion_en_name": "Viktor",
-                  "champion_id": 112,
-                  "death_num": 1,
-                  "ext_tag_desc": "Carry\u5c40",
-                  "ext_tag_id": 1,
-                  "ext_tag_ids": [
-                      19
-                  ],
-                  "game_mode_id": 4,
-                  "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                  "game_result": 1,
-                  "game_score": 1420,
-                  "kill_num": 15,
-                  "position": 0,
-                  "pv_delta": 96
-              },
-              {
-                  "assist_num": 2,
-                  "battle_id": 91515749,
-                  "battle_time": 1607857698,
-                  "champion_en_name": "TwistedFate",
-                  "champion_id": 4,
-                  "death_num": 5,
-                  "ext_tag_desc": "\u7529\u9505\u5c40",
-                  "ext_tag_id": 10,
-                  "game_mode_id": 4,
-                  "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                  "game_result": 2,
-                  "game_score": 710,
-                  "kill_num": 2,
-                  "position": 0,
-                  "pv_delta": -84
-              },
-              {
-                  "assist_num": 6,
-                  "battle_id": 91515600,
-                  "battle_time": 1607856045,
-                  "champion_en_name": "",
-                  "champion_id": 164,
-                  "death_num": 4,
-                  "ext_tag_desc": "\u8eba\u8d62\u5c40",
-                  "ext_tag_id": 11,
-                  "game_mode_id": 4,
-                  "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                  "game_result": 1,
-                  "game_score": 410,
-                  "kill_num": 2,
-                  "position": 0,
-                  "pv_delta": 69
-              }
-          ],
-          "result": 0,
-          "total_num": 498
-      },
-      "msg": "succ"
-      }
-      
-      var game_details = {
-      "code": 0,
-      "data": {
-          "area_id": 31,
-          "battle_info": {
-              "battle_id": 91546085,
-              "duration": 1144,
-              "game_mode_id": 4,
-              "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-              "start_time_stamp": 1607861557,
-              "stop_time_stamp": 1607862701,
-              "team_data_opp": {
-                  "assist_num": 14,
-                  "battle_player_record": [
-                      {
-                          "assists_num": 3,
-                          "barracks_killed": 0,
-                          "battle_group_percent": 30,
-                          "champion_en_name": "Morgana",
-                          "champion_id": 25,
-                          "choose_position": 0,
-                          "death_num": 4,
-                          "game_score": 510,
-                          "gold_num": 4235,
-                          "gold_num_percent": 14,
-                          "is_win": 2,
-                          "item_ids": [
-                              3853,
-                              0,
-                              3158,
-                              3066,
-                              1004,
-                              3067,
-                              3364
-                          ],
-                          "kill_champion_num": 0,
-                          "kill_minion_num": 5,
-                          "kill_turret_num": 0,
-                          "largest_killing_spree": 0,
-                          "largest_multi_kill": 0,
-                          "level": 8,
-                          "magic_damage_2_champion": 2304,
-                          "physical_damage_2_champion": 1056,
-                          "pv_delta": 0,
-                          "role_name": "\u864e\u4e36\u7259\u7231\u62cd\u6d6aD",
-                          "slol_id": "R929REJ",
-                          "summon_spell_id": [
-                              3,
-                              4
-                          ],
-                          "team_id": 200,
-                          "tier_name": "\u738b\u8005",
-                          "total_damage_2_champion": 3361,
-                          "total_damage_2_champion_percent": 12,
-                          "total_damage_dealt": 6891,
-                          "total_damage_percent": 2,
-                          "total_damage_taken": 9863,
-                          "total_health": 784,
-                          "ward_killed_num": 5,
-                          "ward_killed_pecent": 50,
-                          "ward_placed_num": 19,
-                          "ward_placed_pecent": 44
-                      },
-                      {
-                          "assists_num": 4,
-                          "barracks_killed": 0,
-                          "battle_flag": [
-                              3
-                          ],
-                          "battle_group_percent": 70,
-                          "champion_en_name": "",
-                          "champion_id": 163,
-                          "choose_position": 0,
-                          "death_num": 4,
-                          "game_score": 1000,
-                          "gold_num": 6679,
-                          "gold_num_percent": 21,
-                          "is_win": 2,
-                          "item_ids": [
-                              3020,
-                              3191,
-                              6655,
-                              1082,
-                              0,
-                              0,
-                              3364
-                          ],
-                          "kill_champion_num": 3,
-                          "kill_minion_num": 117,
-                          "kill_turret_num": 0,
-                          "largest_killing_spree": 3,
-                          "largest_multi_kill": 1,
-                          "level": 12,
-                          "magic_damage_2_champion": 6663,
-                          "physical_damage_2_champion": 415,
-                          "pv_delta": 0,
-                          "role_name": "\u522b\u518d\u8f9c\u8d1f",
-                          "slol_id": "3p3zR1n0PXZ",
-                          "summon_spell_id": [
-                              4,
-                              11
-                          ],
-                          "team_id": 200,
-                          "tier_name": "\u5b97\u5e08",
-                          "total_damage_2_champion": 7920,
-                          "total_damage_2_champion_percent": 28,
-                          "total_damage_dealt": 92425,
-                          "total_damage_percent": 32,
-                          "total_damage_taken": 14333,
-                          "total_health": 5823,
-                          "ward_killed_num": 3,
-                          "ward_killed_pecent": 30,
-                          "ward_placed_num": 4,
-                          "ward_placed_pecent": 9
-                      },
-                      {
-                          "assists_num": 2,
-                          "barracks_killed": 0,
-                          "battle_group_percent": 70,
-                          "champion_en_name": "Galio",
-                          "champion_id": 3,
-                          "choose_position": 0,
-                          "death_num": 7,
-                          "game_score": 890,
-                          "gold_num": 7825,
-                          "gold_num_percent": 25,
-                          "is_win": 2,
-                          "item_ids": [
-                              3152,
-                              3108,
-                              3020,
-                              1056,
-                              1082,
-                              3191,
-                              3340
-                          ],
-                          "kill_champion_num": 5,
-                          "kill_minion_num": 106,
-                          "kill_turret_num": 0,
-                          "largest_killing_spree": 2,
-                          "largest_multi_kill": 2,
-                          "level": 10,
-                          "magic_damage_2_champion": 7414,
-                          "physical_damage_2_champion": 405,
-                          "pv_delta": 0,
-                          "role_name": "\u8865\u4f4d\u6253\u91ce\u76f4\u63a515",
-                          "slol_id": "9Krm9X5xWlW",
-                          "summon_spell_id": [
-                              12,
-                              4
-                          ],
-                          "team_id": 200,
-                          "tier_name": "\u738b\u8005",
-                          "total_damage_2_champion": 7868,
-                          "total_damage_2_champion_percent": 28,
-                          "total_damage_dealt": 56661,
-                          "total_damage_percent": 20,
-                          "total_damage_taken": 15652,
-                          "total_health": 997,
-                          "ward_killed_num": 1,
-                          "ward_killed_pecent": 10,
-                          "ward_placed_num": 8,
-                          "ward_placed_pecent": 19
-                      },
-                      {
-                          "assists_num": 3,
-                          "barracks_killed": 0,
-                          "battle_group_percent": 30,
-                          "champion_en_name": "",
-                          "champion_id": 202,
-                          "choose_position": 0,
-                          "death_num": 5,
-                          "game_score": 570,
-                          "gold_num": 5453,
-                          "gold_num_percent": 18,
-                          "is_win": 2,
-                          "item_ids": [
-                              1055,
-                              1018,
-                              3009,
-                              1037,
-                              6670,
-                              3070,
-                              3363
-                          ],
-                          "kill_champion_num": 0,
-                          "kill_minion_num": 133,
-                          "kill_turret_num": 0,
-                          "largest_killing_spree": 0,
-                          "largest_multi_kill": 0,
-                          "level": 10,
-                          "magic_damage_2_champion": 0,
-                          "physical_damage_2_champion": 5896,
-                          "pv_delta": 0,
-                          "role_name": "\u59b3\u6700\u597d\u6068\u6211",
-                          "slol_id": "J7dXEoV",
-                          "summon_spell_id": [
-                              4,
-                              7
-                          ],
-                          "team_id": 200,
-                          "tier_name": "\u5b97\u5e08",
-                          "total_damage_2_champion": 5896,
-                          "total_damage_2_champion_percent": 21,
-                          "total_damage_dealt": 63149,
-                          "total_damage_percent": 22,
-                          "total_damage_taken": 9794,
-                          "total_health": 1879,
-                          "ward_killed_num": 0,
-                          "ward_killed_pecent": 0,
-                          "ward_placed_num": 5,
-                          "ward_placed_pecent": 12
-                      },
-                      {
-                          "assists_num": 2,
-                          "barracks_killed": 0,
-                          "battle_group_percent": 40,
-                          "champion_en_name": "Riven",
-                          "champion_id": 92,
-                          "choose_position": 0,
-                          "death_num": 4,
-                          "game_score": 820,
-                          "gold_num": 6917,
-                          "gold_num_percent": 22,
-                          "is_win": 2,
-                          "item_ids": [
-                              1054,
-                              3074,
-                              2031,
-                              1001,
-                              3133,
-                              3067,
-                              3340
-                          ],
-                          "kill_champion_num": 2,
-                          "kill_minion_num": 156,
-                          "kill_turret_num": 0,
-                          "largest_killing_spree": 2,
-                          "largest_multi_kill": 1,
-                          "level": 11,
-                          "magic_damage_2_champion": 0,
-                          "physical_damage_2_champion": 2966,
-                          "pv_delta": 0,
-                          "role_name": "B\u7ad9\u5c0f\u5929Riven1",
-                          "slol_id": "GQnxzxE",
-                          "summon_spell_id": [
-                              12,
-                              4
-                          ],
-                          "team_id": 200,
-                          "tier_name": "\u738b\u8005",
-                          "total_damage_2_champion": 2966,
-                          "total_damage_2_champion_percent": 11,
-                          "total_damage_dealt": 71388,
-                          "total_damage_percent": 25,
-                          "total_damage_taken": 11295,
-                          "total_health": 1273,
-                          "ward_killed_num": 1,
-                          "ward_killed_pecent": 10,
-                          "ward_placed_num": 7,
-                          "ward_placed_pecent": 16
-                      }
-                  ],
-                  "death_num": 24,
-                  "gold_num": 31109,
-                  "is_win": 2,
-                  "kill_baron_num": 0,
-                  "kill_dragon_num": 0,
-                  "kill_num": 10,
-                  "kill_turret_num": 0,
-                  "team_id": 200,
-                  "ward_percent": 50
-              },
-              "team_data_own": {
-                  "assist_num": 29,
-                  "battle_player_record": [
-                      {
-                          "assists_num": 4,
-                          "barracks_killed": 0,
-                          "battle_group_percent": 29,
-                          "battle_tag_list": [
-                              {
-                                  "name": "",
-                                  "tag_id": 10
-                              }
-                          ],
-                          "champion_en_name": "Jayce",
-                          "champion_id": 126,
-                          "choose_position": 0,
-                          "death_num": 4,
-                          "game_score": 860,
-                          "gold_num": 8564,
-                          "gold_num_percent": 21,
-                          "is_win": 1,
-                          "item_ids": [
-                              3142,
-                              2031,
-                              3123,
-                              6692,
-                              1055,
-                              3111,
-                              3340
-                          ],
-                          "kill_champion_num": 3,
-                          "kill_minion_num": 153,
-                          "kill_turret_num": 1,
-                          "largest_killing_spree": 2,
-                          "largest_multi_kill": 1,
-                          "level": 12,
-                          "magic_damage_2_champion": 727,
-                          "physical_damage_2_champion": 8368,
-                          "pv_delta": 0,
-                          "role_name": "\u52a0\u6cb9\u5427\u52a0\u6cb9",
-                          "slol_id": "N3peO2k",
-                          "summon_spell_id": [
-                              12,
-                              4
-                          ],
-                          "team_id": 100,
-                          "tier_name": "\u738b\u8005",
-                          "total_damage_2_champion": 9096,
-                          "total_damage_2_champion_percent": 19,
-                          "total_damage_dealt": 80187,
-                          "total_damage_percent": 21,
-                          "total_damage_taken": 9036,
-                          "total_health": 1941,
-                          "ward_killed_num": 4,
-                          "ward_killed_pecent": 27,
-                          "ward_placed_num": 5,
-                          "ward_placed_pecent": 13
-                      },
-                      {
-                          "assists_num": 5,
-                          "barracks_killed": 0,
-                          "battle_flag": [
-                              1
-                          ],
-                          "battle_group_percent": 50,
-                          "battle_tag_list": [
-                              {
-                                  "name": "",
-                                  "tag_id": 1
-                              },
-                              {
-                                  "name": "",
-                                  "tag_id": 11
-                              }
-                          ],
-                          "champion_en_name": "",
-                          "champion_id": 141,
-                          "choose_position": 0,
-                          "death_num": 2,
-                          "game_score": 1430,
-                          "gold_num": 9010,
-                          "gold_num_percent": 22,
-                          "is_win": 1,
-                          "item_ids": [
-                              6691,
-                              1037,
-                              0,
-                              3134,
-                              3158,
-                              3070,
-                              3513
-                          ],
-                          "kill_champion_num": 7,
-                          "kill_minion_num": 143,
-                          "kill_turret_num": 0,
-                          "largest_killing_spree": 5,
-                          "largest_multi_kill": 2,
-                          "level": 12,
-                          "magic_damage_2_champion": 572,
-                          "physical_damage_2_champion": 7335,
-                          "pv_delta": 0,
-                          "role_name": "\u68a6\u9f50\u5927\u9b54\u738b",
-                          "slol_id": "oLeornREbKk",
-                          "summon_spell_id": [
-                              4,
-                              11
-                          ],
-                          "team_id": 100,
-                          "tier_name": "\u738b\u8005",
-                          "total_damage_2_champion": 8528,
-                          "total_damage_2_champion_percent": 18,
-                          "total_damage_dealt": 133868,
-                          "total_damage_percent": 35,
-                          "total_damage_taken": 18070,
-                          "total_health": 11343,
-                          "ward_killed_num": 3,
-                          "ward_killed_pecent": 20,
-                          "ward_placed_num": 4,
-                          "ward_placed_pecent": 11
-                      },
-                      {
-                          "assists_num": 7,
-                          "barracks_killed": 0,
-                          "battle_group_percent": 54,
-                          "battle_tag_list": [
-                              {
-                                  "name": "",
-                                  "tag_id": 3
-                              },
-                              {
-                                  "name": "",
-                                  "tag_id": 9
-                              },
-                              {
-                                  "name": "",
-                                  "tag_id": 10
-                              },
-                              {
-                                  "name": "",
-                                  "tag_id": 12
-                              }
-                          ],
-                          "champion_en_name": "Orianna",
-                          "champion_id": 61,
-                          "choose_position": 0,
-                          "death_num": 2,
-                          "game_score": 1360,
-                          "gold_num": 9118,
-                          "gold_num_percent": 22,
-                          "is_win": 1,
-                          "item_ids": [
-                              0,
-                              0,
-                              3111,
-                              1082,
-                              6653,
-                              3040,
-                              3340
-                          ],
-                          "kill_champion_num": 6,
-                          "kill_minion_num": 160,
-                          "kill_turret_num": 1,
-                          "largest_killing_spree": 3,
-                          "largest_multi_kill": 2,
-                          "level": 13,
-                          "magic_damage_2_champion": 11428,
-                          "physical_damage_2_champion": 1795,
-                          "pv_delta": 0,
-                          "role_name": "1993y",
-                          "slol_id": "zp0eea3d20V",
-                          "summon_spell_id": [
-                              12,
-                              4
-                          ],
-                          "team_id": 100,
-                          "tier_name": "\u738b\u8005",
-                          "total_damage_2_champion": 13224,
-                          "total_damage_2_champion_percent": 27,
-                          "total_damage_dealt": 79407,
-                          "total_damage_percent": 20,
-                          "total_damage_taken": 6203,
-                          "total_health": 157,
-                          "ward_killed_num": 2,
-                          "ward_killed_pecent": 13,
-                          "ward_placed_num": 6,
-                          "ward_placed_pecent": 16
-                      },
-                      {
-                          "assists_num": 3,
-                          "barracks_killed": 0,
-                          "battle_group_percent": 42,
-                          "battle_tag_list": [
-                              {
-                                  "name": "",
-                                  "tag_id": 1
-                              },
-                              {
-                                  "name": "",
-                                  "tag_id": 10
-                              }
-                          ],
-                          "champion_en_name": "",
-                          "champion_id": 145,
-                          "choose_position": 0,
-                          "death_num": 1,
-                          "game_score": 1380,
-                          "gold_num": 8735,
-                          "gold_num_percent": 21,
-                          "is_win": 1,
-                          "item_ids": [
-                              2031,
-                              3006,
-                              6671,
-                              3134,
-                              1037,
-                              1055,
-                              3363
-                          ],
-                          "kill_champion_num": 7,
-                          "kill_minion_num": 151,
-                          "kill_turret_num": 1,
-                          "largest_killing_spree": 5,
-                          "largest_multi_kill": 2,
-                          "level": 11,
-                          "magic_damage_2_champion": 3270,
-                          "physical_damage_2_champion": 9419,
-                          "pv_delta": 0,
-                          "role_name": "\u8861\u9633\u91ce\u732a",
-                          "slol_id": "pLr5kJx",
-                          "summon_spell_id": [
-                              4,
-                              7
-                          ],
-                          "team_id": 100,
-                          "tier_name": "\u5b97\u5e08",
-                          "total_damage_2_champion": 12689,
-                          "total_damage_2_champion_percent": 26,
-                          "total_damage_dealt": 71669,
-                          "total_damage_percent": 18,
-                          "total_damage_taken": 6136,
-                          "total_health": 3030,
-                          "ward_killed_num": 1,
-                          "ward_killed_pecent": 7,
-                          "ward_placed_num": 6,
-                          "ward_placed_pecent": 16
-                      },
-                      {
-                          "assists_num": 10,
-                          "barracks_killed": 0,
-                          "battle_group_percent": 46,
-                          "battle_tag_list": [
-                              {
-                                  "name": "",
-                                  "tag_id": 2
-                              }
-                          ],
-                          "champion_en_name": "Leona",
-                          "champion_id": 89,
-                          "choose_position": 0,
-                          "death_num": 1,
-                          "game_score": 1110,
-                          "gold_num": 5444,
-                          "gold_num_percent": 13,
-                          "is_win": 1,
-                          "item_ids": [
-                              3190,
-                              2031,
-                              0,
-                              3860,
-                              3111,
-                              0,
-                              3364
-                          ],
-                          "kill_champion_num": 1,
-                          "kill_minion_num": 36,
-                          "kill_turret_num": 0,
-                          "largest_killing_spree": 0,
-                          "largest_multi_kill": 1,
-                          "level": 10,
-                          "magic_damage_2_champion": 2611,
-                          "physical_damage_2_champion": 1336,
-                          "pv_delta": 0,
-                          "role_name": "\u6e56\u5357\u91ce\u732a",
-                          "slol_id": "5m4zeP2rGBv",
-                          "summon_spell_id": [
-                              14,
-                              4
-                          ],
-                          "team_id": 100,
-                          "tier_name": "\u5b97\u5e08",
-                          "total_damage_2_champion": 4587,
-                          "total_damage_2_champion_percent": 10,
-                          "total_damage_dealt": 22297,
-                          "total_damage_percent": 6,
-                          "total_damage_taken": 9647,
-                          "total_health": 136,
-                          "ward_killed_num": 5,
-                          "ward_killed_pecent": 33,
-                          "ward_placed_num": 17,
-                          "ward_placed_pecent": 45
-                      }
-                  ],
-                  "death_num": 10,
-                  "gold_num": 40871,
-                  "is_win": 1,
-                  "kill_baron_num": 0,
-                  "kill_dragon_num": 0,
-                  "kill_num": 24,
-                  "kill_turret_num": 3,
-                  "team_id": 100,
-                  "ward_percent": 50
-              }
-          },
-          "dst_slol_id": "zp0eea3d20V",
-          "game_id": 26,
-          "req_slol_id": "zp0eea3d20V",
-          "result": 0
-      },
-      "msg": "succ"
-      }
-      
-      var player_info = {
-      "code": 0,
-      "data": {
-          "all_champion_num": 153,
-          "all_skin_num": 1155,
-          "area_id": 31,
-          "area_name": "\u5ce1\u8c37\u4e4b\u5dc5",
-          "champion_num": 112,
-          "game_age": 0,
-          "game_id": 26,
-          "game_level": 153,
-          "game_logo_url": "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/usericon/1387.png",
-          "gender": 0,
-          "league_point": 809,
-          "measure_unit": 0,
-          "online_status": 0,
-          "online_zone_id": 0,
-          "power_value": 100183,
-          "praise_time": 0,
-          "rank": 0,
-          "recent_kda": 863,
-          "recent_total_games": 91,
-          "recent_total_kill": 332,
-          "recent_win_rate": 52,
-          "result": 0,
-          "role_name": "1993y",
-          "skin_num": 54,
-          "slol_id": "zp0eea3d20V",
-          "tier": 0,
-          "total_assist": 11233,
-          "total_games": 964,
-          "total_kill": 6766,
-          "total_placed": 17532,
-          "total_time": 733153,
-          "win_rate": 56
-      },
-      "msg": "succ"
-      }
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+    var most_used = {
+        "code": 0,
+        "data": {
+            "area_id": 31,
+            "game_id": 26,
+            "info_list": [
+                {
+                    "champion_id": 4,
+                    "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/TwistedFate.png",
+                    "use_num": 176,
+                    "used_exp": 48191,
+                    "win_rate": 51
+                },
+                {
+                    "champion_id": 61,
+                    "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Orianna.png",
+                    "use_num": 138,
+                    "used_exp": 40082,
+                    "win_rate": 54
+                },
+                {
+                    "champion_id": 38,
+                    "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Kassadin.png",
+                    "use_num": 33,
+                    "used_exp": 28829,
+                    "win_rate": 55
+                },
+                {
+                    "champion_id": 22,
+                    "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Ashe.png",
+                    "use_num": 26,
+                    "used_exp": 18163,
+                    "win_rate": 43
+                },
+                {
+                    "champion_id": 266,
+                    "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Aatrox.png",
+                    "use_num": 23,
+                    "used_exp": 31909,
+                    "win_rate": 44
+                }
+            ],
+            "result": 0,
+            "slol_id": "zp0eea3d20V",
+            "weekly_report_status": {
+                "has_weekly_report": 0,
+                "report_jump_url": "https://act.tgp.qq.com/wegame/newlolweekly/index.html",
+                "report_new_flag": 0
+            }
+        },
+        "msg": "succ"
+    }
 
-      d = function (arguments) { return document.getElementsByClassName(arguments)[0]; }
-      
-      const weRank = "https://wegame.gtimg.com/app/lol/score_souces/division/"
-      const weCDN = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/champions/"
-      
-      var rankJSON = {
-      "0":"Challenger"
-      }
+    var battle_list = {
+        "code": 0,
+        "data": {
+            "continue_lose": 0,
+            "continue_win": 1,
+            "is_finish": 0,
+            "next_index": 10,
+            "player_battle_brief_list": [
+                {
+                    "assist_num": 16,
+                    "battle_id": 91552135,
+                    "battle_time": 1607957015,
+                    "champion_en_name": "Viktor",
+                    "champion_id": 112,
+                    "death_num": 4,
+                    "game_mode_id": 4,
+                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                    "game_result": 1,
+                    "game_score": 970,
+                    "kill_num": 3,
+                    "position": 0,
+                    "pv_delta": 70
+                },
+                {
+                    "assist_num": 12,
+                    "battle_id": 91531918,
+                    "battle_time": 1607953816,
+                    "champion_en_name": "TwistedFate",
+                    "champion_id": 4,
+                    "death_num": 6,
+                    "ext_tag_desc": "\u7529\u9505\u5c40",
+                    "ext_tag_id": 10,
+                    "game_mode_id": 4,
+                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                    "game_result": 2,
+                    "game_score": 960,
+                    "kill_num": 6,
+                    "position": 3,
+                    "pv_delta": -86
+                },
+                {
+                    "assist_num": 10,
+                    "battle_id": 91551541,
+                    "battle_time": 1607951406,
+                    "champion_en_name": "TwistedFate",
+                    "champion_id": 4,
+                    "death_num": 5,
+                    "ext_tag_desc": "\u7529\u9505\u5c40",
+                    "ext_tag_id": 10,
+                    "game_mode_id": 4,
+                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                    "game_result": 2,
+                    "game_score": 770,
+                    "kill_num": 2,
+                    "position": 0,
+                    "pv_delta": -89
+                },
+                {
+                    "assist_num": 19,
+                    "battle_id": 91561049,
+                    "battle_time": 1607949301,
+                    "champion_en_name": "Lulu",
+                    "champion_id": 117,
+                    "death_num": 5,
+                    "game_mode_id": 4,
+                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                    "game_result": 1,
+                    "game_score": 890,
+                    "kill_num": 3,
+                    "position": 1,
+                    "pv_delta": 70
+                },
+                {
+                    "assist_num": 11,
+                    "battle_id": 91531160,
+                    "battle_time": 1607946424,
+                    "champion_en_name": "TwistedFate",
+                    "champion_id": 4,
+                    "death_num": 5,
+                    "ext_tag_desc": "\u7529\u9505\u5c40",
+                    "ext_tag_id": 10,
+                    "game_mode_id": 4,
+                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                    "game_result": 2,
+                    "game_score": 870,
+                    "kill_num": 4,
+                    "position": 0,
+                    "pv_delta": -91
+                },
+                {
+                    "assist_num": 12,
+                    "battle_flags": [
+                        1
+                    ],
+                    "battle_id": 91560578,
+                    "battle_time": 1607944294,
+                    "champion_en_name": "TwistedFate",
+                    "champion_id": 4,
+                    "death_num": 2,
+                    "ext_tag_desc": "Carry\u5c40",
+                    "ext_tag_id": 1,
+                    "game_mode_id": 4,
+                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                    "game_result": 1,
+                    "game_score": 1330,
+                    "kill_num": 6,
+                    "position": 0,
+                    "pv_delta": 90
+                },
+                {
+                    "assist_num": 7,
+                    "battle_id": 91546085,
+                    "battle_time": 1607861557,
+                    "champion_en_name": "Orianna",
+                    "champion_id": 61,
+                    "death_num": 2,
+                    "ext_tag_desc": "Carry\u5c40",
+                    "ext_tag_id": 1,
+                    "game_mode_id": 4,
+                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                    "game_result": 1,
+                    "game_score": 1360,
+                    "kill_num": 6,
+                    "position": 0,
+                    "pv_delta": 82
+                },
+                {
+                    "assist_num": 7,
+                    "battle_flags": [
+                        1
+                    ],
+                    "battle_id": 91536043,
+                    "battle_time": 1607859553,
+                    "champion_en_name": "Viktor",
+                    "champion_id": 112,
+                    "death_num": 1,
+                    "ext_tag_desc": "Carry\u5c40",
+                    "ext_tag_id": 1,
+                    "ext_tag_ids": [
+                        19
+                    ],
+                    "game_mode_id": 4,
+                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                    "game_result": 1,
+                    "game_score": 1420,
+                    "kill_num": 15,
+                    "position": 0,
+                    "pv_delta": 96
+                },
+                {
+                    "assist_num": 2,
+                    "battle_id": 91515749,
+                    "battle_time": 1607857698,
+                    "champion_en_name": "TwistedFate",
+                    "champion_id": 4,
+                    "death_num": 5,
+                    "ext_tag_desc": "\u7529\u9505\u5c40",
+                    "ext_tag_id": 10,
+                    "game_mode_id": 4,
+                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                    "game_result": 2,
+                    "game_score": 710,
+                    "kill_num": 2,
+                    "position": 0,
+                    "pv_delta": -84
+                },
+                {
+                    "assist_num": 6,
+                    "battle_id": 91515600,
+                    "battle_time": 1607856045,
+                    "champion_en_name": "",
+                    "champion_id": 164,
+                    "death_num": 4,
+                    "ext_tag_desc": "\u8eba\u8d62\u5c40",
+                    "ext_tag_id": 11,
+                    "game_mode_id": 4,
+                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                    "game_result": 1,
+                    "game_score": 410,
+                    "kill_num": 2,
+                    "position": 0,
+                    "pv_delta": 69
+                }
+            ],
+            "result": 0,
+            "total_num": 498
+        },
+        "msg": "succ"
+    }
 
-      
-      //Profile Top Left Picture and Win Rat
-      d("TierRank").innerText = rankJSON[player_info.data.rank]
-      d("winratio").innerText = "Win Ratio "+player_info.data.win_rate+"%"
-      d("Username").innerText = player_info.data.role_name
-      document.getElementById("rank-metal").src = weRank + player_info.data.rank + ".png"
-      
-      //Most Played
-      for (z = 0; z < Object.keys(most_used.data.info_list).length; z++) {
+    var game_details = {
+        "code": 0,
+        "data": {
+            "area_id": 31,
+            "battle_info": {
+                "battle_id": 91552135,
+                "duration": 1602,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "start_time_stamp": 1607957015,
+                "stop_time_stamp": 1607958617,
+                "team_data_opp": {
+                    "assist_num": 29,
+                    "battle_player_record": [
+                        {
+                            "assists_num": 2,
+                            "barracks_killed": 0,
+                            "battle_group_percent": 11,
+                            "battle_tag_list": [
+                                {
+                                    "name": "",
+                                    "tag_id": 9
+                                }
+                            ],
+                            "champion_en_name": "",
+                            "champion_id": 164,
+                            "choose_position": 0,
+                            "death_num": 5,
+                            "game_score": 660,
+                            "gold_num": 9468,
+                            "gold_num_percent": 18,
+                            "is_win": 2,
+                            "item_ids": [
+                                3074,
+                                2031,
+                                3078,
+                                1055,
+                                1037,
+                                3047,
+                                3340
+                            ],
+                            "kill_champion_num": 1,
+                            "kill_minion_num": 210,
+                            "kill_turret_num": 1,
+                            "largest_killing_spree": 0,
+                            "largest_multi_kill": 1,
+                            "level": 14,
+                            "magic_damage_2_champion": 82,
+                            "physical_damage_2_champion": 7732,
+                            "pv_delta": 0,
+                            "role_name": "\u53ea\u53ea\u89c9\u5f97\u4e0d\u59a5",
+                            "slol_id": "N3p2ZYV",
+                            "summon_spell_id": [
+                                12,
+                                4
+                            ],
+                            "team_id": 100,
+                            "tier_name": "\u5b97\u5e08",
+                            "total_damage_2_champion": 8033,
+                            "total_damage_2_champion_percent": 10,
+                            "total_damage_dealt": 109545,
+                            "total_damage_percent": 20,
+                            "total_damage_taken": 18461,
+                            "total_health": 3733,
+                            "ward_killed_num": 3,
+                            "ward_killed_pecent": 12,
+                            "ward_placed_num": 8,
+                            "ward_placed_pecent": 12
+                        },
+                        {
+                            "assists_num": 9,
+                            "barracks_killed": 0,
+                            "battle_group_percent": 56,
+                            "champion_en_name": "",
+                            "champion_id": 163,
+                            "choose_position": 0,
+                            "death_num": 7,
+                            "game_score": 940,
+                            "gold_num": 11046,
+                            "gold_num_percent": 21,
+                            "is_win": 2,
+                            "item_ids": [
+                                0,
+                                1052,
+                                3041,
+                                3020,
+                                3165,
+                                6655,
+                                3364
+                            ],
+                            "kill_champion_num": 6,
+                            "kill_minion_num": 196,
+                            "kill_turret_num": 0,
+                            "largest_killing_spree": 3,
+                            "largest_multi_kill": 2,
+                            "level": 15,
+                            "magic_damage_2_champion": 21223,
+                            "physical_damage_2_champion": 486,
+                            "pv_delta": 0,
+                            "role_name": "JUG242SH",
+                            "slol_id": "j9mga5l",
+                            "summon_spell_id": [
+                                4,
+                                11
+                            ],
+                            "team_id": 100,
+                            "tier_name": "\u5b97\u5e08",
+                            "total_damage_2_champion": 23014,
+                            "total_damage_2_champion_percent": 28,
+                            "total_damage_dealt": 168092,
+                            "total_damage_percent": 31,
+                            "total_damage_taken": 23832,
+                            "total_health": 8354,
+                            "ward_killed_num": 4,
+                            "ward_killed_pecent": 16,
+                            "ward_placed_num": 4,
+                            "ward_placed_pecent": 6
+                        },
+                        {
+                            "assists_num": 3,
+                            "barracks_killed": 0,
+                            "battle_group_percent": 26,
+                            "champion_en_name": "Leblanc",
+                            "champion_id": 7,
+                            "choose_position": 0,
+                            "death_num": 5,
+                            "game_score": 750,
+                            "gold_num": 9952,
+                            "gold_num_percent": 19,
+                            "is_win": 2,
+                            "item_ids": [
+                                2033,
+                                1082,
+                                4630,
+                                6655,
+                                3020,
+                                3165,
+                                3364
+                            ],
+                            "kill_champion_num": 4,
+                            "kill_minion_num": 152,
+                            "kill_turret_num": 1,
+                            "largest_killing_spree": 2,
+                            "largest_multi_kill": 1,
+                            "level": 13,
+                            "magic_damage_2_champion": 14299,
+                            "physical_damage_2_champion": 1653,
+                            "pv_delta": 0,
+                            "role_name": "\u5927\u5361\u6bd4",
+                            "slol_id": "7MqYNd1",
+                            "summon_spell_id": [
+                                12,
+                                4
+                            ],
+                            "team_id": 100,
+                            "tier_name": "\u5b97\u5e08",
+                            "total_damage_2_champion": 16078,
+                            "total_damage_2_champion_percent": 19,
+                            "total_damage_dealt": 87498,
+                            "total_damage_percent": 16,
+                            "total_damage_taken": 20853,
+                            "total_health": 6059,
+                            "ward_killed_num": 3,
+                            "ward_killed_pecent": 12,
+                            "ward_placed_num": 7,
+                            "ward_placed_pecent": 11
+                        },
+                        {
+                            "assists_num": 2,
+                            "barracks_killed": 0,
+                            "battle_flag": [
+                                3
+                            ],
+                            "battle_group_percent": 67,
+                            "battle_tag_list": [
+                                {
+                                    "name": "",
+                                    "tag_id": 8
+                                },
+                                {
+                                    "name": "",
+                                    "tag_id": 1
+                                },
+                                {
+                                    "name": "",
+                                    "tag_id": 3
+                                },
+                                {
+                                    "name": "",
+                                    "tag_id": 12
+                                }
+                            ],
+                            "champion_en_name": "",
+                            "champion_id": 145,
+                            "choose_position": 0,
+                            "death_num": 9,
+                            "game_score": 1110,
+                            "gold_num": 14332,
+                            "gold_num_percent": 27,
+                            "is_win": 2,
+                            "item_ids": [
+                                2420,
+                                6671,
+                                3094,
+                                6676,
+                                3071,
+                                3006,
+                                3363
+                            ],
+                            "kill_champion_num": 16,
+                            "kill_minion_num": 179,
+                            "kill_turret_num": 1,
+                            "largest_killing_spree": 8,
+                            "largest_multi_kill": 2,
+                            "level": 14,
+                            "magic_damage_2_champion": 6976,
+                            "physical_damage_2_champion": 21288,
+                            "pv_delta": 0,
+                            "role_name": "9\u70b9\u5fc5\u8d77",
+                            "slol_id": "MvovXzX",
+                            "summon_spell_id": [
+                                7,
+                                4
+                            ],
+                            "team_id": 100,
+                            "tier_name": "\u738b\u8005",
+                            "total_damage_2_champion": 28742,
+                            "total_damage_2_champion_percent": 34,
+                            "total_damage_dealt": 132834,
+                            "total_damage_percent": 25,
+                            "total_damage_taken": 22336,
+                            "total_health": 6928,
+                            "ward_killed_num": 5,
+                            "ward_killed_pecent": 20,
+                            "ward_placed_num": 7,
+                            "ward_placed_pecent": 11
+                        },
+                        {
+                            "assists_num": 13,
+                            "barracks_killed": 0,
+                            "battle_group_percent": 48,
+                            "champion_en_name": "",
+                            "champion_id": 875,
+                            "choose_position": 0,
+                            "death_num": 8,
+                            "game_score": 490,
+                            "gold_num": 7569,
+                            "gold_num_percent": 14,
+                            "is_win": 2,
+                            "item_ids": [
+                                6664,
+                                3857,
+                                1031,
+                                2055,
+                                3066,
+                                3009,
+                                3364
+                            ],
+                            "kill_champion_num": 0,
+                            "kill_minion_num": 51,
+                            "kill_turret_num": 0,
+                            "largest_killing_spree": 0,
+                            "largest_multi_kill": 0,
+                            "level": 11,
+                            "magic_damage_2_champion": 447,
+                            "physical_damage_2_champion": 4757,
+                            "pv_delta": 0,
+                            "role_name": "Sora1",
+                            "slol_id": "qXyX9ag",
+                            "summon_spell_id": [
+                                14,
+                                4
+                            ],
+                            "team_id": 100,
+                            "tier_name": "\u5b97\u5e08",
+                            "total_damage_2_champion": 7495,
+                            "total_damage_2_champion_percent": 9,
+                            "total_damage_dealt": 36615,
+                            "total_damage_percent": 7,
+                            "total_damage_taken": 20226,
+                            "total_health": 1301,
+                            "ward_killed_num": 10,
+                            "ward_killed_pecent": 40,
+                            "ward_placed_num": 39,
+                            "ward_placed_pecent": 60
+                        }
+                    ],
+                    "death_num": 34,
+                    "gold_num": 52367,
+                    "is_win": 2,
+                    "kill_baron_num": 0,
+                    "kill_dragon_num": 0,
+                    "kill_num": 27,
+                    "kill_turret_num": 3,
+                    "team_id": 100,
+                    "ward_percent": 51
+                },
+                "team_data_own": {
+                    "assist_num": 60,
+                    "battle_player_record": [
+                        {
+                            "assists_num": 6,
+                            "barracks_killed": 0,
+                            "battle_flag": [
+                                1
+                            ],
+                            "battle_group_percent": 53,
+                            "battle_tag_list": [
+                                {
+                                    "name": "",
+                                    "tag_id": 11
+                                }
+                            ],
+                            "champion_en_name": "MonkeyKing",
+                            "champion_id": 62,
+                            "choose_position": 0,
+                            "death_num": 1,
+                            "game_score": 1470,
+                            "gold_num": 13753,
+                            "gold_num_percent": 24,
+                            "is_win": 1,
+                            "item_ids": [
+                                3047,
+                                6630,
+                                1037,
+                                3071,
+                                3053,
+                                3133,
+                                3364
+                            ],
+                            "kill_champion_num": 12,
+                            "kill_minion_num": 203,
+                            "kill_turret_num": 2,
+                            "largest_killing_spree": 7,
+                            "largest_multi_kill": 2,
+                            "level": 15,
+                            "magic_damage_2_champion": 3346,
+                            "physical_damage_2_champion": 14012,
+                            "pv_delta": 0,
+                            "role_name": "\u8881\u6210\u4f1f\u7684\u7206\u70b8\u679c\u5b9e",
+                            "slol_id": "mj7r007",
+                            "summon_spell_id": [
+                                4,
+                                12
+                            ],
+                            "team_id": 200,
+                            "tier_name": "\u5b97\u5e08",
+                            "total_damage_2_champion": 17447,
+                            "total_damage_2_champion_percent": 22,
+                            "total_damage_dealt": 116662,
+                            "total_damage_percent": 22,
+                            "total_damage_taken": 26477,
+                            "total_health": 10132,
+                            "ward_killed_num": 5,
+                            "ward_killed_pecent": 20,
+                            "ward_placed_num": 5,
+                            "ward_placed_pecent": 8
+                        },
+                        {
+                            "assists_num": 10,
+                            "barracks_killed": 0,
+                            "battle_group_percent": 62,
+                            "battle_tag_list": [
+                                {
+                                    "name": "",
+                                    "tag_id": 10
+                                }
+                            ],
+                            "champion_en_name": "Kindred",
+                            "champion_id": 203,
+                            "choose_position": 0,
+                            "death_num": 4,
+                            "game_score": 1180,
+                            "gold_num": 13636,
+                            "gold_num_percent": 24,
+                            "is_win": 1,
+                            "item_ids": [
+                                0,
+                                3046,
+                                6672,
+                                3155,
+                                3026,
+                                3006,
+                                3364
+                            ],
+                            "kill_champion_num": 11,
+                            "kill_minion_num": 180,
+                            "kill_turret_num": 3,
+                            "largest_killing_spree": 5,
+                            "largest_multi_kill": 2,
+                            "level": 14,
+                            "magic_damage_2_champion": 2502,
+                            "physical_damage_2_champion": 12018,
+                            "pv_delta": 0,
+                            "role_name": "yuyuKing",
+                            "slol_id": "rwxy7VeZpKW",
+                            "summon_spell_id": [
+                                11,
+                                4
+                            ],
+                            "team_id": 200,
+                            "tier_name": "\u5927\u5e08",
+                            "total_damage_2_champion": 16758,
+                            "total_damage_2_champion_percent": 21,
+                            "total_damage_dealt": 175283,
+                            "total_damage_percent": 32,
+                            "total_damage_taken": 25104,
+                            "total_health": 14325,
+                            "ward_killed_num": 4,
+                            "ward_killed_pecent": 16,
+                            "ward_placed_num": 6,
+                            "ward_placed_pecent": 10
+                        },
+                        {
+                            "assists_num": 16,
+                            "barracks_killed": 0,
+                            "battle_group_percent": 56,
+                            "battle_tag_list": [
+                                {
+                                    "name": "",
+                                    "tag_id": 2
+                                }
+                            ],
+                            "champion_en_name": "Viktor",
+                            "champion_id": 112,
+                            "choose_position": 0,
+                            "death_num": 4,
+                            "game_score": 970,
+                            "gold_num": 10086,
+                            "gold_num_percent": 18,
+                            "is_win": 1,
+                            "item_ids": [
+                                3067,
+                                1082,
+                                3108,
+                                3113,
+                                6653,
+                                3111,
+                                3340
+                            ],
+                            "kill_champion_num": 3,
+                            "kill_minion_num": 169,
+                            "kill_turret_num": 1,
+                            "largest_killing_spree": 2,
+                            "largest_multi_kill": 1,
+                            "level": 15,
+                            "magic_damage_2_champion": 18904,
+                            "physical_damage_2_champion": 1389,
+                            "pv_delta": 0,
+                            "role_name": "1993y",
+                            "slol_id": "zp0eea3d20V",
+                            "summon_spell_id": [
+                                21,
+                                4
+                            ],
+                            "team_id": 200,
+                            "tier_name": "\u738b\u8005",
+                            "total_damage_2_champion": 20600,
+                            "total_damage_2_champion_percent": 26,
+                            "total_damage_dealt": 127517,
+                            "total_damage_percent": 24,
+                            "total_damage_taken": 14673,
+                            "total_health": 4231,
+                            "ward_killed_num": 4,
+                            "ward_killed_pecent": 16,
+                            "ward_placed_num": 8,
+                            "ward_placed_pecent": 13
+                        },
+                        {
+                            "assists_num": 14,
+                            "barracks_killed": 1,
+                            "battle_group_percent": 59,
+                            "champion_en_name": "",
+                            "champion_id": 523,
+                            "choose_position": 0,
+                            "death_num": 10,
+                            "game_score": 870,
+                            "gold_num": 12109,
+                            "gold_num_percent": 21,
+                            "is_win": 1,
+                            "item_ids": [
+                                3046,
+                                6672,
+                                1038,
+                                3006,
+                                1037,
+                                1055,
+                                3363
+                            ],
+                            "kill_champion_num": 6,
+                            "kill_minion_num": 135,
+                            "kill_turret_num": 1,
+                            "largest_killing_spree": 2,
+                            "largest_multi_kill": 2,
+                            "level": 14,
+                            "magic_damage_2_champion": 863,
+                            "physical_damage_2_champion": 12376,
+                            "pv_delta": 0,
+                            "role_name": "b\u7ad9\u9648\u76f4\u76f4",
+                            "slol_id": "Eg3VaoY",
+                            "summon_spell_id": [
+                                7,
+                                4
+                            ],
+                            "team_id": 200,
+                            "tier_name": "\u5b97\u5e08",
+                            "total_damage_2_champion": 15059,
+                            "total_damage_2_champion_percent": 19,
+                            "total_damage_dealt": 91310,
+                            "total_damage_percent": 17,
+                            "total_damage_taken": 19928,
+                            "total_health": 4016,
+                            "ward_killed_num": 2,
+                            "ward_killed_pecent": 8,
+                            "ward_placed_num": 8,
+                            "ward_placed_pecent": 13
+                        },
+                        {
+                            "assists_num": 14,
+                            "barracks_killed": 0,
+                            "battle_group_percent": 47,
+                            "champion_en_name": "Zilean",
+                            "champion_id": 26,
+                            "choose_position": 0,
+                            "death_num": 8,
+                            "game_score": 510,
+                            "gold_num": 7609,
+                            "gold_num_percent": 13,
+                            "is_win": 1,
+                            "item_ids": [
+                                3853,
+                                3108,
+                                2420,
+                                3158,
+                                3067,
+                                4005,
+                                3364
+                            ],
+                            "kill_champion_num": 2,
+                            "kill_minion_num": 24,
+                            "kill_turret_num": 0,
+                            "largest_killing_spree": 0,
+                            "largest_multi_kill": 1,
+                            "level": 13,
+                            "magic_damage_2_champion": 7051,
+                            "physical_damage_2_champion": 934,
+                            "pv_delta": 0,
+                            "role_name": "T5\u6253\u91ce\u7f62\u4e86",
+                            "slol_id": "1OEYE2l",
+                            "summon_spell_id": [
+                                14,
+                                4
+                            ],
+                            "team_id": 200,
+                            "tier_name": "\u738b\u8005",
+                            "total_damage_2_champion": 8581,
+                            "total_damage_2_champion_percent": 11,
+                            "total_damage_dealt": 30405,
+                            "total_damage_percent": 6,
+                            "total_damage_taken": 16034,
+                            "total_health": 4376,
+                            "ward_killed_num": 10,
+                            "ward_killed_pecent": 40,
+                            "ward_placed_num": 36,
+                            "ward_placed_pecent": 57
+                        }
+                    ],
+                    "death_num": 27,
+                    "gold_num": 57193,
+                    "is_win": 1,
+                    "kill_baron_num": 0,
+                    "kill_dragon_num": 0,
+                    "kill_num": 34,
+                    "kill_turret_num": 7,
+                    "team_id": 200,
+                    "ward_percent": 49
+                }
+            },
+            "dst_slol_id": "zp0eea3d20V",
+            "game_id": 26,
+            "req_slol_id": "zp0eea3d20V",
+            "result": 0
+        },
+        "msg": "succ"
+    }
+
+    var player_info = {
+        "code": 0,
+        "data": {
+            "all_champion_num": 153,
+            "all_skin_num": 1155,
+            "area_id": 31,
+            "area_name": "\u5ce1\u8c37\u4e4b\u5dc5",
+            "champion_num": 112,
+            "game_age": 0,
+            "game_id": 26,
+            "game_level": 153,
+            "game_logo_url": "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/usericon/1387.png",
+            "gender": 0,
+            "league_point": 809,
+            "measure_unit": 0,
+            "online_status": 0,
+            "online_zone_id": 0,
+            "power_value": 100183,
+            "praise_time": 0,
+            "rank": 0,
+            "recent_kda": 863,
+            "recent_total_games": 91,
+            "recent_total_kill": 332,
+            "recent_win_rate": 52,
+            "result": 0,
+            "role_name": "1993y",
+            "skin_num": 54,
+            "slol_id": "zp0eea3d20V",
+            "tier": 0,
+            "total_assist": 11233,
+            "total_games": 964,
+            "total_kill": 6766,
+            "total_placed": 17532,
+            "total_time": 733153,
+            "win_rate": 56
+        },
+        "msg": "succ"
+    }
+
+    d = function (arguments) { return document.getElementsByClassName(arguments)[0]; }
+
+    const weRank = "https://wegame.gtimg.com/app/lol/score_souces/division/"
+    const weCDN_champ = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/champions/"
+    const weCDN_spell = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/summonability/"
+    const weCDN_item = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/items/"
+
+    var rankJSON = {
+        "0": "Challenger"
+    }
+
+    function timeConverter(UNIX_timestamp) {
+        const a = new Date(UNIX_timestamp * 1000);
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const year = a.getFullYear();
+        const month = months[a.getMonth()];
+        const date = a.getDate();
+        const hour = a.getHours();
+        const min = a.getMinutes();
+        const sec = a.getSeconds();
+        const time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
+        return time;
+    }
+
+    function gameLengthHR(seconds) {
+        seconds = Number(seconds);
+        const d = Math.floor(seconds / (3600 * 24));
+        const h = Math.floor(seconds % (3600 * 24) / 3600);
+        const m = Math.floor(seconds % 3600 / 60);
+        const s = Math.floor(seconds % 60);
+
+        var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+        var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours ") : "";
+        var mDisplay = m > 0 ? m + (m == 1 ? "m" : "m ") : "";
+        var sDisplay = s > 0 ? s + (s == 1 ? "s" : "s") : "";
+        return dDisplay + hDisplay + mDisplay + sDisplay
+    }
+
+    function sinceGame(seconds) {
+        seconds = Number(seconds);
+        const d = Math.floor(seconds / (3600 * 24));
+        const h = Math.floor(seconds % (3600 * 24) / 3600);
+        const m = Math.floor(seconds % 3600 / 60);
+        const s = Math.floor(seconds % 60);
+
+        var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+        var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours ") : "";
+        var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+        var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+        return dDisplay + hDisplay + " ago"
+    }
+
+
+
+    //Profile Top Left Picture and Win Rat
+    d("TierRank").innerText = rankJSON[player_info.data.rank]
+    d("winratio").innerText = "Win Ratio " + player_info.data.win_rate + "%"
+    d("Username").innerText = player_info.data.role_name
+    document.getElementById("rank-metal").src = weRank + player_info.data.rank + ".png"
+
+    //Most Played
+    for (z = 0; z < Object.keys(most_used.data.info_list).length; z++) {
         var temp = document.getElementsByTagName("template")[0];
         var view = d("MostChampionContent");
         var startElement = temp.content.querySelector("div");
@@ -1200,80 +1252,108 @@
         f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
         var wr_played_box = f("Played")
         var container = f("ChampionBox Ranked")
-        
+
         wr_played_box.getElementsByClassName("WinRatio normal tip")[0].innerText = most_used.data.info_list[z].win_rate + "%"
         wr_played_box.getElementsByClassName("Title")[0].innerText = most_used.data.info_list[z].use_num + " Played"
-        
-        
-        container.getElementsByClassName("ChampionImage")[0].src = weCDN + most_used.data.info_list[z].champion_id + ".png"
-        
+
+
+        container.getElementsByClassName("ChampionImage")[0].src = weCDN_champ + most_used.data.info_list[z].champion_id + ".png"
+
         //when we have a champion name array we just use this id.
         container.getElementsByClassName("ChampionName")[0].innerText = most_used.data.info_list[z].champion_id
         view.appendChild(a)
-      }
-      
-      //Match history
-      for (z = 0; z < Object.keys(battle_list.data.player_battle_brief_list).length; z++) {
+    }
+
+    //Match history
+    for (z = 0; z < Object.keys(battle_list.data.player_battle_brief_list).length; z++) {
         var temp = document.getElementsByTagName("template")[1];
         var view = d("GameItemWrap");
         var startElement = temp.content.querySelector("div");
         var a = document.importNode(startElement, true);
-        
+
         var match = battle_list.data.player_battle_brief_list[z]
-        
+
         //Main card data
         f("Kill").innerText = match.kill_num
         f("Death").innerText = match.death_num
         f("Assist").innerText = match.assist_num
-        f("KDARatio").innerText = ((parseInt(match.kill_num)+parseInt(match.assist_num))/parseInt(match.death_num)) + ":1 KDA"
-        
-        if (match.ext_tag_desc){
+        f("KDARatio").innerText = ((match.kill_num) + (match.assist_num)) / (match.death_num) + ":1 KDA"
+
+        if (match.ext_tag_desc) {
             f("Badge").style.display = "block";
             f("Text MVP").innerText = match.ext_tag_desc
-            if (match.game_result === 2){
+            if (match.game_result === 2) {
                 f("Text MVP").style.backgroundColor = "#8c51c5";
                 f("Text MVP").style.border = "#7f3590";
             }
         }
-        
+
         //is loss
-        if (match.game_result === 2){
-            f("GameItem Win").setAttribute("class","GameItem Lose")
+        if (match.game_result === 2) {
+            f("GameItem Win").setAttribute("class", "GameItem Lose")
             f("GameResult").innerText = "Defeat"
         }
-        
+
         var champ_id = match.champion_id
-        f("ChampionImage").getElementsByClassName("Image")[0].src = weCDN + champ_id + ".png"
+        f("ChampionImage").getElementsByClassName("Image")[0].src = weCDN_champ + champ_id + ".png"
         //when we have a name array put that here.
         f("ChampionName").getElementsByTagName("a")[0].innerText = champ_id
-        f("Button MatchDetail").setAttribute("match_id",match.battle_id)
-        f("Button MatchDetail").addEventListener("click",function(caller){
+        f("Button MatchDetail").setAttribute("match_id", match.battle_id)
+        f("Button MatchDetail").addEventListener("click", function (caller) {
             console.log(caller.path[0].getAttribute('match_id'))
-            
+
+            if (+caller.path[0].getAttribute('match_id') === 91552135) {
+                var team_data_opp = game_details.data.battle_info.team_data_opp.battle_player_record
+                var team_data_own = game_details.data.battle_info.team_data_own.battle_player_record
+
+                var team_div = caller.path[5].getElementsByClassName("Team")[0]
+                var opp_div = caller.path[5].getElementsByClassName("Team")[1]
+
+
+                //console.log(team_data_own[z].summon_spell_id)
+                var myIndex = 0
+
+                for (z = 0; z < Object.keys(team_data_own).length; z++) {
+                    team_div.getElementsByClassName("SummonerName")[z].innerText = team_data_own[z].role_name
+                    opp_div.getElementsByClassName("SummonerName")[z].innerText = team_data_opp[z].role_name
+                    if (team_data_opp[z].role_name === player_info.data.role_name) {
+                        myIndex = z
+                    }
+                }
+                caller.path[5].getElementsByClassName("Image tip tpd-delegation-uid-1")[0].src = weCDN_spell + team_data_own[myIndex].summon_spell_id[0] + ".png"
+                caller.path[5].getElementsByClassName("Image tip tpd-delegation-uid-1")[1].src = weCDN_spell + team_data_own[myIndex].summon_spell_id[1] + ".png"
+                for (var i = 0; i < Object.keys(team_data_own).length; i++) {
+                    caller.path[5].getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = weCDN_item + team_data_own[myIndex].item_ids[i] + ".png"
+                }
+                var kp = ((team_data_own[myIndex].kill_champion_num+team_data_own[myIndex].assists_num)/(game_details.data.battle_info.team_data_own.kill_num)*100)
+                var csm = ((team_data_own[myIndex].kill_minion_num)/(game_details.data.battle_info.duration/60)).toFixed(1)
+                caller.path[5].getElementsByClassName("Level")[0].innerText = "Level "+team_data_own[myIndex].level
+                caller.path[5].getElementsByClassName("CS tip tpd-delegation-uid-1")[0].innerText = (team_data_own[myIndex].kill_minion_num) + ` (${csm})`
+                caller.path[5].getElementsByClassName("CKRate tip")[0].innerText = parseInt(kp) +"%"
+                caller.path[5].getElementsByClassName("GameLength")[0].innerText = gameLengthHR(game_details.data.battle_info.duration)
+                var deltaT = Date.now() / 1000 - game_details.data.battle_info.stop_time_stamp
+                caller.path[5].getElementsByClassName("_timeago")[0].innerText = sinceGame(deltaT)
+                
+            }
+
         })
 
         view.appendChild(a)
 
 
-      }
-      
-    var team_data_opp = game_details.data["battle_info"]["team_data_opp"]["battle_player_record"]
-    var team_data_own = game_details.data["battle_info"]["team_data_own"]["battle_player_record"]
-    
-    console.log(team_data_opp)
-    console.log("#####")
-    console.log(team_data_own)
-    
+    }
+
     function sendMessage(message) {
         parent.postMessage(message, '*');
         console.log("I sent a message")
     }
 
     sendMessage("test");
-    
-    window.addEventListener('message', function(message){
-        console.log("I got a message: "+message.data)
+
+    window.addEventListener('message', function (message) {
+        console.log("I got a message: " + message.data)
     });
 
-   </script>
+</script>
+
 </html>
