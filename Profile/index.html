@@ -112,9 +112,11 @@
                                                                     class="Image" alt="Gangplank"></a>
                                                         </div>
                                                         <div class="SummonerSpell">
-                                                            <div class="Spell"><img src="./img/Unknown.png" class="Image tip tpd-delegation-uid-1" title="">
+                                                            <div class="Spell"><img src="./img/Unknown.png"
+                                                                    class="Image tip tpd-delegation-uid-1" title="">
                                                             </div>
-                                                            <div class="Spell"> <img src="./img/Unknown.png"class="Image tip tpd-delegation-uid-1" title="">
+                                                            <div class="Spell"> <img src="./img/Unknown.png"
+                                                                    class="Image tip tpd-delegation-uid-1" title="">
                                                             </div>
                                                         </div>
                                                         <div class="Runes">
@@ -315,6 +317,163 @@
     </div>
 </body>
 <script>
+
+    const champs_JSON = {
+        "1": "Annie",
+        "2": "Olaf",
+        "3": "Galio",
+        "4": "TwistedFate",
+        "5": "XinZhao",
+        "6": "Urgot",
+        "7": "Leblanc",
+        "8": "Vladimir",
+        "9": "Fiddlesticks",
+        "10": "Kayle",
+        "11": "MasterYi",
+        "12": "Alistar",
+        "13": "Ryze",
+        "14": "Sion",
+        "15": "Sivir",
+        "16": "Soraka",
+        "17": "Teemo",
+        "18": "Tristana",
+        "19": "Warwick",
+        "20": "Nunu",
+        "21": "MissFortune",
+        "22": "Ashe",
+        "23": "Tryndamere",
+        "24": "Jax",
+        "25": "Morgana",
+        "26": "Zilean",
+        "27": "Singed",
+        "28": "Evelynn",
+        "29": "Twitch",
+        "30": "Karthus",
+        "31": "Chogath",
+        "32": "Amumu",
+        "33": "Rammus",
+        "34": "Anivia",
+        "35": "Shaco",
+        "36": "DrMundo",
+        "37": "Sona",
+        "38": "Kassadin",
+        "39": "Irelia",
+        "40": "Janna",
+        "41": "Gangplank",
+        "42": "Corki",
+        "43": "Karma",
+        "44": "Taric",
+        "45": "Veigar",
+        "48": "Trundle",
+        "50": "Swain",
+        "51": "Caitlyn",
+        "53": "Blitzcrank",
+        "54": "Malphite",
+        "55": "Katarina",
+        "56": "Nocturne",
+        "57": "Maokai",
+        "58": "Renekton",
+        "59": "JarvanIV",
+        "60": "Elise",
+        "61": "Orianna",
+        "62": "MonkeyKing",
+        "63": "Brand",
+        "64": "LeeSin",
+        "67": "Vayne",
+        "68": "Rumble",
+        "69": "Cassiopeia",
+        "72": "Skarner",
+        "74": "Heimerdinger",
+        "75": "Nasus",
+        "76": "Nidalee",
+        "77": "Udyr",
+        "78": "Poppy",
+        "79": "Gragas",
+        "80": "Pantheon",
+        "81": "Ezreal",
+        "82": "Mordekaiser",
+        "83": "Yorick",
+        "84": "Akali",
+        "85": "Kennen",
+        "86": "Garen",
+        "89": "Leona",
+        "90": "Malzahar",
+        "91": "Talon",
+        "92": "Riven",
+        "96": "KogMaw",
+        "98": "Shen",
+        "99": "Lux",
+        "101": "Xerath",
+        "102": "Shyvana",
+        "103": "Ahri",
+        "104": "Graves",
+        "105": "Fizz",
+        "106": "Volibear",
+        "107": "Rengar",
+        "110": "Varus",
+        "111": "Nautilus",
+        "112": "Viktor",
+        "113": "Sejuani",
+        "114": "Fiora",
+        "115": "Ziggs",
+        "117": "Lulu",
+        "119": "Draven",
+        "120": "Hecarim",
+        "121": "Khazix",
+        "122": "Darius",
+        "126": "Jayce",
+        "127": "Lissandra",
+        "131": "Diana",
+        "133": "Quinn",
+        "134": "Syndra",
+        "136": "AurelionSol",
+        "141": "Kayn",
+        "142": "Zoe",
+        "143": "Zyra",
+        "145": "Kaisa",
+        "147": "Seraphine",
+        "150": "Gnar",
+        "154": "Zac",
+        "157": "Yasuo",
+        "161": "Velkoz",
+        "163": "Taliyah",
+        "164": "Camille",
+        "201": "Braum",
+        "202": "Jhin",
+        "203": "Kindred",
+        "222": "Jinx",
+        "223": "TahmKench",
+        "235": "Senna",
+        "236": "Lucian",
+        "238": "Zed",
+        "240": "Kled",
+        "245": "Ekko",
+        "246": "Qiyana",
+        "254": "Vi",
+        "266": "Aatrox",
+        "267": "Nami",
+        "268": "Azir",
+        "350": "Yuumi",
+        "360": "Samira",
+        "412": "Thresh",
+        "420": "Illaoi",
+        "421": "RekSai",
+        "427": "Ivern",
+        "429": "Kalista",
+        "432": "Bard",
+        "497": "Rakan",
+        "498": "Xayah",
+        "516": "Ornn",
+        "517": "Sylas",
+        "518": "Neeko",
+        "523": "Aphelios",
+        "526": "Rell",
+        "555": "Pyke",
+        "777": "Yone",
+        "875": "Sett",
+        "876": "Lillia"
+    }
+
     var most_used = {
         "code": 0,
         "data": {
@@ -1186,9 +1345,10 @@
     d = function (arguments) { return document.getElementsByClassName(arguments)[0]; }
 
     const weRank = "https://wegame.gtimg.com/app/lol/score_souces/division/"
-    const weCDN_champ = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/champions/"
-    const weCDN_spell = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/summonability/"
-    const weCDN_item = "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/items/"
+    const weCDN_champ = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/"
+    const weCDN_spell = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/summonability/"
+    const weCDN_item = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/items/"
+    const OPGG = "https://na.op.gg/champion/"
 
     var rankJSON = {
         "0": "Challenger"
@@ -1252,15 +1412,18 @@
         f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
         var wr_played_box = f("Played")
         var container = f("ChampionBox Ranked")
+        var en_name = champs_JSON[most_used.data.info_list[z].champion_id]
 
         wr_played_box.getElementsByClassName("WinRatio normal tip")[0].innerText = most_used.data.info_list[z].win_rate + "%"
         wr_played_box.getElementsByClassName("Title")[0].innerText = most_used.data.info_list[z].use_num + " Played"
 
-
         container.getElementsByClassName("ChampionImage")[0].src = weCDN_champ + most_used.data.info_list[z].champion_id + ".png"
+        container.getElementsByClassName("Face")[0].getElementsByTagName("a")[0].setAttribute("href",OPGG+en_name+"/statistics")
+        container.getElementsByClassName("Face")[0].setAttribute("title",en_name)
 
         //when we have a champion name array we just use this id.
-        container.getElementsByClassName("ChampionName")[0].innerText = most_used.data.info_list[z].champion_id
+        container.getElementsByClassName("ChampionName")[0].innerText = en_name
+        container.getElementsByClassName("ChampionName")[0].setAttribute("title",en_name)
         view.appendChild(a)
     }
 
@@ -1295,9 +1458,15 @@
         }
 
         var champ_id = match.champion_id
+        var en_name = champs_JSON[champ_id]
+
         f("ChampionImage").getElementsByClassName("Image")[0].src = weCDN_champ + champ_id + ".png"
+        f("ChampionImage").getElementsByClassName("Image")[0].setAttribute("title",en_name)
+        f("ChampionImage").getElementsByTagName("a")[0].setAttribute("title",en_name)
+        f("ChampionImage").getElementsByTagName("a")[0].setAttribute("href",OPGG+en_name+"/statistics")
+
         //when we have a name array put that here.
-        f("ChampionName").getElementsByTagName("a")[0].innerText = champ_id
+        f("ChampionName").getElementsByTagName("a")[0].innerText = champs_JSON[champ_id]
         f("Button MatchDetail").setAttribute("match_id", match.battle_id)
         f("Button MatchDetail").addEventListener("click", function (caller) {
             console.log(caller.path[0].getAttribute('match_id'))
@@ -1325,17 +1494,15 @@
                 for (var i = 0; i < Object.keys(team_data_own).length; i++) {
                     caller.path[5].getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = weCDN_item + team_data_own[myIndex].item_ids[i] + ".png"
                 }
-                var kp = ((team_data_own[myIndex].kill_champion_num+team_data_own[myIndex].assists_num)/(game_details.data.battle_info.team_data_own.kill_num)*100)
-                var csm = ((team_data_own[myIndex].kill_minion_num)/(game_details.data.battle_info.duration/60)).toFixed(1)
-                caller.path[5].getElementsByClassName("Level")[0].innerText = "Level "+team_data_own[myIndex].level
+                var kp = ((team_data_own[myIndex].kill_champion_num + team_data_own[myIndex].assists_num) / (game_details.data.battle_info.team_data_own.kill_num) * 100)
+                var csm = ((team_data_own[myIndex].kill_minion_num) / (game_details.data.battle_info.duration / 60)).toFixed(1)
+                caller.path[5].getElementsByClassName("Level")[0].innerText = "Level " + team_data_own[myIndex].level
                 caller.path[5].getElementsByClassName("CS tip tpd-delegation-uid-1")[0].innerText = (team_data_own[myIndex].kill_minion_num) + ` (${csm})`
-                caller.path[5].getElementsByClassName("CKRate tip")[0].innerText = parseInt(kp) +"%"
+                caller.path[5].getElementsByClassName("CKRate tip")[0].innerText = parseInt(kp) + "%"
                 caller.path[5].getElementsByClassName("GameLength")[0].innerText = gameLengthHR(game_details.data.battle_info.duration)
                 var deltaT = Date.now() / 1000 - game_details.data.battle_info.stop_time_stamp
                 caller.path[5].getElementsByClassName("_timeago")[0].innerText = sinceGame(deltaT)
-                
             }
-
         })
 
         view.appendChild(a)
