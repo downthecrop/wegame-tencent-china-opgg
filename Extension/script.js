@@ -186,14 +186,12 @@ window.addEventListener('message', function(message){
         }
         //Trycatch passed, just names
         var jMessage = JSON.parse(message.data)
-        if (jMessage[0] === "name_mutli_search")
-        sendMessage("loading")
-        for (key in jMessage){
+        if (jMessage.type === "name_mutli_search"){
+            sendMessage("loading")
             var area_id = 31;
             console.log(jMessage)
-            //console.log(jMessage[key])
-            getUserData(jMessage[1],area_id)
-            usernames.push(jMessage[key])
+            getUserData(jMessage.user,area_id)
+            usernames.push(jMessage.user)
         }
     }
 });
