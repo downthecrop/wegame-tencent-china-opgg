@@ -138,7 +138,7 @@
             var usernames = names.replaceAll("加入了队伍聊天","").split(/\r?\n/)
             console.log(usernames)
             for (k in usernames){
-                sendToFrame('{"user":"'+usernames[k]+'"}')
+                sendMessage('{"type":"name_mutli_search","user":"'+usernames[k]+'"}')
             }
         })
 
@@ -230,7 +230,7 @@
         }
     }
 
-    function sendToFrame(message) {
+    function sendMessage(message) {
         parent.postMessage(message, '*');
     }
     window.addEventListener('message', receiveMessage);

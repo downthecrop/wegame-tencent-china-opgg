@@ -177,7 +177,6 @@ function main() {
 })();
 
 window.addEventListener('message', function(message){
-    console.log(message)
     if (message.origin === "https://downthecrop.github.io"){
         try {
             JSON.parse(message.data)
@@ -185,12 +184,15 @@ window.addEventListener('message', function(message){
             console.log("Message isn't json")
             console.log(message.data)
         }
+        //Trycatch passed, just names
         var jMessage = JSON.parse(message.data)
+        if (jMessage[0] === "name_mutli_search")
         sendMessage("loading")
         for (key in jMessage){
             var area_id = 31;
-            console.log(jMessage[key])
-            getUserData(jMessage[key],area_id)
+            console.log(jMessage)
+            //console.log(jMessage[key])
+            getUserData(jMessage[1],area_id)
             usernames.push(jMessage[key])
         }
     }
