@@ -8,18 +8,24 @@
     <link href="./css/forum.css" rel="stylesheet" type="text/css">
     <link href="./css/new.css" rel="stylesheet" type="text/css">
     <link href="./css/summoner.css" rel="stylesheet" type="text/css">
+    <style>
+        :root {
+            --default-icon: url("https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/0.png");
+        }
+    </style>
 </head>
 
 <body>
     <button id="update-button">Update</button>
+    <input id="user-input" value="1993y"></input>
     <div class="ContentWrap tabItems" id="SummonerLayoutContent">
         <div class="tabItem Content SummonerLayoutContent summonerLayout-summary" data-tab-data-url="#"
             data-tab-spinner-height="800" data-tab-is-loaded-already="true" style="display: block;">
             <div class="SideContent">
                 <div class="TierBox Box">
                     <div class="SummonerRatingMedium">
-                        <div class="Medal tip tpd-delegation-uid-1" title=""> <img id="rank-metal" src="./img/255.png"
-                                class="Image">
+                        <div class="Medal tip tpd-delegation-uid-1" title="">
+                            <img id="rank-metal" src="./img/255.png" class="Image">
                         </div>
                         <div class="TierRankInfo">
                             <div class="RankType">Ranked Solo</div>
@@ -51,15 +57,11 @@
                                     <div id="FrankerZ1">
                                         <div class="ChampionBox Ranked">
                                             <div class="Face" title="Gangplank">
-                                                <a href="https://na.op.gg/champion/gangplank/statistics"
-                                                    target="_blank"> <img src="./img/Gangplank.png" width="45"
-                                                        class="ChampionImage" alt="Gangplank"> </a>
+                                                <a href="#" target="_blank"> <img src="./img/Unknown.png" width="45"
+                                                        class="ChampionImage"> </a>
                                             </div>
                                             <div class="ChampionInfo">
-                                                <div class="ChampionName" title="Gangplank"> <a
-                                                        href="https://na.op.gg/champion/gangplank/statistics"
-                                                        target="_blank">
-                                                        Gangplank
+                                                <div class="ChampionName"> <a target="_blank">
                                                     </a>
                                                 </div>
                                                 <div class="ChampionMinionKill tip" title="avg. CS (CS/m)"> CS cs (cs/m)
@@ -99,18 +101,16 @@
                                                     <div class="GameStats">
                                                         <div class="GameType" title="Ranked Solo"> Ranked Solo </div>
                                                         <div class="TimeStamp"><span
-                                                                class="_timeago _timeCountAssigned tip tpd-delegation-uid-1"
-                                                                data-datetime="1607645691" data-type=""
-                                                                data-interval="60" title="">0 hours ago</span></div>
+                                                                class="_timeago _timeCountAssigned tip tpd-delegation-uid-1">0
+                                                                hours ago</span></div>
                                                         <div class="Bar"></div>
                                                         <div class="GameResult"> Victory </div>
                                                         <div class="GameLength">0m 0s</div>
                                                     </div>
                                                     <div class="GameSettingInfo">
                                                         <div class="ChampionImage">
-                                                            <a href="https://na.op.gg/champion/gangplank/statistics"
-                                                                target="_blank"><img src="./img/Gangplank(2).png"
-                                                                    class="Image" alt="Gangplank"></a>
+                                                            <a href="#" target="_blank"><img src="./img/Unknown.png"
+                                                                    class="Image"></a>
                                                         </div>
                                                         <div class="SummonerSpell">
                                                             <div class="Spell"><img src="./img/Unknown.png"
@@ -130,29 +130,31 @@
                                                                     alt="Inspiration"> </div>
                                                             -->
                                                         </div>
-                                                        <div class="ChampionName"> <a
-                                                                href="https://na.op.gg/champion/gangplank/statistics"
-                                                                target="_blank">Gangplank</a> </div>
+                                                        <div class="ChampionName"><a href="#" target="_blank"></a></div>
                                                     </div>
                                                     <div class="KDA">
-                                                        <div class="KDA"> <span class="Kill">0</span> / <span
-                                                                class="Death">2</span> / <span class="Assist">0</span>
+                                                        <div class="KDA">
+                                                            <span class="Kill">0</span> /
+                                                            <span class="Death">0</span> /
+                                                            <span class="Assist">0</span>
                                                         </div>
                                                         <div class="KDARatio"> <span class="KDARatio ">0:1</span> KDA
                                                         </div>
-                                                        <div class="Badge" style="display:none;"><span
-                                                                class="Text MVP"></span></div>
+                                                        <div class="Badge" style="display:none;">
+                                                            <span class="Text MVP"></span>
+                                                        </div>
                                                     </div>
                                                     <div class="Stats">
                                                         <div class="Level"> Level </div>
-                                                        <div class="CS"> <span class="CS tip tpd-delegation-uid-1"
-                                                                title="">cs
-                                                                (cs/m)</span> CS
+                                                        <div class="CS">
+                                                            <span class="CS tip tpd-delegation-uid-1">cs (cs/m)
+                                                                CS</span>
                                                         </div>
                                                         <div class="CKRate tip" title="Kill Participation"> P/Kill 50%
                                                         </div>
                                                         <div class="MMR"> <span>Tier Average</span>
-                                                            <br> <b>NaN</b>
+                                                            <br>
+                                                            <b>NaN</b>
                                                         </div>
                                                     </div>
                                                     <div class="Items">
@@ -190,7 +192,7 @@
                                                             <div class="Summoner">
                                                                 <div class="ChampionImage">
                                                                     <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: url(https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/0.png);">
+                                                                        style="content: var(--default-icon);">
                                                                     </div>
                                                                 </div>
                                                                 <div class="SummonerName"> <a href="#" class="Link"
@@ -199,7 +201,7 @@
                                                             <div class="Summoner">
                                                                 <div class="ChampionImage">
                                                                     <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: url(https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/0.png);">
+                                                                        style="content: var(--default-icon);">
                                                                     </div>
                                                                 </div>
                                                                 <div class="SummonerName"> <a href="#" class="Link"
@@ -208,7 +210,7 @@
                                                             <div class="Summoner">
                                                                 <div class="ChampionImage">
                                                                     <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: url(https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/0.png);">
+                                                                        style="content: var(--default-icon);">
                                                                     </div>
                                                                 </div>
                                                                 <div class="SummonerName"> <a href="#" class="Link"
@@ -217,7 +219,7 @@
                                                             <div class="Summoner ">
                                                                 <div class="ChampionImage">
                                                                     <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: url(https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/0.png);">
+                                                                        style="content: var(--default-icon);">
                                                                     </div>
                                                                 </div>
                                                                 <div class="SummonerName"> <a href="#" class="Link"
@@ -226,7 +228,7 @@
                                                             <div class="Summoner ">
                                                                 <div class="ChampionImage">
                                                                     <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: url(https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/0.png);">
+                                                                        style="content: var(--default-icon);">
                                                                     </div>
                                                                 </div>
                                                                 <div class="SummonerName"> <a href="#" class="Link"
@@ -237,7 +239,7 @@
                                                             <div class="Summoner ">
                                                                 <div class="ChampionImage">
                                                                     <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: url(https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/0.png);">
+                                                                        style="content: var(--default-icon);">
                                                                     </div>
                                                                 </div>
                                                                 <div class="SummonerName"> <a href="#" class="Link"
@@ -246,7 +248,7 @@
                                                             <div class="Summoner ">
                                                                 <div class="ChampionImage">
                                                                     <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: url(https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/0.png);">
+                                                                        style="content: var(--default-icon);">
                                                                     </div>
                                                                 </div>
                                                                 <div class="SummonerName"> <a href="#" class="Link"
@@ -255,7 +257,7 @@
                                                             <div class="Summoner ">
                                                                 <div class="ChampionImage">
                                                                     <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: url(https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/0.png);">
+                                                                        style="content: var(--default-icon);">
                                                                     </div>
                                                                 </div>
                                                                 <div class="SummonerName"> <a href="#" class="Link"
@@ -264,7 +266,7 @@
                                                             <div class="Summoner ">
                                                                 <div class="ChampionImage">
                                                                     <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: url(https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/0.png);">
+                                                                        style="content: var(--default-icon);">
                                                                     </div>
                                                                 </div>
                                                                 <div class="SummonerName"> <a href="#" class="Link"
@@ -273,7 +275,7 @@
                                                             <div class="Summoner ">
                                                                 <div class="ChampionImage">
                                                                     <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: url(https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/0.png);">
+                                                                        style="content: var(--default-icon);">
                                                                     </div>
                                                                 </div>
                                                                 <div class="SummonerName"> <a href="#" class="Link"
@@ -1336,9 +1338,9 @@
     const _champ = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/"
     const _spell = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/summonability/"
     const _item = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/items/"
-    const OPGG = "https://na.op.gg/champion/"
+    const _opgg = "https://na.op.gg/champion/"
 
-    var rankJSON = {
+    const rankJSON = {
         "0": "Challenger"
     }
 
@@ -1352,11 +1354,10 @@
         const h = Math.floor(seconds % (3600 * 24) / 3600);
         const m = Math.floor(seconds % 3600 / 60);
         const s = Math.floor(seconds % 60);
-
-        var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
-        var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours ") : "";
-        var mDisplay = m > 0 ? m + (m == 1 ? "m" : "m ") : "";
-        var sDisplay = s > 0 ? s + (s == 1 ? "s" : "s") : "";
+        const dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+        const hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours ") : "";
+        const mDisplay = m > 0 ? m + (m == 1 ? "m" : "m ") : "";
+        const sDisplay = s > 0 ? s + (s == 1 ? "s" : "s") : "";
         return dDisplay + hDisplay + mDisplay + sDisplay
     }
 
@@ -1366,11 +1367,10 @@
         const h = Math.floor(seconds % (3600 * 24) / 3600);
         const m = Math.floor(seconds % 3600 / 60);
         const s = Math.floor(seconds % 60);
-
-        var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
-        var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours ") : "";
-        var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
-        var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+        const dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+        const hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours ") : "";
+        const mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+        //sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
         return dDisplay + hDisplay + " ago"
     }
 
@@ -1381,112 +1381,100 @@
     document.getElementById("rank-metal").src = getAsset(_rank, player_info.data.rank)
 
     //Most Played
-    for (z = 0; z < Object.keys(most_used.data.info_list).length; z++) {
-        var temp = document.getElementsByTagName("template")[0];
-        var view = d("MostChampionContent");
-        var startElement = temp.content.querySelector("div");
+    for (let z = 0; z < Object.keys(most_used.data.info_list).length; z++) {
+
+        let en_name = champs_JSON[most_used.data.info_list[z].champion_id]
+        let temp = document.getElementsByTagName("template")[0];
+        let view = d("MostChampionContent");
+        let startElement = temp.content.querySelector("div");
+
         var a = document.importNode(startElement, true);
-        f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
-        var wr_played_box = f("Played")
-        var container = f("ChampionBox Ranked")
-        var en_name = champs_JSON[most_used.data.info_list[z].champion_id]
+        var f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
+
+        let wr_played_box = f("Played")
+        let container = f("ChampionBox Ranked")
 
         wr_played_box.getElementsByClassName("WinRatio normal tip")[0].innerText = most_used.data.info_list[z].win_rate + "%"
         wr_played_box.getElementsByClassName("Title")[0].innerText = most_used.data.info_list[z].use_num + " Played"
 
         container.getElementsByClassName("ChampionImage")[0].src = getAsset(_champ, most_used.data.info_list[z].champion_id)
-        container.getElementsByClassName("Face")[0].getElementsByTagName("a")[0].setAttribute("href", OPGG + en_name + "/statistics")
-        container.getElementsByClassName("Face")[0].setAttribute("title", en_name)
-
-        //when we have a champion name array we just use this id.
+        container.getElementsByClassName("Face")[0].getElementsByTagName("a")[0].href = _opgg + en_name + "/statistics"
+        container.getElementsByClassName("Face")[0].title = en_name
         container.getElementsByClassName("ChampionName")[0].innerText = en_name
-        container.getElementsByClassName("ChampionName")[0].setAttribute("title", en_name)
+        container.getElementsByClassName("ChampionName")[0].title = en_name
+
         view.appendChild(a)
     }
 
-    //Match history
-    for (z = 0; z < Object.keys(battle_list.data.player_battle_brief_list).length; z++) {
-        var temp = document.getElementsByTagName("template")[1];
-        var view = d("GameItemWrap");
-        var startElement = temp.content.querySelector("div");
-        var a = document.importNode(startElement, true);
+    function populateMatchHistory(match_summary) {
+        for (let z = 0; z < Object.keys(match_summary.data.player_battle_brief_list).length; z++) {
+            let match = match_summary.data.player_battle_brief_list[z]
+            let temp = document.getElementsByTagName("template")[1];
+            let view = d("GameItemWrap");
+            let startElement = temp.content.querySelector("div");
+            
+            var a = document.importNode(startElement, true);
+            var f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
 
-        var match = battle_list.data.player_battle_brief_list[z]
+            //Main card data
+            f("GameItem Win").setAttribute("id", match.battle_id)
+            f("Kill").innerText = match.kill_num
+            f("Death").innerText = match.death_num
+            f("Assist").innerText = match.assist_num
+            f("KDARatio").innerText = ((match.kill_num) + (match.assist_num)) / (match.death_num) + ":1 KDA"
 
-        //Main card data
-        f("GameItem Win").setAttribute("id", match.battle_id)
-        f("Kill").innerText = match.kill_num
-        f("Death").innerText = match.death_num
-        f("Assist").innerText = match.assist_num
-        f("KDARatio").innerText = ((match.kill_num) + (match.assist_num)) / (match.death_num) + ":1 KDA"
-
-        if (match.ext_tag_desc) {
-            f("Badge").style.display = "block";
-            f("Text MVP").innerText = match.ext_tag_desc
-            if (match.game_result === 2) {
-                f("Text MVP").style.backgroundColor = "#8c51c5";
-                f("Text MVP").style.border = "#7f3590";
+            if (match.ext_tag_desc) {
+                f("Badge").style.display = "block";
+                f("Text MVP").innerText = match.ext_tag_desc
+                if (match.game_result === 2) {
+                    f("Text MVP").style.backgroundColor = "#8c51c5";
+                    f("Text MVP").style.border = "#7f3590";
+                }
             }
+
+            //is loss
+            if (match.game_result === 2) {
+                f("GameItem Win").setAttribute("class", "GameItem Lose")
+                f("GameResult").innerText = "Defeat"
+            }
+
+            let champ_id = match.champion_id
+            let en_name = champs_JSON[champ_id]
+
+            f("ChampionImage").getElementsByClassName("Image")[0].src = getAsset(_champ, champ_id)
+            f("ChampionImage").getElementsByClassName("Image")[0].title = en_name
+            f("ChampionImage").getElementsByTagName("a")[0].title = en_name
+            f("ChampionImage").getElementsByTagName("a")[0].href = _opgg + en_name + "/statistics"
+            f("ChampionName").getElementsByTagName("a")[0].innerText = champs_JSON[champ_id]
+            f("Button MatchDetail").setAttribute("match_id", match.battle_id)
+            f("Button MatchDetail").addEventListener("click", function (caller) {
+                console.log(caller.path[0].getAttribute('match_id'))
+                let c_parent = caller.path[5]
+                fillMatchDiv(c_parent, game_details)
+            })
+            view.appendChild(a)
         }
-
-        //is loss
-        if (match.game_result === 2) {
-            f("GameItem Win").setAttribute("class", "GameItem Lose")
-            f("GameResult").innerText = "Defeat"
-        }
-
-        var champ_id = match.champion_id
-        var en_name = champs_JSON[champ_id]
-
-        f("ChampionImage").getElementsByClassName("Image")[0].src = getAsset(_champ, champ_id)
-        f("ChampionImage").getElementsByClassName("Image")[0].setAttribute("title", en_name)
-        f("ChampionImage").getElementsByTagName("a")[0].setAttribute("title", en_name)
-        f("ChampionImage").getElementsByTagName("a")[0].setAttribute("href", OPGG + en_name + "/statistics")
-
-        //when we have a name array put that here.
-        f("ChampionName").getElementsByTagName("a")[0].innerText = champs_JSON[champ_id]
-        f("Button MatchDetail").setAttribute("match_id", match.battle_id)
-        f("Button MatchDetail").addEventListener("click", function (caller) {
-            console.log(caller.path[0].getAttribute('match_id'))
-            var c_parent = caller.path[5]
-            fillMatchDiv(c_parent,game_details)
-        })
-        view.appendChild(a)
     }
 
+    populateMatchHistory(battle_list)
 
     //Begin populate saved games from localstorage
     localStorage.setItem("91552135", JSON.stringify(game_details));
-    var totalMatches = []
-    for (var i = 0; i < localStorage.length; i++) {
-        if (!isNaN(localStorage.key(i))){
-            totalMatches.push(localStorage.key(i))
+    for (let i = 0; i < localStorage.length; i++) {
+        if (!isNaN(localStorage.key(i))) {
+            let div = document.getElementById(localStorage.key(i))
+            let jData = JSON.parse(localStorage.getItem(localStorage.key(i)))
+            fillMatchDiv(div, jData)
         }
     }
 
-    for (var i = 0; i < totalMatches.length; i+=1){
-        var div = findMatchDiv(totalMatches[i])
-        var jData = localStorage.getItem(totalMatches[i])
-        jData = JSON.parse(jData)
-        fillMatchDiv(div,jData)
-    }
+    function fillMatchDiv(c_parent, json) {
+        const team_data_opp = json.data.battle_info.team_data_opp.battle_player_record
+        const team_data_own = json.data.battle_info.team_data_own.battle_player_record
+        const team_div = c_parent.getElementsByClassName("Team")[0]
+        const opp_div = c_parent.getElementsByClassName("Team")[1]
 
-    function findMatchDiv(match_id){
-        var div = document.getElementById(match_id)
-        return div
-    }
-
-    function fillMatchDiv(c_parent,json){
-
-        var team_data_opp = json.data.battle_info.team_data_opp.battle_player_record
-        var team_data_own = json.data.battle_info.team_data_own.battle_player_record
-
-        var team_div = c_parent.getElementsByClassName("Team")[0]
-        var opp_div = c_parent.getElementsByClassName("Team")[1]
-
-        var myIndex = 0
-
-        for (z = 0; z < Object.keys(team_data_own).length; z++) {
+        for (let z = 0; z < Object.keys(team_data_own).length; z++) {
 
             team_div.getElementsByClassName("SummonerName")[z].innerText = team_data_own[z].role_name
             team_div.getElementsByClassName("ChampionImage")[z].getElementsByClassName("Image16")[0]
@@ -1497,40 +1485,50 @@
                 .setAttribute("style", "content:url(" + getAsset(_champ, team_data_opp[z].champion_id) + ")")
 
             if (team_data_own[z].role_name === player_info.data.role_name) {
-                team_div.getElementsByClassName("Summoner")[z].setAttribute("class", "Summoner Requester")
-                myIndex = z
-            }
-        }
+                const our_player = team_data_own[z]
+                const kp = ((our_player.kill_champion_num + our_player.assists_num) / (game_details.data.battle_info.team_data_own.kill_num) * 100)
+                const csm = ((our_player.kill_minion_num) / (game_details.data.battle_info.duration / 60)).toFixed(1)
+                const deltaT = Date.now() / 1000 - game_details.data.battle_info.stop_time_stamp
 
-        var our_player = team_data_own[myIndex]
-        c_parent.getElementsByClassName("Image tip tpd-delegation-uid-1")[0].src = getAsset(_spell, our_player.summon_spell_id[0])
-        c_parent.getElementsByClassName("Image tip tpd-delegation-uid-1")[1].src = getAsset(_spell, our_player.summon_spell_id[1])
-        for (var i = 0; i <= 6; i++) {
-            if (our_player.item_ids[i] === 0) {
-                c_parent.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, 7050)
-            }
-            else {
-                c_parent.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, our_player.item_ids[i])
+                team_div.getElementsByClassName("Summoner")[z].setAttribute("class", "Summoner Requester")
+
+                c_parent.getElementsByClassName("Image tip tpd-delegation-uid-1")[0].src = getAsset(_spell, our_player.summon_spell_id[0])
+                c_parent.getElementsByClassName("Image tip tpd-delegation-uid-1")[1].src = getAsset(_spell, our_player.summon_spell_id[1])
+                c_parent.getElementsByClassName("Level")[0].innerText = "Level " + our_player.level
+                c_parent.getElementsByClassName("CS tip tpd-delegation-uid-1")[0].innerText = (our_player.kill_minion_num) + ` (${csm}) CS`
+                c_parent.getElementsByClassName("CKRate tip")[0].innerText = parseInt(kp) + "%"
+                c_parent.getElementsByClassName("GameLength")[0].innerText = gameLengthHR(game_details.data.battle_info.duration)
+                c_parent.getElementsByClassName("_timeago")[0].innerText = sinceGame(deltaT)
+
+                for (let i = 0; i <= 6; i++) {
+                    if (our_player.item_ids[i] === 0) {
+                        c_parent.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, 7050)
+                    }
+                    else {
+                        c_parent.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, our_player.item_ids[i])
+                    }
+                }
             }
         }
-        var kp = ((our_player.kill_champion_num + our_player.assists_num) / (game_details.data.battle_info.team_data_own.kill_num) * 100)
-        var csm = ((our_player.kill_minion_num) / (game_details.data.battle_info.duration / 60)).toFixed(1)
-        c_parent.getElementsByClassName("Level")[0].innerText = "Level " + our_player.level
-        c_parent.getElementsByClassName("CS tip tpd-delegation-uid-1")[0].innerText = (our_player.kill_minion_num) + ` (${csm})`
-        c_parent.getElementsByClassName("CKRate tip")[0].innerText = parseInt(kp) + "%"
-        c_parent.getElementsByClassName("GameLength")[0].innerText = gameLengthHR(game_details.data.battle_info.duration)
-        var deltaT = Date.now() / 1000 - game_details.data.battle_info.stop_time_stamp
-        c_parent.getElementsByClassName("_timeago")[0].innerText = sinceGame(deltaT)
     }
+
+    document.getElementById("update-button").addEventListener("click",function(){
+        let request = {
+            "type":"profile-basic",
+            "name": document.getElementById("user-input").value
+        }
+        sendMessage(JSON.stringify(request))
+    })
 
     function sendMessage(message) {
         parent.postMessage(message, '*');
-        console.log("I sent a message")
+        console.log("Send message: "+message)
     }
 
     //sendMessage("test");
 
     window.addEventListener('message', function (message) {
+        console.log(message)
         if (message.origin != "https://downthecrop.github.io") {
             console.log("I got a message: " + message.data)
         }
