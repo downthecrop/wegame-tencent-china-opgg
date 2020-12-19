@@ -307,6 +307,282 @@
     </div>
 </body>
 <script>
+    var G_slol_id = ""
+    var we_data2 = {
+        "continue_lose": 1,
+        "total_num": 364,
+        "player_battle_brief_list": [
+            {
+                "game_mode_id": 4,
+                "pv_delta": -175,
+                "position": 0,
+                "assist_num": 8,
+                "battle_flags": [
+                    3
+                ],
+                "game_result": 2,
+                "champion_id": 245,
+                "game_score": 1220,
+                "battle_time": 1608058808,
+                "ext_tag_id": 7,
+                "champion_en_name": "Ekko",
+                "death_num": 3,
+                "ext_tag_desc": "尽力局",
+                "kill_num": 7,
+                "game_mode_name": "单双排位",
+                "battle_id": 91578380
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": 287,
+                "assist_num": 3,
+                "game_result": 1,
+                "champion_id": 245,
+                "game_score": 1030,
+                "battle_time": 1608026362,
+                "ext_tag_id": 9,
+                "champion_en_name": "Ekko",
+                "death_num": 1,
+                "ext_tag_desc": "碾压局",
+                "kill_num": 6,
+                "game_mode_name": "单双排位",
+                "battle_id": 91565390
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -203,
+                "assist_num": 8,
+                "game_result": 2,
+                "champion_id": 84,
+                "game_score": 950,
+                "battle_time": 1606638699,
+                "ext_tag_id": 10,
+                "champion_en_name": "Akali",
+                "death_num": 3,
+                "ext_tag_desc": "甩锅局",
+                "kill_num": 3,
+                "game_mode_name": "单双排位",
+                "battle_id": 91193936
+            },
+            {
+                "game_mode_id": 4,
+                "pv_delta": -177,
+                "position": 0,
+                "assist_num": 1,
+                "battle_flags": [
+                    3
+                ],
+                "game_result": 2,
+                "champion_id": 517,
+                "game_score": 880,
+                "battle_time": 1606587622,
+                "ext_tag_id": 10,
+                "champion_en_name": "",
+                "death_num": 3,
+                "ext_tag_desc": "甩锅局",
+                "kill_num": 3,
+                "game_mode_name": "单双排位",
+                "battle_id": 91201414
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -275,
+                "assist_num": 0,
+                "game_result": 2,
+                "champion_id": 84,
+                "game_score": 400,
+                "battle_time": 1606569239,
+                "ext_tag_id": 2,
+                "champion_en_name": "Akali",
+                "death_num": 6,
+                "ext_tag_desc": "背锅局",
+                "kill_num": 1,
+                "game_mode_name": "单双排位",
+                "battle_id": 91180250
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -261,
+                "assist_num": 1,
+                "game_result": 2,
+                "champion_id": 126,
+                "game_score": 460,
+                "battle_time": 1606566739,
+                "ext_tag_id": 2,
+                "champion_en_name": "Jayce",
+                "death_num": 7,
+                "ext_tag_desc": "背锅局",
+                "kill_num": 3,
+                "game_mode_name": "单双排位",
+                "battle_id": 91199717
+            },
+            {
+                "game_result": 1,
+                "pv_delta": 317,
+                "battle_time": 1606564470,
+                "kill_num": 10,
+                "game_mode_name": "单双排位",
+                "battle_id": 91169679,
+                "game_mode_id": 4,
+                "position": 0,
+                "battle_flags": [
+                    1
+                ],
+                "champion_id": 246,
+                "game_score": 1140,
+                "champion_en_name": "",
+                "assist_num": 4,
+                "ext_tag_desc": "碾压局",
+                "ext_tag_id": 9,
+                "ext_tag_ids": [
+                    19
+                ],
+                "death_num": 1
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -282,
+                "assist_num": 12,
+                "game_result": 2,
+                "champion_id": 44,
+                "game_score": 380,
+                "battle_time": 1606562111,
+                "ext_tag_id": 2,
+                "champion_en_name": "Taric",
+                "death_num": 9,
+                "ext_tag_desc": "背锅局",
+                "kill_num": 2,
+                "game_mode_name": "单双排位",
+                "battle_id": 91179530
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -239,
+                "assist_num": 4,
+                "game_result": 2,
+                "champion_id": 84,
+                "game_score": 760,
+                "battle_time": 1606559341,
+                "ext_tag_id": 10,
+                "champion_en_name": "Akali",
+                "death_num": 6,
+                "ext_tag_desc": "甩锅局",
+                "kill_num": 5,
+                "game_mode_name": "单双排位",
+                "battle_id": 91169102
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "battle_flags": [
+                    1
+                ],
+                "game_result": 1,
+                "assist_num": 11,
+                "game_score": 1250,
+                "pv_delta": 311,
+                "champion_id": 58,
+                "battle_time": 1606556426,
+                "death_num": 5,
+                "champion_en_name": "Renekton",
+                "kill_num": 8,
+                "game_mode_name": "单双排位",
+                "battle_id": 91178901
+            }
+        ],
+        "result": 0,
+        "next_index": 10,
+        "continue_win": 0,
+        "is_finish": 0,
+        "game_id": 26,
+        "area_id": 31,
+        "weekly_report_status": {
+            "report_new_flag": 0,
+            "has_weekly_report": 0,
+            "report_jump_url": "https://act.tgp.qq.com/wegame/newlolweekly/index.html"
+        },
+        "info_list": [
+            {
+                "logo_url": "",
+                "use_num": 191,
+                "win_rate": 63,
+                "champion_id": 246,
+                "used_exp": 56633
+            },
+            {
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Talon.png",
+                "use_num": 92,
+                "win_rate": 60,
+                "champion_id": 91,
+                "used_exp": 44125
+            },
+            {
+                "logo_url": "",
+                "use_num": 47,
+                "win_rate": 69,
+                "champion_id": 164,
+                "used_exp": 26904
+            },
+            {
+                "logo_url": "",
+                "use_num": 24,
+                "win_rate": 34,
+                "champion_id": 517,
+                "used_exp": 21892
+            },
+            {
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Akali.png",
+                "use_num": 23,
+                "win_rate": 48,
+                "champion_id": 84,
+                "used_exp": 24592
+            }
+        ],
+        "slol_id": "5m3EjQ4odvB",
+        "msg": "succ",
+        "code": 0,
+        "data": {
+            "total_time": 7703923,
+            "recent_kda": 905,
+            "tier": 0,
+            "area_name": "峡谷之巅",
+            "measure_unit": 0,
+            "rank": 0,
+            "skin_num": 61,
+            "slol_id": "5m3EjQ4odvB",
+            "champion_num": 114,
+            "total_games": 1561,
+            "game_logo_url": "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/usericon/3861.png",
+            "game_level": 182,
+            "area_id": 31,
+            "gender": 0,
+            "recent_win_rate": 44,
+            "power_value": 91873,
+            "recent_total_games": 71,
+            "league_point": 1102,
+            "total_kill": 16636,
+            "game_id": 26,
+            "result": 0,
+            "total_assist": 12503,
+            "role_name": "2020LYAMO1",
+            "win_rate": 53,
+            "online_zone_id": 0,
+            "praise_time": 0,
+            "total_placed": 16165,
+            "recent_total_kill": 532,
+            "game_age": 0,
+            "online_status": 0,
+            "all_champion_num": 153,
+            "all_skin_num": 1155
+        },
+        "type": "profile-basic-reply"
+    }
 
     const champs_JSON = {
         "1": "Annie",
@@ -518,190 +794,190 @@
     }
 
     var battle_list = {
-            "continue_lose": 0,
-            "continue_win": 1,
-            "is_finish": 0,
-            "next_index": 10,
-            "player_battle_brief_list": [
-                {
-                    "assist_num": 16,
-                    "battle_id": 91552135,
-                    "battle_time": 1607957015,
-                    "champion_en_name": "Viktor",
-                    "champion_id": 112,
-                    "death_num": 4,
-                    "game_mode_id": 4,
-                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                    "game_result": 1,
-                    "game_score": 970,
-                    "kill_num": 3,
-                    "position": 0,
-                    "pv_delta": 70
-                },
-                {
-                    "assist_num": 12,
-                    "battle_id": 91531918,
-                    "battle_time": 1607953816,
-                    "champion_en_name": "TwistedFate",
-                    "champion_id": 4,
-                    "death_num": 6,
-                    "ext_tag_desc": "\u7529\u9505\u5c40",
-                    "ext_tag_id": 10,
-                    "game_mode_id": 4,
-                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                    "game_result": 2,
-                    "game_score": 960,
-                    "kill_num": 6,
-                    "position": 3,
-                    "pv_delta": -86
-                },
-                {
-                    "assist_num": 10,
-                    "battle_id": 91551541,
-                    "battle_time": 1607951406,
-                    "champion_en_name": "TwistedFate",
-                    "champion_id": 4,
-                    "death_num": 5,
-                    "ext_tag_desc": "\u7529\u9505\u5c40",
-                    "ext_tag_id": 10,
-                    "game_mode_id": 4,
-                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                    "game_result": 2,
-                    "game_score": 770,
-                    "kill_num": 2,
-                    "position": 0,
-                    "pv_delta": -89
-                },
-                {
-                    "assist_num": 19,
-                    "battle_id": 91561049,
-                    "battle_time": 1607949301,
-                    "champion_en_name": "Lulu",
-                    "champion_id": 117,
-                    "death_num": 5,
-                    "game_mode_id": 4,
-                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                    "game_result": 1,
-                    "game_score": 890,
-                    "kill_num": 3,
-                    "position": 1,
-                    "pv_delta": 70
-                },
-                {
-                    "assist_num": 11,
-                    "battle_id": 91531160,
-                    "battle_time": 1607946424,
-                    "champion_en_name": "TwistedFate",
-                    "champion_id": 4,
-                    "death_num": 5,
-                    "ext_tag_desc": "\u7529\u9505\u5c40",
-                    "ext_tag_id": 10,
-                    "game_mode_id": 4,
-                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                    "game_result": 2,
-                    "game_score": 870,
-                    "kill_num": 4,
-                    "position": 0,
-                    "pv_delta": -91
-                },
-                {
-                    "assist_num": 12,
-                    "battle_flags": [
-                        1
-                    ],
-                    "battle_id": 91560578,
-                    "battle_time": 1607944294,
-                    "champion_en_name": "TwistedFate",
-                    "champion_id": 4,
-                    "death_num": 2,
-                    "ext_tag_desc": "Carry\u5c40",
-                    "ext_tag_id": 1,
-                    "game_mode_id": 4,
-                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                    "game_result": 1,
-                    "game_score": 1330,
-                    "kill_num": 6,
-                    "position": 0,
-                    "pv_delta": 90
-                },
-                {
-                    "assist_num": 7,
-                    "battle_id": 91546085,
-                    "battle_time": 1607861557,
-                    "champion_en_name": "Orianna",
-                    "champion_id": 61,
-                    "death_num": 2,
-                    "ext_tag_desc": "Carry\u5c40",
-                    "ext_tag_id": 1,
-                    "game_mode_id": 4,
-                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                    "game_result": 1,
-                    "game_score": 1360,
-                    "kill_num": 6,
-                    "position": 0,
-                    "pv_delta": 82
-                },
-                {
-                    "assist_num": 7,
-                    "battle_flags": [
-                        1
-                    ],
-                    "battle_id": 91536043,
-                    "battle_time": 1607859553,
-                    "champion_en_name": "Viktor",
-                    "champion_id": 112,
-                    "death_num": 1,
-                    "ext_tag_desc": "Carry\u5c40",
-                    "ext_tag_id": 1,
-                    "ext_tag_ids": [
-                        19
-                    ],
-                    "game_mode_id": 4,
-                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                    "game_result": 1,
-                    "game_score": 1420,
-                    "kill_num": 15,
-                    "position": 0,
-                    "pv_delta": 96
-                },
-                {
-                    "assist_num": 2,
-                    "battle_id": 91515749,
-                    "battle_time": 1607857698,
-                    "champion_en_name": "TwistedFate",
-                    "champion_id": 4,
-                    "death_num": 5,
-                    "ext_tag_desc": "\u7529\u9505\u5c40",
-                    "ext_tag_id": 10,
-                    "game_mode_id": 4,
-                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                    "game_result": 2,
-                    "game_score": 710,
-                    "kill_num": 2,
-                    "position": 0,
-                    "pv_delta": -84
-                },
-                {
-                    "assist_num": 6,
-                    "battle_id": 91515600,
-                    "battle_time": 1607856045,
-                    "champion_en_name": "",
-                    "champion_id": 164,
-                    "death_num": 4,
-                    "ext_tag_desc": "\u8eba\u8d62\u5c40",
-                    "ext_tag_id": 11,
-                    "game_mode_id": 4,
-                    "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                    "game_result": 1,
-                    "game_score": 410,
-                    "kill_num": 2,
-                    "position": 0,
-                    "pv_delta": 69
-                }
-            ],
-            "result": 0,
-            "total_num": 498
-        }
+        "continue_lose": 0,
+        "continue_win": 1,
+        "is_finish": 0,
+        "next_index": 10,
+        "player_battle_brief_list": [
+            {
+                "assist_num": 16,
+                "battle_id": 91552135,
+                "battle_time": 1607957015,
+                "champion_en_name": "Viktor",
+                "champion_id": 112,
+                "death_num": 4,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 1,
+                "game_score": 970,
+                "kill_num": 3,
+                "position": 0,
+                "pv_delta": 70
+            },
+            {
+                "assist_num": 12,
+                "battle_id": 91531918,
+                "battle_time": 1607953816,
+                "champion_en_name": "TwistedFate",
+                "champion_id": 4,
+                "death_num": 6,
+                "ext_tag_desc": "\u7529\u9505\u5c40",
+                "ext_tag_id": 10,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 2,
+                "game_score": 960,
+                "kill_num": 6,
+                "position": 3,
+                "pv_delta": -86
+            },
+            {
+                "assist_num": 10,
+                "battle_id": 91551541,
+                "battle_time": 1607951406,
+                "champion_en_name": "TwistedFate",
+                "champion_id": 4,
+                "death_num": 5,
+                "ext_tag_desc": "\u7529\u9505\u5c40",
+                "ext_tag_id": 10,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 2,
+                "game_score": 770,
+                "kill_num": 2,
+                "position": 0,
+                "pv_delta": -89
+            },
+            {
+                "assist_num": 19,
+                "battle_id": 91561049,
+                "battle_time": 1607949301,
+                "champion_en_name": "Lulu",
+                "champion_id": 117,
+                "death_num": 5,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 1,
+                "game_score": 890,
+                "kill_num": 3,
+                "position": 1,
+                "pv_delta": 70
+            },
+            {
+                "assist_num": 11,
+                "battle_id": 91531160,
+                "battle_time": 1607946424,
+                "champion_en_name": "TwistedFate",
+                "champion_id": 4,
+                "death_num": 5,
+                "ext_tag_desc": "\u7529\u9505\u5c40",
+                "ext_tag_id": 10,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 2,
+                "game_score": 870,
+                "kill_num": 4,
+                "position": 0,
+                "pv_delta": -91
+            },
+            {
+                "assist_num": 12,
+                "battle_flags": [
+                    1
+                ],
+                "battle_id": 91560578,
+                "battle_time": 1607944294,
+                "champion_en_name": "TwistedFate",
+                "champion_id": 4,
+                "death_num": 2,
+                "ext_tag_desc": "Carry\u5c40",
+                "ext_tag_id": 1,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 1,
+                "game_score": 1330,
+                "kill_num": 6,
+                "position": 0,
+                "pv_delta": 90
+            },
+            {
+                "assist_num": 7,
+                "battle_id": 91546085,
+                "battle_time": 1607861557,
+                "champion_en_name": "Orianna",
+                "champion_id": 61,
+                "death_num": 2,
+                "ext_tag_desc": "Carry\u5c40",
+                "ext_tag_id": 1,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 1,
+                "game_score": 1360,
+                "kill_num": 6,
+                "position": 0,
+                "pv_delta": 82
+            },
+            {
+                "assist_num": 7,
+                "battle_flags": [
+                    1
+                ],
+                "battle_id": 91536043,
+                "battle_time": 1607859553,
+                "champion_en_name": "Viktor",
+                "champion_id": 112,
+                "death_num": 1,
+                "ext_tag_desc": "Carry\u5c40",
+                "ext_tag_id": 1,
+                "ext_tag_ids": [
+                    19
+                ],
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 1,
+                "game_score": 1420,
+                "kill_num": 15,
+                "position": 0,
+                "pv_delta": 96
+            },
+            {
+                "assist_num": 2,
+                "battle_id": 91515749,
+                "battle_time": 1607857698,
+                "champion_en_name": "TwistedFate",
+                "champion_id": 4,
+                "death_num": 5,
+                "ext_tag_desc": "\u7529\u9505\u5c40",
+                "ext_tag_id": 10,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 2,
+                "game_score": 710,
+                "kill_num": 2,
+                "position": 0,
+                "pv_delta": -84
+            },
+            {
+                "assist_num": 6,
+                "battle_id": 91515600,
+                "battle_time": 1607856045,
+                "champion_en_name": "",
+                "champion_id": 164,
+                "death_num": 4,
+                "ext_tag_desc": "\u8eba\u8d62\u5c40",
+                "ext_tag_id": 11,
+                "game_mode_id": 4,
+                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
+                "game_result": 1,
+                "game_score": 410,
+                "kill_num": 2,
+                "position": 0,
+                "pv_delta": 69
+            }
+        ],
+        "result": 0,
+        "total_num": 498
+    }
 
     var we_data = {
         "continue_lose": 0,
@@ -1637,8 +1913,9 @@
         return dDisplay + hDisplay + " ago"
     }
 
-    function fillMostPlayedDiv(json){
+    function fillMostPlayedDiv(json) {
         //Profile Top Left Picture and Win Rate
+        G_slol_id = json.slol_id
         d("TierRank").innerText = rankJSON[json.data.rank]
         d("winratio").innerText = "Win Ratio " + json.data.win_rate + "%"
         d("Username").innerText = json.data.role_name
@@ -1658,7 +1935,7 @@
             let wr_played_box = f("Played")
             let container = f("ChampionBox Ranked")
 
-            wr_played_box.getElementsByClassName("WinRatio normal tip")[0].innerText =json.info_list[z].win_rate + "%"
+            wr_played_box.getElementsByClassName("WinRatio normal tip")[0].innerText = json.info_list[z].win_rate + "%"
             wr_played_box.getElementsByClassName("Title")[0].innerText = json.info_list[z].use_num + " Played"
 
             container.getElementsByClassName("ChampionImage")[0].src = getAsset(_champ, json.info_list[z].champion_id)
@@ -1686,7 +1963,7 @@
             f("Kill").innerText = match.kill_num
             f("Death").innerText = match.death_num
             f("Assist").innerText = match.assist_num
-            f("KDARatio").innerText = ((match.kill_num) + (match.assist_num)) / (match.death_num) + ":1 KDA"
+            f("KDARatio").innerText = (((match.kill_num) + (match.assist_num)) / (match.death_num)).toFixed(2) + ":1 KDA"
 
             if (match.ext_tag_desc) {
                 f("Badge").style.display = "block";
@@ -1714,14 +1991,15 @@
             f("Button MatchDetail").setAttribute("match_id", match.battle_id)
             f("Button MatchDetail").addEventListener("click", function (caller) {
                 console.log(caller.path[0].getAttribute('match_id'))
-                let c_parent = caller.path[5]
-                fillMatchDiv(c_parent, game_details)
+                requestDetailedGame(caller.path[0].getAttribute('match_id'))
+                //let c_parent = caller.path[5]
+                //fillMatchDiv(c_parent, game_details)
             })
             view.appendChild(a)
         }
     }
 
-    function loadLocalStoarge(){
+    function loadLocalStoarge() {
         //Begin populate saved games from localstorage
         localStorage.setItem("91552135", JSON.stringify(game_details));
         for (let i = 0; i < localStorage.length; i++) {
@@ -1790,7 +2068,18 @@
         console.log("Send message: " + message)
     }
 
+    function requestDetailedGame(matchid) {
+        let request = {
+            "type": "profile-detailedmatch",
+            "slol_id": G_slol_id,
+            "battle_id": matchid
+        }
+        sendMessage(JSON.stringify(request))
+    }
+
     //sendMessage("test");
+    populateMatchHistory(we_data2)
+    fillMostPlayedDiv(we_data2)
 
     window.addEventListener('message', function (message) {
         console.log(message)
@@ -1803,9 +2092,13 @@
             }
             var jMessage = JSON.parse(message.data)
             console.log("I got a message: " + message.data)
-            if (jMessage.type === "profile-basic-reply"){
+            if (jMessage.type === "profile-basic-reply") {
                 populateMatchHistory(jMessage)
                 fillMostPlayedDiv(jMessage)
+            }
+            if (jMessage.type === "profile-detailedmatch-reply") {
+                let matchDiv = document.getElementById(jMessage.data.battle_info.battle_id)
+                fillMatchDiv(matchDiv,jMessage)
             }
         }
     });

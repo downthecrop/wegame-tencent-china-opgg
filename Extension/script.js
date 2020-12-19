@@ -103,6 +103,28 @@ async function profile_request(uname,area_id){
     })
 }
 
+async function get_game_details(slol_id,battle_id,area_id){
+    const requestBody = {
+        "area_id": area_id,
+        "battle_id": battle_id,
+        "dst_slol_id": slol_id,
+        "game_id": 26,
+        "req_slol_id": slol_id
+    }
+    apiRequest(battle_details, requestBody).then((data) => {
+        console.log(data);
+        if (data.code === 402){
+            console.log("ticket error")
+            ticket_flag = true;
+            sendMessage("ticket-error")
+        }
+        else{
+            let jRepsonse = game_details_builderJSON(data)
+            sendMessage(jRepsonse)
+        }
+    })
+}
+
 async function apiRequest(myurl, body) {
     return fetch(myurl, {
         method: 'post',
@@ -130,12 +152,17 @@ function buildJSON(user,games,topbar){
 }
 
 function profile_basic_builderJSON(battle_data,topbar_data,often_used_data){
-
     let player = {"type":"profile-basic-reply"}
     player = Object.assign(topbar_data, player)
     player = Object.assign(often_used_data.data, player)
     player = Object.assign(battle_data.data, player)
     return JSON.stringify(player);
+}
+
+function game_details_builderJSON(jdata){
+    let data = {"type":"profile-detailedmatch-reply"}
+    data = Object.assign(jata, data)
+    return JSON.stringify(data);
 }
 
 function buildMultiMessage(r_data){
@@ -245,7 +272,7 @@ window.addEventListener('message', function(message){
             getUserData(jMessage.user,area_id)
             usernames.push(jMessage.user)
         }
-        if (jMessage.type === "profile-basic"){
+        if (jMessage.type === "profile-detailedmatch"){
             //sendMessage("loading")
             var area_id = 31;
             console.log(jMessage)
