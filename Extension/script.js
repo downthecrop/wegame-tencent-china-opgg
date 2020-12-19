@@ -161,7 +161,7 @@ function profile_basic_builderJSON(battle_data,topbar_data,often_used_data){
 
 function game_details_builderJSON(jdata){
     let data = {"type":"profile-detailedmatch-reply"}
-    data = Object.assign(jata, data)
+    data = Object.assign(jdata, data)
     return JSON.stringify(data);
 }
 
@@ -272,11 +272,16 @@ window.addEventListener('message', function(message){
             getUserData(jMessage.user,area_id)
             usernames.push(jMessage.user)
         }
-        if (jMessage.type === "profile-detailedmatch"){
+        if (jMessage.type === "profile-basic"){
             //sendMessage("loading")
             var area_id = 31;
             console.log(jMessage)
             profile_request(jMessage.name,area_id)
+        }
+        if (jMessage.type === "profile-detailedmatch"){
+            var area_id = 31;
+            console.log(jMessage)
+            get_game_details(jMessage.slol_id,jMessage.battle_id,area_id)
         }
     }
 });
