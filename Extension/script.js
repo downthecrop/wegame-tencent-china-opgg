@@ -2,6 +2,7 @@ const battle_list = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_
 const battle_details = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_detail'
 const query_by_nick = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/query_by_nick'
 const get_battle_topbar_info = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_topbar_info'
+const get_often_used = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_often_used_champion'
 
 var loginStatus = false
 var ticket_flag = false
@@ -60,6 +61,48 @@ async function getUserData(uname,area_id){
     })
 }
 
+async function profile_request(uname,area_id){
+    const nickJSON = {
+            "search_nick": uname,
+    }
+    const battleJSON = {
+        "area_id": area_id,
+        "area_name": "",
+        "filter_type": 0,
+        "game_id": 26,
+        "limit": 10,
+        "offset": 0,
+        "slol_id": "",
+        "totalNum": 0
+    }
+    apiRequest(query_by_nick, nickJSON).then((data) => {
+        console.log(data);
+        if (data.code === 402){
+            console.log("ticket error")
+            ticket_flag = true;
+            sendMessage("ticket-error")
+        }
+        else{
+            for (var i = 0; i < Object.keys(data.data.player_list).length; i += 1) {
+                if (data.data.player_list[i].area_id === area_id) {
+                    var player_data = data.data.player_list[i]
+                    battleJSON.slol_id = data.data.player_list[i].slol_id
+                    console.log("User " + nickJSON.search_nick + " Found on Ionia with slol_id=" + battleJSON.slol_id)
+                    apiRequest(battle_list, battleJSON).then((battle_data) => {
+                        apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
+                            apiRequest(get_often_used, battleJSON).then((often_used_data) => {
+                                let jRepsonse = profile_basic_builderJSON(battle_data,topbar_data,often_used_data)
+                                sendMessage(jRepsonse)
+                            })
+                        })
+                    })
+                    i = Infinity;
+                }
+            }
+        }
+    })
+}
+
 async function apiRequest(myurl, body) {
     return fetch(myurl, {
         method: 'post',
@@ -84,6 +127,15 @@ function buildJSON(user,games,topbar){
     user = Object.assign(topbar.data, user)
     console.log(user)
     return user;
+}
+
+function profile_basic_builderJSON(battle_data,topbar_data,often_used_data){
+
+    let player = {"type":"profile-basic-reply"}
+    player = Object.assign(topbar_data, player)
+    player = Object.assign(often_used_data.data, player)
+    player = Object.assign(battle_data.data, player)
+    return JSON.stringify(player);
 }
 
 function buildMultiMessage(r_data){
@@ -192,6 +244,12 @@ window.addEventListener('message', function(message){
             console.log(jMessage)
             getUserData(jMessage.user,area_id)
             usernames.push(jMessage.user)
+        }
+        if (jMessage.type === "profile-basic"){
+            //sendMessage("loading")
+            var area_id = 31;
+            console.log(jMessage)
+            profile_request(jMessage.name,area_id)
         }
     }
 });
