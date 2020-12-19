@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <button id="update-button">Update</button>
     <div class="ContentWrap tabItems" id="SummonerLayoutContent">
         <div class="tabItem Content SummonerLayoutContent summonerLayout-summary" data-tab-data-url="#"
             data-tab-spinner-height="800" data-tab-is-loaded-already="true" style="display: block;">
@@ -93,7 +94,7 @@
                                 <div class="GameItemWrap">
                                     <template>
                                         <div id="FrankerZ">
-                                            <div class="GameItem Win" data-game-id="3699994160">
+                                            <div class="GameItem Win">
                                                 <div class="Content">
                                                     <div class="GameStats">
                                                         <div class="GameType" title="Ranked Solo"> Ranked Solo </div>
@@ -1403,6 +1404,17 @@
         view.appendChild(a)
     }
 
+    localStorage.setItem("915521325", JSON.stringify(game_details));
+    
+    var totalMatches = []
+    for (var i = 0; i < localStorage.length; i++) {
+        if (!isNaN(localStorage.key(i))){
+            totalMatches.push(localStorage.key(i))
+        }
+    }
+
+    //console.log(totalMatches)
+
     //Match history
     for (z = 0; z < Object.keys(battle_list.data.player_battle_brief_list).length; z++) {
         var temp = document.getElementsByTagName("template")[1];
@@ -1413,6 +1425,7 @@
         var match = battle_list.data.player_battle_brief_list[z]
 
         //Main card data
+        f("GameItem Win").setAttribute("id", match.battle_id)
         f("Kill").innerText = match.kill_num
         f("Death").innerText = match.death_num
         f("Assist").innerText = match.assist_num
@@ -1447,55 +1460,70 @@
         f("Button MatchDetail").addEventListener("click", function (caller) {
             console.log(caller.path[0].getAttribute('match_id'))
             var c_parent = caller.path[5]
-            p = function (arguments) { return c_parent.getElementsByClassName(arguments)[0]; }
-
-            if (+caller.path[0].getAttribute('match_id') === 91552135) {
-                var team_data_opp = game_details.data.battle_info.team_data_opp.battle_player_record
-                var team_data_own = game_details.data.battle_info.team_data_own.battle_player_record
-
-                var team_div = c_parent.getElementsByClassName("Team")[0]
-                var opp_div = c_parent.getElementsByClassName("Team")[1]
-
-                var myIndex = 0
-
-                for (z = 0; z < Object.keys(team_data_own).length; z++) {
-
-                    team_div.getElementsByClassName("SummonerName")[z].innerText = team_data_own[z].role_name
-                    team_div.getElementsByClassName("ChampionImage")[z].getElementsByClassName("Image16")[0]
-                        .setAttribute("style", "content:url(" + getAsset(_champ, team_data_own[z].champion_id) + ")")
-
-                    opp_div.getElementsByClassName("SummonerName")[z].innerText = team_data_opp[z].role_name
-                    opp_div.getElementsByClassName("ChampionImage")[z].getElementsByClassName("Image16")[0]
-                        .setAttribute("style", "content:url(" + getAsset(_champ, team_data_opp[z].champion_id) + ")")
-
-                    if (team_data_own[z].role_name === player_info.data.role_name) {
-                        team_div.getElementsByClassName("Summoner")[z].setAttribute("class", "Summoner Requester")
-                        myIndex = z
-                    }
-                }
-
-                var our_player = team_data_own[myIndex]
-                c_parent.getElementsByClassName("Image tip tpd-delegation-uid-1")[0].src = getAsset(_spell, our_player.summon_spell_id[0])
-                c_parent.getElementsByClassName("Image tip tpd-delegation-uid-1")[1].src = getAsset(_spell, our_player.summon_spell_id[1])
-                for (var i = 0; i <= 6; i++) {
-                    if (our_player.item_ids[i] === 0) {
-                        c_parent.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, 7050)
-                    }
-                    else {
-                        c_parent.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, our_player.item_ids[i])
-                    }
-                }
-                var kp = ((our_player.kill_champion_num + our_player.assists_num) / (game_details.data.battle_info.team_data_own.kill_num) * 100)
-                var csm = ((our_player.kill_minion_num) / (game_details.data.battle_info.duration / 60)).toFixed(1)
-                c_parent.getElementsByClassName("Level")[0].innerText = "Level " + our_player.level
-                c_parent.getElementsByClassName("CS tip tpd-delegation-uid-1")[0].innerText = (our_player.kill_minion_num) + ` (${csm})`
-                c_parent.getElementsByClassName("CKRate tip")[0].innerText = parseInt(kp) + "%"
-                c_parent.getElementsByClassName("GameLength")[0].innerText = gameLengthHR(game_details.data.battle_info.duration)
-                var deltaT = Date.now() / 1000 - game_details.data.battle_info.stop_time_stamp
-                c_parent.getElementsByClassName("_timeago")[0].innerText = sinceGame(deltaT)
-            }
+            fillMatchDiv(c_parent,game_details)
         })
         view.appendChild(a)
+    }
+
+    for (var i = 0; i < totalMatches.length; i+=1){
+        var div = findMatchDiv(totalMatches[i])
+        var jData = localStorage.getItem(totalMatches[i])
+        jData = JSON.parse(jData)
+        fillMatchDiv(div,jData)
+    }
+
+    function findMatchDiv(match_id){
+        var div = document.getElementById(match_id)
+        return div
+    }
+
+    function fillMatchDiv(div,json){
+
+        c_parent = div;
+
+        var team_data_opp = json.data.battle_info.team_data_opp.battle_player_record
+        var team_data_own = json.data.battle_info.team_data_own.battle_player_record
+
+        var team_div = c_parent.getElementsByClassName("Team")[0]
+        var opp_div = c_parent.getElementsByClassName("Team")[1]
+
+        var myIndex = 0
+
+        for (z = 0; z < Object.keys(team_data_own).length; z++) {
+
+            team_div.getElementsByClassName("SummonerName")[z].innerText = team_data_own[z].role_name
+            team_div.getElementsByClassName("ChampionImage")[z].getElementsByClassName("Image16")[0]
+                .setAttribute("style", "content:url(" + getAsset(_champ, team_data_own[z].champion_id) + ")")
+
+            opp_div.getElementsByClassName("SummonerName")[z].innerText = team_data_opp[z].role_name
+            opp_div.getElementsByClassName("ChampionImage")[z].getElementsByClassName("Image16")[0]
+                .setAttribute("style", "content:url(" + getAsset(_champ, team_data_opp[z].champion_id) + ")")
+
+            if (team_data_own[z].role_name === player_info.data.role_name) {
+                team_div.getElementsByClassName("Summoner")[z].setAttribute("class", "Summoner Requester")
+                myIndex = z
+            }
+        }
+
+        var our_player = team_data_own[myIndex]
+        c_parent.getElementsByClassName("Image tip tpd-delegation-uid-1")[0].src = getAsset(_spell, our_player.summon_spell_id[0])
+        c_parent.getElementsByClassName("Image tip tpd-delegation-uid-1")[1].src = getAsset(_spell, our_player.summon_spell_id[1])
+        for (var i = 0; i <= 6; i++) {
+            if (our_player.item_ids[i] === 0) {
+                c_parent.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, 7050)
+            }
+            else {
+                c_parent.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, our_player.item_ids[i])
+            }
+        }
+        var kp = ((our_player.kill_champion_num + our_player.assists_num) / (game_details.data.battle_info.team_data_own.kill_num) * 100)
+        var csm = ((our_player.kill_minion_num) / (game_details.data.battle_info.duration / 60)).toFixed(1)
+        c_parent.getElementsByClassName("Level")[0].innerText = "Level " + our_player.level
+        c_parent.getElementsByClassName("CS tip tpd-delegation-uid-1")[0].innerText = (our_player.kill_minion_num) + ` (${csm})`
+        c_parent.getElementsByClassName("CKRate tip")[0].innerText = parseInt(kp) + "%"
+        c_parent.getElementsByClassName("GameLength")[0].innerText = gameLengthHR(game_details.data.battle_info.duration)
+        var deltaT = Date.now() / 1000 - game_details.data.battle_info.stop_time_stamp
+        c_parent.getElementsByClassName("_timeago")[0].innerText = sinceGame(deltaT)
     }
 
     function sendMessage(message) {
