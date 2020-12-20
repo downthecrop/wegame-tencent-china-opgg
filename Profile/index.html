@@ -307,7 +307,7 @@
     </div>
 </body>
 <script>
-    var G_slol_id = "zp0eea3d20V"
+    var slol_id = ""
     var we_data2 = {
         "continue_lose": 1,
         "total_num": 364,
@@ -1915,7 +1915,7 @@
 
     function fillMostPlayedDiv(json) {
         //Profile Top Left Picture and Win Rate
-        G_slol_id = json.slol_id
+        slol_id = json.slol_id
         d("TierRank").innerText = rankJSON[json.data.rank]
         d("winratio").innerText = "Win Ratio " + json.data.win_rate + "%"
         d("Username").innerText = json.data.role_name
@@ -2001,7 +2001,6 @@
 
     function loadLocalStoarge() {
         //Begin populate saved games from localstorage
-        localStorage.setItem("91552135", JSON.stringify(game_details));
         for (let i = 0; i < localStorage.length; i++) {
             if (!isNaN(localStorage.key(i))) {
                 let div = document.getElementById(localStorage.key(i))
@@ -2071,7 +2070,7 @@
     function requestDetailedGame(matchid) {
         let request = {
             "type": "profile-detailedmatch",
-            "slol_id": G_slol_id,
+            "slol_id": slol_id,
             "battle_id": matchid
         }
         sendMessage(JSON.stringify(request))
@@ -2095,10 +2094,12 @@
             if (jMessage.type === "profile-basic-reply") {
                 populateMatchHistory(jMessage)
                 fillMostPlayedDiv(jMessage)
+                loadLocalStoarge()
             }
             if (jMessage.type === "profile-detailedmatch-reply") {
                 let matchDiv = document.getElementById(jMessage.data.battle_info.battle_id)
                 fillMatchDiv(matchDiv,jMessage)
+                localStorage.setItem(jMessage.data.battle_info.battle_id, JSON.stringify(jMessage));
             }
         }
     });
