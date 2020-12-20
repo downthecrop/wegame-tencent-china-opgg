@@ -17,5 +17,5 @@ I will not respond to errors or problems on Twitter but you should still follow 
 
 ## License
 
-- MIT License <a href="https://github.com/downthecrop/opgg-clone/blob/main/LICENSE">LICENSE</a>
+- MIT License <a href="https://github.com/downthecrop/opgg-clone/blob/master/LICENSE">LICENSE</a>
 - Copyright 2020 © <a href="https://downthecrop.xyz/" target="_blank">downthecrop</a>.
