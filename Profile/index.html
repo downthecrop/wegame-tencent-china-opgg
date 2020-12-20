@@ -307,8 +307,165 @@
     </div>
 </body>
 <script>
-    var slol_id = ""
-    var we_data2 = {
+    let slol_id = ""
+
+    const champs_JSON = {
+        "1": "Annie",
+        "2": "Olaf",
+        "3": "Galio",
+        "4": "TwistedFate",
+        "5": "XinZhao",
+        "6": "Urgot",
+        "7": "Leblanc",
+        "8": "Vladimir",
+        "9": "Fiddlesticks",
+        "10": "Kayle",
+        "11": "MasterYi",
+        "12": "Alistar",
+        "13": "Ryze",
+        "14": "Sion",
+        "15": "Sivir",
+        "16": "Soraka",
+        "17": "Teemo",
+        "18": "Tristana",
+        "19": "Warwick",
+        "20": "Nunu",
+        "21": "MissFortune",
+        "22": "Ashe",
+        "23": "Tryndamere",
+        "24": "Jax",
+        "25": "Morgana",
+        "26": "Zilean",
+        "27": "Singed",
+        "28": "Evelynn",
+        "29": "Twitch",
+        "30": "Karthus",
+        "31": "Chogath",
+        "32": "Amumu",
+        "33": "Rammus",
+        "34": "Anivia",
+        "35": "Shaco",
+        "36": "DrMundo",
+        "37": "Sona",
+        "38": "Kassadin",
+        "39": "Irelia",
+        "40": "Janna",
+        "41": "Gangplank",
+        "42": "Corki",
+        "43": "Karma",
+        "44": "Taric",
+        "45": "Veigar",
+        "48": "Trundle",
+        "50": "Swain",
+        "51": "Caitlyn",
+        "53": "Blitzcrank",
+        "54": "Malphite",
+        "55": "Katarina",
+        "56": "Nocturne",
+        "57": "Maokai",
+        "58": "Renekton",
+        "59": "JarvanIV",
+        "60": "Elise",
+        "61": "Orianna",
+        "62": "MonkeyKing",
+        "63": "Brand",
+        "64": "LeeSin",
+        "67": "Vayne",
+        "68": "Rumble",
+        "69": "Cassiopeia",
+        "72": "Skarner",
+        "74": "Heimerdinger",
+        "75": "Nasus",
+        "76": "Nidalee",
+        "77": "Udyr",
+        "78": "Poppy",
+        "79": "Gragas",
+        "80": "Pantheon",
+        "81": "Ezreal",
+        "82": "Mordekaiser",
+        "83": "Yorick",
+        "84": "Akali",
+        "85": "Kennen",
+        "86": "Garen",
+        "89": "Leona",
+        "90": "Malzahar",
+        "91": "Talon",
+        "92": "Riven",
+        "96": "KogMaw",
+        "98": "Shen",
+        "99": "Lux",
+        "101": "Xerath",
+        "102": "Shyvana",
+        "103": "Ahri",
+        "104": "Graves",
+        "105": "Fizz",
+        "106": "Volibear",
+        "107": "Rengar",
+        "110": "Varus",
+        "111": "Nautilus",
+        "112": "Viktor",
+        "113": "Sejuani",
+        "114": "Fiora",
+        "115": "Ziggs",
+        "117": "Lulu",
+        "119": "Draven",
+        "120": "Hecarim",
+        "121": "Khazix",
+        "122": "Darius",
+        "126": "Jayce",
+        "127": "Lissandra",
+        "131": "Diana",
+        "133": "Quinn",
+        "134": "Syndra",
+        "136": "AurelionSol",
+        "141": "Kayn",
+        "142": "Zoe",
+        "143": "Zyra",
+        "145": "Kaisa",
+        "147": "Seraphine",
+        "150": "Gnar",
+        "154": "Zac",
+        "157": "Yasuo",
+        "161": "Velkoz",
+        "163": "Taliyah",
+        "164": "Camille",
+        "201": "Braum",
+        "202": "Jhin",
+        "203": "Kindred",
+        "222": "Jinx",
+        "223": "TahmKench",
+        "235": "Senna",
+        "236": "Lucian",
+        "238": "Zed",
+        "240": "Kled",
+        "245": "Ekko",
+        "246": "Qiyana",
+        "254": "Vi",
+        "266": "Aatrox",
+        "267": "Nami",
+        "268": "Azir",
+        "350": "Yuumi",
+        "360": "Samira",
+        "412": "Thresh",
+        "420": "Illaoi",
+        "421": "RekSai",
+        "427": "Ivern",
+        "429": "Kalista",
+        "432": "Bard",
+        "497": "Rakan",
+        "498": "Xayah",
+        "516": "Ornn",
+        "517": "Sylas",
+        "518": "Neeko",
+        "523": "Aphelios",
+        "526": "Rell",
+        "555": "Pyke",
+        "777": "Yone",
+        "875": "Sett",
+        "876": "Lillia"
+    }
+
+    const we_data2 = {
         "continue_lose": 1,
         "total_num": 364,
         "player_battle_brief_list": [
@@ -584,402 +741,7 @@
         "type": "profile-basic-reply"
     }
 
-    const champs_JSON = {
-        "1": "Annie",
-        "2": "Olaf",
-        "3": "Galio",
-        "4": "TwistedFate",
-        "5": "XinZhao",
-        "6": "Urgot",
-        "7": "Leblanc",
-        "8": "Vladimir",
-        "9": "Fiddlesticks",
-        "10": "Kayle",
-        "11": "MasterYi",
-        "12": "Alistar",
-        "13": "Ryze",
-        "14": "Sion",
-        "15": "Sivir",
-        "16": "Soraka",
-        "17": "Teemo",
-        "18": "Tristana",
-        "19": "Warwick",
-        "20": "Nunu",
-        "21": "MissFortune",
-        "22": "Ashe",
-        "23": "Tryndamere",
-        "24": "Jax",
-        "25": "Morgana",
-        "26": "Zilean",
-        "27": "Singed",
-        "28": "Evelynn",
-        "29": "Twitch",
-        "30": "Karthus",
-        "31": "Chogath",
-        "32": "Amumu",
-        "33": "Rammus",
-        "34": "Anivia",
-        "35": "Shaco",
-        "36": "DrMundo",
-        "37": "Sona",
-        "38": "Kassadin",
-        "39": "Irelia",
-        "40": "Janna",
-        "41": "Gangplank",
-        "42": "Corki",
-        "43": "Karma",
-        "44": "Taric",
-        "45": "Veigar",
-        "48": "Trundle",
-        "50": "Swain",
-        "51": "Caitlyn",
-        "53": "Blitzcrank",
-        "54": "Malphite",
-        "55": "Katarina",
-        "56": "Nocturne",
-        "57": "Maokai",
-        "58": "Renekton",
-        "59": "JarvanIV",
-        "60": "Elise",
-        "61": "Orianna",
-        "62": "MonkeyKing",
-        "63": "Brand",
-        "64": "LeeSin",
-        "67": "Vayne",
-        "68": "Rumble",
-        "69": "Cassiopeia",
-        "72": "Skarner",
-        "74": "Heimerdinger",
-        "75": "Nasus",
-        "76": "Nidalee",
-        "77": "Udyr",
-        "78": "Poppy",
-        "79": "Gragas",
-        "80": "Pantheon",
-        "81": "Ezreal",
-        "82": "Mordekaiser",
-        "83": "Yorick",
-        "84": "Akali",
-        "85": "Kennen",
-        "86": "Garen",
-        "89": "Leona",
-        "90": "Malzahar",
-        "91": "Talon",
-        "92": "Riven",
-        "96": "KogMaw",
-        "98": "Shen",
-        "99": "Lux",
-        "101": "Xerath",
-        "102": "Shyvana",
-        "103": "Ahri",
-        "104": "Graves",
-        "105": "Fizz",
-        "106": "Volibear",
-        "107": "Rengar",
-        "110": "Varus",
-        "111": "Nautilus",
-        "112": "Viktor",
-        "113": "Sejuani",
-        "114": "Fiora",
-        "115": "Ziggs",
-        "117": "Lulu",
-        "119": "Draven",
-        "120": "Hecarim",
-        "121": "Khazix",
-        "122": "Darius",
-        "126": "Jayce",
-        "127": "Lissandra",
-        "131": "Diana",
-        "133": "Quinn",
-        "134": "Syndra",
-        "136": "AurelionSol",
-        "141": "Kayn",
-        "142": "Zoe",
-        "143": "Zyra",
-        "145": "Kaisa",
-        "147": "Seraphine",
-        "150": "Gnar",
-        "154": "Zac",
-        "157": "Yasuo",
-        "161": "Velkoz",
-        "163": "Taliyah",
-        "164": "Camille",
-        "201": "Braum",
-        "202": "Jhin",
-        "203": "Kindred",
-        "222": "Jinx",
-        "223": "TahmKench",
-        "235": "Senna",
-        "236": "Lucian",
-        "238": "Zed",
-        "240": "Kled",
-        "245": "Ekko",
-        "246": "Qiyana",
-        "254": "Vi",
-        "266": "Aatrox",
-        "267": "Nami",
-        "268": "Azir",
-        "350": "Yuumi",
-        "360": "Samira",
-        "412": "Thresh",
-        "420": "Illaoi",
-        "421": "RekSai",
-        "427": "Ivern",
-        "429": "Kalista",
-        "432": "Bard",
-        "497": "Rakan",
-        "498": "Xayah",
-        "516": "Ornn",
-        "517": "Sylas",
-        "518": "Neeko",
-        "523": "Aphelios",
-        "526": "Rell",
-        "555": "Pyke",
-        "777": "Yone",
-        "875": "Sett",
-        "876": "Lillia"
-    }
-
-    var most_used = {
-        "code": 0,
-        "data": {
-            "area_id": 31,
-            "game_id": 26,
-            "info_list": [
-                {
-                    "champion_id": 4,
-                    "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/TwistedFate.png",
-                    "use_num": 176,
-                    "used_exp": 48191,
-                    "win_rate": 51
-                },
-                {
-                    "champion_id": 61,
-                    "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Orianna.png",
-                    "use_num": 138,
-                    "used_exp": 40082,
-                    "win_rate": 54
-                },
-                {
-                    "champion_id": 38,
-                    "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Kassadin.png",
-                    "use_num": 33,
-                    "used_exp": 28829,
-                    "win_rate": 55
-                },
-                {
-                    "champion_id": 22,
-                    "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Ashe.png",
-                    "use_num": 26,
-                    "used_exp": 18163,
-                    "win_rate": 43
-                },
-                {
-                    "champion_id": 266,
-                    "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Aatrox.png",
-                    "use_num": 23,
-                    "used_exp": 31909,
-                    "win_rate": 44
-                }
-            ],
-            "result": 0,
-            "slol_id": "zp0eea3d20V",
-            "weekly_report_status": {
-                "has_weekly_report": 0,
-                "report_jump_url": "https://act.tgp.qq.com/wegame/newlolweekly/index.html",
-                "report_new_flag": 0
-            }
-        },
-        "msg": "succ"
-    }
-
-    var battle_list = {
-        "continue_lose": 0,
-        "continue_win": 1,
-        "is_finish": 0,
-        "next_index": 10,
-        "player_battle_brief_list": [
-            {
-                "assist_num": 16,
-                "battle_id": 91552135,
-                "battle_time": 1607957015,
-                "champion_en_name": "Viktor",
-                "champion_id": 112,
-                "death_num": 4,
-                "game_mode_id": 4,
-                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                "game_result": 1,
-                "game_score": 970,
-                "kill_num": 3,
-                "position": 0,
-                "pv_delta": 70
-            },
-            {
-                "assist_num": 12,
-                "battle_id": 91531918,
-                "battle_time": 1607953816,
-                "champion_en_name": "TwistedFate",
-                "champion_id": 4,
-                "death_num": 6,
-                "ext_tag_desc": "\u7529\u9505\u5c40",
-                "ext_tag_id": 10,
-                "game_mode_id": 4,
-                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                "game_result": 2,
-                "game_score": 960,
-                "kill_num": 6,
-                "position": 3,
-                "pv_delta": -86
-            },
-            {
-                "assist_num": 10,
-                "battle_id": 91551541,
-                "battle_time": 1607951406,
-                "champion_en_name": "TwistedFate",
-                "champion_id": 4,
-                "death_num": 5,
-                "ext_tag_desc": "\u7529\u9505\u5c40",
-                "ext_tag_id": 10,
-                "game_mode_id": 4,
-                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                "game_result": 2,
-                "game_score": 770,
-                "kill_num": 2,
-                "position": 0,
-                "pv_delta": -89
-            },
-            {
-                "assist_num": 19,
-                "battle_id": 91561049,
-                "battle_time": 1607949301,
-                "champion_en_name": "Lulu",
-                "champion_id": 117,
-                "death_num": 5,
-                "game_mode_id": 4,
-                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                "game_result": 1,
-                "game_score": 890,
-                "kill_num": 3,
-                "position": 1,
-                "pv_delta": 70
-            },
-            {
-                "assist_num": 11,
-                "battle_id": 91531160,
-                "battle_time": 1607946424,
-                "champion_en_name": "TwistedFate",
-                "champion_id": 4,
-                "death_num": 5,
-                "ext_tag_desc": "\u7529\u9505\u5c40",
-                "ext_tag_id": 10,
-                "game_mode_id": 4,
-                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                "game_result": 2,
-                "game_score": 870,
-                "kill_num": 4,
-                "position": 0,
-                "pv_delta": -91
-            },
-            {
-                "assist_num": 12,
-                "battle_flags": [
-                    1
-                ],
-                "battle_id": 91560578,
-                "battle_time": 1607944294,
-                "champion_en_name": "TwistedFate",
-                "champion_id": 4,
-                "death_num": 2,
-                "ext_tag_desc": "Carry\u5c40",
-                "ext_tag_id": 1,
-                "game_mode_id": 4,
-                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                "game_result": 1,
-                "game_score": 1330,
-                "kill_num": 6,
-                "position": 0,
-                "pv_delta": 90
-            },
-            {
-                "assist_num": 7,
-                "battle_id": 91546085,
-                "battle_time": 1607861557,
-                "champion_en_name": "Orianna",
-                "champion_id": 61,
-                "death_num": 2,
-                "ext_tag_desc": "Carry\u5c40",
-                "ext_tag_id": 1,
-                "game_mode_id": 4,
-                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                "game_result": 1,
-                "game_score": 1360,
-                "kill_num": 6,
-                "position": 0,
-                "pv_delta": 82
-            },
-            {
-                "assist_num": 7,
-                "battle_flags": [
-                    1
-                ],
-                "battle_id": 91536043,
-                "battle_time": 1607859553,
-                "champion_en_name": "Viktor",
-                "champion_id": 112,
-                "death_num": 1,
-                "ext_tag_desc": "Carry\u5c40",
-                "ext_tag_id": 1,
-                "ext_tag_ids": [
-                    19
-                ],
-                "game_mode_id": 4,
-                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                "game_result": 1,
-                "game_score": 1420,
-                "kill_num": 15,
-                "position": 0,
-                "pv_delta": 96
-            },
-            {
-                "assist_num": 2,
-                "battle_id": 91515749,
-                "battle_time": 1607857698,
-                "champion_en_name": "TwistedFate",
-                "champion_id": 4,
-                "death_num": 5,
-                "ext_tag_desc": "\u7529\u9505\u5c40",
-                "ext_tag_id": 10,
-                "game_mode_id": 4,
-                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                "game_result": 2,
-                "game_score": 710,
-                "kill_num": 2,
-                "position": 0,
-                "pv_delta": -84
-            },
-            {
-                "assist_num": 6,
-                "battle_id": 91515600,
-                "battle_time": 1607856045,
-                "champion_en_name": "",
-                "champion_id": 164,
-                "death_num": 4,
-                "ext_tag_desc": "\u8eba\u8d62\u5c40",
-                "ext_tag_id": 11,
-                "game_mode_id": 4,
-                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                "game_result": 1,
-                "game_score": 410,
-                "kill_num": 2,
-                "position": 0,
-                "pv_delta": 69
-            }
-        ],
-        "result": 0,
-        "total_num": 498
-    }
-
-    var we_data = {
+    const we_data = {
         "continue_lose": 0,
         "total_num": 445,
         "player_battle_brief_list": [
@@ -1246,631 +1008,6 @@
         }
     }
 
-    var game_details = {
-        "code": 0,
-        "data": {
-            "area_id": 31,
-            "battle_info": {
-                "battle_id": 91552135,
-                "duration": 1602,
-                "game_mode_id": 4,
-                "game_mode_name": "\u5355\u53cc\u6392\u4f4d",
-                "start_time_stamp": 1607957015,
-                "stop_time_stamp": 1607958617,
-                "team_data_opp": {
-                    "assist_num": 29,
-                    "battle_player_record": [
-                        {
-                            "assists_num": 2,
-                            "barracks_killed": 0,
-                            "battle_group_percent": 11,
-                            "battle_tag_list": [
-                                {
-                                    "name": "",
-                                    "tag_id": 9
-                                }
-                            ],
-                            "champion_en_name": "",
-                            "champion_id": 164,
-                            "choose_position": 0,
-                            "death_num": 5,
-                            "game_score": 660,
-                            "gold_num": 9468,
-                            "gold_num_percent": 18,
-                            "is_win": 2,
-                            "item_ids": [
-                                3074,
-                                2031,
-                                3078,
-                                1055,
-                                1037,
-                                3047,
-                                3340
-                            ],
-                            "kill_champion_num": 1,
-                            "kill_minion_num": 210,
-                            "kill_turret_num": 1,
-                            "largest_killing_spree": 0,
-                            "largest_multi_kill": 1,
-                            "level": 14,
-                            "magic_damage_2_champion": 82,
-                            "physical_damage_2_champion": 7732,
-                            "pv_delta": 0,
-                            "role_name": "\u53ea\u53ea\u89c9\u5f97\u4e0d\u59a5",
-                            "slol_id": "N3p2ZYV",
-                            "summon_spell_id": [
-                                12,
-                                4
-                            ],
-                            "team_id": 100,
-                            "tier_name": "\u5b97\u5e08",
-                            "total_damage_2_champion": 8033,
-                            "total_damage_2_champion_percent": 10,
-                            "total_damage_dealt": 109545,
-                            "total_damage_percent": 20,
-                            "total_damage_taken": 18461,
-                            "total_health": 3733,
-                            "ward_killed_num": 3,
-                            "ward_killed_pecent": 12,
-                            "ward_placed_num": 8,
-                            "ward_placed_pecent": 12
-                        },
-                        {
-                            "assists_num": 9,
-                            "barracks_killed": 0,
-                            "battle_group_percent": 56,
-                            "champion_en_name": "",
-                            "champion_id": 163,
-                            "choose_position": 0,
-                            "death_num": 7,
-                            "game_score": 940,
-                            "gold_num": 11046,
-                            "gold_num_percent": 21,
-                            "is_win": 2,
-                            "item_ids": [
-                                0,
-                                1052,
-                                3041,
-                                3020,
-                                3165,
-                                6655,
-                                3364
-                            ],
-                            "kill_champion_num": 6,
-                            "kill_minion_num": 196,
-                            "kill_turret_num": 0,
-                            "largest_killing_spree": 3,
-                            "largest_multi_kill": 2,
-                            "level": 15,
-                            "magic_damage_2_champion": 21223,
-                            "physical_damage_2_champion": 486,
-                            "pv_delta": 0,
-                            "role_name": "JUG242SH",
-                            "slol_id": "j9mga5l",
-                            "summon_spell_id": [
-                                4,
-                                11
-                            ],
-                            "team_id": 100,
-                            "tier_name": "\u5b97\u5e08",
-                            "total_damage_2_champion": 23014,
-                            "total_damage_2_champion_percent": 28,
-                            "total_damage_dealt": 168092,
-                            "total_damage_percent": 31,
-                            "total_damage_taken": 23832,
-                            "total_health": 8354,
-                            "ward_killed_num": 4,
-                            "ward_killed_pecent": 16,
-                            "ward_placed_num": 4,
-                            "ward_placed_pecent": 6
-                        },
-                        {
-                            "assists_num": 3,
-                            "barracks_killed": 0,
-                            "battle_group_percent": 26,
-                            "champion_en_name": "Leblanc",
-                            "champion_id": 7,
-                            "choose_position": 0,
-                            "death_num": 5,
-                            "game_score": 750,
-                            "gold_num": 9952,
-                            "gold_num_percent": 19,
-                            "is_win": 2,
-                            "item_ids": [
-                                2033,
-                                1082,
-                                4630,
-                                6655,
-                                3020,
-                                3165,
-                                3364
-                            ],
-                            "kill_champion_num": 4,
-                            "kill_minion_num": 152,
-                            "kill_turret_num": 1,
-                            "largest_killing_spree": 2,
-                            "largest_multi_kill": 1,
-                            "level": 13,
-                            "magic_damage_2_champion": 14299,
-                            "physical_damage_2_champion": 1653,
-                            "pv_delta": 0,
-                            "role_name": "\u5927\u5361\u6bd4",
-                            "slol_id": "7MqYNd1",
-                            "summon_spell_id": [
-                                12,
-                                4
-                            ],
-                            "team_id": 100,
-                            "tier_name": "\u5b97\u5e08",
-                            "total_damage_2_champion": 16078,
-                            "total_damage_2_champion_percent": 19,
-                            "total_damage_dealt": 87498,
-                            "total_damage_percent": 16,
-                            "total_damage_taken": 20853,
-                            "total_health": 6059,
-                            "ward_killed_num": 3,
-                            "ward_killed_pecent": 12,
-                            "ward_placed_num": 7,
-                            "ward_placed_pecent": 11
-                        },
-                        {
-                            "assists_num": 2,
-                            "barracks_killed": 0,
-                            "battle_flag": [
-                                3
-                            ],
-                            "battle_group_percent": 67,
-                            "battle_tag_list": [
-                                {
-                                    "name": "",
-                                    "tag_id": 8
-                                },
-                                {
-                                    "name": "",
-                                    "tag_id": 1
-                                },
-                                {
-                                    "name": "",
-                                    "tag_id": 3
-                                },
-                                {
-                                    "name": "",
-                                    "tag_id": 12
-                                }
-                            ],
-                            "champion_en_name": "",
-                            "champion_id": 145,
-                            "choose_position": 0,
-                            "death_num": 9,
-                            "game_score": 1110,
-                            "gold_num": 14332,
-                            "gold_num_percent": 27,
-                            "is_win": 2,
-                            "item_ids": [
-                                2420,
-                                6671,
-                                3094,
-                                6676,
-                                3071,
-                                3006,
-                                3363
-                            ],
-                            "kill_champion_num": 16,
-                            "kill_minion_num": 179,
-                            "kill_turret_num": 1,
-                            "largest_killing_spree": 8,
-                            "largest_multi_kill": 2,
-                            "level": 14,
-                            "magic_damage_2_champion": 6976,
-                            "physical_damage_2_champion": 21288,
-                            "pv_delta": 0,
-                            "role_name": "9\u70b9\u5fc5\u8d77",
-                            "slol_id": "MvovXzX",
-                            "summon_spell_id": [
-                                7,
-                                4
-                            ],
-                            "team_id": 100,
-                            "tier_name": "\u738b\u8005",
-                            "total_damage_2_champion": 28742,
-                            "total_damage_2_champion_percent": 34,
-                            "total_damage_dealt": 132834,
-                            "total_damage_percent": 25,
-                            "total_damage_taken": 22336,
-                            "total_health": 6928,
-                            "ward_killed_num": 5,
-                            "ward_killed_pecent": 20,
-                            "ward_placed_num": 7,
-                            "ward_placed_pecent": 11
-                        },
-                        {
-                            "assists_num": 13,
-                            "barracks_killed": 0,
-                            "battle_group_percent": 48,
-                            "champion_en_name": "",
-                            "champion_id": 875,
-                            "choose_position": 0,
-                            "death_num": 8,
-                            "game_score": 490,
-                            "gold_num": 7569,
-                            "gold_num_percent": 14,
-                            "is_win": 2,
-                            "item_ids": [
-                                6664,
-                                3857,
-                                1031,
-                                2055,
-                                3066,
-                                3009,
-                                3364
-                            ],
-                            "kill_champion_num": 0,
-                            "kill_minion_num": 51,
-                            "kill_turret_num": 0,
-                            "largest_killing_spree": 0,
-                            "largest_multi_kill": 0,
-                            "level": 11,
-                            "magic_damage_2_champion": 447,
-                            "physical_damage_2_champion": 4757,
-                            "pv_delta": 0,
-                            "role_name": "Sora1",
-                            "slol_id": "qXyX9ag",
-                            "summon_spell_id": [
-                                14,
-                                4
-                            ],
-                            "team_id": 100,
-                            "tier_name": "\u5b97\u5e08",
-                            "total_damage_2_champion": 7495,
-                            "total_damage_2_champion_percent": 9,
-                            "total_damage_dealt": 36615,
-                            "total_damage_percent": 7,
-                            "total_damage_taken": 20226,
-                            "total_health": 1301,
-                            "ward_killed_num": 10,
-                            "ward_killed_pecent": 40,
-                            "ward_placed_num": 39,
-                            "ward_placed_pecent": 60
-                        }
-                    ],
-                    "death_num": 34,
-                    "gold_num": 52367,
-                    "is_win": 2,
-                    "kill_baron_num": 0,
-                    "kill_dragon_num": 0,
-                    "kill_num": 27,
-                    "kill_turret_num": 3,
-                    "team_id": 100,
-                    "ward_percent": 51
-                },
-                "team_data_own": {
-                    "assist_num": 60,
-                    "battle_player_record": [
-                        {
-                            "assists_num": 6,
-                            "barracks_killed": 0,
-                            "battle_flag": [
-                                1
-                            ],
-                            "battle_group_percent": 53,
-                            "battle_tag_list": [
-                                {
-                                    "name": "",
-                                    "tag_id": 11
-                                }
-                            ],
-                            "champion_en_name": "MonkeyKing",
-                            "champion_id": 62,
-                            "choose_position": 0,
-                            "death_num": 1,
-                            "game_score": 1470,
-                            "gold_num": 13753,
-                            "gold_num_percent": 24,
-                            "is_win": 1,
-                            "item_ids": [
-                                3047,
-                                6630,
-                                1037,
-                                3071,
-                                3053,
-                                3133,
-                                3364
-                            ],
-                            "kill_champion_num": 12,
-                            "kill_minion_num": 203,
-                            "kill_turret_num": 2,
-                            "largest_killing_spree": 7,
-                            "largest_multi_kill": 2,
-                            "level": 15,
-                            "magic_damage_2_champion": 3346,
-                            "physical_damage_2_champion": 14012,
-                            "pv_delta": 0,
-                            "role_name": "\u8881\u6210\u4f1f\u7684\u7206\u70b8\u679c\u5b9e",
-                            "slol_id": "mj7r007",
-                            "summon_spell_id": [
-                                4,
-                                12
-                            ],
-                            "team_id": 200,
-                            "tier_name": "\u5b97\u5e08",
-                            "total_damage_2_champion": 17447,
-                            "total_damage_2_champion_percent": 22,
-                            "total_damage_dealt": 116662,
-                            "total_damage_percent": 22,
-                            "total_damage_taken": 26477,
-                            "total_health": 10132,
-                            "ward_killed_num": 5,
-                            "ward_killed_pecent": 20,
-                            "ward_placed_num": 5,
-                            "ward_placed_pecent": 8
-                        },
-                        {
-                            "assists_num": 10,
-                            "barracks_killed": 0,
-                            "battle_group_percent": 62,
-                            "battle_tag_list": [
-                                {
-                                    "name": "",
-                                    "tag_id": 10
-                                }
-                            ],
-                            "champion_en_name": "Kindred",
-                            "champion_id": 203,
-                            "choose_position": 0,
-                            "death_num": 4,
-                            "game_score": 1180,
-                            "gold_num": 13636,
-                            "gold_num_percent": 24,
-                            "is_win": 1,
-                            "item_ids": [
-                                0,
-                                3046,
-                                6672,
-                                3155,
-                                3026,
-                                3006,
-                                3364
-                            ],
-                            "kill_champion_num": 11,
-                            "kill_minion_num": 180,
-                            "kill_turret_num": 3,
-                            "largest_killing_spree": 5,
-                            "largest_multi_kill": 2,
-                            "level": 14,
-                            "magic_damage_2_champion": 2502,
-                            "physical_damage_2_champion": 12018,
-                            "pv_delta": 0,
-                            "role_name": "yuyuKing",
-                            "slol_id": "rwxy7VeZpKW",
-                            "summon_spell_id": [
-                                11,
-                                4
-                            ],
-                            "team_id": 200,
-                            "tier_name": "\u5927\u5e08",
-                            "total_damage_2_champion": 16758,
-                            "total_damage_2_champion_percent": 21,
-                            "total_damage_dealt": 175283,
-                            "total_damage_percent": 32,
-                            "total_damage_taken": 25104,
-                            "total_health": 14325,
-                            "ward_killed_num": 4,
-                            "ward_killed_pecent": 16,
-                            "ward_placed_num": 6,
-                            "ward_placed_pecent": 10
-                        },
-                        {
-                            "assists_num": 16,
-                            "barracks_killed": 0,
-                            "battle_group_percent": 56,
-                            "battle_tag_list": [
-                                {
-                                    "name": "",
-                                    "tag_id": 2
-                                }
-                            ],
-                            "champion_en_name": "Viktor",
-                            "champion_id": 112,
-                            "choose_position": 0,
-                            "death_num": 4,
-                            "game_score": 970,
-                            "gold_num": 10086,
-                            "gold_num_percent": 18,
-                            "is_win": 1,
-                            "item_ids": [
-                                3067,
-                                1082,
-                                3108,
-                                3113,
-                                6653,
-                                3111,
-                                3340
-                            ],
-                            "kill_champion_num": 3,
-                            "kill_minion_num": 169,
-                            "kill_turret_num": 1,
-                            "largest_killing_spree": 2,
-                            "largest_multi_kill": 1,
-                            "level": 15,
-                            "magic_damage_2_champion": 18904,
-                            "physical_damage_2_champion": 1389,
-                            "pv_delta": 0,
-                            "role_name": "1993y",
-                            "slol_id": "zp0eea3d20V",
-                            "summon_spell_id": [
-                                21,
-                                4
-                            ],
-                            "team_id": 200,
-                            "tier_name": "\u738b\u8005",
-                            "total_damage_2_champion": 20600,
-                            "total_damage_2_champion_percent": 26,
-                            "total_damage_dealt": 127517,
-                            "total_damage_percent": 24,
-                            "total_damage_taken": 14673,
-                            "total_health": 4231,
-                            "ward_killed_num": 4,
-                            "ward_killed_pecent": 16,
-                            "ward_placed_num": 8,
-                            "ward_placed_pecent": 13
-                        },
-                        {
-                            "assists_num": 14,
-                            "barracks_killed": 1,
-                            "battle_group_percent": 59,
-                            "champion_en_name": "",
-                            "champion_id": 523,
-                            "choose_position": 0,
-                            "death_num": 10,
-                            "game_score": 870,
-                            "gold_num": 12109,
-                            "gold_num_percent": 21,
-                            "is_win": 1,
-                            "item_ids": [
-                                3046,
-                                6672,
-                                1038,
-                                3006,
-                                1037,
-                                1055,
-                                3363
-                            ],
-                            "kill_champion_num": 6,
-                            "kill_minion_num": 135,
-                            "kill_turret_num": 1,
-                            "largest_killing_spree": 2,
-                            "largest_multi_kill": 2,
-                            "level": 14,
-                            "magic_damage_2_champion": 863,
-                            "physical_damage_2_champion": 12376,
-                            "pv_delta": 0,
-                            "role_name": "b\u7ad9\u9648\u76f4\u76f4",
-                            "slol_id": "Eg3VaoY",
-                            "summon_spell_id": [
-                                7,
-                                4
-                            ],
-                            "team_id": 200,
-                            "tier_name": "\u5b97\u5e08",
-                            "total_damage_2_champion": 15059,
-                            "total_damage_2_champion_percent": 19,
-                            "total_damage_dealt": 91310,
-                            "total_damage_percent": 17,
-                            "total_damage_taken": 19928,
-                            "total_health": 4016,
-                            "ward_killed_num": 2,
-                            "ward_killed_pecent": 8,
-                            "ward_placed_num": 8,
-                            "ward_placed_pecent": 13
-                        },
-                        {
-                            "assists_num": 14,
-                            "barracks_killed": 0,
-                            "battle_group_percent": 47,
-                            "champion_en_name": "Zilean",
-                            "champion_id": 26,
-                            "choose_position": 0,
-                            "death_num": 8,
-                            "game_score": 510,
-                            "gold_num": 7609,
-                            "gold_num_percent": 13,
-                            "is_win": 1,
-                            "item_ids": [
-                                3853,
-                                3108,
-                                2420,
-                                3158,
-                                3067,
-                                4005,
-                                3364
-                            ],
-                            "kill_champion_num": 2,
-                            "kill_minion_num": 24,
-                            "kill_turret_num": 0,
-                            "largest_killing_spree": 0,
-                            "largest_multi_kill": 1,
-                            "level": 13,
-                            "magic_damage_2_champion": 7051,
-                            "physical_damage_2_champion": 934,
-                            "pv_delta": 0,
-                            "role_name": "T5\u6253\u91ce\u7f62\u4e86",
-                            "slol_id": "1OEYE2l",
-                            "summon_spell_id": [
-                                14,
-                                4
-                            ],
-                            "team_id": 200,
-                            "tier_name": "\u738b\u8005",
-                            "total_damage_2_champion": 8581,
-                            "total_damage_2_champion_percent": 11,
-                            "total_damage_dealt": 30405,
-                            "total_damage_percent": 6,
-                            "total_damage_taken": 16034,
-                            "total_health": 4376,
-                            "ward_killed_num": 10,
-                            "ward_killed_pecent": 40,
-                            "ward_placed_num": 36,
-                            "ward_placed_pecent": 57
-                        }
-                    ],
-                    "death_num": 27,
-                    "gold_num": 57193,
-                    "is_win": 1,
-                    "kill_baron_num": 0,
-                    "kill_dragon_num": 0,
-                    "kill_num": 34,
-                    "kill_turret_num": 7,
-                    "team_id": 200,
-                    "ward_percent": 49
-                }
-            },
-            "dst_slol_id": "zp0eea3d20V",
-            "game_id": 26,
-            "req_slol_id": "zp0eea3d20V",
-            "result": 0
-        },
-        "msg": "succ"
-    }
-
-    var player_info = {
-        "code": 0,
-        "data": {
-            "all_champion_num": 153,
-            "all_skin_num": 1155,
-            "area_id": 31,
-            "area_name": "\u5ce1\u8c37\u4e4b\u5dc5",
-            "champion_num": 112,
-            "game_age": 0,
-            "game_id": 26,
-            "game_level": 153,
-            "game_logo_url": "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/usericon/1387.png",
-            "gender": 0,
-            "league_point": 809,
-            "measure_unit": 0,
-            "online_status": 0,
-            "online_zone_id": 0,
-            "power_value": 100183,
-            "praise_time": 0,
-            "rank": 0,
-            "recent_kda": 863,
-            "recent_total_games": 91,
-            "recent_total_kill": 332,
-            "recent_win_rate": 52,
-            "result": 0,
-            "role_name": "1993y",
-            "skin_num": 54,
-            "slol_id": "zp0eea3d20V",
-            "tier": 0,
-            "total_assist": 11233,
-            "total_games": 964,
-            "total_kill": 6766,
-            "total_placed": 17532,
-            "total_time": 733153,
-            "win_rate": 56
-        },
-        "msg": "succ"
-    }
-
     const d = function (arguments) { return document.getElementsByClassName(arguments)[0]; }
 
     const _rank = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/division/"
@@ -1913,32 +1050,32 @@
         return dDisplay + hDisplay + " ago"
     }
 
-    function fillMostPlayedDiv(json) {
+    function populateMostPlayed(jData) {
         //Profile Top Left Picture and Win Rate
-        slol_id = json.slol_id
-        d("TierRank").innerText = rankJSON[json.data.rank]
-        d("winratio").innerText = "Win Ratio " + json.data.win_rate + "%"
-        d("Username").innerText = json.data.role_name
-        document.getElementById("rank-metal").src = getAsset(_rank, json.data.rank)
+        slol_id = jData.slol_id
+        d("TierRank").innerText = rankJSON[jData.data.rank]
+        d("winratio").innerText = "Win Ratio " + jData.data.win_rate + "%"
+        d("Username").innerText = jData.data.role_name
+        document.getElementById("rank-metal").src = getAsset(_rank, jData.data.rank)
 
         //Most Played
-        for (let z = 0; z < Object.keys(json.info_list).length; z++) {
+        for (let z = 0; z < Object.keys(jData.info_list).length; z++) {
 
-            let en_name = champs_JSON[json.info_list[z].champion_id]
+            let en_name = champs_JSON[jData.info_list[z].champion_id]
             let temp = document.getElementsByTagName("template")[0];
             let view = d("MostChampionContent");
             let startElement = temp.content.querySelector("div");
 
-            var a = document.importNode(startElement, true);
-            var f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
+            let a = document.importNode(startElement, true);
+            let f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
 
             let wr_played_box = f("Played")
             let container = f("ChampionBox Ranked")
 
-            wr_played_box.getElementsByClassName("WinRatio normal tip")[0].innerText = json.info_list[z].win_rate + "%"
-            wr_played_box.getElementsByClassName("Title")[0].innerText = json.info_list[z].use_num + " Played"
+            wr_played_box.getElementsByClassName("WinRatio normal tip")[0].innerText = jData.info_list[z].win_rate + "%"
+            wr_played_box.getElementsByClassName("Title")[0].innerText = jData.info_list[z].use_num + " Played"
 
-            container.getElementsByClassName("ChampionImage")[0].src = getAsset(_champ, json.info_list[z].champion_id)
+            container.getElementsByClassName("ChampionImage")[0].src = getAsset(_champ, jData.info_list[z].champion_id)
             container.getElementsByClassName("Face")[0].getElementsByTagName("a")[0].href = _opgg + en_name + "/statistics"
             container.getElementsByClassName("Face")[0].title = en_name
             container.getElementsByClassName("ChampionName")[0].innerText = en_name
@@ -1948,15 +1085,15 @@
         }
     }
 
-    function populateMatchHistory(match_summary) {
-        for (let z = 0; z < Object.keys(match_summary.player_battle_brief_list).length; z++) {
-            let match = match_summary.player_battle_brief_list[z]
+    function populateMatchHistory(jData) {
+        for (let z = 0; z < Object.keys(jData.player_battle_brief_list).length; z++) {
+            let match = jData.player_battle_brief_list[z]
             let temp = document.getElementsByTagName("template")[1];
             let view = d("GameItemWrap");
             let startElement = temp.content.querySelector("div");
 
-            var a = document.importNode(startElement, true);
-            var f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
+            let a = document.importNode(startElement, true);
+            let f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
 
             //Main card data
             f("GameItem Win").setAttribute("id", match.battle_id)
@@ -1991,9 +1128,7 @@
             f("Button MatchDetail").setAttribute("match_id", match.battle_id)
             f("Button MatchDetail").addEventListener("click", function (caller) {
                 console.log(caller.path[0].getAttribute('match_id'))
-                requestDetailedGame(caller.path[0].getAttribute('match_id'))
-                //let c_parent = caller.path[5]
-                //fillMatchDiv(c_parent, game_details)
+                requestMatchDetails(caller.path[0].getAttribute('match_id'))
             })
             view.appendChild(a)
         }
@@ -2005,16 +1140,18 @@
             if (!isNaN(localStorage.key(i))) {
                 let div = document.getElementById(localStorage.key(i))
                 let jData = JSON.parse(localStorage.getItem(localStorage.key(i)))
-                fillMatchDiv(div, jData)
+                populateMatchDetails(div, jData)
             }
         }
     }
 
-    function fillMatchDiv(c_parent, json) {
-        const team_data_opp = json.data.battle_info.team_data_opp.battle_player_record
-        const team_data_own = json.data.battle_info.team_data_own.battle_player_record
-        const team_div = c_parent.getElementsByClassName("Team")[0]
-        const opp_div = c_parent.getElementsByClassName("Team")[1]
+    function populateMatchDetails(div, jData) {
+        const team_data_opp = jData.data.battle_info.team_data_opp.battle_player_record
+        const team_data_own = jData.data.battle_info.team_data_own.battle_player_record
+        const team_div = div.getElementsByClassName("Team")[0]
+        const opp_div = div.getElementsByClassName("Team")[1]
+
+        let f = function (arguments) { return div.getElementsByClassName(arguments)[0]; }
 
         for (let z = 0; z < Object.keys(team_data_own).length; z++) {
 
@@ -2034,20 +1171,20 @@
 
                 team_div.getElementsByClassName("Summoner")[z].setAttribute("class", "Summoner Requester")
 
-                c_parent.getElementsByClassName("Image tip tpd-delegation-uid-1")[0].src = getAsset(_spell, our_player.summon_spell_id[0])
-                c_parent.getElementsByClassName("Image tip tpd-delegation-uid-1")[1].src = getAsset(_spell, our_player.summon_spell_id[1])
-                c_parent.getElementsByClassName("Level")[0].innerText = "Level " + our_player.level
-                c_parent.getElementsByClassName("CS tip tpd-delegation-uid-1")[0].innerText = (our_player.kill_minion_num) + ` (${csm}) CS`
-                c_parent.getElementsByClassName("CKRate tip")[0].innerText = parseInt(kp) + "%"
-                c_parent.getElementsByClassName("GameLength")[0].innerText = gameLengthHR(game_details.data.battle_info.duration)
-                c_parent.getElementsByClassName("_timeago")[0].innerText = sinceGame(deltaT)
+                f("Image tip tpd-delegation-uid-1")[0].src = getAsset(_spell, our_player.summon_spell_id[0])
+                f("Image tip tpd-delegation-uid-1")[1].src = getAsset(_spell, our_player.summon_spell_id[1])
+                f("Level")[0].innerText = "Level " + our_player.level
+                f("CS tip tpd-delegation-uid-1")[0].innerText = (our_player.kill_minion_num) + ` (${csm}) CS`
+                f("CKRate tip")[0].innerText = parseInt(kp) + "%"
+                f("GameLength")[0].innerText = gameLengthHR(game_details.data.battle_info.duration)
+                f("_timeago")[0].innerText = sinceGame(deltaT)
 
                 for (let i = 0; i <= 6; i++) {
                     if (our_player.item_ids[i] === 0) {
-                        c_parent.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, 7050)
+                        f("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, 7050)
                     }
                     else {
-                        c_parent.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, our_player.item_ids[i])
+                        f("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, our_player.item_ids[i])
                     }
                 }
             }
@@ -2055,11 +1192,7 @@
     }
 
     document.getElementById("update-button").addEventListener("click", function () {
-        let request = {
-            "type": "profile-basic",
-            "name": document.getElementById("user-input").value
-        }
-        sendMessage(JSON.stringify(request))
+        requestMatchHistory(document.getElementById("user-input").value);
     })
 
     function sendMessage(message) {
@@ -2067,7 +1200,7 @@
         console.log("Send message: " + message)
     }
 
-    function requestDetailedGame(matchid) {
+    function requestMatchDetails(matchid) {
         let request = {
             "type": "profile-detailedmatch",
             "slol_id": slol_id,
@@ -2076,9 +1209,17 @@
         sendMessage(JSON.stringify(request))
     }
 
+    function requestMatchHistory(user) {
+        let request = {
+            "type": "profile-basic",
+            "name": user
+        }
+        sendMessage(JSON.stringify(request))
+    }
+
     //sendMessage("test");
-    //populateMatchHistory(we_data2)
-    //fillMostPlayedDiv(we_data2)
+    populateMatchHistory(we_data2)
+    populateMostPlayed(we_data2)
 
     window.addEventListener('message', function (message) {
         console.log(message)
@@ -2086,19 +1227,19 @@
             try {
                 JSON.parse(message.data)
             } catch (e) {
-                console.log("Message isn't json")
+                console.log("Message isn't jData")
                 console.log(message.data)
             }
-            var jMessage = JSON.parse(message.data)
+            let jMessage = JSON.parse(message.data)
             console.log("I got a message: " + message.data)
             if (jMessage.type === "profile-basic-reply") {
                 populateMatchHistory(jMessage)
-                fillMostPlayedDiv(jMessage)
+                populateMostPlayed(jMessage)
                 loadLocalStoarge()
             }
             if (jMessage.type === "profile-detailedmatch-reply") {
-                let matchDiv = document.getElementById(jMessage.data.battle_info.battle_id)
-                fillMatchDiv(matchDiv,jMessage)
+                const matchDiv = document.getElementById(jMessage.data.battle_info.battle_id)
+                populateMatchDetails(matchDiv, jMessage)
                 localStorage.setItem(jMessage.data.battle_info.battle_id, JSON.stringify(jMessage));
             }
         }
