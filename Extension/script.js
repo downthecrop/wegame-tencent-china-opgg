@@ -104,30 +104,14 @@ async function profile_request(uname,area_id){
 }
 
 async function get_game_details(slol_id,battle_id,area_id){
-    var myRec = {
-        "area_id": area_id,
-        "battle_id": battle_id,
+    
+    let requestBody = {
+        "area_id": parseInt(area_id),
+        "battle_id": parseInt(battle_id),
         "dst_slol_id": slol_id,
         "game_id": 26,
         "req_slol_id": slol_id
     }
-    fetch("https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_detail", {
-        method: 'post',
-        credentials: 'include',
-        headers: {
-            'User-Agent': 'WeGame/1778 CFNetwork/1121.2.2 Darwin/19.3.0',
-            'Host': 'm.wegame.com.cn',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(myRec)
-    }).then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(function (error) {
-            console.log('Request failed', error);
-    });
-    /*
     apiRequest(battle_details, requestBody).then((data) => {
         console.log(data);
         if (data.code === 402){
@@ -140,7 +124,6 @@ async function get_game_details(slol_id,battle_id,area_id){
             sendMessage(jRepsonse)
         }
     })
-    */
 }
 
 async function apiRequest(myurl, body) {
@@ -283,22 +266,20 @@ window.addEventListener('message', function(message){
         }
         //Trycatch passed, just names
         var jMessage = JSON.parse(message.data)
+        console.log(jMessage)
         if (jMessage.type === "name_mutli_search"){
             sendMessage("loading")
             var area_id = 31;
-            console.log(jMessage)
             getUserData(jMessage.user,area_id)
             usernames.push(jMessage.user)
         }
         if (jMessage.type === "profile-basic"){
             //sendMessage("loading")
             var area_id = 31;
-            console.log(jMessage)
             profile_request(jMessage.name,area_id)
         }
         if (jMessage.type === "profile-detailedmatch"){
             var area_id = 31;
-            console.log(jMessage)
             get_game_details(jMessage.slol_id,jMessage.battle_id,area_id)
         }
     }
