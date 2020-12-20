@@ -1153,8 +1153,6 @@
         const team_div = div.getElementsByClassName("Team")[0]
         const opp_div = div.getElementsByClassName("Team")[1]
 
-        let f = function (arguments) { return div.getElementsByClassName(arguments)[0]; }
-
         for (let z = 0; z < Object.keys(team_data_own).length; z++) {
 
             team_div.getElementsByClassName("SummonerName")[z].innerText = team_data_own[z].role_name
@@ -1173,20 +1171,20 @@
 
                 team_div.getElementsByClassName("Summoner")[z].setAttribute("class", "Summoner Requester")
 
-                f("Image tip tpd-delegation-uid-1")[0].src = getAsset(_spell, our_player.summon_spell_id[0])
-                f("Image tip tpd-delegation-uid-1")[1].src = getAsset(_spell, our_player.summon_spell_id[1])
-                f("Level")[0].innerText = "Level " + our_player.level
-                f("CS tip tpd-delegation-uid-1")[0].innerText = (our_player.kill_minion_num) + ` (${csm}) CS`
-                f("CKRate tip")[0].innerText = parseInt(kp) + "%"
-                f("GameLength")[0].innerText = gameLengthHR(jData.data.battle_info.duration)
-                f("_timeago")[0].innerText = sinceGame(deltaT)
+                div.getElementsByClassName("Image tip tpd-delegation-uid-1")[0].src = getAsset(_spell, our_player.summon_spell_id[0])
+                div.getElementsByClassName("Image tip tpd-delegation-uid-1")[1].src = getAsset(_spell, our_player.summon_spell_id[1])
+                div.getElementsByClassName("Level")[0].innerText = "Level " + our_player.level
+                div.getElementsByClassName("CS tip tpd-delegation-uid-1")[0].innerText = (our_player.kill_minion_num) + ` (${csm}) CS`
+                div.getElementsByClassName("CKRate tip")[0].innerText = parseInt(kp) + "%"
+                div.getElementsByClassName("GameLength")[0].innerText = gameLengthHR(jData.data.battle_info.duration)
+                div.getElementsByClassName("_timeago")[0].innerText = sinceGame(deltaT)
 
                 for (let i = 0; i <= 6; i++) {
                     if (our_player.item_ids[i] === 0) {
-                        f("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, 7050)
+                        div.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, 7050)
                     }
                     else {
-                        f("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, our_player.item_ids[i])
+                        div.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, our_player.item_ids[i])
                     }
                 }
             }
