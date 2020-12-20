@@ -308,6 +308,7 @@
 </body>
 <script>
     let slol_id = ""
+    let player_name = ""
 
     const champs_JSON = {
         "1": "Annie",
@@ -1053,6 +1054,7 @@
     function populateMostPlayed(jData) {
         //Profile Top Left Picture and Win Rate
         slol_id = jData.slol_id
+        player_name = jData.data.role_name
         d("TierRank").innerText = rankJSON[jData.data.rank]
         d("winratio").innerText = "Win Ratio " + jData.data.win_rate + "%"
         d("Username").innerText = jData.data.role_name
@@ -1163,7 +1165,7 @@
             opp_div.getElementsByClassName("ChampionImage")[z].getElementsByClassName("Image16")[0]
                 .setAttribute("style", "content:url(" + getAsset(_champ, team_data_opp[z].champion_id) + ")")
 
-            if (team_data_own[z].role_name === player_info.data.role_name) {
+            if (team_data_own[z].role_name === player_name) {
                 const our_player = team_data_own[z]
                 const kp = ((our_player.kill_champion_num + our_player.assists_num) / (game_details.data.battle_info.team_data_own.kill_num) * 100)
                 const csm = ((our_player.kill_minion_num) / (game_details.data.battle_info.duration / 60)).toFixed(1)
