@@ -1167,9 +1167,9 @@
 
             if (team_data_own[z].role_name === player_name) {
                 const our_player = team_data_own[z]
-                const kp = ((our_player.kill_champion_num + our_player.assists_num) / (game_details.data.battle_info.team_data_own.kill_num) * 100)
-                const csm = ((our_player.kill_minion_num) / (game_details.data.battle_info.duration / 60)).toFixed(1)
-                const deltaT = Date.now() / 1000 - game_details.data.battle_info.stop_time_stamp
+                const kp = ((our_player.kill_champion_num + our_player.assists_num) / (jData.data.battle_info.team_data_own.kill_num) * 100)
+                const csm = ((our_player.kill_minion_num) / (jData.data.battle_info.duration / 60)).toFixed(1)
+                const deltaT = Date.now() / 1000 - jData.data.battle_info.stop_time_stamp
 
                 team_div.getElementsByClassName("Summoner")[z].setAttribute("class", "Summoner Requester")
 
@@ -1178,7 +1178,7 @@
                 f("Level")[0].innerText = "Level " + our_player.level
                 f("CS tip tpd-delegation-uid-1")[0].innerText = (our_player.kill_minion_num) + ` (${csm}) CS`
                 f("CKRate tip")[0].innerText = parseInt(kp) + "%"
-                f("GameLength")[0].innerText = gameLengthHR(game_details.data.battle_info.duration)
+                f("GameLength")[0].innerText = gameLengthHR(jData.data.battle_info.duration)
                 f("_timeago")[0].innerText = sinceGame(deltaT)
 
                 for (let i = 0; i <= 6; i++) {
