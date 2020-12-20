@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profile - Template</title>
+    <link href="./css/common.css" rel="stylesheet" type="text/css">
+    <link href="./css/sprite.css" rel="stylesheet" type="text/css">
+    <link href="./css/forum.css" rel="stylesheet" type="text/css">
+    <link href="./css/new.css" rel="stylesheet" type="text/css">
+    <link href="./css/summoner.css" rel="stylesheet" type="text/css">
+    <link href="./css/detailed-box.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <style>
+        :root {
+            --default-icon: url("https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/0.png");
+        }
+    </style>
+</head>
+
+<body>
+    <button id="update-button">Update</button>
+    <input id="user-input" value="1993y"></input>
+    <div class="ContentWrap tabItems" id="SummonerLayoutContent">
+        <div class="tabItem Content SummonerLayoutContent summonerLayout-summary" data-tab-data-url="#"
+            data-tab-spinner-height="800" data-tab-is-loaded-already="true" style="display: block;">
+            <div class="SideContent">
+                <div class="TierBox Box">
+                    <div class="SummonerRatingMedium">
+                        <div class="Medal tip tpd-delegation-uid-1" title="">
+                            <img id="rank-metal" src="./img/255.png" class="Image">
+                        </div>
+                        <div class="TierRankInfo">
+                            <div class="RankType">Ranked Solo</div>
+                            <div class="Username" style="font-size:20px;">Name</div>
+                            <div class="TierRank">Undefined 0</div>
+                            <div class="TierInfo"> <span class="LeaguePoints">
+                                    0 LP
+                                </span> / <span class="WinLose">
+                                    <span class="wins">0W</span> <span class="losses">0L</span>
+                                    <br> <span class="winratio">Win Ratio 50%</span> </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Box tabWrap stats-box _recognized">
+                    <div class="Tab">
+                        <ul class="TabList tabHeaders">
+                            <li id="left_champion_all" class="Item tabHeader active"
+                                data-tab-show-class="overview-stats--all" data-type="Total"> <a href="#">
+                                    Preseason<br>
+                                    Total </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="Content tabItems">
+                        <div class="MostChampionContent tabItem overview-stats--all" style="display: block;">
+                            <div class="MostChampionContent">
+                                <template>
+                                    <div id="FrankerZ1">
+                                        <div class="ChampionBox Ranked">
+                                            <div class="Face" title="Gangplank">
+                                                <a href="#" target="_blank"> <img src="./img/Unknown.png" width="45"
+                                                        class="ChampionImage"> </a>
+                                            </div>
+                                            <div class="ChampionInfo">
+                                                <div class="ChampionName"> <a target="_blank">
+                                                    </a>
+                                                </div>
+                                                <div class="ChampionMinionKill tip" title="avg. CS (CS/m)"> CS cs (cs/m)
+                                                </div>
+                                            </div>
+                                            <div class="PersonalKDA">
+                                                <div class="KDA green tip"> <span class="KDA">0:1</span> <span
+                                                        class="Text">KDA</span> </div>
+                                                <div class="KDAEach"> <span class="Kill">0</span> <span
+                                                        class="Bar">/</span>
+                                                    <span class="Death">0</span> <span class="Bar">/</span> <span
+                                                        class="Assist">0</span>
+                                                </div>
+                                            </div>
+                                            <div class="Played">
+                                                <div class="WinRatio normal tip" title="Win Ratio"> 29% </div>
+                                                <div id="played-num" class="Title">7 Played</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="RealContent">
+                <div class="GameListContainer">
+                    <div class="Content">
+                        <div class="opscore-banner">
+                            <div class="GameItemList">
+                                <div class="GameItemWrap">
+                                    <template>
+                                        <div id="FrankerZ">
+                                            <div class="GameItem Win">
+                                                <div class="Content">
+                                                    <div class="GameStats">
+                                                        <div class="GameType" title="Ranked Solo"> Ranked Solo </div>
+                                                        <div class="TimeStamp"><span
+                                                                class="_timeago _timeCountAssigned tip tpd-delegation-uid-1">0
+                                                                hours ago</span></div>
+                                                        <div class="Bar"></div>
+                                                        <div class="GameResult"> Victory </div>
+                                                        <div class="GameLength">0m 0s</div>
+                                                    </div>
+                                                    <div class="GameSettingInfo">
+                                                        <div class="ChampionImage">
+                                                            <a href="#" target="_blank"><img src="./img/Unknown.png"
+                                                                    class="Image"></a>
+                                                        </div>
+                                                        <div class="SummonerSpell">
+                                                            <div class="Spell"><img src="./img/Unknown.png"
+                                                                    class="Image tip tpd-delegation-uid-1" title="">
+                                                            </div>
+                                                            <div class="Spell"> <img src="./img/Unknown.png"
+                                                                    class="Image tip tpd-delegation-uid-1" title="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="Runes">
+                                                            <!--
+                                                            <div class="Rune"> <img src="./img/Unknown.png"
+                                                                    class="Image tip tpd-delegation-uid-1" title=""
+                                                                    alt="Grasp of the Undying"> </div>
+                                                            <div class="Rune"> <img src="./img/Unknown.png"
+                                                                    class="Image tip tpd-delegation-uid-1" title=""
+                                                                    alt="Inspiration"> </div>
+                                                            -->
+                                                        </div>
+                                                        <div class="ChampionName"><a href="#" target="_blank"></a></div>
+                                                    </div>
+                                                    <div class="KDA">
+                                                        <div class="KDA">
+                                                            <span class="Kill">0</span> /
+                                                            <span class="Death">0</span> /
+                                                            <span class="Assist">0</span>
+                                                        </div>
+                                                        <div class="KDARatio"> <span class="KDARatio ">0:1</span> KDA
+                                                        </div>
+                                                        <div class="Badge" style="display:none;">
+                                                            <span class="Text MVP"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="Stats">
+                                                        <div class="Level"> Level </div>
+                                                        <div class="CS">
+                                                            <span class="CS tip tpd-delegation-uid-1">cs (cs/m)
+                                                                CS</span>
+                                                        </div>
+                                                        <div class="CKRate tip" title="Kill Participation"> P/Kill 50%
+                                                        </div>
+                                                        <div class="MMR"> <span>Tier Average</span>
+                                                            <br>
+                                                            <b>NaN</b>
+                                                        </div>
+                                                    </div>
+                                                    <div class="Items">
+                                                        <div class="ItemList">
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <div class="Item">
+                                                                <img src="./img/Unknown.png" class="Image tip">
+                                                            </div>
+                                                            <button class="Button OpenBuildButton tip" title="Builds"
+                                                                type="button"> <img class="On"
+                                                                    src="./img/icon-buildblue-p.png">
+                                                                <img class="Off" src="./img/icon-buildblue-p.png">
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="FollowPlayers Names">
+                                                        <div class="Team">
+                                                            <div class="Summoner">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                                                        style="content: var(--default-icon);">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">...</a> </div>
+                                                            </div>
+                                                            <div class="Summoner">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                                                        style="content: var(--default-icon);">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">...</a> </div>
+                                                            </div>
+                                                            <div class="Summoner">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                                                        style="content: var(--default-icon);">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">...</a> </div>
+                                                            </div>
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                                                        style="content: var(--default-icon);">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">...</a> </div>
+                                                            </div>
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                                                        style="content: var(--default-icon);">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">...</a> </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="Team">
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                                                        style="content: var(--default-icon);">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">...</a> </div>
+                                                            </div>
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                                                        style="content: var(--default-icon);">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">...</a> </div>
+                                                            </div>
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                                                        style="content: var(--default-icon);">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">...</a> </div>
+                                                            </div>
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                                                        style="content: var(--default-icon);">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">...</a> </div>
+                                                            </div>
+                                                            <div class="Summoner ">
+                                                                <div class="ChampionImage">
+                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                                                        style="content: var(--default-icon);">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="SummonerName"> <a href="#" class="Link"
+                                                                        target="_blank">...</a> </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="StatsButton">
+                                                        <div class="Content">
+                                                            <div class="Item">
+                                                                <a id="right_match" href="#" class="Button MatchDetail">
+                                                                    <span class="__spSite __spSite-194 Off"></span>
+                                                                    <span
+                                                                        class="__spSite __spSite-193 On"></span>&#x21BB;</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <template>
+        <div class="s-m-b victory-bg2" data-matchid="3711529610" style="display: block;">
+            <div class="victory-bg1 c1">
+                <span class="victory-text1 t" style="font-weight:bold;text-transform:uppercase;font-size:10px;">Team
+                    1</span>
+                <span class="kills victory-text1">
+                    <img width="14" height="14" src="https://lolprofile.net/web/img/turret.png" alt="Tower Kills"
+                        class="tooltip tooltipstered"> <span>9</span> <img width="14" height="14"
+                        src="https://lolprofile.net/web/img/baron_nashor.png" alt="Baron Nashor"
+                        class="tooltip tooltipstered">
+                    <span>1</span> <img width="14" height="14" src="https://lolprofile.net/web/img/dragon.png"
+                        alt="Dragon" class="tooltip tooltipstered"> <span>2</span> </span>
+            </div>
+            <div class="victory-bg2 c3">
+                <span>Summoner</span>
+                <span>Items</span>
+                <span>Score / DMG</span>
+                <span>CS / Wards</span>
+                <span>Rank</span>
+                <span>Ban</span>
+            </div>
+            <div class="victory-bg2 c2">
+                <a href="#" class="victory-text1 cf">
+                    <span class="c11">
+                        <span>
+                            <span>17</span>
+                            <img class="tooltip tooltipstered" width="38" height="38"
+                                src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Gangplank.png"
+                                alt="Gangplank">
+                        </span>
+                        <img width="14" height="14" class="s1 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerTeleport.png"
+                            alt="Teleport">
+                        <img width="14" height="14" class="s2 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerFlash.png"
+                            alt="Flash">
+                    </span>
+                    <span class="c12">downthecrop<br>
+                        <span class="victory-text3" style="font-weight:bold;font-size:10px;">
+                            Top | Solo </span>
+                    </span>
+                    <span class="c13">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Corrupting Potion"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/2033.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Muramana" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3042.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Divine Sunderer"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/6632.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="The Collector" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/6676.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Caulfield's Warhammer"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3133.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Long Sword" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/1036.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Farsight Alteration"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3363.png">
+                    </span>
+                    <span class="c14 victory-text4">4 <span class="sep">/</span> <span style="color:#A93D3D;">4</span>
+                        <span class="sep">/</span> 7 <span class="victory-text2 tooltip tooltipstered">(21%)</span>
+                        <span class="bar">
+                            <span class="tooltip tooltipstered" style="width:28%;">
+                                19,661 </span>
+                        </span>
+                    </span>
+                    <span class="c17">
+                        227 CS<br>
+                        <span class="tooltip tooltipstered" style="color:#87319f;">3</span> | <span
+                            class="tooltip tooltipstered">13</span> | <span class="tooltip tooltipstered"
+                            style="color:#9f3131;">1</span>
+                    </span>
+                    <span class="c18 victory-text4" style="font-weight:bold;font-size:10px;text-transform:uppercase;">
+                        Gold II </span>
+                    <span class="c19">
+                        <img height="24" width="24" class="tooltip tooltipstered" style="border-radius:50px;"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Zoe.png" alt="Zoe">
+                    </span>
+                </a>
+                <a href="#" class="victory-text1 cf">
+                    <span class="c11">
+                        <span>
+                            <span>17</span>
+                            <img class="tooltip tooltipstered" width="38" height="38"
+                                src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Morgana.png"
+                                alt="Morgana">
+                        </span>
+                        <img width="14" height="14" class="s1 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerDot.png"
+                            alt="Ignite">
+                        <img width="14" height="14" class="s2 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerFlash.png"
+                            alt="Flash">
+                    </span>
+                    <span class="c12">downthecrop<br>
+                        <span class="victory-text3" style="font-weight:bold;font-size:10px;">
+                            Mid | Solo </span>
+                    </span>
+                    <span class="c13">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Demonic Embrace"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/4637.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Zhonya's Hourglass"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3157.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Luden's Tempest"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/6655.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Sorcerer's Shoes"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3020.png">
+                        <img style="border-radius:5px;" height="28" width="28" alt=""
+                            src="https://lolprofile.net/web/img/item-1.png">
+                        <img style="border-radius:5px;" height="28" width="28" alt=""
+                            src="https://lolprofile.net/web/img/item-1.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Stealth Ward" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3340.png">
+                    </span>
+                    <span class="c14 victory-text4">6 <span class="sep">/</span> <span style="color:#A93D3D;">8</span>
+                        <span class="sep">/</span> 18 <span class="victory-text2 tooltip tooltipstered">(46%)</span>
+                        <span class="bar">
+                            <span class="tooltip tooltipstered" style="width:30%;">
+                                20,536 </span>
+                        </span>
+                    </span>
+                    <span class="c17">
+                        158 CS<br>
+                        <span class="tooltip tooltipstered" style="color:#87319f;">0</span> | <span
+                            class="tooltip tooltipstered">10</span> | <span class="tooltip tooltipstered"
+                            style="color:#9f3131;">1</span>
+                    </span>
+                    <span class="c18 victory-text4" style="font-weight:bold;font-size:10px;text-transform:uppercase;">
+                        Gold IV </span>
+                    <span class="c19">
+                        <img height="24" width="24" class="tooltip tooltipstered" style="border-radius:50px;"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Samira.png" alt="Samira">
+                    </span>
+                </a>
+                <a href="#" class="victory-text1 cf">
+                    <span class="c11">
+                        <span>
+                            <span>17</span>
+                            <img class="tooltip tooltipstered" width="38" height="38"
+                                src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Twitch.png"
+                                alt="Twitch">
+                        </span>
+                        <img width="14" height="14" class="s1 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerFlash.png"
+                            alt="Flash">
+                        <img width="14" height="14" class="s2 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerHeal.png" alt="Heal">
+                    </span>
+                    <span class="c12">downthecrop<br>
+                        <span class="victory-text3" style="font-weight:bold;font-size:10px;">
+                            Bot | Carry </span>
+                    </span>
+                    <span class="c13">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Kraken Slayer" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/6672.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Infinity Edge" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3031.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Berserker's Greaves"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3006.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Runaan's Hurricane"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3085.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Blade of The Ruined King"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3153.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Mortal Reminder"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3033.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Farsight Alteration"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3363.png">
+                    </span>
+                    <span class="c14 victory-text4">33 <span class="sep">/</span> <span style="color:#A93D3D;">8</span>
+                        <span class="sep">/</span> 8 <span class="victory-text2 tooltip tooltipstered">(78%)</span>
+                        <span class="bar">
+                            <span class="tooltip tooltipstered" style="width:100%;">
+                                68,083 </span>
+                        </span>
+                    </span>
+                    <span class="c17">
+                        225 CS<br>
+                        <span class="tooltip tooltipstered" style="color:#87319f;">0</span> | <span
+                            class="tooltip tooltipstered">9</span> | <span class="tooltip tooltipstered"
+                            style="color:#9f3131;">1</span>
+                    </span>
+                    <span class="c18 victory-text4" style="font-weight:bold;font-size:10px;text-transform:uppercase;">
+                        Platinum I </span>
+                    <span class="c19">
+                        <img height="24" width="24" class="tooltip tooltipstered" style="border-radius:50px;"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Malphite.png"
+                            alt="Malphite">
+                    </span>
+                </a>
+                <a href="#" class="victory-text1 cf">
+                    <span class="c11">
+                        <span>
+                            <span>13</span>
+                            <img class="tooltip tooltipstered" width="38" height="38"
+                                src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Nautilus.png"
+                                alt="Nautilus">
+                        </span>
+                        <img width="14" height="14" class="s1 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerDot.png"
+                            alt="Ignite">
+                        <img width="14" height="14" class="s2 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerFlash.png"
+                            alt="Flash">
+                    </span>
+                    <span class="c12">downthecrop<br>
+                        <span class="victory-text3" style="font-weight:bold;font-size:10px;">
+                            Bot | Support </span>
+                    </span>
+                    <span class="c13">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Sunfire Aegis" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3068.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Bulwark of the Mountain"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3860.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Mercury's Treads"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3111.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Warmog's Armor"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3083.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Ruby Crystal" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/1028.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Bramble Vest" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3076.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Oracle Lens" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3364.png">
+                    </span>
+                    <span class="c14 victory-text4">3 <span class="sep">/</span> <span style="color:#A93D3D;">6</span>
+                        <span class="sep">/</span> 20 <span class="victory-text2 tooltip tooltipstered">(44%)</span>
+                        <span class="bar">
+                            <span class="tooltip tooltipstered" style="width:22%;">
+                                15,286 </span>
+                        </span>
+                    </span>
+                    <span class="c17">
+                        34 CS<br>
+                        <span class="tooltip tooltipstered" style="color:#87319f;">0</span> | <span
+                            class="tooltip tooltipstered">17</span> | <span class="tooltip tooltipstered"
+                            style="color:#9f3131;">0</span>
+                    </span>
+                    <span class="c18 victory-text4" style="font-weight:bold;font-size:10px;text-transform:uppercase;">
+                        Unranked </span>
+                    <span class="c19">
+                        <img height="24" width="24" class="tooltip tooltipstered" style="border-radius:50px;"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Yuumi.png" alt="Yuumi">
+                    </span>
+                </a>
+                <a href="#" class="victory-text1 cf">
+                    <span class="c11">
+                        <span>
+                            <span>16</span>
+                            <img class="tooltip tooltipstered" width="38" height="38"
+                                src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Zed.png" alt="Zed">
+                        </span>
+                        <img width="14" height="14" class="s1 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerSmite.png"
+                            alt="Smite">
+                        <img width="14" height="14" class="s2 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerFlash.png"
+                            alt="Flash">
+                    </span>
+                    <span class="c12">downthecrop<br>
+                        <span class="victory-text3" style="font-weight:bold;font-size:10px;">
+                            Jungle </span>
+                    </span>
+                    <span class="c13">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Duskblade of Draktharr"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/6691.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Youmuu's Ghostblade"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3142.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Ionian Boots of Lucidity"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3158.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Caulfield's Warhammer"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3133.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Edge of Night" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3814.png">
+                        <img style="border-radius:5px;" height="28" width="28" alt=""
+                            src="https://lolprofile.net/web/img/item-1.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Stealth Ward" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3340.png">
+                    </span>
+                    <span class="c14 victory-text4">6 <span class="sep">/</span> <span style="color:#A93D3D;">6</span>
+                        <span class="sep">/</span> 3 <span class="victory-text2 tooltip tooltipstered">(17%)</span>
+                        <span class="bar">
+                            <span class="tooltip tooltipstered" style="width:17%;">
+                                11,866 </span>
+                        </span>
+                    </span>
+                    <span class="c17">
+                        163 CS<br>
+                        <span class="tooltip tooltipstered" style="color:#87319f;">0</span> | <span
+                            class="tooltip tooltipstered">7</span> | <span class="tooltip tooltipstered"
+                            style="color:#9f3131;">2</span>
+                    </span>
+                    <span class="c18 victory-text4" style="font-weight:bold;font-size:10px;text-transform:uppercase;">
+                        Gold IV </span>
+                    <span class="c19">
+                        <img height="24" width="24" class="tooltip tooltipstered" style="border-radius:50px;"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Akali.png" alt="Akali">
+                    </span>
+                </a>
+                <div class="victory-text4 cf bot">
+                    <span class="bot1">52 / <span style="color:#A93D3D;">32</span> / 56</span>
+                    <span class="bot2">Victory</span>
+                </div>
+            </div>
+            <div class="defeat-bg1 c1">
+                <span class="defeat-text1 t" style="font-weight:bold;text-transform:uppercase;font-size:10px;">Team
+                    2</span>
+                <span class="kills defeat-text1">
+                    <img width="14" height="14" src="https://lolprofile.net/web/img/turret.png" alt="Tower Kills"
+                        class="tooltip tooltipstered"> <span>6</span> <img width="14" height="14"
+                        src="https://lolprofile.net/web/img/dragon.png" alt="Dragon" class="tooltip tooltipstered">
+                    <span>1</span> </span>
+            </div>
+            <div class="defeat-bg2 c3">
+                <span>Summoner</span>
+                <span>Items</span>
+                <span>Score / DMG</span>
+                <span>CS / Wards</span>
+                <span>Rank</span>
+                <span>Ban</span>
+            </div>
+            <div class="defeat-bg2 c2">
+                <a href="#" class="defeat-text1 cf">
+                    <span class="c11">
+                        <span>
+                            <span>15</span>
+                            <img class="tooltip tooltipstered" width="38" height="38"
+                                src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Ashe.png" alt="Ashe">
+                        </span>
+                        <img width="14" height="14" class="s1 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerFlash.png"
+                            alt="Flash">
+                        <img width="14" height="14" class="s2 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerHeal.png" alt="Heal">
+                    </span>
+                    <span class="c12">downthecrop<br>
+                        <span class="defeat-text3" style="font-weight:bold;font-size:10px;">
+                            Bot | Carry </span>
+                    </span>
+                    <span class="c13">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Berserker's Greaves"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3006.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Muramana" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3042.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Control Ward" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/2055.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Ravenous Hydra"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3074.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Imperial Mandate"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/4005.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Executioner's Calling"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3123.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Oracle Lens" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3364.png">
+                    </span>
+                    <span class="c14 defeat-text4">4 <span class="sep">/</span> <span style="color:#A93D3D;">16</span>
+                        <span class="sep">/</span> 10 <span class="defeat-text2 tooltip tooltipstered">(43%)</span>
+                        <span class="bar">
+                            <span class="tooltip tooltipstered" style="width:28%;">
+                                19,467 </span>
+                        </span>
+                    </span>
+                    <span class="c17">
+                        121 CS<br>
+                        <span class="tooltip tooltipstered" style="color:#87319f;">1</span> | <span
+                            class="tooltip tooltipstered">8</span> | <span class="tooltip tooltipstered"
+                            style="color:#9f3131;">1</span>
+                    </span>
+                    <span class="c18 defeat-text4" style="font-weight:bold;font-size:10px;text-transform:uppercase;">
+                        Gold III </span>
+                    <span class="c19">
+                        <img height="24" width="24" class="tooltip tooltipstered" style="border-radius:50px;"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Hecarim.png"
+                            alt="Hecarim">
+                    </span>
+                </a>
+                <a href="#" class="defeat-text1 cf">
+                    <span class="c11">
+                        <span>
+                            <span>15</span>
+                            <img class="tooltip tooltipstered" width="38" height="38"
+                                src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Ekko.png" alt="Ekko">
+                        </span>
+                        <img width="14" height="14" class="s1 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerFlash.png"
+                            alt="Flash">
+                        <img width="14" height="14" class="s2 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerSmite.png"
+                            alt="Smite">
+                    </span>
+                    <span class="c12">downthecrop<br>
+                        <span class="defeat-text3" style="font-weight:bold;font-size:10px;">
+                            Jungle </span>
+                    </span>
+                    <span class="c13">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Zhonya's Hourglass"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3157.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Night Harvester"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/4636.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Lich Bane" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3100.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Needlessly Large Rod"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/1058.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Sorcerer's Shoes"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3020.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Refillable Potion"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/2031.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Oracle Lens" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3364.png">
+                    </span>
+                    <span class="c14 defeat-text4">7 <span class="sep">/</span> <span style="color:#A93D3D;">9</span>
+                        <span class="sep">/</span> 4 <span class="defeat-text2 tooltip tooltipstered">(34%)</span>
+                        <span class="bar">
+                            <span class="tooltip tooltipstered" style="width:27%;">
+                                18,385 </span>
+                        </span>
+                    </span>
+                    <span class="c17">
+                        171 CS<br>
+                        <span class="tooltip tooltipstered" style="color:#87319f;">1</span> | <span
+                            class="tooltip tooltipstered">4</span> | <span class="tooltip tooltipstered"
+                            style="color:#9f3131;">2</span>
+                    </span>
+                    <span class="c18 defeat-text4" style="font-weight:bold;font-size:10px;text-transform:uppercase;">
+                        Platinum II </span>
+                    <span class="c19">
+                        <img height="24" width="24" class="tooltip tooltipstered" style="border-radius:50px;"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Kaisa.png" alt="Kai'Sa">
+                    </span>
+                </a>
+                <a href="#" class="defeat-text1 cf">
+                    <span class="c11">
+                        <span>
+                            <span>18</span>
+                            <img class="tooltip tooltipstered" width="38" height="38"
+                                src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Irelia.png"
+                                alt="Irelia">
+                        </span>
+                        <img width="14" height="14" class="s1 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerDot.png"
+                            alt="Ignite">
+                        <img width="14" height="14" class="s2 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerFlash.png"
+                            alt="Flash">
+                    </span>
+                    <span class="c12">downthecrop<br>
+                        <span class="defeat-text3" style="font-weight:bold;font-size:10px;">
+                            Mid | Solo </span>
+                    </span>
+                    <span class="c13">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Death's Dance" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/6333.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Blade of The Ruined King"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3153.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Trinity Force" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3078.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Plated Steelcaps"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3047.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Tiamat" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3077.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Sterak's Gage" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3053.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Stealth Ward" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3340.png">
+                    </span>
+                    <span class="c14 defeat-text4">12 <span class="sep">/</span> <span style="color:#A93D3D;">8</span>
+                        <span class="sep">/</span> 3 <span class="defeat-text2 tooltip tooltipstered">(46%)</span>
+                        <span class="bar">
+                            <span class="tooltip tooltipstered" style="width:46%;">
+                                31,500 </span>
+                        </span>
+                    </span>
+                    <span class="c17">
+                        280 CS<br>
+                        <span class="tooltip tooltipstered" style="color:#87319f;">0</span> | <span
+                            class="tooltip tooltipstered">10</span> | <span class="tooltip tooltipstered"
+                            style="color:#9f3131;">2</span>
+                    </span>
+                    <span class="c18 defeat-text4" style="font-weight:bold;font-size:10px;text-transform:uppercase;">
+                        Platinum IV </span>
+                    <span class="c19">
+                        <img height="24" width="24" class="tooltip tooltipstered" style="border-radius:50px;"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Tryndamere.png"
+                            alt="Tryndamere">
+                    </span>
+                </a>
+                <a href="#" class="defeat-text1 cf">
+                    <span class="c11">
+                        <span>
+                            <span>12</span>
+                            <img class="tooltip tooltipstered" width="38" height="38"
+                                src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Janna.png"
+                                alt="Janna">
+                        </span>
+                        <img width="14" height="14" class="s1 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerDot.png"
+                            alt="Ignite">
+                        <img width="14" height="14" class="s2 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerFlash.png"
+                            alt="Flash">
+                    </span>
+                    <span class="c12">downthecrop<br>
+                        <span class="defeat-text3" style="font-weight:bold;font-size:10px;">
+                            Bot | Support </span>
+                    </span>
+                    <span class="c13">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Shard of True Ice"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3853.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Ardent Censer" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3504.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Plated Steelcaps"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3047.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Imperial Mandate"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/4005.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Control Ward" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/2055.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Bramble Vest" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3076.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Oracle Lens" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3364.png">
+                    </span>
+                    <span class="c14 defeat-text4">3 <span class="sep">/</span> <span style="color:#A93D3D;">15</span>
+                        <span class="sep">/</span> 9 <span class="defeat-text2 tooltip tooltipstered">(37%)</span>
+                        <span class="bar">
+                            <span class="tooltip tooltipstered" style="width:10%;">
+                                7,206 </span>
+                        </span>
+                    </span>
+                    <span class="c17">
+                        15 CS<br>
+                        <span class="tooltip tooltipstered" style="color:#87319f;">9</span> | <span
+                            class="tooltip tooltipstered">25</span> | <span class="tooltip tooltipstered"
+                            style="color:#9f3131;">4</span>
+                    </span>
+                    <span class="c18 defeat-text4" style="font-weight:bold;font-size:10px;text-transform:uppercase;">
+                        Gold IV </span>
+                    <span class="c19">
+                        <img height="24" width="24" class="tooltip tooltipstered" style="border-radius:50px;"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Yuumi.png" alt="Yuumi">
+                    </span>
+                </a>
+                <a href="#" class="defeat-text1 cf">
+                    <span class="c11">
+                        <span>
+                            <span>16</span>
+                            <img class="tooltip tooltipstered" width="38" height="38"
+                                src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/Fiora.png"
+                                alt="Fiora">
+                        </span>
+                        <img width="14" height="14" class="s1 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerTeleport.png"
+                            alt="Teleport">
+                        <img width="14" height="14" class="s2 tooltip tooltipstered"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/spell/SummonerFlash.png"
+                            alt="Flash">
+                    </span>
+                    <span class="c12">downthecrop<br>
+                        <span class="defeat-text3" style="font-weight:bold;font-size:10px;">
+                            Top | Solo </span>
+                    </span>
+                    <span class="c13">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Doran's Shield"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/1054.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Ravenous Hydra"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3074.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Sterak's Gage" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3053.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Goredrinker" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/6630.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Plated Steelcaps"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3047.png">
+                        <img style="border-radius:5px;" height="28" width="28" alt=""
+                            src="https://lolprofile.net/web/img/item-1.png">
+                        <img style="border-radius:5px;" height="28" width="28" class="tooltip tooltipstered"
+                            alt="Stealth Ward" src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/item/3340.png">
+                    </span>
+                    <span class="c14 defeat-text4">6 <span class="sep">/</span> <span style="color:#A93D3D;">4</span>
+                        <span class="sep">/</span> 7 <span class="defeat-text2 tooltip tooltipstered">(40%)</span>
+                        <span class="bar">
+                            <span class="tooltip tooltipstered" style="width:29%;">
+                                20,339 </span>
+                        </span>
+                    </span>
+                    <span class="c17">
+                        171 CS<br>
+                        <span class="tooltip tooltipstered" style="color:#87319f;">1</span> | <span
+                            class="tooltip tooltipstered">8</span> | <span class="tooltip tooltipstered"
+                            style="color:#9f3131;">2</span>
+                    </span>
+                    <span class="c18 defeat-text4" style="font-weight:bold;font-size:10px;text-transform:uppercase;">
+                        Silver II </span>
+                    <span class="c19">
+                        <img height="24" width="24" class="tooltip tooltipstered" style="border-radius:50px;"
+                            src="https://ddragon.leagueoflegends.com/cdn/10.24.1/img/champion/" alt="">
+                    </span>
+                </a>
+                <div class="defeat-text4 cf bot">
+                    <span class="bot1">32 / <span style="color:#A93D3D;">52</span> / 33</span>
+                    <span class="bot2">Defeat</span>
+                </div>
+            </div>
+        </div>
+    </template>
+</body>
+<script>
+    let slol_id = ""
+    let player_name = ""
+
+    const champs_JSON = {
+        "1": "Annie",
+        "2": "Olaf",
+        "3": "Galio",
+        "4": "TwistedFate",
+        "5": "XinZhao",
+        "6": "Urgot",
+        "7": "Leblanc",
+        "8": "Vladimir",
+        "9": "Fiddlesticks",
+        "10": "Kayle",
+        "11": "MasterYi",
+        "12": "Alistar",
+        "13": "Ryze",
+        "14": "Sion",
+        "15": "Sivir",
+        "16": "Soraka",
+        "17": "Teemo",
+        "18": "Tristana",
+        "19": "Warwick",
+        "20": "Nunu",
+        "21": "MissFortune",
+        "22": "Ashe",
+        "23": "Tryndamere",
+        "24": "Jax",
+        "25": "Morgana",
+        "26": "Zilean",
+        "27": "Singed",
+        "28": "Evelynn",
+        "29": "Twitch",
+        "30": "Karthus",
+        "31": "Chogath",
+        "32": "Amumu",
+        "33": "Rammus",
+        "34": "Anivia",
+        "35": "Shaco",
+        "36": "DrMundo",
+        "37": "Sona",
+        "38": "Kassadin",
+        "39": "Irelia",
+        "40": "Janna",
+        "41": "Gangplank",
+        "42": "Corki",
+        "43": "Karma",
+        "44": "Taric",
+        "45": "Veigar",
+        "48": "Trundle",
+        "50": "Swain",
+        "51": "Caitlyn",
+        "53": "Blitzcrank",
+        "54": "Malphite",
+        "55": "Katarina",
+        "56": "Nocturne",
+        "57": "Maokai",
+        "58": "Renekton",
+        "59": "JarvanIV",
+        "60": "Elise",
+        "61": "Orianna",
+        "62": "MonkeyKing",
+        "63": "Brand",
+        "64": "LeeSin",
+        "67": "Vayne",
+        "68": "Rumble",
+        "69": "Cassiopeia",
+        "72": "Skarner",
+        "74": "Heimerdinger",
+        "75": "Nasus",
+        "76": "Nidalee",
+        "77": "Udyr",
+        "78": "Poppy",
+        "79": "Gragas",
+        "80": "Pantheon",
+        "81": "Ezreal",
+        "82": "Mordekaiser",
+        "83": "Yorick",
+        "84": "Akali",
+        "85": "Kennen",
+        "86": "Garen",
+        "89": "Leona",
+        "90": "Malzahar",
+        "91": "Talon",
+        "92": "Riven",
+        "96": "KogMaw",
+        "98": "Shen",
+        "99": "Lux",
+        "101": "Xerath",
+        "102": "Shyvana",
+        "103": "Ahri",
+        "104": "Graves",
+        "105": "Fizz",
+        "106": "Volibear",
+        "107": "Rengar",
+        "110": "Varus",
+        "111": "Nautilus",
+        "112": "Viktor",
+        "113": "Sejuani",
+        "114": "Fiora",
+        "115": "Ziggs",
+        "117": "Lulu",
+        "119": "Draven",
+        "120": "Hecarim",
+        "121": "Khazix",
+        "122": "Darius",
+        "126": "Jayce",
+        "127": "Lissandra",
+        "131": "Diana",
+        "133": "Quinn",
+        "134": "Syndra",
+        "136": "AurelionSol",
+        "141": "Kayn",
+        "142": "Zoe",
+        "143": "Zyra",
+        "145": "Kaisa",
+        "147": "Seraphine",
+        "150": "Gnar",
+        "154": "Zac",
+        "157": "Yasuo",
+        "161": "Velkoz",
+        "163": "Taliyah",
+        "164": "Camille",
+        "201": "Braum",
+        "202": "Jhin",
+        "203": "Kindred",
+        "222": "Jinx",
+        "223": "TahmKench",
+        "235": "Senna",
+        "236": "Lucian",
+        "238": "Zed",
+        "240": "Kled",
+        "245": "Ekko",
+        "246": "Qiyana",
+        "254": "Vi",
+        "266": "Aatrox",
+        "267": "Nami",
+        "268": "Azir",
+        "350": "Yuumi",
+        "360": "Samira",
+        "412": "Thresh",
+        "420": "Illaoi",
+        "421": "RekSai",
+        "427": "Ivern",
+        "429": "Kalista",
+        "432": "Bard",
+        "497": "Rakan",
+        "498": "Xayah",
+        "516": "Ornn",
+        "517": "Sylas",
+        "518": "Neeko",
+        "523": "Aphelios",
+        "526": "Rell",
+        "555": "Pyke",
+        "777": "Yone",
+        "875": "Sett",
+        "876": "Lillia"
+    }
+
+    const we_data2 = {
+        "continue_lose": 1,
+        "total_num": 364,
+        "player_battle_brief_list": [
+            {
+                "game_mode_id": 4,
+                "pv_delta": -175,
+                "position": 0,
+                "assist_num": 8,
+                "battle_flags": [
+                    3
+                ],
+                "game_result": 2,
+                "champion_id": 245,
+                "game_score": 1220,
+                "battle_time": 1608058808,
+                "ext_tag_id": 7,
+                "champion_en_name": "Ekko",
+                "death_num": 3,
+                "ext_tag_desc": "尽力局",
+                "kill_num": 7,
+                "game_mode_name": "单双排位",
+                "battle_id": 91578380
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": 287,
+                "assist_num": 3,
+                "game_result": 1,
+                "champion_id": 245,
+                "game_score": 1030,
+                "battle_time": 1608026362,
+                "ext_tag_id": 9,
+                "champion_en_name": "Ekko",
+                "death_num": 1,
+                "ext_tag_desc": "碾压局",
+                "kill_num": 6,
+                "game_mode_name": "单双排位",
+                "battle_id": 91565390
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -203,
+                "assist_num": 8,
+                "game_result": 2,
+                "champion_id": 84,
+                "game_score": 950,
+                "battle_time": 1606638699,
+                "ext_tag_id": 10,
+                "champion_en_name": "Akali",
+                "death_num": 3,
+                "ext_tag_desc": "甩锅局",
+                "kill_num": 3,
+                "game_mode_name": "单双排位",
+                "battle_id": 91193936
+            },
+            {
+                "game_mode_id": 4,
+                "pv_delta": -177,
+                "position": 0,
+                "assist_num": 1,
+                "battle_flags": [
+                    3
+                ],
+                "game_result": 2,
+                "champion_id": 517,
+                "game_score": 880,
+                "battle_time": 1606587622,
+                "ext_tag_id": 10,
+                "champion_en_name": "",
+                "death_num": 3,
+                "ext_tag_desc": "甩锅局",
+                "kill_num": 3,
+                "game_mode_name": "单双排位",
+                "battle_id": 91201414
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -275,
+                "assist_num": 0,
+                "game_result": 2,
+                "champion_id": 84,
+                "game_score": 400,
+                "battle_time": 1606569239,
+                "ext_tag_id": 2,
+                "champion_en_name": "Akali",
+                "death_num": 6,
+                "ext_tag_desc": "背锅局",
+                "kill_num": 1,
+                "game_mode_name": "单双排位",
+                "battle_id": 91180250
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -261,
+                "assist_num": 1,
+                "game_result": 2,
+                "champion_id": 126,
+                "game_score": 460,
+                "battle_time": 1606566739,
+                "ext_tag_id": 2,
+                "champion_en_name": "Jayce",
+                "death_num": 7,
+                "ext_tag_desc": "背锅局",
+                "kill_num": 3,
+                "game_mode_name": "单双排位",
+                "battle_id": 91199717
+            },
+            {
+                "game_result": 1,
+                "pv_delta": 317,
+                "battle_time": 1606564470,
+                "kill_num": 10,
+                "game_mode_name": "单双排位",
+                "battle_id": 91169679,
+                "game_mode_id": 4,
+                "position": 0,
+                "battle_flags": [
+                    1
+                ],
+                "champion_id": 246,
+                "game_score": 1140,
+                "champion_en_name": "",
+                "assist_num": 4,
+                "ext_tag_desc": "碾压局",
+                "ext_tag_id": 9,
+                "ext_tag_ids": [
+                    19
+                ],
+                "death_num": 1
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -282,
+                "assist_num": 12,
+                "game_result": 2,
+                "champion_id": 44,
+                "game_score": 380,
+                "battle_time": 1606562111,
+                "ext_tag_id": 2,
+                "champion_en_name": "Taric",
+                "death_num": 9,
+                "ext_tag_desc": "背锅局",
+                "kill_num": 2,
+                "game_mode_name": "单双排位",
+                "battle_id": 91179530
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -239,
+                "assist_num": 4,
+                "game_result": 2,
+                "champion_id": 84,
+                "game_score": 760,
+                "battle_time": 1606559341,
+                "ext_tag_id": 10,
+                "champion_en_name": "Akali",
+                "death_num": 6,
+                "ext_tag_desc": "甩锅局",
+                "kill_num": 5,
+                "game_mode_name": "单双排位",
+                "battle_id": 91169102
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "battle_flags": [
+                    1
+                ],
+                "game_result": 1,
+                "assist_num": 11,
+                "game_score": 1250,
+                "pv_delta": 311,
+                "champion_id": 58,
+                "battle_time": 1606556426,
+                "death_num": 5,
+                "champion_en_name": "Renekton",
+                "kill_num": 8,
+                "game_mode_name": "单双排位",
+                "battle_id": 91178901
+            }
+        ],
+        "result": 0,
+        "next_index": 10,
+        "continue_win": 0,
+        "is_finish": 0,
+        "game_id": 26,
+        "area_id": 31,
+        "weekly_report_status": {
+            "report_new_flag": 0,
+            "has_weekly_report": 0,
+            "report_jump_url": "https://act.tgp.qq.com/wegame/newlolweekly/index.html"
+        },
+        "info_list": [
+            {
+                "logo_url": "",
+                "use_num": 191,
+                "win_rate": 63,
+                "champion_id": 246,
+                "used_exp": 56633
+            },
+            {
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Talon.png",
+                "use_num": 92,
+                "win_rate": 60,
+                "champion_id": 91,
+                "used_exp": 44125
+            },
+            {
+                "logo_url": "",
+                "use_num": 47,
+                "win_rate": 69,
+                "champion_id": 164,
+                "used_exp": 26904
+            },
+            {
+                "logo_url": "",
+                "use_num": 24,
+                "win_rate": 34,
+                "champion_id": 517,
+                "used_exp": 21892
+            },
+            {
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Akali.png",
+                "use_num": 23,
+                "win_rate": 48,
+                "champion_id": 84,
+                "used_exp": 24592
+            }
+        ],
+        "slol_id": "5m3EjQ4odvB",
+        "msg": "succ",
+        "code": 0,
+        "data": {
+            "total_time": 7703923,
+            "recent_kda": 905,
+            "tier": 0,
+            "area_name": "峡谷之巅",
+            "measure_unit": 0,
+            "rank": 0,
+            "skin_num": 61,
+            "slol_id": "5m3EjQ4odvB",
+            "champion_num": 114,
+            "total_games": 1561,
+            "game_logo_url": "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/usericon/3861.png",
+            "game_level": 182,
+            "area_id": 31,
+            "gender": 0,
+            "recent_win_rate": 44,
+            "power_value": 91873,
+            "recent_total_games": 71,
+            "league_point": 1102,
+            "total_kill": 16636,
+            "game_id": 26,
+            "result": 0,
+            "total_assist": 12503,
+            "role_name": "2020LYAMO1",
+            "win_rate": 53,
+            "online_zone_id": 0,
+            "praise_time": 0,
+            "total_placed": 16165,
+            "recent_total_kill": 532,
+            "game_age": 0,
+            "online_status": 0,
+            "all_champion_num": 153,
+            "all_skin_num": 1155
+        },
+        "type": "profile-basic-reply"
+    }
+
+    const we_data = {
+        "continue_lose": 0,
+        "total_num": 445,
+        "player_battle_brief_list": [
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "game_result": 1,
+                "assist_num": 16,
+                "game_score": 970,
+                "pv_delta": 70,
+                "champion_id": 112,
+                "battle_time": 1607957015,
+                "death_num": 4,
+                "champion_en_name": "Viktor",
+                "kill_num": 3,
+                "game_mode_name": "单双排位",
+                "battle_id": 91552135
+            },
+            {
+                "game_mode_id": 4,
+                "position": 3,
+                "pv_delta": -86,
+                "assist_num": 12,
+                "game_result": 2,
+                "champion_id": 4,
+                "game_score": 960,
+                "battle_time": 1607953816,
+                "ext_tag_id": 10,
+                "champion_en_name": "TwistedFate",
+                "death_num": 6,
+                "ext_tag_desc": "甩锅局",
+                "kill_num": 6,
+                "game_mode_name": "单双排位",
+                "battle_id": 91531918
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -89,
+                "assist_num": 10,
+                "game_result": 2,
+                "champion_id": 4,
+                "game_score": 770,
+                "battle_time": 1607951406,
+                "ext_tag_id": 10,
+                "champion_en_name": "TwistedFate",
+                "death_num": 5,
+                "ext_tag_desc": "甩锅局",
+                "kill_num": 2,
+                "game_mode_name": "单双排位",
+                "battle_id": 91551541
+            },
+            {
+                "game_mode_id": 4,
+                "position": 1,
+                "game_result": 1,
+                "assist_num": 19,
+                "game_score": 890,
+                "pv_delta": 70,
+                "champion_id": 117,
+                "battle_time": 1607949301,
+                "death_num": 5,
+                "champion_en_name": "Lulu",
+                "kill_num": 3,
+                "game_mode_name": "单双排位",
+                "battle_id": 91561049
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -91,
+                "assist_num": 11,
+                "game_result": 2,
+                "champion_id": 4,
+                "game_score": 870,
+                "battle_time": 1607946424,
+                "ext_tag_id": 10,
+                "champion_en_name": "TwistedFate",
+                "death_num": 5,
+                "ext_tag_desc": "甩锅局",
+                "kill_num": 4,
+                "game_mode_name": "单双排位",
+                "battle_id": 91531160
+            },
+            {
+                "game_mode_id": 4,
+                "pv_delta": 90,
+                "position": 0,
+                "assist_num": 12,
+                "battle_flags": [
+                    1
+                ],
+                "game_result": 1,
+                "champion_id": 4,
+                "game_score": 1330,
+                "battle_time": 1607944294,
+                "ext_tag_id": 1,
+                "champion_en_name": "TwistedFate",
+                "death_num": 2,
+                "ext_tag_desc": "Carry局",
+                "kill_num": 6,
+                "game_mode_name": "单双排位",
+                "battle_id": 91560578
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": 82,
+                "assist_num": 7,
+                "game_result": 1,
+                "champion_id": 61,
+                "game_score": 1360,
+                "battle_time": 1607861557,
+                "ext_tag_id": 1,
+                "champion_en_name": "Orianna",
+                "death_num": 2,
+                "ext_tag_desc": "Carry局",
+                "kill_num": 6,
+                "game_mode_name": "单双排位",
+                "battle_id": 91546085
+            },
+            {
+                "game_result": 1,
+                "pv_delta": 96,
+                "battle_time": 1607859553,
+                "kill_num": 15,
+                "game_mode_name": "单双排位",
+                "battle_id": 91536043,
+                "game_mode_id": 4,
+                "position": 0,
+                "battle_flags": [
+                    1
+                ],
+                "champion_id": 112,
+                "game_score": 1420,
+                "champion_en_name": "Viktor",
+                "assist_num": 7,
+                "ext_tag_desc": "Carry局",
+                "ext_tag_id": 1,
+                "ext_tag_ids": [
+                    19
+                ],
+                "death_num": 1
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": -84,
+                "assist_num": 2,
+                "game_result": 2,
+                "champion_id": 4,
+                "game_score": 710,
+                "battle_time": 1607857698,
+                "ext_tag_id": 10,
+                "champion_en_name": "TwistedFate",
+                "death_num": 5,
+                "ext_tag_desc": "甩锅局",
+                "kill_num": 2,
+                "game_mode_name": "单双排位",
+                "battle_id": 91515749
+            },
+            {
+                "game_mode_id": 4,
+                "position": 0,
+                "pv_delta": 69,
+                "assist_num": 6,
+                "game_result": 1,
+                "champion_id": 164,
+                "game_score": 410,
+                "battle_time": 1607856045,
+                "ext_tag_id": 11,
+                "champion_en_name": "",
+                "death_num": 4,
+                "ext_tag_desc": "躺赢局",
+                "kill_num": 2,
+                "game_mode_name": "单双排位",
+                "battle_id": 91515600
+            }
+        ],
+        "result": 0,
+        "next_index": 10,
+        "continue_win": 1,
+        "is_finish": 0,
+        "game_id": 26,
+        "area_id": 31,
+        "weekly_report_status": {
+            "report_new_flag": 0,
+            "has_weekly_report": 0,
+            "report_jump_url": "https://act.tgp.qq.com/wegame/newlolweekly/index.html"
+        },
+        "info_list": [
+            {
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/TwistedFate.png",
+                "use_num": 176,
+                "win_rate": 51,
+                "champion_id": 4,
+                "used_exp": 48191
+            },
+            {
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Orianna.png",
+                "use_num": 138,
+                "win_rate": 54,
+                "champion_id": 61,
+                "used_exp": 40082
+            },
+            {
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Kassadin.png",
+                "use_num": 33,
+                "win_rate": 55,
+                "champion_id": 38,
+                "used_exp": 28829
+            },
+            {
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Ashe.png",
+                "use_num": 26,
+                "win_rate": 43,
+                "champion_id": 22,
+                "used_exp": 18163
+            },
+            {
+                "logo_url": "http://down.qq.com/wegame_app/lolApp/img/champion/Aatrox.png",
+                "use_num": 23,
+                "win_rate": 44,
+                "champion_id": 266,
+                "used_exp": 31909
+            }
+        ],
+        "slol_id": "zp0eea3d20V",
+        "msg": "succ",
+        "code": 0,
+        "data": {
+            "total_time": 733153,
+            "recent_kda": 891,
+            "tier": 0,
+            "area_name": "峡谷之巅",
+            "measure_unit": 0,
+            "rank": 0,
+            "skin_num": 54,
+            "slol_id": "zp0eea3d20V",
+            "champion_num": 112,
+            "total_games": 964,
+            "game_logo_url": "https://wegame.gtimg.com/g.26-r.c2d3c/helper/lol/assis/images/resources/usericon/1387.png",
+            "game_level": 153,
+            "area_id": 31,
+            "gender": 0,
+            "recent_win_rate": 54,
+            "power_value": 100183,
+            "recent_total_games": 81,
+            "league_point": 809,
+            "total_kill": 6766,
+            "game_id": 26,
+            "result": 0,
+            "total_assist": 11233,
+            "role_name": "1993y",
+            "win_rate": 56,
+            "online_zone_id": 0,
+            "praise_time": 0,
+            "total_placed": 17532,
+            "recent_total_kill": 304,
+            "game_age": 0,
+            "online_status": 0,
+            "all_champion_num": 153,
+            "all_skin_num": 1155
+        }
+    }
+
+    const d = function (arguments) { return document.getElementsByClassName(arguments)[0]; }
+
+    const _rank = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/division/"
+    const _champ = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/"
+    const _spell = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/summonability/"
+    const _item = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/items/"
+    const _opgg = "https://na.op.gg/champion/"
+
+    const rankJSON = {
+        "0": "Challenger"
+    }
+
+    function getAsset(url, id) {
+        return (url + id + ".png")
+    }
+
+    function gameLengthHR(seconds) {
+        seconds = Number(seconds);
+        const d = Math.floor(seconds / (3600 * 24));
+        const h = Math.floor(seconds % (3600 * 24) / 3600);
+        const m = Math.floor(seconds % 3600 / 60);
+        const s = Math.floor(seconds % 60);
+        const dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+        const hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours ") : "";
+        const mDisplay = m > 0 ? m + (m == 1 ? "m" : "m ") : "";
+        const sDisplay = s > 0 ? s + (s == 1 ? "s" : "s") : "";
+        return dDisplay + hDisplay + mDisplay + sDisplay
+    }
+
+    function sinceGame(seconds) {
+        seconds = Number(seconds);
+        const d = Math.floor(seconds / (3600 * 24));
+        const h = Math.floor(seconds % (3600 * 24) / 3600);
+        const m = Math.floor(seconds % 3600 / 60);
+        const s = Math.floor(seconds % 60);
+        const dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+        const hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours ") : "";
+        const mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+        //sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+        return dDisplay + hDisplay + " ago"
+    }
+
+    function populateMostPlayed(jData) {
+        //Profile Top Left Picture and Win Rate
+        slol_id = jData.slol_id
+        player_name = jData.data.role_name
+        d("TierRank").innerText = rankJSON[jData.data.rank]
+        d("winratio").innerText = "Win Ratio " + jData.data.win_rate + "%"
+        d("Username").innerText = jData.data.role_name
+        document.getElementById("rank-metal").src = getAsset(_rank, jData.data.rank)
+
+        //Most Played
+        for (let z = 0; z < Object.keys(jData.info_list).length; z++) {
+
+            let en_name = champs_JSON[jData.info_list[z].champion_id]
+            let temp = document.getElementsByTagName("template")[0];
+            let view = d("MostChampionContent");
+            let startElement = temp.content.querySelector("div");
+
+            let a = document.importNode(startElement, true);
+            let f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
+
+            let wr_played_box = f("Played")
+            let container = f("ChampionBox Ranked")
+
+            wr_played_box.getElementsByClassName("WinRatio normal tip")[0].innerText = jData.info_list[z].win_rate + "%"
+            wr_played_box.getElementsByClassName("Title")[0].innerText = jData.info_list[z].use_num + " Played"
+
+            container.getElementsByClassName("ChampionImage")[0].src = getAsset(_champ, jData.info_list[z].champion_id)
+            container.getElementsByClassName("Face")[0].getElementsByTagName("a")[0].href = _opgg + en_name + "/statistics"
+            container.getElementsByClassName("Face")[0].title = en_name
+            container.getElementsByClassName("ChampionName")[0].innerText = en_name
+            container.getElementsByClassName("ChampionName")[0].title = en_name
+
+            view.appendChild(a)
+        }
+    }
+
+    function populateMatchHistory(jData) {
+        for (let z = 0; z < Object.keys(jData.player_battle_brief_list).length; z++) {
+            let match = jData.player_battle_brief_list[z]
+            let temp = document.getElementsByTagName("template")[1];
+            let view = d("GameItemWrap");
+            let startElement = temp.content.querySelector("div");
+
+            let a = document.importNode(startElement, true);
+            let f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
+
+            //Main card data
+            f("GameItem Win").setAttribute("id", match.battle_id)
+            f("Kill").innerText = match.kill_num
+            f("Death").innerText = match.death_num
+            f("Assist").innerText = match.assist_num
+            f("KDARatio").innerText = (((match.kill_num) + (match.assist_num)) / (match.death_num)).toFixed(2) + ":1 KDA"
+
+            if (match.ext_tag_desc) {
+                f("Badge").style.display = "block";
+                f("Text MVP").innerText = match.ext_tag_desc
+                if (match.game_result === 2) {
+                    f("Text MVP").style.backgroundColor = "#8c51c5";
+                    f("Text MVP").style.border = "#7f3590";
+                }
+            }
+
+            //is loss
+            if (match.game_result === 2) {
+                f("GameItem Win").setAttribute("class", "GameItem Lose")
+                f("GameResult").innerText = "Defeat"
+            }
+
+            let champ_id = match.champion_id
+            let en_name = champs_JSON[champ_id]
+
+            f("ChampionImage").getElementsByClassName("Image")[0].src = getAsset(_champ, champ_id)
+            f("ChampionImage").getElementsByClassName("Image")[0].title = en_name
+            f("ChampionImage").getElementsByTagName("a")[0].title = en_name
+            f("ChampionImage").getElementsByTagName("a")[0].href = _opgg + en_name + "/statistics"
+            f("ChampionName").getElementsByTagName("a")[0].innerText = champs_JSON[champ_id]
+            f("Button MatchDetail").setAttribute("match_id", match.battle_id)
+            f("Button MatchDetail").addEventListener("click", function (caller) {
+                console.log(caller.path[0].getAttribute('match_id'))
+                requestMatchDetails(caller.path[0].getAttribute('match_id'))
+            })
+            f("Button OpenBuildButton").addEventListener("click", function (caller) {
+                let tempExt = document.getElementsByTagName("template")[2];
+                let expandedDetails = tempExt.content.cloneNode(true);
+                caller.path[5].appendChild(expandedDetails)
+            })
+            view.appendChild(a)
+        }
+    }
+
+    function populateMatchDetails(div, jData) {
+        const team_data_opp = jData.data.battle_info.team_data_opp.battle_player_record
+        const team_data_own = jData.data.battle_info.team_data_own.battle_player_record
+        const team_div = div.getElementsByClassName("Team")[0]
+        const opp_div = div.getElementsByClassName("Team")[1]
+
+        for (let z = 0; z < Object.keys(team_data_own).length; z++) {
+
+            team_div.getElementsByClassName("SummonerName")[z].innerText = team_data_own[z].role_name
+            team_div.getElementsByClassName("ChampionImage")[z].getElementsByClassName("Image16")[0]
+                .setAttribute("style", "content:url(" + getAsset(_champ, team_data_own[z].champion_id) + ")")
+
+            opp_div.getElementsByClassName("SummonerName")[z].innerText = team_data_opp[z].role_name
+            opp_div.getElementsByClassName("ChampionImage")[z].getElementsByClassName("Image16")[0]
+                .setAttribute("style", "content:url(" + getAsset(_champ, team_data_opp[z].champion_id) + ")")
+
+            if (team_data_own[z].role_name === player_name) {
+                const our_player = team_data_own[z]
+                const kp = ((our_player.kill_champion_num + our_player.assists_num) / (jData.data.battle_info.team_data_own.kill_num) * 100)
+                const csm = ((our_player.kill_minion_num) / (jData.data.battle_info.duration / 60)).toFixed(1)
+                const deltaT = Date.now() / 1000 - jData.data.battle_info.stop_time_stamp
+
+                team_div.getElementsByClassName("Summoner")[z].setAttribute("class", "Summoner Requester")
+
+                div.getElementsByClassName("Image tip tpd-delegation-uid-1")[0].src = getAsset(_spell, our_player.summon_spell_id[0])
+                div.getElementsByClassName("Image tip tpd-delegation-uid-1")[1].src = getAsset(_spell, our_player.summon_spell_id[1])
+                div.getElementsByClassName("Level")[0].innerText = "Level " + our_player.level
+                div.getElementsByClassName("CS tip tpd-delegation-uid-1")[0].innerText = (our_player.kill_minion_num) + ` (${csm}) CS`
+                div.getElementsByClassName("CKRate tip")[0].innerText = parseInt(kp) + "%"
+                div.getElementsByClassName("GameLength")[0].innerText = gameLengthHR(jData.data.battle_info.duration)
+                div.getElementsByClassName("_timeago")[0].innerText = sinceGame(deltaT)
+
+                for (let i = 0; i <= 6; i++) {
+                    if (our_player.item_ids[i] === 0) {
+                        div.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, 7050)
+                    }
+                    else {
+                        div.getElementsByClassName("ItemList")[0].getElementsByTagName("img")[i].src = getAsset(_item, our_player.item_ids[i])
+                    }
+                }
+            }
+        }
+    }
+
+    function loadLocalStoarge() {
+        //Begin populate saved games from localstorage
+        for (let i = 0; i < localStorage.length; i++) {
+            if (!isNaN(localStorage.key(i))) {
+                let div = document.getElementById(localStorage.key(i))
+                let jData = JSON.parse(localStorage.getItem(localStorage.key(i)))
+                populateMatchDetails(div, jData)
+            }
+        }
+    }
+
+    document.getElementById("update-button").addEventListener("click", function () {
+        requestMatchHistory(document.getElementById("user-input").value);
+    })
+
+    function sendMessage(message) {
+        parent.postMessage(message, '*');
+        console.log("Send message: " + message)
+    }
+
+    function requestMatchDetails(matchid) {
+        let request = {
+            "type": "profile-detailedmatch",
+            "slol_id": slol_id,
+            "battle_id": matchid
+        }
+        sendMessage(JSON.stringify(request))
+    }
+
+    function requestMatchHistory(user) {
+        let request = {
+            "type": "profile-basic",
+            "name": user
+        }
+        sendMessage(JSON.stringify(request))
+    }
+
+    //sendMessage("test");
+    populateMatchHistory(we_data2)
+    populateMostPlayed(we_data2)
+
+    window.addEventListener('message', function (message) {
+        console.log(message)
+        if (message.origin != "https://downthecrop.github.io") {
+            try {
+                JSON.parse(message.data)
+            } catch (e) {
+                console.log("Message isn't jData")
+                console.log(message.data)
+            }
+            let jMessage = JSON.parse(message.data)
+            console.log("I got a message: " + message.data)
+            if (jMessage.type === "profile-basic-reply") {
+                populateMatchHistory(jMessage)
+                populateMostPlayed(jMessage)
+                loadLocalStoarge()
+            }
+            if (jMessage.type === "profile-detailedmatch-reply") {
+                const matchDiv = document.getElementById(jMessage.data.battle_info.battle_id)
+                populateMatchDetails(matchDiv, jMessage)
+                localStorage.setItem(jMessage.data.battle_info.battle_id, JSON.stringify(jMessage));
+            }
+        }
+    });
+
+</script>
+
+</html>
