@@ -20,6 +20,7 @@
 <body>
     <button id="update-button">Update</button>
     <input id="user-input" value="1993y"></input>
+    <button id="clear-local-button">Clear localStorage</button>
     <div class="ContentWrap tabItems" id="SummonerLayoutContent">
         <div class="tabItem Content SummonerLayoutContent summonerLayout-summary" data-tab-data-url="#"
             data-tab-spinner-height="800" data-tab-is-loaded-already="true" style="display: block;">
@@ -2274,12 +2275,10 @@
             own_champ_icons[0].src = getAsset(_champ, team_data_own[i].champion_id)
             opp_champ_icons[0].src = getAsset(_champ, team_data_opp[i].champion_id)
 
-            //Player Sum Spell 1
+            //Player Sum Spells
             own_champ_icons[1].src = getAsset(_spell, team_data_own[i].summon_spell_id[0])
-            opp_champ_icons[1].src = getAsset(_spell, team_data_opp[i].summon_spell_id[0])
-
-            //Player Sum Spell 2
             own_champ_icons[2].src = getAsset(_spell, team_data_own[i].summon_spell_id[1])
+            opp_champ_icons[1].src = getAsset(_spell, team_data_opp[i].summon_spell_id[0])
             opp_champ_icons[2].src = getAsset(_spell, team_data_opp[i].summon_spell_id[1])
 
             own_champ_lvl.innerText = team_data_own[i].level
@@ -2345,7 +2344,8 @@
                 let expandedDetails = tempExt.content.cloneNode(true);
                 caller.path[5].appendChild(expandedDetails)
 
-                let jDetailed = JSON.parse(localStorage.getItem(caller.path[5].id))
+                //let jDetailed = JSON.parse(localStorage.getItem(caller.path[5].id))
+                jDetailed = game_details
                 populateExpandedDetails(caller.path[5], jDetailed);
             })
             view.appendChild(a)
@@ -2406,6 +2406,10 @@
         requestMatchHistory(document.getElementById("user-input").value);
     })
 
+    document.getElementById("clear-local-button").addEventListener("click", function () {
+        window.localStorage.clear();
+    })
+
     function sendMessage(message) {
         parent.postMessage(message, '*');
         console.log("Send message: " + message)
@@ -2429,8 +2433,8 @@
     }
 
     //sendMessage("test");
-    //populateMatchHistory(we_data2)
-    //populateMostPlayed(we_data2)
+    populateMatchHistory(we_data2)
+    populateMostPlayed(we_data2)
 
     window.addEventListener('message', function (message) {
         console.log(message)
