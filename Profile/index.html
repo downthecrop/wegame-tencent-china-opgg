@@ -2222,8 +2222,18 @@
     const _opgg = "//na.op.gg/champion/"
 
     const rankJSON = {
-        "0": "Challenger"
+        "0": "Challenger",
+        "1": "Diamond",
+        "2": "Platinum",
+        "3": "Gold",
+        "4": "Silver",
+        "5": "Bronze",
+        "6": "Master",
+        "7": "Grandmaster",
+        "8": "Iron"
     }
+
+    const singleDivision = [0,6,7]
 
     function getAsset(url, id) {
         return (url + id + ".png")
@@ -2259,10 +2269,13 @@
         //Profile Top Left Picture and Win Rate
         slol_id = jData.slol_id
         player_name = jData.data.role_name
-        d("TierRank").innerText = rankJSON[jData.data.rank]
+        d("TierRank").innerText = rankJSON[jData.data.tier] + ` ${jData.data.rank}`
         d("winratio").innerText = "Win Ratio " + jData.data.win_rate + "%"
         d("Username").innerText = jData.data.role_name
-        document.getElementById("rank-metal").src = getAsset(_rank, jData.data.rank)
+        if (singleDivision.includes(parseInt(jData.data.rank))) 
+            document.getElementById("rank-metal").src = getAsset(_rank, jData.data.tier)
+        else   
+            document.getElementById("rank-metal").src = getAsset(_rank, jData.data.tier+"_"+jData.data.rank)
 
         //Most Played
         for (let z = 0; z < Object.keys(jData.info_list).length; z++) {
