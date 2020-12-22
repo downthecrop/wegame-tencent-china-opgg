@@ -2558,7 +2558,7 @@
             "battle_id": matchid,
             "area_id": area_id
         }
-        sendMessage(JSON.stry(request))
+        sendMessage(JSON.stringify(request))
     }
 
     function requestMatchHistory(user) {
@@ -2567,7 +2567,7 @@
             "name": user,
             "area_id": area_id
         }
-        sendMessage(JSON.stry(request))
+        sendMessage(JSON.stringify(request))
     }
 
     //sendMessage("test");
@@ -2593,7 +2593,7 @@
             if (jMessage.type === "profile-detailedmatch-reply") {
                 const matchDiv = document.getElementById(jMessage.data.battle_info.battle_id)
                 populateMatchDetails(matchDiv, jMessage)
-                localStorage.setItem(jMessage.data.battle_info.battle_id, JSON.stry(jMessage));
+                localStorage.setItem(jMessage.data.battle_info.battle_id, JSON.stringify(jMessage));
             }
         }
     });
