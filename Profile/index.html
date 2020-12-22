@@ -2269,7 +2269,7 @@
         //Profile Top Left Picture and Win Rate
         slol_id = jData.slol_id
         player_name = jData.data.role_name
-        d("TierRank").innerText = rankJSON[jData.data.tier] + ` ${jData.data.rank}`
+        d("TierRank").innerText = rankJSON[jData.data.tier] + ` ${parseInt(jData.data.rank+1)}`
         d("winratio").innerText = "Win Ratio " + jData.data.win_rate + "%"
         d("Username").innerText = jData.data.role_name
         if (singleDivision.includes(parseInt(jData.data.tier))) 
