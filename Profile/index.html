@@ -18,42 +18,41 @@
 </head>
 
 <body>
-    <form>
-        <label for="browser">Area ID:</label>
-        <input list="browsers" name="browser" id="browser">
-        <datalist id="browsers">
-            <option value="1 艾欧尼亚"></option>
-            <option value="2 比尔吉沃特"></option>
-            <option value="3 祖安"></option>
-            <option value="4 诺克萨斯"></option>
-            <option value="5 班德尔城"></option>
-            <option value="6 德玛西亚"></option>
-            <option value="7 皮尔特沃夫"></option>
-            <option value="8战争学院"></option>
-            <option value="9 弗雷尔卓德"></option>
-            <option value="10 巨神峰"></option>
-            <option value="11 雷瑟守备"></option>
-            <option value="12 无畏先锋"></option>
-            <option value="13 裁决之地"></option>
-            <option value="14 黑色玫瑰"></option>
-            <option value="15 暗影岛"></option>
-            <option value="16 恕瑞玛"></option>
-            <option value="17 钢铁烈阳"></option>
-            <option value="18 水晶之痕"></option>
-            <option value="19 均衡教派"></option>
-            <option value="20 扭曲丛林"></option>
-            <option value="22 影流"></option>
-            <option value="23 守望之海"></option>
-            <option value="24 征服之海"></option>
-            <option value="25 卡拉曼达"></option>
-            <option value="26 巨龙之巢"></option>
-            <option value="27 皮城警备"></option>
-            <option value="30 男爵领域"></option>
-            <option value="31 峡谷之巅"></option>
-        </datalist>
-      </form>
     <button id="update-button">Update</button>
     <input id="user-input" value="1993y"></input>
+    <form style="display:inline">
+        <label for="area-id">Area ID:</label>
+        <select id="areas">
+            <option>1 艾欧尼亚</option>
+            <option>2 比尔吉沃特</option>
+            <option>3 祖安</option>
+            <option>4 诺克萨斯</option>
+            <option>5 班德尔城</option>
+            <option>6 德玛西亚</option>
+            <option>7 皮尔特沃夫</option>
+            <option>8 战争学院</option>
+            <option>9 弗雷尔卓德</option>
+            <option>10 巨神峰</option>
+            <option>11 雷瑟守备</option>
+            <option>12 无畏先锋</option>
+            <option>13 裁决之地</option>
+            <option>14 黑色玫瑰</option>
+            <option>15 暗影岛</option>
+            <option>16 恕瑞玛</option>
+            <option>17 钢铁烈阳</option>
+            <option>18 水晶之痕</option>
+            <option>19 均衡教派</option>
+            <option>20 扭曲丛林</option>
+            <option>22 影流</option>
+            <option>23 守望之海</option>
+            <option>24 征服之海</option>
+            <option>25 卡拉曼达</option>
+            <option>26 巨龙之巢</option>
+            <option>27 皮城警备</option>
+            <option>30 男爵领域</option>
+            <option>31 峡谷之巅</option>
+        </select>
+      </form>
     <button id="clear-local-button">Clear localStorage</button>
     <div class="ContentWrap tabItems" id="SummonerLayoutContent">
         <div class="tabItem Content SummonerLayoutContent summonerLayout-summary" data-tab-data-url="#"
@@ -918,6 +917,16 @@
 <script>
     let slol_id = ""
     let player_name = ""
+    let area_id = 31
+
+    if (localStorage.getItem("area_id")){
+        area_id = parseInt(localStorage.getItem("area_id"))
+        for (let i = 0; i < document.getElementById("areas").getElementsByTagName("option").length; i += 1){
+            if (parseInt(document.getElementById("areas").getElementsByTagName("option")[i].value.split(" ")[0]) === area_id){
+                document.getElementById("areas").getElementsByTagName("option")[i].setAttribute("selected","selected")
+            }
+        }
+    }
 
     const game_details = {
         "code": 0,
@@ -2528,6 +2537,11 @@
         requestMatchHistory(document.getElementById("user-input").value);
     })
 
+    document.getElementById("areas").addEventListener("change", function () {
+        area_id = parseInt(document.getElementById("areas").value.split(" ")[0])
+        localStorage.setItem("area_id",area_id)
+    })
+
     document.getElementById("clear-local-button").addEventListener("click", function () {
         window.localStorage.clear();
     })
@@ -2541,7 +2555,8 @@
         let request = {
             "type": "profile-detailedmatch",
             "slol_id": slol_id,
-            "battle_id": matchid
+            "battle_id": matchid,
+            "area_id": area_id
         }
         sendMessage(JSON.stringify(request))
     }
@@ -2549,7 +2564,8 @@
     function requestMatchHistory(user) {
         let request = {
             "type": "profile-basic",
-            "name": user
+            "name": user,
+            "area_id": area_id
         }
         sendMessage(JSON.stringify(request))
     }

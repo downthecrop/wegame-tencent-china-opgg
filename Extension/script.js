@@ -274,11 +274,11 @@ window.addEventListener('message', function (message) {
         }
         if (jMessage.type === "profile-basic") {
             //sendMessage("loading")
-            let area_id = 31;
+            let area_id = parseInt(jMessage.area_id)
             get_profile(jMessage.name, area_id)
         }
         if (jMessage.type === "profile-detailedmatch") {
-            let area_id = 31;
+            let area_id = parseInt(jMessage.area_id)
             get_game_details(jMessage.slol_id, jMessage.battle_id, area_id)
         }
     }
