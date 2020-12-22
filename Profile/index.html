@@ -2272,7 +2272,7 @@
         d("TierRank").innerText = rankJSON[jData.data.tier] + ` ${jData.data.rank}`
         d("winratio").innerText = "Win Ratio " + jData.data.win_rate + "%"
         d("Username").innerText = jData.data.role_name
-        if (singleDivision.includes(parseInt(jData.data.rank))) 
+        if (singleDivision.includes(parseInt(jData.data.tier))) 
             document.getElementById("rank-metal").src = getAsset(_rank, jData.data.tier)
         else   
             document.getElementById("rank-metal").src = getAsset(_rank, jData.data.tier+"_"+jData.data.rank)
