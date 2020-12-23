@@ -35,7 +35,7 @@ async function getUserData(uname, area_id) {
                 if (data.data.player_list[i].area_id === area_id) {
                     var player_data = data.data.player_list[i]
                     battleJSON.slol_id = data.data.player_list[i].slol_id
-                    console.log("User " + nickJSON.search_nick + " Found on Ionia with slol_id=" + battleJSON.slol_id)
+                    console.log("User " + nickJSON.search_nick + " Found on "+area_id+" with slol_id=" + battleJSON.slol_id)
                     console.log(battleJSON)
                     apiRequest(battle_list, battleJSON).then((battle_data) => {
                         apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
@@ -305,7 +305,7 @@ window.addEventListener('message', function (message) {
             usernames.push(jMessage.user)
         }
         if (jMessage.type === "profile-basic") {
-            //sendMessage("loading")
+            sendMessage("loading")
             let area_id = parseInt(jMessage.area_id)
             get_profile(jMessage.name, area_id)
         }

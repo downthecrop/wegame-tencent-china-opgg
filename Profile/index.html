@@ -8,6 +8,7 @@
     <link href="./css/forum.css" rel="stylesheet" type="text/css">
     <link href="./css/new.css" rel="stylesheet" type="text/css">
     <link href="./css/summoner.css" rel="stylesheet" type="text/css">
+    <link href="./css/loading.css" rel="stylesheet" type="text/css">
     <link href="./css/detailed-box.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <style>
@@ -89,249 +90,18 @@
                     <div class="Content tabItems">
                         <div class="MostChampionContent tabItem overview-stats--all" style="display: block;">
                             <div class="MostChampionContent">
-                                <template>
-                                    <div id="Template-Wrapper">
-                                        <div class="ChampionBox Ranked">
-                                            <div class="Face" title="">
-                                                <a href="#/" target="_blank"> <img src="../res/items/0.png" width="45"
-                                                        class="ChampionImage"> </a>
-                                            </div>
-                                            <div class="ChampionInfo">
-                                                <div class="ChampionName"> <a target="_blank">
-                                                    </a>
-                                                </div>
-                                                <div class="ChampionMinionKill tip" title="avg. CS (CS/m)"> CS cs (cs/m)
-                                                </div>
-                                            </div>
-                                            <div class="PersonalKDA">
-                                                <div class="KDA green tip"> <span class="KDA">0:1</span> <span
-                                                        class="Text">KDA</span> </div>
-                                                <div class="KDAEach"> <span class="Kill">0</span> <span
-                                                        class="Bar">/</span>
-                                                    <span class="Death">0</span> <span class="Bar">/</span> <span
-                                                        class="Assist">0</span>
-                                                </div>
-                                            </div>
-                                            <div class="Played">
-                                                <div class="WinRatio normal tip" title="Win Ratio"> 29% </div>
-                                                <div id="played-num" class="Title">7 Played</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </template>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="RealContent">
+                <div class="lds-ellipsis" style="display:none;"><div></div><div></div><div></div><div></div></div>
                 <div class="GameListContainer">
                     <div class="Content">
                         <div class="opscore-banner">
                             <div class="GameItemList">
                                 <div class="GameItemWrap">
-                                    <template>
-                                        <div id="Template-Wrapper">
-                                            <div class="GameItem Win">
-                                                <div class="Content">
-                                                    <div class="GameStats">
-                                                        <div class="GameType" title="Ranked Solo"> Ranked Solo </div>
-                                                        <div class="TimeStamp"><span
-                                                                class="_timeago _timeCountAssigned tip tpd-delegation-uid-1">0
-                                                                hours ago</span></div>
-                                                        <div class="Bar"></div>
-                                                        <div class="GameResult"> Victory </div>
-                                                        <div class="GameLength">0m 0s</div>
-                                                    </div>
-                                                    <div class="GameSettingInfo">
-                                                        <div class="ChampionImage">
-                                                            <a href="#/" target="_blank"><img src="../res/items/0.png"
-                                                                    class="Image"></a>
-                                                        </div>
-                                                        <div class="SummonerSpell">
-                                                            <div class="Spell"><img src="../res/items/0.png"
-                                                                    class="Image tip tpd-delegation-uid-1" title="">
-                                                            </div>
-                                                            <div class="Spell"> <img src="../res/items/0.png"
-                                                                    class="Image tip tpd-delegation-uid-1" title="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="Runes">
-                                                            <!--
-                                                            <div class="Rune"> <img src="../res/items/0.png"
-                                                                    class="Image tip tpd-delegation-uid-1" title=""
-                                                                    alt="Grasp of the Undying"> </div>
-                                                            <div class="Rune"> <img src="../res/items/0.png"
-                                                                    class="Image tip tpd-delegation-uid-1" title=""
-                                                                    alt="Inspiration"> </div>
-                                                            -->
-                                                        </div>
-                                                        <div class="ChampionName"><a href="#/" target="_blank"></a></div>
-                                                    </div>
-                                                    <div class="KDA">
-                                                        <div class="KDA">
-                                                            <span class="Kill">0</span> /
-                                                            <span class="Death">0</span> /
-                                                            <span class="Assist">0</span>
-                                                        </div>
-                                                        <div class="KDARatio"> <span class="KDARatio ">0:1</span> KDA
-                                                        </div>
-                                                        <div class="Badge" style="display:none;">
-                                                            <span class="Text MVP"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="Stats">
-                                                        <div class="Level"> Level </div>
-                                                        <div class="CS">
-                                                            <span class="CS tip tpd-delegation-uid-1">cs (cs/m)
-                                                                CS</span>
-                                                        </div>
-                                                        <div class="CKRate tip" title="Kill Participation"> P/Kill 50%
-                                                        </div>
-                                                        <div class="MMR"> <span>Tier Average</span>
-                                                            <br>
-                                                            <b>NaN</b>
-                                                        </div>
-                                                    </div>
-                                                    <div class="Items">
-                                                        <div class="ItemList">
-                                                            <div class="Item">
-                                                                <img src="../res/items/0.png" class="Image tip">
-                                                            </div>
-                                                            <div class="Item">
-                                                                <img src="../res/items/0.png" class="Image tip">
-                                                            </div>
-                                                            <div class="Item">
-                                                                <img src="../res/items/0.png" class="Image tip">
-                                                            </div>
-                                                            <div class="Item">
-                                                                <img src="../res/items/0.png" class="Image tip">
-                                                            </div>
-                                                            <div class="Item">
-                                                                <img src="../res/items/0.png" class="Image tip">
-                                                            </div>
-                                                            <div class="Item">
-                                                                <img src="../res/items/0.png" class="Image tip">
-                                                            </div>
-                                                            <div class="Item">
-                                                                <img src="../res/items/0.png" class="Image tip">
-                                                            </div>
-                                                            <button class="Button OpenBuildButton tip" title="Builds"
-                                                                type="button"> <img class="On"
-                                                                    src="./img/icon-buildblue-p.png">
-                                                                <img class="Off" src="./img/icon-buildblue-p.png">
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="FollowPlayers Names">
-                                                        <div class="Team">
-                                                            <div class="Summoner">
-                                                                <div class="ChampionImage">
-                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: var(--default-icon);">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="SummonerName"> <a href="#/" class="Link"
-                                                                        target="_blank">...</a> </div>
-                                                            </div>
-                                                            <div class="Summoner">
-                                                                <div class="ChampionImage">
-                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: var(--default-icon);">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="SummonerName"> <a href="#/" class="Link"
-                                                                        target="_blank">...</a> </div>
-                                                            </div>
-                                                            <div class="Summoner">
-                                                                <div class="ChampionImage">
-                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: var(--default-icon);">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="SummonerName"> <a href="#/" class="Link"
-                                                                        target="_blank">...</a> </div>
-                                                            </div>
-                                                            <div class="Summoner ">
-                                                                <div class="ChampionImage">
-                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: var(--default-icon);">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="SummonerName"> <a href="#/" class="Link"
-                                                                        target="_blank">...</a> </div>
-                                                            </div>
-                                                            <div class="Summoner ">
-                                                                <div class="ChampionImage">
-                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: var(--default-icon);">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="SummonerName"> <a href="#/" class="Link"
-                                                                        target="_blank">...</a> </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="Team">
-                                                            <div class="Summoner ">
-                                                                <div class="ChampionImage">
-                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: var(--default-icon);">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="SummonerName"> <a href="#/" class="Link"
-                                                                        target="_blank">...</a> </div>
-                                                            </div>
-                                                            <div class="Summoner ">
-                                                                <div class="ChampionImage">
-                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: var(--default-icon);">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="SummonerName"> <a href="#/" class="Link"
-                                                                        target="_blank">...</a> </div>
-                                                            </div>
-                                                            <div class="Summoner ">
-                                                                <div class="ChampionImage">
-                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: var(--default-icon);">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="SummonerName"> <a href="#/" class="Link"
-                                                                        target="_blank">...</a> </div>
-                                                            </div>
-                                                            <div class="Summoner ">
-                                                                <div class="ChampionImage">
-                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: var(--default-icon);">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="SummonerName"> <a href="#/" class="Link"
-                                                                        target="_blank">...</a> </div>
-                                                            </div>
-                                                            <div class="Summoner ">
-                                                                <div class="ChampionImage">
-                                                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
-                                                                        style="content: var(--default-icon);">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="SummonerName"> <a href="#/" class="Link"
-                                                                        target="_blank">...</a> </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="StatsButton">
-                                                        <div class="Content">
-                                                            <div class="Item">
-                                                                <a id="right_match" href="#/" class="Button MatchDetail">
-                                                                    <span class="__spSite __spSite-194 Off"></span>
-                                                                    <span
-                                                                        class="__spSite __spSite-193 On"></span>&#x21BB;</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </template>
                                 </div>
                             </div>
                         </div>
@@ -340,6 +110,238 @@
             </div>
         </div>
     </div>
+    <template>
+        <div id="Template-Wrapper">
+            <div class="ChampionBox Ranked">
+                <div class="Face" title="">
+                    <a href="#/" target="_blank"> <img src="../res/items/0.png" width="45"
+                            class="ChampionImage"> </a>
+                </div>
+                <div class="ChampionInfo">
+                    <div class="ChampionName"> <a target="_blank">
+                        </a>
+                    </div>
+                    <div class="ChampionMinionKill tip" title="avg. CS (CS/m)"> CS cs (cs/m)
+                    </div>
+                </div>
+                <div class="PersonalKDA">
+                    <div class="KDA green tip"> <span class="KDA">0:1</span> <span
+                            class="Text">KDA</span> </div>
+                    <div class="KDAEach"> <span class="Kill">0</span> <span
+                            class="Bar">/</span>
+                        <span class="Death">0</span> <span class="Bar">/</span> <span
+                            class="Assist">0</span>
+                    </div>
+                </div>
+                <div class="Played">
+                    <div class="WinRatio normal tip" title="Win Ratio"> 29% </div>
+                    <div id="played-num" class="Title">7 Played</div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template>
+        <div id="Template-Wrapper">
+            <div class="GameItem Win">
+                <div class="Content">
+                    <div class="GameStats">
+                        <div class="GameType" title="Ranked Solo"> Ranked Solo </div>
+                        <div class="TimeStamp"><span
+                                class="_timeago _timeCountAssigned tip tpd-delegation-uid-1">0
+                                hours ago</span></div>
+                        <div class="Bar"></div>
+                        <div class="GameResult"> Victory </div>
+                        <div class="GameLength">0m 0s</div>
+                    </div>
+                    <div class="GameSettingInfo">
+                        <div class="ChampionImage">
+                            <a href="#/" target="_blank"><img src="../res/items/0.png"
+                                    class="Image"></a>
+                        </div>
+                        <div class="SummonerSpell">
+                            <div class="Spell"><img src="../res/items/0.png"
+                                    class="Image tip tpd-delegation-uid-1" title="">
+                            </div>
+                            <div class="Spell"> <img src="../res/items/0.png"
+                                    class="Image tip tpd-delegation-uid-1" title="">
+                            </div>
+                        </div>
+                        <div class="Runes">
+                            <!--
+                            <div class="Rune"> <img src="../res/items/0.png"
+                                    class="Image tip tpd-delegation-uid-1" title=""
+                                    alt="Grasp of the Undying"> </div>
+                            <div class="Rune"> <img src="../res/items/0.png"
+                                    class="Image tip tpd-delegation-uid-1" title=""
+                                    alt="Inspiration"> </div>
+                            -->
+                        </div>
+                        <div class="ChampionName"><a href="#/" target="_blank"></a></div>
+                    </div>
+                    <div class="KDA">
+                        <div class="KDA">
+                            <span class="Kill">0</span> /
+                            <span class="Death">0</span> /
+                            <span class="Assist">0</span>
+                        </div>
+                        <div class="KDARatio"> <span class="KDARatio ">0:1</span> KDA
+                        </div>
+                        <div class="Badge" style="display:none;">
+                            <span class="Text MVP"></span>
+                        </div>
+                    </div>
+                    <div class="Stats">
+                        <div class="Level"> Level </div>
+                        <div class="CS">
+                            <span class="CS tip tpd-delegation-uid-1">cs (cs/m)
+                                CS</span>
+                        </div>
+                        <div class="CKRate tip" title="Kill Participation"> P/Kill 50%
+                        </div>
+                        <div class="MMR"> <span>Tier Average</span>
+                            <br>
+                            <b>NaN</b>
+                        </div>
+                    </div>
+                    <div class="Items">
+                        <div class="ItemList">
+                            <div class="Item">
+                                <img src="../res/items/0.png" class="Image tip">
+                            </div>
+                            <div class="Item">
+                                <img src="../res/items/0.png" class="Image tip">
+                            </div>
+                            <div class="Item">
+                                <img src="../res/items/0.png" class="Image tip">
+                            </div>
+                            <div class="Item">
+                                <img src="../res/items/0.png" class="Image tip">
+                            </div>
+                            <div class="Item">
+                                <img src="../res/items/0.png" class="Image tip">
+                            </div>
+                            <div class="Item">
+                                <img src="../res/items/0.png" class="Image tip">
+                            </div>
+                            <div class="Item">
+                                <img src="../res/items/0.png" class="Image tip">
+                            </div>
+                            <button class="Button OpenBuildButton tip" title="Builds"
+                                type="button"> <img class="On"
+                                    src="./img/icon-buildblue-p.png">
+                                <img class="Off" src="./img/icon-buildblue-p.png">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="FollowPlayers Names">
+                        <div class="Team">
+                            <div class="Summoner">
+                                <div class="ChampionImage">
+                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                        style="content: var(--default-icon);">
+                                    </div>
+                                </div>
+                                <div class="SummonerName"> <a href="#/" class="Link"
+                                        target="_blank">...</a> </div>
+                            </div>
+                            <div class="Summoner">
+                                <div class="ChampionImage">
+                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                        style="content: var(--default-icon);">
+                                    </div>
+                                </div>
+                                <div class="SummonerName"> <a href="#/" class="Link"
+                                        target="_blank">...</a> </div>
+                            </div>
+                            <div class="Summoner">
+                                <div class="ChampionImage">
+                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                        style="content: var(--default-icon);">
+                                    </div>
+                                </div>
+                                <div class="SummonerName"> <a href="#/" class="Link"
+                                        target="_blank">...</a> </div>
+                            </div>
+                            <div class="Summoner ">
+                                <div class="ChampionImage">
+                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                        style="content: var(--default-icon);">
+                                    </div>
+                                </div>
+                                <div class="SummonerName"> <a href="#/" class="Link"
+                                        target="_blank">...</a> </div>
+                            </div>
+                            <div class="Summoner ">
+                                <div class="ChampionImage">
+                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                        style="content: var(--default-icon);">
+                                    </div>
+                                </div>
+                                <div class="SummonerName"> <a href="#/" class="Link"
+                                        target="_blank">...</a> </div>
+                            </div>
+                        </div>
+                        <div class="Team">
+                            <div class="Summoner ">
+                                <div class="ChampionImage">
+                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                        style="content: var(--default-icon);">
+                                    </div>
+                                </div>
+                                <div class="SummonerName"> <a href="#/" class="Link"
+                                        target="_blank">...</a> </div>
+                            </div>
+                            <div class="Summoner ">
+                                <div class="ChampionImage">
+                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                        style="content: var(--default-icon);">
+                                    </div>
+                                </div>
+                                <div class="SummonerName"> <a href="#/" class="Link"
+                                        target="_blank">...</a> </div>
+                            </div>
+                            <div class="Summoner ">
+                                <div class="ChampionImage">
+                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                        style="content: var(--default-icon);">
+                                    </div>
+                                </div>
+                                <div class="SummonerName"> <a href="#/" class="Link"
+                                        target="_blank">...</a> </div>
+                            </div>
+                            <div class="Summoner ">
+                                <div class="ChampionImage">
+                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                        style="content: var(--default-icon);">
+                                    </div>
+                                </div>
+                                <div class="SummonerName"> <a href="#/" class="Link"
+                                        target="_blank">...</a> </div>
+                            </div>
+                            <div class="Summoner ">
+                                <div class="ChampionImage">
+                                    <div class="Image16 __sprite __spc16 __spc16-30 tip"
+                                        style="content: var(--default-icon);">
+                                    </div>
+                                </div>
+                                <div class="SummonerName"> <a href="#/" class="Link"
+                                        target="_blank">...</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="StatsButton">
+                        <div class="Content">
+                            <div class="Item">
+                                <a id="right_match" href="#/" class="Button MatchDetail">
+                                    <span class="__spSite __spSite-194 Off"></span>
+                                    <span
+                                        class="__spSite __spSite-193 On"></span>&#x21BB;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </template>
     <template>
         <div class="s-m-b victory-bg2" data-matchid="3711529610" style="display: block;">
             <div class="victory-bg1 c1">
@@ -2164,6 +2166,7 @@
     }
 
     function populateMostPlayed(jData) {
+        document.getElementsByClassName("MostChampionContent tabItem overview-stats--all")[0].innerHTML = ""
         //Profile Top Left Picture and Win Rate
         slol_id = jData.slol_id
         player_name = jData.data.role_name
@@ -2307,6 +2310,7 @@
     }
 
     function populateMatchHistory(jData) {
+        document.getElementsByClassName("GameItemWrap")[0].innerHTML = ""
         for (let z = 0; z < Object.keys(jData.player_battle_brief_list).length; z++) {
             let match = jData.player_battle_brief_list[z]
             let temp = document.getElementsByTagName("template")[1];
@@ -2447,7 +2451,6 @@
     }
 
     document.getElementById("update-button").addEventListener("click", function () {
-        window.location.reload(false);
         localStorage.setItem("searched_user",document.getElementById("user-input").value)
         requestMatchHistory(document.getElementById("user-input").value);
     })
@@ -2486,7 +2489,7 @@
     }
 
     if (devMode){
-        //sendMessage("test");
+        //sendMessage("loading");
         populateMatchHistory(we_data2)
         populateMostPlayed(we_data2)
     }
@@ -2499,10 +2502,14 @@
             } catch (e) {
                 console.log("Message isn't jData")
                 console.log(message.data)
+                if (message.data == "loading") {
+                    document.getElementsByClassName("lds-ellipsis")[0].style.display = "inline-block"
+                }
             }
             let jMessage = JSON.parse(message.data)
             console.log("I got a message: " + message.data)
             if (jMessage.type === "profile-basic-reply") {
+                document.getElementsByClassName("lds-ellipsis")[0].style.display = "none"
                 populateMatchHistory(jMessage)
                 populateMostPlayed(jMessage)
                 loadLocalStoarge()

@@ -177,7 +177,7 @@
 
                     //populate user data from JSON
                     f("summoner-name").innerHTML = "<a class='name' href='#'>" + player.role_name + "</a>"
-                    f("tier__icon").src = weRank + player.rank + ".png"
+                    f("tier__icon").src = weRank + player.rank+"_"+player.tier+".png"
                     f("lp").innerText = player.league_point + "LP"
                     f("winratio").innerText = player.win_rate + "%"
 
