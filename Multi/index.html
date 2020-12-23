@@ -175,8 +175,8 @@
         console.log(usernames)
         for (k in usernames) {
             let request = {
-                "type": "profile-basic",
-                "name":usernames[k],
+                "type": "name_mutli_search",
+                "name": usernames[k],
                 "area_id": area_id
             }
             sendMessage(JSON.stringify(request))
