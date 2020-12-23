@@ -139,8 +139,6 @@
 </body>
 <script>
 
-    let area_id = 1
-
     const weCDN = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/"
     const weRank = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/division/"
 
@@ -177,8 +175,8 @@
         console.log(usernames)
         for (k in usernames) {
             let request = {
-                "type": "name_mutli_search",
-                "name": usernames[k],
+                "type": "profile-basic",
+                "name":usernames[k],
                 "area_id": area_id
             }
             sendMessage(JSON.stringify(request))

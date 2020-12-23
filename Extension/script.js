@@ -300,18 +300,15 @@ window.addEventListener('message', function (message) {
         console.log(jMessage)
         if (jMessage.type === "name_mutli_search") {
             sendMessage("loading")
-            let area_id = 31;
-            getUserData(jMessage.user, area_id)
+            getUserData(jMessage.name, parseInt(jMessage.area_id))
             usernames.push(jMessage.user)
         }
         if (jMessage.type === "profile-basic") {
             sendMessage("loading")
-            let area_id = parseInt(jMessage.area_id)
-            get_profile(jMessage.name, area_id)
+            get_profile(jMessage.name, parseInt(jMessage.area_id))
         }
         if (jMessage.type === "profile-detailedmatch") {
-            let area_id = parseInt(jMessage.area_id)
-            get_game_details(jMessage.slol_id, jMessage.battle_id, area_id)
+            get_game_details(jMessage.slol_id, jMessage.battle_id, parseInt(jMessage.area_id))
         }
     }
 });
