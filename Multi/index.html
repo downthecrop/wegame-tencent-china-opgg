@@ -184,6 +184,7 @@
     })
 
     function receiveMessage(messageData) {
+        console.log(messageData.data)
         if (messageData.origin === "https://www.wegame.com.cn") {
             if (messageData.data == "loading") {
                 document.getElementById("loader").style.display = "inline"
@@ -198,7 +199,6 @@
                 const urlParams = new URLSearchParams(messageData.data);
                 for (const [key, value] of urlParams) {
                     const jsonData = JSON.parse(value)
-
                     //begin create users
                     const temp = document.getElementsByTagName("template")[0];
                     const view = document.getElementsByClassName("multi2__list")[0];
