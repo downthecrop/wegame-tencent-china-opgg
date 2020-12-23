@@ -13,7 +13,6 @@
     <style>
         :root {
             --default-icon: url("../res/champions/0.png");
-            --default-item: url("../res/items/0.png");
         }
     </style>
 </head>
@@ -2444,6 +2443,7 @@
     }
 
     document.getElementById("update-button").addEventListener("click", function () {
+        window.location.reload(false);
         requestMatchHistory(document.getElementById("user-input").value);
     })
 
