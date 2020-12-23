@@ -822,6 +822,10 @@
         }
     }
 
+    if (localStorage.getItem("searched_user")){
+        document.getElementById("user-input").value  = localStorage.getItem("searched_user")
+    }
+
     const game_details = {
         "code": 0,
         "data": {
@@ -2444,6 +2448,7 @@
 
     document.getElementById("update-button").addEventListener("click", function () {
         window.location.reload(false);
+        localStorage.setItem("searched_user",document.getElementById("user-input").value)
         requestMatchHistory(document.getElementById("user-input").value);
     })
 
