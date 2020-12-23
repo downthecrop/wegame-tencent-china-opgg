@@ -2387,7 +2387,7 @@
             })
             view.appendChild(a)
         }
-        document.querySelectorAll('.SummonerName').forEach(item => {
+        document.querySelectorAll('.Link').forEach(item => {
             item.addEventListener('click', event => {
                 console.log(event.path[0].innerText)
                 if (event.path[0].innerText != "..."){
@@ -2406,11 +2406,11 @@
 
         for (let z = 0; z < Object.keys(team_data_own).length; z++) {
 
-            team_div.getElementsByClassName("SummonerName")[z].innerText = team_data_own[z].role_name
+            team_div.getElementsByClassName("SummonerName")[z].getElementsByTagName("a")[0].innerText = team_data_own[z].role_name
             team_div.getElementsByClassName("ChampionImage")[z].getElementsByClassName("Image16")[0]
                 .setAttribute("style", "content:url(" + getAsset(_champ, team_data_own[z].champion_id) + ")")
 
-            opp_div.getElementsByClassName("SummonerName")[z].innerText = team_data_opp[z].role_name
+            opp_div.getElementsByClassName("SummonerName")[z].getElementsByTagName("a")[0].innerText = team_data_opp[z].role_name
             opp_div.getElementsByClassName("ChampionImage")[z].getElementsByClassName("Image16")[0]
                 .setAttribute("style", "content:url(" + getAsset(_champ, team_data_opp[z].champion_id) + ")")
 
