@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en_US">
+
 <head>
     <link href="common.css" rel="stylesheet" type="text/css">
     <link href="sprite.css" rel="stylesheet" type="text/css">
@@ -12,10 +13,12 @@
         .tier__icon {
             vertical-align: baseline !important;
         }
+
         .multi2__item .summoner-summary .last-updated {
             text-align: center;
         }
-        #name-input{
+
+        #name-input {
             width: 430px;
         }
     </style>
@@ -24,6 +27,39 @@
 <body>
     <textarea id="name-input"></textarea>
     <button id="submit-name">Submit</button>
+    <form style="display:inline">
+        <label for="area-id">Area ID:</label>
+        <select id="areas">
+            <option>1 艾欧尼亚</option>
+            <option>2 比尔吉沃特</option>
+            <option>3 祖安</option>
+            <option>4 诺克萨斯</option>
+            <option>5 班德尔城</option>
+            <option>6 德玛西亚</option>
+            <option>7 皮尔特沃夫</option>
+            <option>8 战争学院</option>
+            <option>9 弗雷尔卓德</option>
+            <option>10 巨神峰</option>
+            <option>11 雷瑟守备</option>
+            <option>12 无畏先锋</option>
+            <option>13 裁决之地</option>
+            <option>14 黑色玫瑰</option>
+            <option>15 暗影岛</option>
+            <option>16 恕瑞玛</option>
+            <option>17 钢铁烈阳</option>
+            <option>18 水晶之痕</option>
+            <option>19 均衡教派</option>
+            <option>20 扭曲丛林</option>
+            <option>22 影流</option>
+            <option>23 守望之海</option>
+            <option>24 征服之海</option>
+            <option>25 卡拉曼达</option>
+            <option>26 巨龙之巢</option>
+            <option>27 皮城警备</option>
+            <option>30 男爵领域</option>
+            <option>31 峡谷之巅</option>
+        </select>
+    </form>
     <div class="loader" id="loader" style="display:none;">Loading...</div>
     <div class="ContentWrap">
         <div class="multi2">
@@ -37,8 +73,8 @@
         <li class="multi2__item">
             <div class="summoner-summary">
                 <div class="last-updated">
-                    Last played: <span class="_timeago _timeCountAssigned tip" data-datetime=""
-                        data-type="" data-interval="60" title="">0 days ago</span>
+                    Last played: <span class="_timeago _timeCountAssigned tip" data-datetime="" data-type=""
+                        data-interval="60" title="">0 days ago</span>
                 </div>
                 <div class="tier-position">
                     <div class="tier">
@@ -95,13 +131,15 @@
                 <span class="death"></span> /
                 <span class="assist"></span>
             </div>
-            <div class="time-stamp"><span class="_timeago _timeCountAssigned tip tpd-delegation-uid-1"
-                    data-datetime="" data-type="" data-interval="60" title="" data-toggle="tooltip"></span>
+            <div class="time-stamp"><span class="_timeago _timeCountAssigned tip tpd-delegation-uid-1" data-datetime=""
+                    data-type="" data-interval="60" title="" data-toggle="tooltip"></span>
             </div>
         </li>
     </template>
 </body>
 <script>
+
+    let area_id = 1
 
     const weCDN = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/"
     const weRank = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/division/"
@@ -133,17 +171,22 @@
         return dDisplay + hDisplay + " ago"
     }
 
-    document.getElementById("submit-name").addEventListener('click',function(){
-            var names = document.getElementById("name-input").value
-            var usernames = names.replaceAll("加入了队伍聊天","").split(/\r?\n/)
-            console.log(usernames)
-            for (k in usernames){
-                sendMessage('{"type":"name_mutli_search","user":"'+usernames[k]+'"}')
+    document.getElementById("submit-name").addEventListener('click', function () {
+        var names = document.getElementById("name-input").value
+        var usernames = names.replaceAll("加入了队伍聊天", "").split(/\r?\n/)
+        console.log(usernames)
+        for (k in usernames) {
+            let request = {
+                "type": "name_mutli_search",
+                "name": usernames[k],
+                "area_id": area_id
             }
-        })
+            sendMessage(JSON.stringify(request))
+        }
+    })
 
     function receiveMessage(messageData) {
-        if (messageData.origin === "https://www.wegame.com.cn"){
+        if (messageData.origin === "https://www.wegame.com.cn") {
             if (messageData.data == "loading") {
                 document.getElementById("loader").style.display = "inline"
                 document.getElementsByClassName("multi2__list")[0].innerHTML = ""
@@ -177,7 +220,7 @@
 
                     //populate user data from JSON
                     f("summoner-name").innerHTML = "<a class='name' href='#'>" + player.role_name + "</a>"
-                    f("tier__icon").src = weRank + player.rank+"_"+player.tier+".png"
+                    f("tier__icon").src = weRank + player.rank + "_" + player.tier + ".png"
                     f("lp").innerText = player.league_point + "LP"
                     f("winratio").innerText = player.win_rate + "%"
 
@@ -229,6 +272,21 @@
             }
         }
     }
+
+    if (localStorage.getItem("area_id")) {
+        area_id = parseInt(localStorage.getItem("area_id"))
+        for (let i = 0; i < document.getElementById("areas").getElementsByTagName("option").length; i += 1) {
+            if (parseInt(document.getElementById("areas").getElementsByTagName("option")[i].value.split(" ")[0]) === area_id) {
+                document.getElementById("areas").getElementsByTagName("option")[i].setAttribute("selected", "selected")
+            }
+        }
+    }
+
+    document.getElementById("areas").addEventListener("change", function () {
+        area_id = parseInt(document.getElementById("areas").value.split(" ")[0])
+        localStorage.setItem("area_id", area_id)
+    })
+
 
     function sendMessage(message) {
         parent.postMessage(message, '*');
