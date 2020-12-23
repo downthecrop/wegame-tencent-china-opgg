@@ -9,16 +9,6 @@ var ticket_flag = false
 var jResultArray = []
 var usernames = []
 
-const htmlEmbed = '\
-<div id="myModal" class="modal-crop">\
-    <div class="modal-content-crop">\
-        <span class="close-crop">&times;</span>\
-        <button id="multi-page">Mutlisearch</button>\
-        <button id="profile-page">Profile</button>\
-        <iframe id="myiFrame" src="https://downthecrop.github.io/opgg-clone/Multi/"></iframe>\
-    </div>\
-</div>'
-
 async function getUserData(uname, area_id) {
     const nickJSON = {
         "search_nick": uname,
@@ -87,7 +77,7 @@ async function get_profile(uname, area_id) {
                 if (data.data.player_list[i].area_id === area_id) {
                     let player_data = data.data.player_list[i]
                     battleJSON.slol_id = data.data.player_list[i].slol_id
-                    console.log("User " + nickJSON.search_nick + " Found on Ionia with slol_id=" + battleJSON.slol_id)
+                    console.log("User " + nickJSON.search_nick + " Found on "+area_id+" with slol_id=" + battleJSON.slol_id)
                     apiRequest(battle_list, battleJSON).then((battle_data) => {
                         apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
                             apiRequest(get_often_used, battleJSON).then((often_used_data) => {
@@ -202,24 +192,66 @@ function main() {
 
     if (loginStatus) {
 
-        document.body.innerHTML = htmlEmbed + document.body.innerHTML;
+        //document.body.innerHTML = htmlEmbed + document.body.innerHTML;
 
         //begin GUI injection
         let topbar = document.getElementsByClassName("widget-header-nav")[0];
-        topbar.getElementsByClassName("cur")[0].innerHTML = "<a id='myBtn' href='#'>Cropsearch</a>";
+        let cropsearch_li = document.createElement("li")
+        let cropsearch_a = document.createElement("a")
+        let cropsearch_t = document.createTextNode("Cropsearch")
+        cropsearch_a.appendChild(cropsearch_t);
+        cropsearch_li.appendChild(cropsearch_a)
+        cropsearch_a.href = "#"
+        cropsearch_a.id = "myBtn"
 
-        const btn = document.getElementById("myBtn");
-        const modal = document.getElementById("myModal");
-        const span = document.getElementsByClassName("close-crop")[0];
+        cropsearch_li.onclick = function () {
+            document.getElementById("myModal").style.display = "block";
+        }
 
-        btn.onclick = function () {
-            modal.style.display = "block";
+        topbar.appendChild(cropsearch_li)
+
+        let myModal = document.createElement("div")
+        myModal.id = "myModal"
+        myModal.setAttribute("class","modal-crop")
+
+        let modalContent = document.createElement("div")
+        modalContent.className = "modal-content-crop"
+
+        let close_button = document.createElement("span")
+        close_button.className = "close-crop"
+
+        close_button.onclick = function () {
+            document.getElementById("myModal").style.display = "none";
         }
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
+
+        let close_text = document.createTextNode("x")
+        close_button.appendChild(close_text)
+
+        let multi_button = document.createElement("button")
+        multi_button.id = "multi-page"
+        let multi_text = document.createTextNode("Multisearch")
+        multi_button.appendChild(multi_text)
+
+        let profile_button = document.createElement("button")
+        profile_button.id = "profile-page"
+        let profile_text = document.createTextNode("Profile")
+        profile_button.appendChild(profile_text)
+
+        let embed_iframe = document.createElement("iframe")
+        embed_iframe.id = "myiFrame"
+        embed_iframe.src = "https://downthecrop.github.io/opgg-clone/Multi/"
+
+        modalContent.appendChild(close_button)
+        modalContent.appendChild(multi_button)
+        modalContent.appendChild(profile_button)
+        modalContent.appendChild(embed_iframe)
+
+        myModal.appendChild(modalContent)
+
+        document.body.prepend(myModal)
+
         window.onclick = function (event) {
-            if (event.target === modal) {
+            if (event.target === document.getElementById("myModal")) {
                 modal.style.display = "none";
             }
         }
