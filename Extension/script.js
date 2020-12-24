@@ -109,8 +109,8 @@ async function get_profile_by_slol_id(slol_id, area_id) {
         "totalNum": 0
     }
     apiRequest(battle_list, battleJSON).then((battle_data) => {
-        console.log(data);
-        if (data.code === 402) {
+        console.log(battle_data);
+        if (battle_data.code === 402) {
             console.log("ticket error")
             ticket_flag = true;
             sendMessage("ticket-error")
