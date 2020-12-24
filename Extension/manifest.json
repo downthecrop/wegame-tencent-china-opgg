@@ -11,7 +11,7 @@
   "content_scripts": [
     {
       "matches": ["*://www.wegame.com.cn/*"],
-      "js": ["script.js", "jquery.min.js"],
+      "js": ["script.js"],
       "css": ["crop.css"]
     }
   ],

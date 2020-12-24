@@ -324,7 +324,7 @@ window.addEventListener('message', function (message) {
 });
 
 let checkExist = setInterval(function () {
-    if ($('.widget-header-nav').length) {
+    if (document.getElementsByClassName("widget-header-nav")) {
         main()
         clearInterval(checkExist);
     }
