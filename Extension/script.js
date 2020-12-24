@@ -252,14 +252,20 @@ function main() {
 
         window.onclick = function (event) {
             if (event.target === document.getElementById("myModal")) {
-                modal.style.display = "none";
+                document.getElementById("myModal").style.display = "none";
             }
         }
 
+        document.getElementById("multi-page").style.backgroundColor = "hsla(0,0%,100%,.12)"
+
         document.getElementById("multi-page").addEventListener('click', function () {
+            document.getElementById("multi-page").style.backgroundColor = "hsla(0,0%,100%,.12)"
+            document.getElementById("profile-page").style.backgroundColor = "#3c3c3c"
             document.getElementById("myiFrame").src = "https://downthecrop.github.io/opgg-clone/Multi/";
         })
         document.getElementById("profile-page").addEventListener('click', function () {
+            document.getElementById("profile-page").style.backgroundColor = "hsla(0,0%,100%,.12)"
+            document.getElementById("multi-page").style.backgroundColor = "#3c3c3c"
             document.getElementById("myiFrame").src = "https://downthecrop.github.io/opgg-clone/Profile/";
         })
     }
