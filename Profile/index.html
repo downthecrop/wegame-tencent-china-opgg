@@ -2508,6 +2508,9 @@
                 if (message.data == "loading") {
                     document.getElementsByClassName("lds-ellipsis")[0].style.display = "inline-block"
                 }
+                if (message.data == "ticket-error"){
+                    document.body.innerHTML = "<h1>Ticket Error</h1>"
+                }
             }
             let jMessage = JSON.parse(message.data)
             console.log("I got a message: " + message.data)

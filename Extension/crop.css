@@ -11,9 +11,8 @@
 .modal-content-crop {
     background-color: #333;
     margin: auto;
-    height: 95%;
+    height: 100%;
     padding:10px;
-    border: 1px solid #888;
 }
 .close-crop {
     color: #aaaaaa;
@@ -31,6 +30,7 @@
 #myiFrame{
     width:100%;
     height:95%;
+    border:0px;
 }
 
 #multi-page,

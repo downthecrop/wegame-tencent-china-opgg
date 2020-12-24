@@ -3,6 +3,10 @@ const battle_details = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_l
 const query_by_nick = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/query_by_nick'
 const get_battle_topbar_info = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_topbar_info'
 const get_often_used = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_often_used_champion'
+const multi_url = "https://downthecrop.github.io/opgg-clone/Multi/"
+const profile_url = "https://downthecrop.github.io/opgg-clone/Profile/"
+const color_active = "hsla(0,0%,100%,.12)"
+const color_inactive = "#3c3c3c"
 
 var loginStatus = false
 var ticket_flag = false
@@ -192,8 +196,6 @@ function main() {
 
     if (loginStatus) {
 
-        //document.body.innerHTML = htmlEmbed + document.body.innerHTML;
-
         //begin GUI injection
         let topbar = document.getElementsByClassName("widget-header-nav")[0];
         let cropsearch_li = document.createElement("li")
@@ -221,33 +223,31 @@ function main() {
         close_button.className = "close-crop"
 
         close_button.onclick = function () {
-            document.getElementById("myModal").style.display = "none";
+            document.getElementById("myModal").style.display = "none"
         }
 
         let close_text = document.createTextNode("x")
         close_button.appendChild(close_text)
 
         let multi_button = document.createElement("button")
-        multi_button.id = "multi-page"
         let multi_text = document.createTextNode("Multisearch")
+        multi_button.id = "multi-page"
         multi_button.appendChild(multi_text)
 
         let profile_button = document.createElement("button")
-        profile_button.id = "profile-page"
         let profile_text = document.createTextNode("Profile")
+        profile_button.id = "profile-page"
         profile_button.appendChild(profile_text)
 
         let embed_iframe = document.createElement("iframe")
         embed_iframe.id = "myiFrame"
-        embed_iframe.src = "https://downthecrop.github.io/opgg-clone/Multi/"
+        embed_iframe.src = multi_url
 
         modalContent.appendChild(close_button)
         modalContent.appendChild(multi_button)
         modalContent.appendChild(profile_button)
         modalContent.appendChild(embed_iframe)
-
         myModal.appendChild(modalContent)
-
         document.body.prepend(myModal)
 
         window.onclick = function (event) {
@@ -256,18 +256,22 @@ function main() {
             }
         }
 
-        document.getElementById("multi-page").style.backgroundColor = "hsla(0,0%,100%,.12)"
+        let d_multi = document.getElementById("multi-page")
+        let d_profile = document.getElementById("profile-page")
+        let d_iframe = document.getElementById("myiFrame")
+        d_multi.style.backgroundColor = color_active
 
-        document.getElementById("multi-page").addEventListener('click', function () {
-            document.getElementById("multi-page").style.backgroundColor = "hsla(0,0%,100%,.12)"
-            document.getElementById("profile-page").style.backgroundColor = "#3c3c3c"
-            document.getElementById("myiFrame").src = "https://downthecrop.github.io/opgg-clone/Multi/";
-        })
-        document.getElementById("profile-page").addEventListener('click', function () {
-            document.getElementById("profile-page").style.backgroundColor = "hsla(0,0%,100%,.12)"
-            document.getElementById("multi-page").style.backgroundColor = "#3c3c3c"
-            document.getElementById("myiFrame").src = "https://downthecrop.github.io/opgg-clone/Profile/";
-        })
+        d_multi.onclick = function() {
+            d_multi.style.backgroundColor = color_active
+            d_profile.style.backgroundColor = color_inactive
+            d_iframe.src = multi_url
+        }
+
+        d_profile.onclick = function() {
+            d_profile.style.backgroundColor = color_active
+            d_multi.style.backgroundColor = color_inactive
+            d_iframe.src = profile_url
+        }
     }
 }
 
