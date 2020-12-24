@@ -39,7 +39,7 @@ async function getUserData(uname, area_id) {
                 if (data.data.player_list[i].area_id === area_id) {
                     var player_data = data.data.player_list[i]
                     battleJSON.slol_id = data.data.player_list[i].slol_id
-                    console.log("User " + nickJSON.search_nick + " Found on "+area_id+" with slol_id=" + battleJSON.slol_id)
+                    console.log("User " + nickJSON.search_nick + " Found on " + area_id + " with slol_id=" + battleJSON.slol_id)
                     console.log(battleJSON)
                     apiRequest(battle_list, battleJSON).then((battle_data) => {
                         apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
@@ -81,7 +81,7 @@ async function get_profile(uname, area_id) {
                 if (data.data.player_list[i].area_id === area_id) {
                     let player_data = data.data.player_list[i]
                     battleJSON.slol_id = data.data.player_list[i].slol_id
-                    console.log("User " + nickJSON.search_nick + " Found on "+area_id+" with slol_id=" + battleJSON.slol_id)
+                    console.log("User " + nickJSON.search_nick + " Found on " + area_id + " with slol_id=" + battleJSON.slol_id)
                     apiRequest(battle_list, battleJSON).then((battle_data) => {
                         apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
                             apiRequest(get_often_used, battleJSON).then((often_used_data) => {
@@ -93,6 +93,35 @@ async function get_profile(uname, area_id) {
                     i = Infinity;
                 }
             }
+        }
+    })
+}
+
+async function get_profile_by_slol_id(slol_id, area_id) {
+    const battleJSON = {
+        "area_id": area_id,
+        "area_name": "",
+        "filter_type": 0,
+        "game_id": 26,
+        "limit": 10,
+        "offset": 0,
+        "slol_id": slol_id,
+        "totalNum": 0
+    }
+    apiRequest(battle_list, battleJSON).then((battle_data) => {
+        console.log(data);
+        if (data.code === 402) {
+            console.log("ticket error")
+            ticket_flag = true;
+            sendMessage("ticket-error")
+        }
+        else {
+            apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
+                apiRequest(get_often_used, battleJSON).then((often_used_data) => {
+                    let jRepsonse = profile_basic_builderJSON(battle_data, topbar_data, often_used_data)
+                    sendMessage(jRepsonse)
+                })
+            })
         }
     })
 }
@@ -214,7 +243,7 @@ function main() {
 
         let myModal = document.createElement("div")
         myModal.id = "myModal"
-        myModal.setAttribute("class","modal-crop")
+        myModal.setAttribute("class", "modal-crop")
 
         let modalContent = document.createElement("div")
         modalContent.className = "modal-content-crop"
@@ -261,13 +290,13 @@ function main() {
         let d_iframe = document.getElementById("myiFrame")
         d_multi.style.backgroundColor = color_active
 
-        d_multi.onclick = function() {
+        d_multi.onclick = function () {
             d_multi.style.backgroundColor = color_active
             d_profile.style.backgroundColor = color_inactive
             d_iframe.src = multi_url
         }
 
-        d_profile.onclick = function() {
+        d_profile.onclick = function () {
             d_profile.style.backgroundColor = color_active
             d_multi.style.backgroundColor = color_inactive
             d_iframe.src = profile_url
@@ -316,6 +345,10 @@ window.addEventListener('message', function (message) {
         if (jMessage.type === "profile-basic") {
             sendMessage("loading")
             get_profile(jMessage.name, parseInt(jMessage.area_id))
+        }
+        if (jMessage.type === "profile-basic-slol-id") {
+            sendMessage("loading")
+            get_profile_by_slol_id(jMessage.slol_id, parseInt(jMessage.area_id))
         }
         if (jMessage.type === "profile-detailedmatch") {
             get_game_details(jMessage.slol_id, jMessage.battle_id, parseInt(jMessage.area_id))

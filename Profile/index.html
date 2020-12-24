@@ -2126,11 +2126,13 @@
         document.querySelectorAll('.Link').forEach(item => {
             item.addEventListener('click', event => {
                 let nav_username = event.path[0].innerText
+                let nav_slol_id = event.path[0].getAttribute("slol_id")
                 console.log(nav_username)
                 if (nav_username != "..."){
                     document.getElementById("user-input").value = nav_username
                     localStorage.setItem("searched_user", nav_username)
-                    requestMatchHistory(nav_username);
+                    //requestMatchHistory(nav_username);
+                    requestMatchHistory_slol(nav_slol_id);
                 }
             })
         })
@@ -2145,10 +2147,12 @@
         for (let z = 0; z < Object.keys(team_data_own).length; z++) {
 
             team_div.getElementsByClassName("SummonerName")[z].getElementsByTagName("a")[0].innerText = team_data_own[z].role_name
+            team_div.getElementsByClassName("SummonerName")[z].getElementsByTagName("a")[0].setAttribute("slol_id", team_data_own[z].slol_id)
             team_div.getElementsByClassName("ChampionImage")[z].getElementsByClassName("Image16")[0]
                 .setAttribute("style", "content:url(" + getAsset(_champ, team_data_own[z].champion_id) + ")")
 
             opp_div.getElementsByClassName("SummonerName")[z].getElementsByTagName("a")[0].innerText = team_data_opp[z].role_name
+            opp_div.getElementsByClassName("SummonerName")[z].getElementsByTagName("a")[0].setAttribute("slol_id",team_data_opp[z].slol_id)
             opp_div.getElementsByClassName("ChampionImage")[z].getElementsByClassName("Image16")[0]
                 .setAttribute("style", "content:url(" + getAsset(_champ, team_data_opp[z].champion_id) + ")")
 
@@ -2221,6 +2225,15 @@
         let request = {
             "type": "profile-basic",
             "name": user,
+            "area_id": area_id
+        }
+        sendMessage(JSON.stringify(request))
+    }
+
+    function requestMatchHistory(_slol_id) {
+        let request = {
+            "type": "profile-basic-slol-id",
+            "slol_id": _slol_id,
             "area_id": area_id
         }
         sendMessage(JSON.stringify(request))
