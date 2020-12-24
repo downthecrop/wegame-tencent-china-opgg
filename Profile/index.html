@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Profile - Template</title>
+    <title>Profile - Home</title>
     <link href="./css/common.css" rel="stylesheet" type="text/css">
     <link href="./css/sprite.css" rel="stylesheet" type="text/css">
     <link href="./css/forum.css" rel="stylesheet" type="text/css">
@@ -118,7 +118,7 @@
             </div>
         </div>
     </div>
-    <template>
+    <template id="most_played_template">
         <div id="Template-Wrapper">
             <div class="ChampionBox Ranked">
                 <div class="Face" title="">
@@ -144,7 +144,7 @@
             </div>
         </div>
     </template>
-    <template>
+    <template id="match_history_item_template">
         <div id="Template-Wrapper">
             <div class="GameItem Win">
                 <div class="Content">
@@ -332,7 +332,7 @@
                 </div>
             </div>
     </template>
-    <template>
+    <template id="detailed_match_win_template">
         <div class="s-m-b victory-bg2" data-matchid="3711529610" style="display: block;">
             <div class="victory-bg1 c1">
                 <span class="victory-text1 t" style="font-weight:bold;text-transform:uppercase;font-size:10px;">Team
@@ -571,7 +571,7 @@
             </div>
         </div>
     </template>
-    <template>
+    <template id="detailed_match_lose_template">
         <div class="s-m-b victory-bg2" data-matchid="3711529610" style="display: block;">
             <div class="defeat-bg1 c1">
                 <span class="defeat-text1 t" style="font-weight:bold;text-transform:uppercase;font-size:10px;">Team
@@ -1906,7 +1906,7 @@
         for (let z = 0; z < Object.keys(jData.info_list).length; z++) {
 
             let en_name = champs_JSON[jData.info_list[z].champion_id]
-            let temp = document.getElementsByTagName("template")[0];
+            let temp = document.querySelector("#most_played_template")
             let view = d("MostChampionContent");
             let startElement = temp.content.querySelector("div");
 
@@ -2039,7 +2039,7 @@
         document.getElementsByClassName("GameItemWrap")[0].innerHTML = ""
         for (let z = 0; z < Object.keys(jData.player_battle_brief_list).length; z++) {
             let match = jData.player_battle_brief_list[z]
-            let temp = document.getElementsByTagName("template")[1];
+            let temp = document.querySelector("#match_history_item_template");
             let view = d("GameItemWrap");
             let startElement = temp.content.querySelector("div");
 
@@ -2100,21 +2100,21 @@
 
                     if (jDetailed.data.battle_info.team_data_own.is_win === 1) {
                         //Winner
-                        let tempExt = document.getElementsByTagName("template")[2];
+                        let tempExt = document.querySelector("#detailed_match_win_template");
                         let expandedDetails = tempExt.content.cloneNode(true);
                         caller.path[5].appendChild(expandedDetails)
                         //Loser
-                        tempExt = document.getElementsByTagName("template")[3];
+                        tempExt = document.querySelector("#detailed_match_lose_template");
                         expandedDetails = tempExt.content.cloneNode(true);
                         caller.path[5].appendChild(expandedDetails)
                     }
                     else {
                         //Loser
-                        let tempExt = document.getElementsByTagName("template")[3];
+                        let tempExt = document.querySelector("#detailed_match_lose_template");
                         let expandedDetails = tempExt.content.cloneNode(true);
                         caller.path[5].appendChild(expandedDetails)
                         //Winner
-                        tempExt = document.getElementsByTagName("template")[2];
+                        tempExt = document.querySelector("#detailed_match_win_template");
                         expandedDetails = tempExt.content.cloneNode(true);
                         caller.path[5].appendChild(expandedDetails)
                     }
@@ -2224,6 +2224,13 @@
         sendMessage(JSON.stringify(request))
     }
 
+    if (localStorage.getItem("last_profile")) {
+        let last_profile = JSON.parse(localStorage.getItem("last_profile"))
+        populateMatchHistory(last_profile)
+        populateMostPlayed(last_profile)
+        loadLocalStoarge()
+    }
+
     if (devMode) {
         //sendMessage("loading");
         populateMatchHistory(we_data2)
@@ -2252,6 +2259,7 @@
                 populateMatchHistory(jMessage)
                 populateMostPlayed(jMessage)
                 loadLocalStoarge()
+                localStorage.setItem("last_profile",JSON.stringify(jMessage))
             }
             if (jMessage.type === "profile-detailedmatch-reply") {
                 const matchDiv = document.getElementById(jMessage.data.battle_info.battle_id)
