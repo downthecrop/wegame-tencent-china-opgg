@@ -2125,10 +2125,12 @@
         }
         document.querySelectorAll('.Link').forEach(item => {
             item.addEventListener('click', event => {
-                console.log(event.path[0].innerText)
-                if (event.path[0].innerText != "..."){
-                    document.getElementById("user-input").value = event.path[0].innerText
-                    requestMatchHistory(event.path[0].innerText);
+                let nav_username = event.path[0].innerText
+                console.log(nav_username)
+                if (nav_username != "..."){
+                    document.getElementById("user-input").value = nav_username
+                    localStorage.setItem("searched_user", nav_username)
+                    requestMatchHistory(nav_username);
                 }
             })
         })
