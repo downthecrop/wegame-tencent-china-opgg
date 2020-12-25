@@ -17,9 +17,11 @@
         .multi2__item .summoner-summary .last-updated {
             text-align: center;
         }
-        body{
+
+        body {
             padding: 10px;
         }
+
         #name-input {
             width: 430px;
         }
@@ -220,7 +222,7 @@
 
                     //populate user data from JSON
                     f("summoner-name").innerHTML = "<a class='name' href='#'>" + player.role_name + "</a>"
-                    f("tier__icon").src = weRank + player.rank + "_" + player.tier + ".png"
+                    f("tier__icon").src = weRank + player.tier + "_" + player.rank + ".png"
                     f("lp").innerText = player.league_point + "LP"
                     f("winratio").innerText = player.win_rate + "%"
 
