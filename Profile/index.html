@@ -807,7 +807,7 @@
     </template>
 </body>
 <script>
-    var devMode = false
+    var devMode = true
     let slol_id = ""
     let player_name = ""
     let area_id = 1
@@ -2037,6 +2037,11 @@
                 opp_item_display.getElementsByTagName("img")[z].src = getAsset(_item, team_data_opp[i].item_ids[z])
             }
         }
+        document.querySelectorAll('.defeat-text1').forEach(item => {
+            item.addEventListener('click', event => {
+                console.log(event.path[0])
+            })
+        })
 
     }
 

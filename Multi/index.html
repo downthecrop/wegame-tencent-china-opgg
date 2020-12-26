@@ -200,76 +200,74 @@
             }
             else {
                 document.getElementById("loader").style.display = "none"
-                const urlParams = new URLSearchParams(messageData.data);
-                for (const [key, value] of urlParams) {
-                    const jsonData = JSON.parse(value)
-                    //begin create users
-                    const temp = document.getElementsByTagName("template")[0];
-                    const view = document.getElementsByClassName("multi2__list")[0];
-                    const startElement = temp.content.querySelector("li");
+                const urlParams = messageData.data;
+                const jsonData = JSON.parse(value)
+                //begin create users
+                const temp = document.getElementsByTagName("template")[0];
+                const view = document.getElementsByClassName("multi2__list")[0];
+                const startElement = temp.content.querySelector("li");
 
-                    var posArray = [0, 0, 0, 0, 0]
-                    const a = document.importNode(startElement, true);
+                var posArray = [0, 0, 0, 0, 0]
+                const a = document.importNode(startElement, true);
 
-                    //shorthand
-                    const player = jsonData
-                    const battle_list = jsonData.player_battle_brief_list
-                    f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
+                //shorthand
+                const player = jsonData
+                const battle_list = jsonData.player_battle_brief_list
+                f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
 
-                    for (z = 0; z < Object.keys(battle_list).length; z++) {
-                        posArray[battle_list[z].position] += 1
+                for (z = 0; z < Object.keys(battle_list).length; z++) {
+                    posArray[battle_list[z].position] += 1
+                }
+
+                //populate user data from JSON
+                f("summoner-name").innerHTML = "<a class='name' href='#'>" + player.role_name + "</a>"
+                f("tier__icon").src = weRank + player.tier + "_" + player.rank + ".png"
+                f("lp").innerText = player.league_point + "LP"
+                f("winratio").innerText = player.win_rate + "%"
+
+                if (player.continue_lose > 0) {
+                    f("win-streak").innerText = player.continue_lose + " game lose streak"
+                    f("win-streak").style.backgroundColor = "red";
+                } else if (player.continue_win > 0) {
+                    f("win-streak").innerText = player.continue_win + " game win streak"
+                } else {
+                    f("win-streak").innerText = ""
+                }
+
+                view.appendChild(a);
+
+                //battle_list[0] for most recent game.
+                if (battle_list[0].battle_time) {
+                    const deltaT = Date.now() / 1000 - battle_list[0].battle_time
+                    const lastPlayed = (secondsToDhms(deltaT))
+                    f("_timeago").innerText = lastPlayed
+                } else {
+                    f("_timeago").innerText = "No recent games on record"
+                }
+
+                const recentview = view.getElementsByClassName("recent-games")[key]
+                const recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
+
+
+                //begin create user match history
+                for (z = 0; z < Object.keys(battle_list).length; z++) {
+                    const b = document.importNode(recentList, true);
+                    const b_list = battle_list[z]
+
+                    f = function (arguments) { return b.getElementsByClassName(arguments)[0]; }
+
+                    f("champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1").src = weCDN + b_list.champion_id + ".png"
+                    if (b_list.game_result === 2) {
+                        f("is-win is-win--true").setAttribute("class", "is-win is-win--false")
                     }
-
-                    //populate user data from JSON
-                    f("summoner-name").innerHTML = "<a class='name' href='#'>" + player.role_name + "</a>"
-                    f("tier__icon").src = weRank + player.tier + "_" + player.rank + ".png"
-                    f("lp").innerText = player.league_point + "LP"
-                    f("winratio").innerText = player.win_rate + "%"
-
-                    if (player.continue_lose > 0) {
-                        f("win-streak").innerText = player.continue_lose + " game lose streak"
-                        f("win-streak").style.backgroundColor = "red";
-                    } else if (player.continue_win > 0) {
-                        f("win-streak").innerText = player.continue_win + " game win streak"
-                    } else {
-                        f("win-streak").innerText = ""
-                    }
-
-                    view.appendChild(a);
-
-                    //battle_list[0] for most recent game.
-                    if (battle_list[0].battle_time) {
-                        const deltaT = Date.now() / 1000 - battle_list[0].battle_time
-                        const lastPlayed = (secondsToDhms(deltaT))
-                        f("_timeago").innerText = lastPlayed
-                    } else {
-                        f("_timeago").innerText = "No recent games on record"
-                    }
-
-                    const recentview = view.getElementsByClassName("recent-games")[key]
-                    const recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
-
-
-                    //begin create user match history
-                    for (z = 0; z < Object.keys(battle_list).length; z++) {
-                        const b = document.importNode(recentList, true);
-                        const b_list = battle_list[z]
-
-                        f = function (arguments) { return b.getElementsByClassName(arguments)[0]; }
-
-                        f("champion __sprite __spc20 __spc20-123 tip tpd-delegation-uid-1").src = weCDN + b_list.champion_id + ".png"
-                        if (b_list.game_result === 2) {
-                            f("is-win is-win--true").setAttribute("class", "is-win is-win--false")
-                        }
-                        f("kill").innerText = b_list.kill_num
-                        f("death").innerText = b_list.death_num
-                        f("assist").innerText = b_list.assist_num
-                        f("_timeago").setAttribute("data-datetime", b_list.battle_time);
-                        f("_timeago").innerText = timeConverter(b_list.battle_time);
-                        f("_timeago").title = timeConverter(b_list.battle_time);
-                        $('[data-toggle="tooltip"]').tooltip();
-                        recentview.appendChild(b);
-                    }
+                    f("kill").innerText = b_list.kill_num
+                    f("death").innerText = b_list.death_num
+                    f("assist").innerText = b_list.assist_num
+                    f("_timeago").setAttribute("data-datetime", b_list.battle_time);
+                    f("_timeago").innerText = timeConverter(b_list.battle_time);
+                    f("_timeago").title = timeConverter(b_list.battle_time);
+                    $('[data-toggle="tooltip"]').tooltip();
+                    recentview.appendChild(b);
                 }
             }
         }

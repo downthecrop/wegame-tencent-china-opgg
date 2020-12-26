@@ -45,7 +45,7 @@ async function getUserData(uname, area_id) {
                         apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
                             var jVal = buildJSON(player_data, battle_data, topbar_data)
                             console.log(JSON.stringify(jVal))
-                            jResultArray.push(JSON.stringify(jVal))
+                            sendMessage(jVal)
                         })
                     })
                     i = Infinity;
