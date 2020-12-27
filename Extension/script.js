@@ -25,7 +25,7 @@ async function get_profile_multi(uname, area_id) {
         "totalNum": 0
     }
     apiRequest(query_by_nick, nickJSON).then((data) => {
-        console.log(data);
+        console.log(data)
         if (data.code === 402) {
             console.log("ticket error")
             ticket_flag = true;
@@ -44,7 +44,7 @@ async function get_profile_multi(uname, area_id) {
                             sendMessage(jVal)
                         })
                     })
-                    i = Infinity;
+                    break
                 }
             }
         }
@@ -66,10 +66,10 @@ async function get_profile(uname, area_id) {
         "totalNum": 0
     }
     apiRequest(query_by_nick, nickJSON).then((data) => {
-        console.log(data);
+        console.log(data)
         if (data.code === 402) {
             console.log("ticket error")
-            ticket_flag = true;
+            ticket_flag = true
             sendMessage("ticket-error")
         }
         else {
@@ -86,7 +86,7 @@ async function get_profile(uname, area_id) {
                             })
                         })
                     })
-                    i = Infinity;
+                    break
                 }
             }
         }
@@ -105,10 +105,10 @@ async function get_profile_by_slol_id(slol_id, area_id) {
         "totalNum": 0
     }
     apiRequest(battle_list, battleJSON).then((battle_data) => {
-        console.log(battle_data);
+        console.log(battle_data)
         if (battle_data.code === 402) {
             console.log("ticket error")
-            ticket_flag = true;
+            ticket_flag = true
             sendMessage("ticket-error")
         }
         else {
@@ -123,7 +123,6 @@ async function get_profile_by_slol_id(slol_id, area_id) {
 }
 
 async function get_game_details(slol_id, battle_id, area_id) {
-
     let requestBody = {
         "area_id": parseInt(area_id),
         "battle_id": parseInt(battle_id),
@@ -132,10 +131,10 @@ async function get_game_details(slol_id, battle_id, area_id) {
         "req_slol_id": slol_id
     }
     apiRequest(battle_details, requestBody).then((data) => {
-        console.log(data);
+        console.log(data)
         if (data.code === 402) {
             console.log("ticket error")
-            ticket_flag = true;
+            ticket_flag = true
             sendMessage("ticket-error")
         }
         else {
@@ -160,8 +159,8 @@ async function apiRequest(myurl, body) {
             return data;
         })
         .catch(function (error) {
-            console.log('Request failed', error);
-        });
+            console.log('Request failed', error)
+        })
 }
 
 function profile_multi_buildJSON(user, games, topbar) {
@@ -170,7 +169,7 @@ function profile_multi_buildJSON(user, games, topbar) {
     user = Object.assign(games.data, user)
     user = Object.assign(topbar.data, user)
     console.log(user)
-    return JSON.stringify(user);
+    return JSON.stringify(user)
 }
 
 function profile_basic_builderJSON(battle_data, topbar_data, often_used_data) {
@@ -178,13 +177,13 @@ function profile_basic_builderJSON(battle_data, topbar_data, often_used_data) {
     player = Object.assign(topbar_data, player)
     player = Object.assign(often_used_data.data, player)
     player = Object.assign(battle_data.data, player)
-    return JSON.stringify(player);
+    return JSON.stringify(player)
 }
 
 function game_details_builderJSON(jdata) {
     let data = { "type": "profile-detailedmatch-reply" }
     data = Object.assign(jdata, data)
-    return JSON.stringify(data);
+    return JSON.stringify(data)
 }
 
 function sendMessage(message) {
@@ -192,18 +191,53 @@ function sendMessage(message) {
     receiver.postMessage(message, 'https://downthecrop.github.io/opgg-clone/');
 }
 
+window.addEventListener('message', function (message) {
+    if (message.origin === "https://downthecrop.github.io") {
+        try {
+            JSON.parse(message.data)
+        } catch (e) {
+            console.log("Message isn't json")
+            console.log(message.data)
+        }
+        let jMessage = JSON.parse(message.data)
+        console.log(jMessage)
+        if (jMessage.type === "profile-multi") {
+            sendMessage("loading")
+            get_profile_multi(jMessage.name, parseInt(jMessage.area_id))
+        }
+        if (jMessage.type === "profile-basic") {
+            sendMessage("loading")
+            get_profile(jMessage.name, parseInt(jMessage.area_id))
+        }
+        if (jMessage.type === "profile-basic-slol-id") {
+            sendMessage("loading")
+            get_profile_by_slol_id(jMessage.slol_id, parseInt(jMessage.area_id))
+        }
+        if (jMessage.type === "profile-detailedmatch") {
+            get_game_details(jMessage.slol_id, jMessage.battle_id, parseInt(jMessage.area_id))
+        }
+    }
+});
+
+let checkExist = setInterval(function () {
+    if (document.getElementsByClassName("widget-header-nav")) {
+        main()
+        clearInterval(checkExist);
+    }
+}, 1000);
+
 function main() {
     if (window.location.href.includes("https://www.wegame.com.cn/")) {
         function listCookies() {
             const theCookies = document.cookie.split(';');
-            let aString = '';
+            let aString = ''
             for (let i = 1; i <= theCookies.length; i++) {
-                aString += i + ' ' + theCookies[i - 1] + "\n";
+                aString += i + ' ' + theCookies[i - 1] + "\n"
                 if (theCookies[i - 1].includes("tgp_id")) {
-                    loginStatus = true;
+                    loginStatus = true
                 }
             }
-            return aString;
+            return aString
         }
         console.log(listCookies())
     }
@@ -215,13 +249,13 @@ function main() {
         let cropsearch_li = document.createElement("li")
         let cropsearch_a = document.createElement("a")
         let cropsearch_t = document.createTextNode("Cropsearch")
-        cropsearch_a.appendChild(cropsearch_t);
+        cropsearch_a.appendChild(cropsearch_t)
         cropsearch_li.appendChild(cropsearch_a)
         cropsearch_a.href = "#"
         cropsearch_a.id = "myBtn"
 
         cropsearch_li.onclick = function () {
-            document.getElementById("myModal").style.display = "block";
+            document.getElementById("myModal").style.display = "block"
         }
 
         topbar.appendChild(cropsearch_li)
@@ -266,7 +300,7 @@ function main() {
 
         window.onclick = function (event) {
             if (event.target === document.getElementById("myModal")) {
-                document.getElementById("myModal").style.display = "none";
+                document.getElementById("myModal").style.display = "none"
             }
         }
 
@@ -288,38 +322,3 @@ function main() {
         }
     }
 }
-
-window.addEventListener('message', function (message) {
-    if (message.origin === "https://downthecrop.github.io") {
-        try {
-            JSON.parse(message.data)
-        } catch (e) {
-            console.log("Message isn't json")
-            console.log(message.data)
-        }
-        let jMessage = JSON.parse(message.data)
-        console.log(jMessage)
-        if (jMessage.type === "profile-multi") {
-            sendMessage("loading")
-            get_profile_multi(jMessage.name, parseInt(jMessage.area_id))
-        }
-        if (jMessage.type === "profile-basic") {
-            sendMessage("loading")
-            get_profile(jMessage.name, parseInt(jMessage.area_id))
-        }
-        if (jMessage.type === "profile-basic-slol-id") {
-            sendMessage("loading")
-            get_profile_by_slol_id(jMessage.slol_id, parseInt(jMessage.area_id))
-        }
-        if (jMessage.type === "profile-detailedmatch") {
-            get_game_details(jMessage.slol_id, jMessage.battle_id, parseInt(jMessage.area_id))
-        }
-    }
-});
-
-let checkExist = setInterval(function () {
-    if (document.getElementsByClassName("widget-header-nav")) {
-        main()
-        clearInterval(checkExist);
-    }
-}, 1000); // check every 1sec
