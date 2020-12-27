@@ -213,7 +213,7 @@
             else if (messageData.data == "ticket-error") {
                 document.body.innerHTML = "<h1>Ticket Error</h1>"
             }
-            else if (messageData.data == "profile-multi-reply"){
+            else if (messageData.data.type == "profile-multi-reply"){
                 document.getElementById("loader").style.display = "none"
                 const jsonData = messageData.data
                 //begin create users
