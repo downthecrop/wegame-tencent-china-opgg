@@ -143,7 +143,7 @@
 </body>
 <script>
 
-    var index = -1
+    var index = 0
 
     const weCDN = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/"
     const weRank = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/division/"
@@ -201,7 +201,6 @@
                 document.body.innerHTML = "<h1>Ticket Error</h1>"
             }
             else {
-                index += 1
                 document.getElementById("loader").style.display = "none"
                 const jsonData = messageData.data
                 //begin create users
@@ -238,6 +237,9 @@
 
                 view.appendChild(a);
 
+                const recentview = view.getElementsByClassName("recent-games")[index]
+                const recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
+
                 //battle_list[0] for most recent game.
                 if (battle_list[0].battle_time) {
                     const deltaT = Date.now() / 1000 - battle_list[0].battle_time
@@ -246,10 +248,6 @@
                 } else {
                     f("_timeago").innerText = "No recent games on record"
                 }
-
-                const recentview = view.getElementsByClassName("recent-games")[index]
-                const recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
-
 
                 //begin create user match history
                 for (z = 0; z < Object.keys(battle_list).length; z++) {
@@ -270,6 +268,10 @@
                     f("_timeago").title = timeConverter(b_list.battle_time);
                     $('[data-toggle="tooltip"]').tooltip();
                     recentview.appendChild(b);
+
+
+                    index += 1
+                    
                 }
             }
         }
