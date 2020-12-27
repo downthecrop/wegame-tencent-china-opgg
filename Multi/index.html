@@ -237,9 +237,6 @@
 
                 view.appendChild(a);
 
-                const recentview = view.getElementsByClassName("recent-games")[index]
-                const recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
-
                 //battle_list[0] for most recent game.
                 if (battle_list[0].battle_time) {
                     const deltaT = Date.now() / 1000 - battle_list[0].battle_time
@@ -251,6 +248,8 @@
 
                 //begin create user match history
                 for (z = 0; z < Object.keys(battle_list).length; z++) {
+                    const recentview = view.getElementsByClassName("recent-games")[index]
+                    const recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
                     const b = document.importNode(recentList, true);
                     const b_list = battle_list[z]
 
