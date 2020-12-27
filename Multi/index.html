@@ -291,7 +291,7 @@
             }
             let jMessage = JSON.parse(message.data)
             if (jMessage.type === "profile-multi-reply") {
-                create_multi_profile(message)
+                create_multi_profile(jMessage)
             }
         }
     }
