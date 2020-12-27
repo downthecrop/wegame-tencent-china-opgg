@@ -8,12 +8,9 @@ const profile_url = "https://downthecrop.github.io/opgg-clone/Profile/"
 const color_active = "hsla(0,0%,100%,.12)"
 const color_inactive = "#3c3c3c"
 
-var loginStatus = false
-var ticket_flag = false
-var jResultArray = []
-var usernames = []
+let loginStatus = false
 
-async function getUserData(uname, area_id) {
+async function get_profile_multi(uname, area_id) {
     const nickJSON = {
         "search_nick": uname,
     }
@@ -43,7 +40,7 @@ async function getUserData(uname, area_id) {
                     console.log(battleJSON)
                     apiRequest(battle_list, battleJSON).then((battle_data) => {
                         apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
-                            var jVal = buildJSON(player_data, battle_data, topbar_data)
+                            var jVal = profile_multi_buildJSON(player_data, battle_data, topbar_data)
                             sendMessage(jVal)
                         })
                     })
@@ -167,7 +164,9 @@ async function apiRequest(myurl, body) {
         });
 }
 
-function buildJSON(user, games, topbar) {
+function profile_multi_buildJSON(user, games, topbar) {
+    let player = { "type": "profile-multi-reply" }
+    user = Object.assign(user, player)
     user = Object.assign(games.data, user)
     user = Object.assign(topbar.data, user)
     console.log(user)
@@ -186,19 +185,6 @@ function game_details_builderJSON(jdata) {
     let data = { "type": "profile-detailedmatch-reply" }
     data = Object.assign(jdata, data)
     return JSON.stringify(data);
-}
-
-function buildMultiMessage(r_data) {
-    let m = "";
-    for (i in r_data) {
-        if (i === 0) {
-            m += i + "=" + r_data[i]
-        }
-        else {
-            m += "&" + i + "=" + r_data[i]
-        }
-    }
-    return m;
 }
 
 function sendMessage(message) {
@@ -303,29 +289,6 @@ function main() {
     }
 }
 
-(function () {
-    var _push = Array.prototype.push;
-    Array.prototype.push = function () {
-        ///this is probably a really bad way to handle async but I don't care for now.
-        _push.apply(this, arguments);
-        if (jResultArray.length != 0 && usernames.length === jResultArray.length) {
-            if (ticket_flag === false) {
-                //message = buildMultiMessage(jResultArray)
-                //console.log(message)
-                //sendMessage(message)
-
-                //reset
-                usernames = []
-                jResultArray = []
-            }
-            else {
-                console.log("Message wasn't send due to ticket error")
-            }
-        }
-        return;
-    }
-})();
-
 window.addEventListener('message', function (message) {
     if (message.origin === "https://downthecrop.github.io") {
         try {
@@ -336,10 +299,9 @@ window.addEventListener('message', function (message) {
         }
         let jMessage = JSON.parse(message.data)
         console.log(jMessage)
-        if (jMessage.type === "name_mutli_search") {
+        if (jMessage.type === "profile-multi") {
             sendMessage("loading")
-            getUserData(jMessage.name, parseInt(jMessage.area_id))
-            //usernames.push(jMessage.user)
+            get_profile_multi(jMessage.name, parseInt(jMessage.area_id))
         }
         if (jMessage.type === "profile-basic") {
             sendMessage("loading")

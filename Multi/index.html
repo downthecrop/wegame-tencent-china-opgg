@@ -181,12 +181,26 @@
         console.log(usernames)
         for (k in usernames) {
             let request = {
-                "type": "name_mutli_search",
+                "type": "profile-multi",
                 "name": usernames[k],
                 "area_id": area_id
             }
             sendMessage(JSON.stringify(request))
         }
+    })
+
+    if (localStorage.getItem("area_id")) {
+        area_id = parseInt(localStorage.getItem("area_id"))
+        for (let i = 0; i < document.getElementById("areas").getElementsByTagName("option").length; i += 1) {
+            if (parseInt(document.getElementById("areas").getElementsByTagName("option")[i].value.split(" ")[0]) === area_id) {
+                document.getElementById("areas").getElementsByTagName("option")[i].setAttribute("selected", "selected")
+            }
+        }
+    }
+
+    document.getElementById("areas").addEventListener("change", function () {
+        area_id = parseInt(document.getElementById("areas").value.split(" ")[0])
+        localStorage.setItem("area_id", area_id)
     })
 
     function receiveMessage(messageData) {
@@ -197,10 +211,9 @@
                 document.getElementsByClassName("multi2__list")[0].innerHTML = ""
             }
             else if (messageData.data == "ticket-error") {
-                document.getElementById("loader").style.display = "none"
                 document.body.innerHTML = "<h1>Ticket Error</h1>"
             }
-            else {
+            else if (messageData.data == "profile-multi-reply"){
                 document.getElementById("loader").style.display = "none"
                 const jsonData = messageData.data
                 //begin create users
@@ -272,21 +285,6 @@
             }
         }
     }
-
-    if (localStorage.getItem("area_id")) {
-        area_id = parseInt(localStorage.getItem("area_id"))
-        for (let i = 0; i < document.getElementById("areas").getElementsByTagName("option").length; i += 1) {
-            if (parseInt(document.getElementById("areas").getElementsByTagName("option")[i].value.split(" ")[0]) === area_id) {
-                document.getElementById("areas").getElementsByTagName("option")[i].setAttribute("selected", "selected")
-            }
-        }
-    }
-
-    document.getElementById("areas").addEventListener("change", function () {
-        area_id = parseInt(document.getElementById("areas").value.split(" ")[0])
-        localStorage.setItem("area_id", area_id)
-    })
-
 
     function sendMessage(message) {
         parent.postMessage(message, '*');
