@@ -19,6 +19,9 @@
         body {
             padding: 10px;
         }
+        .c12:hover{
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -808,7 +811,7 @@
 </body>
 <script>
     var devMode = false
-    let slol_id = ""
+    let p_slol_id = ""
     let player_name = ""
     let area_id = 1
 
@@ -1898,7 +1901,7 @@
     function populateMostPlayed(jData) {
         //Profile Top Left Picture and Win Rate
         document.getElementsByClassName("MostChampionContent tabItem overview-stats--all")[0].innerHTML = ""
-        slol_id = jData.slol_id
+        p_slol_id = jData.slol_id
         player_name = jData.data.role_name
         d("TierRank").innerText = rankJSON[jData.data.tier] + ` ${parseInt(jData.data.rank + 1)}`
         d("LeaguePoints").innerText = `${jData.data.league_point} LP`
@@ -1990,6 +1993,9 @@
             own_home.getElementsByClassName("c12")[0].innerText = team_data_own[i].role_name
             opp_home.getElementsByClassName("c12")[0].innerText = team_data_opp[i].role_name
 
+            own_home.getElementsByClassName("c12")[0].setAttribute("slol_id",team_data_own[i].slol_id)
+            opp_home.getElementsByClassName("c12")[0].setAttribute("slol_id",team_data_opp[i].slol_id)
+
             own_damage_bar.setAttribute("style", `width:${team_data_own[i].total_damage_2_champion_percent * 2}%;`)
             opp_damage_bar.setAttribute("style", `width:${team_data_opp[i].total_damage_2_champion_percent * 2}%;`)
 
@@ -2037,9 +2043,12 @@
                 opp_item_display.getElementsByTagName("img")[z].src = getAsset(_item, team_data_opp[i].item_ids[z])
             }
         }
-        document.querySelectorAll('.defeat-text1').forEach(item => {
+        document.querySelectorAll('.c12').forEach(item => {
             item.addEventListener('click', event => {
-                console.log(event.path[0])
+                let username = event.path[0].innerText
+                let slol_id = event.path[0].getAttribute("slol_id")
+                console.log(username)
+                requestMatchHistory_slol(slol_id,username);
             })
         })
 
@@ -2138,14 +2147,11 @@
         }
         document.querySelectorAll('.Link').forEach(item => {
             item.addEventListener('click', event => {
-                let nav_username = event.path[0].innerText
-                let nav_slol_id = event.path[0].getAttribute("slol_id")
-                console.log(nav_username)
-                if (nav_username != "...") {
-                    document.getElementById("user-input").value = nav_username
-                    localStorage.setItem("searched_user", nav_username)
-                    //requestMatchHistory(nav_username);
-                    requestMatchHistory_slol(nav_slol_id);
+                let username = event.path[0].innerText
+                let slol_id = event.path[0].getAttribute("slol_id")
+                console.log(username)
+                if (username != "...") {
+                    requestMatchHistory_slol(slol_id,username);
                 }
             })
         })
@@ -2227,7 +2233,7 @@
     function requestMatchDetails(matchid) {
         let request = {
             "type": "profile-detailedmatch",
-            "slol_id": slol_id,
+            "slol_id": p_slol_id,
             "battle_id": matchid,
             "area_id": area_id
         }
@@ -2243,10 +2249,12 @@
         sendMessage(JSON.stringify(request))
     }
 
-    function requestMatchHistory_slol(_slol_id) {
+    function requestMatchHistory_slol(slol_id,uname) {
+        document.getElementById("user-input").value = uname
+        localStorage.setItem("searched_user", uname)
         let request = {
             "type": "profile-basic-slol-id",
-            "slol_id": _slol_id,
+            "slol_id": slol_id,
             "area_id": area_id
         }
         sendMessage(JSON.stringify(request))
