@@ -143,6 +143,8 @@
 </body>
 <script>
 
+    var index = -1
+
     const weCDN = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/champions/"
     const weRank = "https://raw.githubusercontent.com/downthecrop/opgg-clone/master/res/division/"
 
@@ -199,6 +201,7 @@
                 document.body.innerHTML = "<h1>Ticket Error</h1>"
             }
             else {
+                index += 1
                 document.getElementById("loader").style.display = "none"
                 const jsonData = messageData.data
                 //begin create users
@@ -244,7 +247,7 @@
                     f("_timeago").innerText = "No recent games on record"
                 }
 
-                const recentview = view.getElementsByClassName("recent-games")[0]
+                const recentview = view.getElementsByClassName("recent-games")[index]
                 const recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
 
 
