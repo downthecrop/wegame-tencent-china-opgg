@@ -19,8 +19,17 @@
         body {
             padding: 10px;
         }
-        .c12:hover{
+
+        .c12:hover {
             text-decoration: underline;
+        }
+
+        #recent_wrapper {
+            margin-top: 10px;
+        }
+
+        #recent_searches li {
+            display: inline;
         }
     </style>
 </head>
@@ -62,6 +71,11 @@
         </select>
     </form>
     <button id="clear-local-button">Clear localStorage</button>
+    <div id="recent_wrapper">
+        Recent:
+        <div id="recent_searches" style="display:inline">
+        </div>
+    </div>
     <div class="ContentWrap tabItems" id="SummonerLayoutContent">
         <div class="tabItem Content SummonerLayoutContent summonerLayout-summary" data-tab-data-url="#"
             data-tab-spinner-height="800" data-tab-is-loaded-already="true" style="display: block;">
@@ -1993,8 +2007,8 @@
             own_home.getElementsByClassName("c12")[0].innerText = team_data_own[i].role_name
             opp_home.getElementsByClassName("c12")[0].innerText = team_data_opp[i].role_name
 
-            own_home.getElementsByClassName("c12")[0].setAttribute("slol_id",team_data_own[i].slol_id)
-            opp_home.getElementsByClassName("c12")[0].setAttribute("slol_id",team_data_opp[i].slol_id)
+            own_home.getElementsByClassName("c12")[0].setAttribute("slol_id", team_data_own[i].slol_id)
+            opp_home.getElementsByClassName("c12")[0].setAttribute("slol_id", team_data_opp[i].slol_id)
 
             own_damage_bar.setAttribute("style", `width:${team_data_own[i].total_damage_2_champion_percent * 2}%;`)
             opp_damage_bar.setAttribute("style", `width:${team_data_opp[i].total_damage_2_champion_percent * 2}%;`)
@@ -2048,7 +2062,7 @@
                 let username = event.path[0].innerText
                 let slol_id = event.path[0].getAttribute("slol_id")
                 console.log(username)
-                requestMatchHistory_slol(slol_id,username);
+                requestMatchHistory_slol(slol_id, username);
             })
         })
 
@@ -2151,7 +2165,7 @@
                 let slol_id = event.path[0].getAttribute("slol_id")
                 console.log(username)
                 if (username != "...") {
-                    requestMatchHistory_slol(slol_id,username);
+                    requestMatchHistory_slol(slol_id, username);
                 }
             })
         })
@@ -2249,7 +2263,7 @@
         sendMessage(JSON.stringify(request))
     }
 
-    function requestMatchHistory_slol(slol_id,uname) {
+    function requestMatchHistory_slol(slol_id, uname) {
         document.getElementById("user-input").value = uname
         localStorage.setItem("searched_user", uname)
         let request = {
@@ -2273,6 +2287,15 @@
         populateMostPlayed(we_data2)
     }
 
+
+    //Recent Searches
+    let recent_item = document.createElement("li")
+    recent_item.innerText = "FrankerZ"
+    let recent_item_a = document.createElement("a")
+    recent_item_a.href = "#"
+    recent_item_a.appendChild(recent_item)
+    document.getElementById("recent_searches").appendChild(recent_item_a)
+
     window.addEventListener('message', function (message) {
         console.log(message)
         if (message.origin != "//downthecrop.github.io") {
@@ -2291,6 +2314,24 @@
             let jMessage = JSON.parse(message.data)
             console.log("I got a message: " + message.data)
             if (jMessage.type === "profile-basic-reply") {
+                let recent_users = []
+                if (localStorage.getItem("recent_users")) {
+                    recent_users = localStorage.getItem("recent_users").split(",")
+
+                    for (i in recent_users) {
+                        //Recent Searches
+                        let recent_item = document.createElement("li")
+                        recent_item.innerText = "FrankerZ"
+                        let recent_item_a = document.createElement("a")
+                        recent_item_a.href = "#"
+                        recent_item_a.appendChild(recent_item)
+                        document.getElementById("recent_searches").appendChild(recent_item_a)
+                    }
+
+                }
+                else {
+                    localStorage.setItem("recent_users", jMessage.data.role_name + ",");
+                }
                 document.getElementsByClassName("lds-ellipsis")[0].style.display = "none"
                 populateMatchHistory(jMessage)
                 populateMostPlayed(jMessage)
