@@ -200,7 +200,7 @@
             }
             else {
                 document.getElementById("loader").style.display = "none"
-                const jsonData = JSON.parse(messageData.data)
+                const jsonData = messageData.data
                 //begin create users
                 const temp = document.getElementsByTagName("template")[0];
                 const view = document.getElementsByClassName("multi2__list")[0];
