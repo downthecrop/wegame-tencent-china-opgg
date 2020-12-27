@@ -170,7 +170,7 @@ function profile_multi_buildJSON(user, games, topbar) {
     user = Object.assign(games.data, user)
     user = Object.assign(topbar.data, user)
     console.log(user)
-    return user;
+    return JSON.stringify(user);
 }
 
 function profile_basic_builderJSON(battle_data, topbar_data, often_used_data) {
