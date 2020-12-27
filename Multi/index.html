@@ -180,12 +180,14 @@
         var usernames = names.replaceAll("加入了队伍聊天", "").split(/\r?\n/)
         console.log(usernames)
         for (k in usernames) {
-            let request = {
-                "type": "profile-multi",
-                "name": usernames[k],
-                "area_id": area_id
+            if (usernames[k] != ""){
+                let request = {
+                    "type": "profile-multi",
+                    "name": usernames[k],
+                    "area_id": area_id
+                }
+                sendMessage(JSON.stringify(request))
             }
-            sendMessage(JSON.stringify(request))
         }
     })
 
