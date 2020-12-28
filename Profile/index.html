@@ -2275,6 +2275,30 @@
         sendMessage(JSON.stringify(request))
     }
 
+    function setRecent(jdata) {
+        document.getElementById("recent_searches").innerHTML = ""
+        if (localStorage.getItem("recent_users")) {
+            let recent_users = localStorage.getItem("recent_users").split(",")
+            for (i in recent_users) {
+                console.log(recent_users[i])
+                //Recent Searches
+                let recent_item = document.createElement("li")
+                recent_item.innerText = recent_users[i]
+                let recent_item_a = document.createElement("a")
+                recent_item_a.href = "#"
+                recent_item_a.appendChild(recent_item)
+                document.getElementById("recent_searches").appendChild(recent_item_a)
+            }
+            let unique = [...new Set(recent_users)];
+            unique.push(jdata.role_name)
+            unique = unique.slice(unique.length - 3, unique.length);
+            localStorage.setItem("recent_users", unique.toString())
+        }
+        else {
+            localStorage.setItem("recent_users", jdata.role_name);
+        }
+    }
+
     if (localStorage.getItem("last_profile")) {
         let last_profile = JSON.parse(localStorage.getItem("last_profile"))
         populateMatchHistory(last_profile)
@@ -2319,29 +2343,8 @@
             let jMessage = JSON.parse(message.data)
             console.log("I got a message: " + message.data)
             if (jMessage.type === "profile-basic-reply") {
-                let recent_users = []
-                document.getElementById("recent_searches").innerHTML = ""
-                if (localStorage.getItem("recent_users")) {
-                    recent_users = localStorage.getItem("recent_users").split(",")
-                    for (i in recent_users) {
-                        console.log(recent_users[i])
-                        //Recent Searches
-                        let recent_item = document.createElement("li")
-                        recent_item.innerText = recent_users[i]
-                        let recent_item_a = document.createElement("a")
-                        recent_item_a.href = "#"
-                        recent_item_a.appendChild(recent_item)
-                        document.getElementById("recent_searches").appendChild(recent_item_a)
-                    }
-                    let unique = [...new Set(recent_users)];
-                    unique.push(jMessage.data.role_name)
-                    unique = unique.slice(unique.length-3, unique.length);
-                    localStorage.setItem("recent_users", unique.toString())
-                }
-                else {
-                    localStorage.setItem("recent_users", jMessage.data.role_name);
-                }
                 document.getElementsByClassName("lds-ellipsis")[0].style.display = "none"
+                setRecent(jMessage.data)
                 populateMatchHistory(jMessage)
                 populateMostPlayed(jMessage)
                 loadLocalStoarge()
