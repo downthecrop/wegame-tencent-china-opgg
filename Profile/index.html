@@ -2319,6 +2319,7 @@
                     recent_users = localStorage.getItem("recent_users").split(",")
 
                     for (i in recent_users) {
+                        console.log(recent_users[i])
                         //Recent Searches
                         let recent_item = document.createElement("li")
                         recent_item.innerText = "FrankerZ"
@@ -2327,7 +2328,7 @@
                         recent_item_a.appendChild(recent_item)
                         document.getElementById("recent_searches").appendChild(recent_item_a)
                     }
-
+                localStorage.setItem("recent_users",localStorage.getItem("recent_users")+jMessage.data.role_name+",")
                 }
                 else {
                     localStorage.setItem("recent_users", jMessage.data.role_name + ",");
