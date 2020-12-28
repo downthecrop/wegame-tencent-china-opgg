@@ -2286,7 +2286,9 @@
                 recent_item.innerText = recent_users[i]
                 let recent_item_a = document.createElement("a")
                 recent_item_a.href = "#"
+                recent_item.class = "recent_link"
                 recent_item_a.appendChild(recent_item)
+                recent_item_a.id = "recent_link"
                 document.getElementById("recent_searches").appendChild(recent_item_a)
             }
             let unique = [...new Set(recent_users)];
@@ -2297,7 +2299,7 @@
         else {
             localStorage.setItem("recent_users", jdata.role_name);
         }
-        document.querySelectorAll('.recent_searches li').forEach(item => {
+        document.querySelectorAll('#recent_link').forEach(item => {
             item.addEventListener('click', event => {
                 let username = event.path[0].innerText
                 console.log(username)
@@ -2327,9 +2329,17 @@
             recent_item.innerText = recent_users[i]
             let recent_item_a = document.createElement("a")
             recent_item_a.href = "#"
+            recent_item.class = "recent_link"
             recent_item_a.appendChild(recent_item)
+            recent_item_a.id = "recent_link"
             document.getElementById("recent_searches").appendChild(recent_item_a)
         }
+        document.querySelectorAll('#recent_link').forEach(item => {
+            item.addEventListener('click', event => {
+                let username = event.path[0].innerText
+                requestMatchHistor(username);
+            })
+        })
     }
 
     window.addEventListener('message', function (message) {
