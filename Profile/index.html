@@ -30,6 +30,7 @@
 
         #recent_searches li {
             display: inline;
+            padding-right: 10px;
         }
     </style>
 </head>
@@ -2287,17 +2288,17 @@
         populateMostPlayed(we_data2)
     }
 
-
-    let recent_users = localStorage.getItem("recent_users").split(",")
-    for (i in recent_users) {
-        console.log(recent_users[i])
-        //Recent Searches
-        let recent_item = document.createElement("li")
-        recent_item.innerText = recent_users[i]
-        let recent_item_a = document.createElement("a")
-        recent_item_a.href = "#"
-        recent_item_a.appendChild(recent_item)
-        document.getElementById("recent_searches").appendChild(recent_item_a)
+    if (localStorage.getItem("recent_users")) {
+        recent_users = localStorage.getItem("recent_users").split(",")
+        for (i in recent_users) {
+            //Recent Searches
+            let recent_item = document.createElement("li")
+            recent_item.innerText = recent_users[i]
+            let recent_item_a = document.createElement("a")
+            recent_item_a.href = "#"
+            recent_item_a.appendChild(recent_item)
+            document.getElementById("recent_searches").appendChild(recent_item_a)
+        }
     }
 
     window.addEventListener('message', function (message) {
@@ -2331,7 +2332,8 @@
                         recent_item_a.appendChild(recent_item)
                         document.getElementById("recent_searches").appendChild(recent_item_a)
                     }
-                    localStorage.setItem("recent_users",localStorage.getItem("recent_users")+jMessage.data.role_name+",")
+                    let unique = [...new Set(recent_users)];
+                    localStorage.setItem("recent_users", unique.toString() + jMessage.data.role_name + ",")
                 }
                 else {
                     localStorage.setItem("recent_users", jMessage.data.role_name + ",");
