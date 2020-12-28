@@ -2297,6 +2297,13 @@
         else {
             localStorage.setItem("recent_users", jdata.role_name);
         }
+        document.querySelectorAll('.recent_searches li').forEach(item => {
+            item.addEventListener('click', event => {
+                let username = event.path[0].innerText
+                console.log(username)
+                requestMatchHistor(username);
+            })
+        })
     }
 
     if (localStorage.getItem("last_profile")) {
