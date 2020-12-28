@@ -2320,6 +2320,7 @@
             console.log("I got a message: " + message.data)
             if (jMessage.type === "profile-basic-reply") {
                 let recent_users = []
+                document.getElementById("recent_searches").innerHTML = ""
                 if (localStorage.getItem("recent_users")) {
                     recent_users = localStorage.getItem("recent_users").split(",")
                     for (i in recent_users) {
