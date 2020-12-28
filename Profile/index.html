@@ -2334,8 +2334,9 @@
                         document.getElementById("recent_searches").appendChild(recent_item_a)
                     }
                     let unique = [...new Set(recent_users)];
+                    unique.add(jMessage.data.role_name)
                     unique = unique.slice(unique.length-3, unique.length);
-                    localStorage.setItem("recent_users", unique.toString() + jMessage.data.role_name + ",")
+                    localStorage.setItem("recent_users", unique.toString())
                 }
                 else {
                     localStorage.setItem("recent_users", jMessage.data.role_name + ",");
