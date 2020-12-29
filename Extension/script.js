@@ -207,11 +207,11 @@ window.addEventListener('message', function (message) {
             get_profile_multi(jMessage.name, parseInt(jMessage.area_id))
         }
         if (jMessage.type === "profile-basic") {
-            profile_active()
             sendMessage("loading")
             get_profile(jMessage.name, parseInt(jMessage.area_id))
         }
         if (jMessage.type === "profile-basic-slol-id") {
+            profile_active()
             sendMessage("loading")
             get_profile_by_slol_id(jMessage.slol_id, parseInt(jMessage.area_id))
         }
