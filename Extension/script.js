@@ -287,14 +287,19 @@ function main() {
         profile_button.id = "profile-page"
         profile_button.appendChild(profile_text)
 
-        let embed_iframe = document.createElement("iframe")
-        embed_iframe.id = "myiFrame"
-        embed_iframe.src = multi_url
+        let embed_multi = document.createElement("iframe")
+        embed_multi.id = "myiFrame"
+        embed_multi.src = multi_url
+
+        let embed_profile = document.createElement("iframe")
+        embed_profile.id = "myiFrame2"
+        embed_profile.src = profile_url
 
         modalContent.appendChild(close_button)
         modalContent.appendChild(multi_button)
         modalContent.appendChild(profile_button)
-        modalContent.appendChild(embed_iframe)
+        modalContent.appendChild(embed_multi)
+        modalContent.appendChild(embed_profile)
         myModal.appendChild(modalContent)
         document.body.prepend(myModal)
 
@@ -306,19 +311,23 @@ function main() {
 
         let d_multi = document.getElementById("multi-page")
         let d_profile = document.getElementById("profile-page")
-        let d_iframe = document.getElementById("myiFrame")
+        let d_iframe_multi = document.getElementById("myiFrame")
+        let d_iframe_profile = document.getElementById("myiFrame2")
+
         d_multi.style.backgroundColor = color_active
 
         d_multi.onclick = function () {
             d_multi.style.backgroundColor = color_active
             d_profile.style.backgroundColor = color_inactive
-            d_iframe.src = multi_url
+            d_iframe_multi.style.display = "block"
+            d_iframe_profile.style.display = "none"
         }
 
         d_profile.onclick = function () {
             d_profile.style.backgroundColor = color_active
             d_multi.style.backgroundColor = color_inactive
-            d_iframe.src = profile_url
+            d_iframe_multi.style.display = "none"
+            d_iframe_profile.style.display = "block"
         }
     }
 }
