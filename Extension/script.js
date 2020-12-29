@@ -207,6 +207,7 @@ window.addEventListener('message', function (message) {
             get_profile_multi(jMessage.name, parseInt(jMessage.area_id))
         }
         if (jMessage.type === "profile-basic") {
+            profile_active()
             sendMessage("loading")
             get_profile(jMessage.name, parseInt(jMessage.area_id))
         }
@@ -219,6 +220,30 @@ window.addEventListener('message', function (message) {
         }
     }
 });
+
+function multi_active() {
+    let d_multi = document.getElementById("multi-page")
+    let d_profile = document.getElementById("profile-page")
+    let d_iframe_multi = document.getElementById("myiFrame")
+    let d_iframe_profile = document.getElementById("myiFrame2")
+    d_multi.style.backgroundColor = color_active
+    d_profile.style.backgroundColor = color_inactive
+    d_iframe_multi.style.display = "block"
+    d_iframe_profile.style.display = "none"
+    activeFrame = "myiFrame"
+}
+
+function profile_active() {
+    let d_multi = document.getElementById("multi-page")
+    let d_profile = document.getElementById("profile-page")
+    let d_iframe_multi = document.getElementById("myiFrame")
+    let d_iframe_profile = document.getElementById("myiFrame2")
+    d_profile.style.backgroundColor = color_active
+    d_multi.style.backgroundColor = color_inactive
+    d_iframe_multi.style.display = "none"
+    d_iframe_profile.style.display = "block"
+    activeFrame = "myiFrame2"
+}
 
 let checkExist = setInterval(function () {
     if (document.getElementsByClassName("widget-header-nav")) {
@@ -320,19 +345,11 @@ function main() {
         activeFrame = "myiFrame2"
 
         d_multi.onclick = function () {
-            d_multi.style.backgroundColor = color_active
-            d_profile.style.backgroundColor = color_inactive
-            d_iframe_multi.style.display = "block"
-            d_iframe_profile.style.display = "none"
-            activeFrame = "myiFrame"
+            multi_active()
         }
 
         d_profile.onclick = function () {
-            d_profile.style.backgroundColor = color_active
-            d_multi.style.backgroundColor = color_inactive
-            d_iframe_multi.style.display = "none"
-            d_iframe_profile.style.display = "block"
-            activeFrame = "myiFrame2"
+            profile_active()
         }
     }
 }

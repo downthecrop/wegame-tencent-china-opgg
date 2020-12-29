@@ -142,8 +142,6 @@
     </template>
 </body>
 <script>
-
-    let index = 0
     const _champ = "../res/champions/"
     const _rank = "../res/division/"
 
@@ -195,7 +193,7 @@
 
         //populate user data from JSON
         f("summoner-name").getElementsByTagName("a")[0].innerText = player.role_name
-        f("summoner-name").setAttribute("slol_id", player.slol_id)
+        f("name").setAttribute("slol_id", player.slol_id)
         f("tier__icon").src = _rank + player.tier + "_" + player.rank + ".png"
         f("lp").innerText = player.league_point + "LP"
         f("winratio").innerText = player.win_rate + "%"
@@ -241,14 +239,22 @@
             recentview.appendChild(b);
         }
         view.appendChild(a)
-        document.querySelectorAll('.summoner-name').forEach(item => {
+        document.querySelectorAll('.name').forEach(item => {
             item.addEventListener('click', event => {
-                let username = event.path[0]
+                let slol_id = event.path[0].getAttribute("slol_id")
                 console.log(event)
-                console.log(username)
-                //requestMatchHistory(username);
+                requestMatchHistory_slol(slol_id);    
             })
         })
+    }
+
+    function requestMatchHistory_slol(slol_id) {
+        let request = {
+            "type": "profile-basic-slol-id",
+            "slol_id": slol_id,
+            "area_id": area_id
+        }
+        sendMessage(JSON.stringify(request))
     }
 
     document.getElementById("submit-name").addEventListener('click', function () {
