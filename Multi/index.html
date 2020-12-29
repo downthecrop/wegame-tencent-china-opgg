@@ -6,9 +6,8 @@
     <link href="css/sprite.css" rel="stylesheet" type="text/css">
     <link href="css/multi2.css" rel="stylesheet" type="text/css">
     <link href="css/loading.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <style>
         .tier__icon {
             vertical-align: baseline !important;
@@ -194,8 +193,8 @@
         }
 
         //populate user data from JSON
-        f("summoner-name").innerHTML = "<a class='name' href='#'>" + player.role_name + "</a>"
-        f("summoner-name").setAttribute("slol_id",player.slol_id)
+        f("summoner-name").getElementsByTagName("a")[0].innerText = player.role_name
+        f("summoner-name").setAttribute("slol_id", player.slol_id)
         f("tier__icon").src = _rank + player.tier + "_" + player.rank + ".png"
         f("lp").innerText = player.league_point + "LP"
         f("winratio").innerText = player.win_rate + "%"
@@ -243,6 +242,14 @@
             recentview.appendChild(b);
         }
         index += 1
+        document.querySelectorAll('.summoner-name').forEach(item => {
+            item.addEventListener('click', event => {
+                let username = event.path[0]
+                console.log(event)
+                console.log(username)
+                //requestMatchHistory(username);
+            })
+        })
     }
 
     document.getElementById("submit-name").addEventListener('click', function () {

@@ -2226,20 +2226,6 @@
         }
     }
 
-    document.getElementById("update-button").addEventListener("click", function () {
-        localStorage.setItem("searched_user", document.getElementById("user-input").value)
-        requestMatchHistory(document.getElementById("user-input").value);
-    })
-
-    document.getElementById("areas").addEventListener("change", function () {
-        area_id = parseInt(document.getElementById("areas").value.split(" ")[0])
-        localStorage.setItem("area_id", area_id)
-    })
-
-    document.getElementById("clear-local-button").addEventListener("click", function () {
-        window.localStorage.clear();
-    })
-
     function sendMessage(message) {
         parent.postMessage(message, '*');
         console.log("Send message: " + message)
@@ -2307,6 +2293,22 @@
             })
         })
     }
+
+
+    //Page Event and OnLod functions.
+    document.getElementById("update-button").addEventListener("click", function () {
+        localStorage.setItem("searched_user", document.getElementById("user-input").value)
+        requestMatchHistory(document.getElementById("user-input").value);
+    })
+
+    document.getElementById("areas").addEventListener("change", function () {
+        area_id = parseInt(document.getElementById("areas").value.split(" ")[0])
+        localStorage.setItem("area_id", area_id)
+    })
+
+    document.getElementById("clear-local-button").addEventListener("click", function () {
+        window.localStorage.clear();
+    })
 
     if (localStorage.getItem("last_profile")) {
         let last_profile = JSON.parse(localStorage.getItem("last_profile"))
