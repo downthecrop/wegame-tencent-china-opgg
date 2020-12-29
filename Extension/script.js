@@ -9,6 +9,7 @@ const color_active = "hsla(0,0%,100%,.12)"
 const color_inactive = "#3c3c3c"
 
 let loginStatus = false
+let activeFrame = ""
 
 async function get_profile_multi(uname, area_id) {
     const nickJSON = {
@@ -187,7 +188,7 @@ function game_details_builderJSON(jdata) {
 }
 
 function sendMessage(message) {
-    const receiver = document.getElementById('myiFrame').contentWindow;
+    let receiver = document.getElementById(activeFrame).contentWindow;
     receiver.postMessage(message, 'https://downthecrop.github.io/opgg-clone/');
 }
 
@@ -290,14 +291,15 @@ function main() {
         let embed_multi = document.createElement("iframe")
         embed_multi.id = "myiFrame"
         embed_multi.src = multi_url
+        embed_multi.style.display = "none"
 
         let embed_profile = document.createElement("iframe")
         embed_profile.id = "myiFrame2"
         embed_profile.src = profile_url
 
         modalContent.appendChild(close_button)
-        modalContent.appendChild(multi_button)
         modalContent.appendChild(profile_button)
+        modalContent.appendChild(multi_button)
         modalContent.appendChild(embed_multi)
         modalContent.appendChild(embed_profile)
         myModal.appendChild(modalContent)
@@ -314,13 +316,15 @@ function main() {
         let d_iframe_multi = document.getElementById("myiFrame")
         let d_iframe_profile = document.getElementById("myiFrame2")
 
-        d_multi.style.backgroundColor = color_active
+        d_profile.style.backgroundColor = color_active
+        activeFrame = "myiFrame2"
 
         d_multi.onclick = function () {
             d_multi.style.backgroundColor = color_active
             d_profile.style.backgroundColor = color_inactive
             d_iframe_multi.style.display = "block"
             d_iframe_profile.style.display = "none"
+            activeFrame = "myiFrame"
         }
 
         d_profile.onclick = function () {
@@ -328,6 +332,7 @@ function main() {
             d_multi.style.backgroundColor = color_inactive
             d_iframe_multi.style.display = "none"
             d_iframe_profile.style.display = "block"
+            activeFrame = "myiFrame2"
         }
     }
 }
