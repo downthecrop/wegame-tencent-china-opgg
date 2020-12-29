@@ -208,8 +208,6 @@
             f("win-streak").innerText = ""
         }
 
-        view.appendChild(a);
-
         //battle_list[0] for most recent game.
         if (battle_list[0].battle_time) {
             const deltaT = Date.now() / 1000 - battle_list[0].battle_time
@@ -221,7 +219,7 @@
 
         //begin create user match history
         for (z = 0; z < Object.keys(battle_list).length; z++) {
-            const recentview = view.getElementsByClassName("recent-games")[0]
+            const recentview = a.getElementsByClassName("recent-games")[0]
             const recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
             const b = document.importNode(recentList, true);
             const b_list = battle_list[z]
@@ -241,6 +239,7 @@
             $('[data-toggle="tooltip"]').tooltip();
             recentview.appendChild(b);
         }
+        view.appendChild(a)
         document.querySelectorAll('.summoner-name').forEach(item => {
             item.addEventListener('click', event => {
                 let username = event.path[0]
