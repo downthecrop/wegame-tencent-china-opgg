@@ -221,7 +221,7 @@
 
         //begin create user match history
         for (z = 0; z < Object.keys(battle_list).length; z++) {
-            const recentview = view.getElementsByClassName("recent-games")[index]
+            const recentview = view.getElementsByClassName("recent-games")[0]
             const recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
             const b = document.importNode(recentList, true);
             const b_list = battle_list[z]
@@ -241,7 +241,6 @@
             $('[data-toggle="tooltip"]').tooltip();
             recentview.appendChild(b);
         }
-        index += 1
         document.querySelectorAll('.summoner-name').forEach(item => {
             item.addEventListener('click', event => {
                 let username = event.path[0]
@@ -250,7 +249,6 @@
                 //requestMatchHistory(username);
             })
         })
-        console.log(index)
     }
 
     document.getElementById("submit-name").addEventListener('click', function () {

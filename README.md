@@ -2,7 +2,7 @@
 
 Alternative Frontend for WeGame Match History and Account Lookups
 
-![Beta](https://i.imgur.com/xlHPtOQ.png)
+![Beta](https://i.imgur.com/qFcz9ib.png)
 
 > Pregame lobby Multisearch, Game Details and Profile Statistics from WeGame/Tencent League of Legends LoL API
 
