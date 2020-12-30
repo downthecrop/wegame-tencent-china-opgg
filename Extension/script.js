@@ -48,6 +48,9 @@ async function get_profile_multi(uname, area_id) {
                     break
                 }
             }
+            if (battleJSON.slol_id === ""){
+                sendMessage("error-slol-id-not-found")
+            }
         }
     })
 }
@@ -89,6 +92,9 @@ async function get_profile(uname, area_id) {
                     })
                     break
                 }
+            }
+            if (battleJSON.slol_id === ""){
+                sendMessage("error-slol-id-not-found")
             }
         }
     })

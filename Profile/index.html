@@ -2407,6 +2407,10 @@
                 if (message.data === "ticket-error") {
                     document.body.innerHTML = "<h1>Ticket Error</h1>"
                 }
+                if (message.data === "error-slol-id-not-found") {
+                    document.getElementsByClassName("GameItemWrap")[0].innerHTML = "<h1>Player Not Found</h1>"
+                }
+                
             }
             let jMessage = JSON.parse(message.data)
             console.log("I got a message: " + message.data)
