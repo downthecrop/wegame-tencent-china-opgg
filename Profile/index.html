@@ -42,19 +42,21 @@
             opacity: 20%;
             padding-top: 10px;
         }
+
         .expand_button {
             display: inline;
             width: 50%;
             opacity: 20%;
             padding-top: 100%;
         }
+
         .refresh_button_parent:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
+
         .expand_button_parent:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
-
     </style>
 </head>
 
@@ -2143,11 +2145,9 @@
             //Request match details
             f("refresh_button_parent").addEventListener("click", function (caller) {
                 let id = caller.path[1].getAttribute('match_id')
-                
                 if (caller.path[0].nodeName === "IMG") {
-                    caller.path[2].getAttribute('match_id')
+                    id = caller.path[2].getAttribute('match_id')
                 }
-                
                 console.log(id)
                 requestMatchDetails(id)
             })
