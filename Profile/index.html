@@ -2296,17 +2296,19 @@
             "name": user,
             "area_id": area_id
         }
+        document.getElementById("user-input").value = user
+        localStorage.setItem("searched_user", user)
         sendMessage(JSON.stringify(request))
     }
 
     function requestMatchHistory_slol(slol_id, uname) {
-        document.getElementById("user-input").value = uname
-        localStorage.setItem("searched_user", uname)
         let request = {
             "type": "profile-basic-slol-id",
             "slol_id": slol_id,
             "area_id": area_id
         }
+        document.getElementById("user-input").value = uname
+        localStorage.setItem("searched_user", uname)
         sendMessage(JSON.stringify(request))
     }
 
@@ -2355,7 +2357,6 @@
 
     //Page Event and OnLod functions.
     document.getElementById("update-button").addEventListener("click", function () {
-        localStorage.setItem("searched_user", document.getElementById("user-input").value)
         requestMatchHistory(document.getElementById("user-input").value);
     })
 
