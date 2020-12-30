@@ -2343,6 +2343,15 @@
         })
     }
 
+    function loading(bool){
+        if (bool){
+            document.getElementsByClassName("lds-ellipsis")[0].style.display = "inline-block"
+        }
+        else{
+            document.getElementsByClassName("lds-ellipsis")[0].style.display = "none"
+        }
+    }
+
 
     //Page Event and OnLod functions.
     document.getElementById("update-button").addEventListener("click", function () {
@@ -2402,12 +2411,13 @@
                 console.log("Message isn't jData")
                 console.log(message.data)
                 if (message.data === "loading") {
-                    document.getElementsByClassName("lds-ellipsis")[0].style.display = "inline-block"
+                    loading(true)
                 }
                 if (message.data === "ticket-error") {
                     document.body.innerHTML = "<h1>Ticket Error</h1>"
                 }
                 if (message.data === "error-slol-id-not-found") {
+                    loading(false)
                     document.getElementsByClassName("GameItemWrap")[0].innerHTML = "<h1>Player Not Found</h1>"
                 }
                 
@@ -2415,7 +2425,7 @@
             let jMessage = JSON.parse(message.data)
             console.log("I got a message: " + message.data)
             if (jMessage.type === "profile-basic-reply") {
-                document.getElementsByClassName("lds-ellipsis")[0].style.display = "none"
+                loading(false)
                 setRecent(jMessage.data)
                 populateMatchHistory(jMessage)
                 populateMostPlayed(jMessage)
