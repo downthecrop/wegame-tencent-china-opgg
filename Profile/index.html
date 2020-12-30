@@ -2414,7 +2414,8 @@
                     loading(true)
                 }
                 if (message.data === "ticket-error") {
-                    document.body.innerHTML = "<h1>Ticket Error</h1>"
+                    loading(false)
+                    document.getElementsByClassName("GameItemWrap")[0].innerHTML = "<h1>Ticket Error</h1>"
                 }
                 if (message.data === "error-slol-id-not-found") {
                     loading(false)
@@ -2433,6 +2434,7 @@
                 localStorage.setItem("last_profile", JSON.stringify(jMessage))
             }
             if (jMessage.type === "profile-detailedmatch-reply") {
+                loading(false)
                 const matchDiv = document.getElementById(jMessage.data.battle_info.battle_id)
                 populateMatchDetails(matchDiv, jMessage)
                 localStorage.setItem(jMessage.data.battle_info.battle_id, JSON.stringify(jMessage));

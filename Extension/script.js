@@ -222,6 +222,7 @@ window.addEventListener('message', function (message) {
             get_profile_by_slol_id(jMessage.slol_id, parseInt(jMessage.area_id))
         }
         if (jMessage.type === "profile-detailedmatch") {
+            sendMessage("loading")
             get_game_details(jMessage.slol_id, jMessage.battle_id, parseInt(jMessage.area_id))
         }
     }
