@@ -2143,6 +2143,11 @@
             //Request match details
             f("refresh_button_parent").addEventListener("click", function (caller) {
                 let id = caller.path[1].getAttribute('match_id')
+                
+                if (caller.path[0].nodeName === "IMG") {
+                    caller.path[2].getAttribute('match_id')
+                }
+                
                 console.log(id)
                 requestMatchDetails(id)
             })
