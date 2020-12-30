@@ -32,6 +32,29 @@
             display: inline;
             padding-right: 10px;
         }
+
+        .__spSite.__spSite-194.Off {
+            opacity: 20%;
+        }
+
+        .refresh_button {
+            display: inline;
+            opacity: 20%;
+            padding-top: 10px;
+        }
+        .expand_button {
+            display: inline;
+            width: 50%;
+            opacity: 20%;
+            padding-top: 100%;
+        }
+        .refresh_button_parent:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .expand_button_parent:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
     </style>
 </head>
 
@@ -247,10 +270,6 @@
                             <div class="Item">
                                 <img src="../res/items/0.png" class="Image tip">
                             </div>
-                            <button class="Button OpenBuildButton tip" title="Builds" type="button"> <img class="On"
-                                    src="./img/icon-buildblue-p.png">
-                                <img class="Off" src="./img/icon-buildblue-p.png">
-                            </button>
                         </div>
                     </div>
                     <div class="FollowPlayers Names">
@@ -343,8 +362,15 @@
                         <div class="Content">
                             <div class="Item">
                                 <a id="right_match" href="#/" class="Button MatchDetail">
-                                    <span class="__spSite __spSite-194 Off"></span>
-                                    <span class="__spSite __spSite-193 On"></span>&#x21BB;</a>
+
+                                    <div class="refresh_button_parent" style="height: 50%; width: 100%;">
+                                        <img class="refresh_button" src="img/reload-icon-13.png">
+                                    </div>
+
+                                    <div class="expand_button_parent" style="height: 50%; width: 100%;">
+                                        <img class="expand_button" src="img/white-arrow.png">
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -819,7 +845,7 @@
                 </a>
                 <div class="defeat-text4 cf bot">
                     <span class="bot1">32 / <span style="color:#A93D3D;">52</span> / 33</span>
-                    <span class="bot2"></span>
+                    <span class="bot2">DEFEAT</span>
                 </div>
             </div>
     </template>
@@ -2115,22 +2141,40 @@
             f("Button MatchDetail").setAttribute("match_id", match.battle_id)
 
             //Request match details
-            f("Button MatchDetail").addEventListener("click", function (caller) {
-                console.log(caller.path[0].getAttribute('match_id'))
-                requestMatchDetails(caller.path[0].getAttribute('match_id'))
+            f("refresh_button_parent").addEventListener("click", function (caller) {
+                let id = caller.path[1].getAttribute('match_id')
+                console.log(id)
+                requestMatchDetails(id)
             })
 
             //Detailed Popup/Expanded Details
-            f("Button OpenBuildButton").addEventListener("click", function (caller) {
-                //Collapse if the child elements already exist
-                if (caller.path[5].getElementsByClassName("s-m-b victory-bg2")[0]) {
-                    let details_own = caller.path[5].getElementsByClassName("s-m-b victory-bg2")[0]
-                    let details_opp = caller.path[5].getElementsByClassName("s-m-b victory-bg2")[1]
-                    caller.path[5].removeChild(details_own)
-                    caller.path[5].removeChild(details_opp)
+            f("expand_button_parent").addEventListener("click", function (caller) {
+                let icon = caller.path[0]
+                let path = caller.path[7]
+
+                if (caller.path[0].nodeName === "DIV") {
+                    icon = caller.path[0].getElementsByTagName("img")[0]
+                    path = caller.path[6]
                 }
+
+                //Collapse if the child elements already exist
+                if (path.getElementsByClassName("s-m-b victory-bg2")[0]) {
+                    icon.style.transform = ""
+                    icon.style.paddingTop = "100%"
+                    icon.style.paddingBottom = ""
+                    let details_own = path.getElementsByClassName("s-m-b victory-bg2")[0]
+                    let details_opp = path.getElementsByClassName("s-m-b victory-bg2")[1]
+                    path.removeChild(details_own)
+                    path.removeChild(details_opp)
+                }
+
+                //Flip icon and create child element
                 else {
-                    let jDetailed = JSON.parse(localStorage.getItem(caller.path[5].id))
+                    icon.style.transform = "rotate(180deg)"
+                    icon.style.paddingTop = ""
+                    icon.style.paddingBottom = "100%"
+
+                    let jDetailed = JSON.parse(localStorage.getItem(path.id))
 
                     if (devMode)
                         jDetailed = game_details
@@ -2139,23 +2183,23 @@
                         //Winner
                         let tempExt = document.querySelector("#detailed_match_win_template");
                         let expandedDetails = tempExt.content.cloneNode(true);
-                        caller.path[5].appendChild(expandedDetails)
+                        path.appendChild(expandedDetails)
                         //Loser
                         tempExt = document.querySelector("#detailed_match_lose_template");
                         expandedDetails = tempExt.content.cloneNode(true);
-                        caller.path[5].appendChild(expandedDetails)
+                        path.appendChild(expandedDetails)
                     }
                     else {
                         //Loser
                         let tempExt = document.querySelector("#detailed_match_lose_template");
                         let expandedDetails = tempExt.content.cloneNode(true);
-                        caller.path[5].appendChild(expandedDetails)
+                        path.appendChild(expandedDetails)
                         //Winner
                         tempExt = document.querySelector("#detailed_match_win_template");
                         expandedDetails = tempExt.content.cloneNode(true);
-                        caller.path[5].appendChild(expandedDetails)
+                        path.appendChild(expandedDetails)
                     }
-                    populateExpandedDetails(caller.path[5], jDetailed);
+                    populateExpandedDetails(path, jDetailed);
                 }
             })
             view.appendChild(a)
