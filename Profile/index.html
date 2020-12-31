@@ -1984,7 +1984,7 @@
         let team_total_own = jData.data.battle_info.team_data_own
         let team_total_opp = jData.data.battle_info.team_data_opp
 
-        //Match data to win or los
+        //Match data to win or loss
         if (jData.data.battle_info.team_data_own.is_win === 2) {
             team_total_own = jData.data.battle_info.team_data_opp
             team_total_opp = jData.data.battle_info.team_data_own
@@ -2437,7 +2437,7 @@
                     localStorage.setItem("last_profile", JSON.stringify(jMessage))
                 }
                 else {
-                    document.getElementsByClassName("GameItemWrap")[0].innerHTML = "<h1>No games on record</h1>"
+                    document.getElementsByClassName("GameItemWrap")[0].innerHTML = "<h1>Play found but no games on record</h1>"
                 }
             }
             if (jMessage.type === "profile-detailedmatch-reply") {
