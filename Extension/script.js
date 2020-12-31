@@ -55,7 +55,7 @@ async function get_profile_multi(uname, area_id) {
     })
 }
 
-async function get_profile(uname, area_id) {
+async function get_profile_by_name(uname, area_id) {
     const nickJSON = {
         "search_nick": uname,
     }
@@ -218,7 +218,7 @@ window.addEventListener('message', function (message) {
         }
         if (jMessage.type === "profile-basic") {
             sendMessage("loading")
-            get_profile(jMessage.name, parseInt(jMessage.area_id))
+            get_profile_by_name(jMessage.name, parseInt(jMessage.area_id))
         }
         if (jMessage.type === "profile-basic-slol-id") {
             profile_active()

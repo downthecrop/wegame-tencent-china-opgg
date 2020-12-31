@@ -2328,8 +2328,8 @@
                 recent_item_a.id = "recent_link"
                 document.getElementById("recent_searches").appendChild(recent_item_a)
             }
+            recent_users.push(jdata.role_name)
             let unique = [...new Set(recent_users)];
-            unique.push(jdata.role_name)
             unique = unique.slice(unique.length - 3, unique.length);
             localStorage.setItem("recent_users", unique.toString())
         }
@@ -2428,11 +2428,17 @@
             console.log("I got a message: " + message.data)
             if (jMessage.type === "profile-basic-reply") {
                 loading(false)
-                setRecent(jMessage.data)
-                populateMatchHistory(jMessage)
-                populateMostPlayed(jMessage)
-                loadLocalStoarge()
-                localStorage.setItem("last_profile", JSON.stringify(jMessage))
+                if ("player_battle_brief_list" in jMessage.data){
+                    setRecent(jMessage.data)
+                    populateMatchHistory(jMessage)
+                    populateMostPlayed(jMessage)
+                    loadLocalStoarge()
+                    //Save JSON response to last_profile localstorage
+                    localStorage.setItem("last_profile", JSON.stringify(jMessage))
+                }
+                else {
+                    document.getElementsByClassName("GameItemWrap")[0].innerHTML = "<h1>No games on record</h1>"
+                }
             }
             if (jMessage.type === "profile-detailedmatch-reply") {
                 loading(false)
