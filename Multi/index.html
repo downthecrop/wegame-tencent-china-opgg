@@ -302,10 +302,18 @@
                 if (message.data === "ticket-error") {
                     document.body.innerHTML = "<h1>Ticket Error</h1>"
                 }
+                if (message.data === "error-slol-id-not-found") {
+                    document.getElementsByClassName("multi2__list")[0] = "<h1>slol_id not found for 1 or more players</h1>"
+                }
             }
             let jMessage = JSON.parse(message.data)
             if (jMessage.type === "profile-multi-reply") {
-                create_multi_profile(jMessage)
+                if ("player_battle_brief_list" in jMessage){
+                    create_multi_profile(jMessage)
+                }
+                else{
+                    console.log("error with user"+jMessage.role_name)
+                }
             }
         }
     }
