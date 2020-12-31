@@ -2428,7 +2428,7 @@
             console.log("I got a message: " + message.data)
             if (jMessage.type === "profile-basic-reply") {
                 loading(false)
-                if ("player_battle_brief_list" in jMessage.data){
+                if ("player_battle_brief_list" in jMessage){
                     setRecent(jMessage.data)
                     populateMatchHistory(jMessage)
                     populateMostPlayed(jMessage)
