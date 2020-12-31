@@ -171,9 +171,18 @@
         const sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
         return dDisplay + hDisplay + " ago"
     }
+    
+    function loading(bool){
+        if (bool){
+            document.getElementById("loader").style.display = "inline-block"
+        }
+        else{
+            document.getElementById("loader").style.display = "none"
+        }
+    }
 
     function create_multi_profile(jdata) {
-        document.getElementById("loader").style.display = "none"
+        loading(false)
         //begin create users
         const temp = document.getElementsByTagName("template")[0];
         const view = document.getElementsByClassName("multi2__list")[0];
@@ -296,23 +305,24 @@
                 console.log("Message isn't jData")
                 console.log(message.data)
                 if (message.data === "loading") {
-                    document.getElementById("loader").style.display = "inline"
+                    loading(true)
                     document.getElementsByClassName("multi2__list")[0].innerHTML = ""
                 }
                 if (message.data === "ticket-error") {
                     document.body.innerHTML = "<h1>Ticket Error</h1>"
                 }
                 if (message.data === "error-slol-id-not-found") {
-                    document.getElementsByClassName("multi2__list")[0] = "<h1>slol_id not found for 1 or more players</h1>"
+                    console.log("Player not found: "+jMessage.role_name)
                 }
             }
             let jMessage = JSON.parse(message.data)
             if (jMessage.type === "profile-multi-reply") {
+                loading(false)
                 if ("player_battle_brief_list" in jMessage){
                     create_multi_profile(jMessage)
                 }
                 else{
-                    console.log("error with user"+jMessage.role_name)
+                    console.log("No match history: "+jMessage.role_name)
                 }
             }
         }
