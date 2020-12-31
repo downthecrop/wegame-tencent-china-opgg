@@ -32,6 +32,10 @@ async function get_profile_multi(uname, area_id) {
             ticket_flag = true;
             sendMessage("ticket-error")
         }
+        else if(!("player_list" in data.data)){
+            console.log("No player list")
+            sendMessage("error-slol-id-not-found")
+        }
         else {
             for (var i = 0; i < Object.keys(data.data.player_list).length; i += 1) {
                 if (data.data.player_list[i].area_id === area_id) {

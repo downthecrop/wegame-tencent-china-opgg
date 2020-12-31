@@ -312,7 +312,7 @@
                     document.body.innerHTML = "<h1>Ticket Error</h1>"
                 }
                 if (message.data === "error-slol-id-not-found") {
-                    console.log("Player not found: "+jMessage.role_name)
+                    console.log("Player not found: "+message.data.role_name)
                 }
             }
             let jMessage = JSON.parse(message.data)
