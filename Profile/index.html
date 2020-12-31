@@ -2330,7 +2330,8 @@
             }
             recent_users.push(jdata.role_name)
             let unique = [...new Set(recent_users)];
-            unique = unique.slice(unique.length - 3, unique.length);
+            if (unique.length > 3)
+                unique = unique.slice(unique.length - 3, unique.length);
             localStorage.setItem("recent_users", unique.toString())
         }
         else {
