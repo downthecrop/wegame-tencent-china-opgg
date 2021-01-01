@@ -171,12 +171,12 @@
         const sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
         return dDisplay + hDisplay + " ago"
     }
-    
-    function loading(bool){
-        if (bool){
+
+    function loading(bool) {
+        if (bool) {
             document.getElementById("loader").style.display = "inline-block"
         }
-        else{
+        else {
             document.getElementById("loader").style.display = "none"
         }
     }
@@ -213,14 +213,15 @@
         }
 
         //battle_list[0] for most recent game.
-        if (battle_list[0].battle_time) {
-            const deltaT = Date.now() / 1000 - battle_list[0].battle_time
-            const lastPlayed = (secondsToDhms(deltaT))
-            f("_timeago").innerText = lastPlayed
-        } else {
-            f("_timeago").innerText = "No recent games on record"
+        if ("player_battle_brief_list" in player) {
+            if (battle_list[0].battle_time) {
+                const deltaT = Date.now() / 1000 - battle_list[0].battle_time
+                const lastPlayed = (secondsToDhms(deltaT))
+                f("_timeago").innerText = lastPlayed
+            } else {
+                f("_timeago").innerText = "No recent games on record"
+            }
         }
-
         //begin create user match history
         for (z = 0; z < Object.keys(battle_list).length && "player_battle_brief_list" in player; z++) {
             const recentview = a.getElementsByClassName("recent-games")[0]
@@ -250,7 +251,7 @@
             item.addEventListener('click', event => {
                 let slol_id = event.path[0].getAttribute("slol_id")
                 console.log(event)
-                requestMatchHistory_slol(slol_id);    
+                requestMatchHistory_slol(slol_id);
             })
         })
     }
@@ -310,7 +311,7 @@
                     document.body.innerHTML = "<h1>Ticket Error</h1>"
                 }
                 if (message.data === "error-slol-id-not-found") {
-                    console.log("Player not found: "+message.data.role_name)
+                    console.log("Player not found: " + message.data.role_name)
                 }
             }
             let jMessage = JSON.parse(message.data)
