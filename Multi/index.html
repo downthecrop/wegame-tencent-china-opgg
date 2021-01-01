@@ -196,10 +196,6 @@
         const battle_list = jdata.player_battle_brief_list
         f = function (arguments) { return a.getElementsByClassName(arguments)[0]; }
 
-        for (z = 0; z < Object.keys(battle_list).length; z++) {
-            posArray[battle_list[z].position] += 1
-        }
-
         //populate user data from JSON
         f("summoner-name").getElementsByTagName("a")[0].innerText = player.role_name
         f("name").setAttribute("slol_id", player.slol_id)
@@ -226,11 +222,13 @@
         }
 
         //begin create user match history
-        for (z = 0; z < Object.keys(battle_list).length; z++) {
+        for (z = 0; z < Object.keys(battle_list).length && "player_battle_brief_list" in player; z++) {
             const recentview = a.getElementsByClassName("recent-games")[0]
             const recentList = document.getElementsByTagName("template")[1].content.querySelector("li");
             const b = document.importNode(recentList, true);
             const b_list = battle_list[z]
+
+            posArray[battle_list[z].position] += 1
 
             f = function (arguments) { return b.getElementsByClassName(arguments)[0]; }
 
@@ -318,12 +316,7 @@
             let jMessage = JSON.parse(message.data)
             if (jMessage.type === "profile-multi-reply") {
                 loading(false)
-                if ("player_battle_brief_list" in jMessage){
-                    create_multi_profile(jMessage)
-                }
-                else{
-                    console.log("No match history: "+jMessage.role_name)
-                }
+                create_multi_profile(jMessage)
             }
         }
     }
