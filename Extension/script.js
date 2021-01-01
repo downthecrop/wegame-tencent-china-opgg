@@ -3,8 +3,8 @@ const battle_details = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_l
 const query_by_nick = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/query_by_nick'
 const get_battle_topbar_info = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_topbar_info'
 const get_often_used = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_often_used_champion'
-const multi_url = "https://downthecrop.github.io/opgg-clone/Multi/"
-const profile_url = "https://downthecrop.github.io/opgg-clone/Profile/"
+const multi_url = "https://downthecrop.github.io/wegame-tencent-china-opgg/Multi/"
+const profile_url = "https://downthecrop.github.io/wegame-tencent-china-opgg/Profile/"
 const color_active = "hsla(0,0%,100%,.12)"
 const color_inactive = "#3c3c3c"
 
@@ -203,7 +203,7 @@ function game_details_builderJSON(jdata) {
 
 function sendMessage(message) {
     let receiver = document.getElementById(activeFrame).contentWindow;
-    receiver.postMessage(message, 'https://downthecrop.github.io/opgg-clone/');
+    receiver.postMessage(message, 'https://downthecrop.github.io/wegame-tencent-china-opgg/');
 }
 
 window.addEventListener('message', function (message) {
