@@ -1941,21 +1941,23 @@
         return dDisplay + hDisplay + " ago"
     }
 
-    function populateMostPlayed(jData) {
+    function populatePlayerCard(jdata) {
         //Profile Top Left Picture and Win Rate
         document.getElementsByClassName("MostChampionContent tabItem overview-stats--all")[0].innerHTML = ""
-        p_slol_id = jData.slol_id
-        player_name = jData.data.role_name
-        d("TierRank").innerText = rankJSON[jData.data.tier] + ` ${parseInt(jData.data.rank + 1)}`
-        d("LeaguePoints").innerText = `${jData.data.league_point} LP`
-        d("winratio").innerText = "Win Ratio " + jData.data.win_rate + "%"
-        d("Username").innerText = jData.data.role_name
-        document.getElementById("rank-metal").src = getAsset(_rank, jData.data.tier + "_" + jData.data.rank)
+        p_slol_id = jdata.slol_id
+        player_name = jdata.data.role_name
+        d("TierRank").innerText = rankJSON[jdata.data.tier] + ` ${parseInt(jdata.data.rank + 1)}`
+        d("LeaguePoints").innerText = `${jdata.data.league_point} LP`
+        d("winratio").innerText = "Win Ratio " + jdata.data.win_rate + "%"
+        d("Username").innerText = jdata.data.role_name
+        document.getElementById("rank-metal").src = getAsset(_rank, jdata.data.tier + "_" + jdata.data.rank)
+    }
 
+    function populateMostPlayed(jdata) {
         //Most Played
-        for (let z = 0; z < Object.keys(jData.info_list).length; z++) {
+        for (let z = 0; z < Object.keys(jdata.info_list).length; z++) {
 
-            let en_name = champs_JSON[jData.info_list[z].champion_id]
+            let en_name = champs_JSON[jdata.info_list[z].champion_id]
             let temp = document.querySelector("#most_played_template")
             let view = d("MostChampionContent");
             let startElement = temp.content.querySelector("div");
@@ -1966,10 +1968,10 @@
             let wr_played_box = f("Played")
             let container = f("ChampionBox Ranked")
 
-            wr_played_box.getElementsByClassName("WinRatio normal tip")[0].innerText = jData.info_list[z].win_rate + "%"
-            wr_played_box.getElementsByClassName("Title")[0].innerText = jData.info_list[z].use_num + " Played"
+            wr_played_box.getElementsByClassName("WinRatio normal tip")[0].innerText = jdata.info_list[z].win_rate + "%"
+            wr_played_box.getElementsByClassName("Title")[0].innerText = jdata.info_list[z].use_num + " Played"
 
-            container.getElementsByClassName("ChampionImage")[0].src = getAsset(_champ, jData.info_list[z].champion_id)
+            container.getElementsByClassName("ChampionImage")[0].src = getAsset(_champ, jdata.info_list[z].champion_id)
             container.getElementsByClassName("Face")[0].getElementsByTagName("a")[0].href = _opgg + en_name + "/statistics"
             container.getElementsByClassName("Face")[0].title = en_name
             container.getElementsByClassName("ChampionName")[0].innerText = en_name
@@ -1979,15 +1981,15 @@
         }
     }
 
-    function populateExpandedDetails(div, jData) {
+    function populateExpandedDetails(div, jdata) {
 
-        let team_total_own = jData.data.battle_info.team_data_own
-        let team_total_opp = jData.data.battle_info.team_data_opp
+        let team_total_own = jdata.data.battle_info.team_data_own
+        let team_total_opp = jdata.data.battle_info.team_data_opp
 
         //Match data to win or loss
-        if (jData.data.battle_info.team_data_own.is_win === 2) {
-            team_total_own = jData.data.battle_info.team_data_opp
-            team_total_opp = jData.data.battle_info.team_data_own
+        if (jdata.data.battle_info.team_data_own.is_win === 2) {
+            team_total_own = jdata.data.battle_info.team_data_opp
+            team_total_opp = jdata.data.battle_info.team_data_own
         }
 
         const team_data_own = team_total_own.battle_player_record
@@ -2097,11 +2099,11 @@
 
     }
 
-    function populateMatchHistory(jData) {
+    function populateMatchHistory(jdata) {
         document.getElementsByClassName("GameItemWrap")[0].innerHTML = ""
-        for (let z = 0; z < Object.keys(jData.player_battle_brief_list).length; z++) {
+        for (let z = 0; z < Object.keys(jdata.player_battle_brief_list).length; z++) {
 
-            let match = jData.player_battle_brief_list[z]
+            let match = jdata.player_battle_brief_list[z]
             let temp = document.querySelector("#match_history_item_template");
             let view = d("GameItemWrap");
             let startElement = temp.content.querySelector("div");
@@ -2221,9 +2223,9 @@
         })
     }
 
-    function populateMatchDetails(div, jData) {
-        const team_data_opp = jData.data.battle_info.team_data_opp.battle_player_record
-        const team_data_own = jData.data.battle_info.team_data_own.battle_player_record
+    function populateMatchDetails(div, jdata) {
+        const team_data_opp = jdata.data.battle_info.team_data_opp.battle_player_record
+        const team_data_own = jdata.data.battle_info.team_data_own.battle_player_record
         const team_div = div.getElementsByClassName("Team")[0]
         const opp_div = div.getElementsByClassName("Team")[1]
 
@@ -2241,9 +2243,9 @@
 
             if (team_data_own[z].role_name === player_name) {
                 const our_player = team_data_own[z]
-                const kp = ((our_player.kill_champion_num + our_player.assists_num) / (jData.data.battle_info.team_data_own.kill_num) * 100)
-                const csm = ((our_player.kill_minion_num) / (jData.data.battle_info.duration / 60)).toFixed(1)
-                const deltaT = Date.now() / 1000 - jData.data.battle_info.stop_time_stamp
+                const kp = ((our_player.kill_champion_num + our_player.assists_num) / (jdata.data.battle_info.team_data_own.kill_num) * 100)
+                const csm = ((our_player.kill_minion_num) / (jdata.data.battle_info.duration / 60)).toFixed(1)
+                const deltaT = Date.now() / 1000 - jdata.data.battle_info.stop_time_stamp
 
                 team_div.getElementsByClassName("Summoner")[z].setAttribute("class", "Summoner Requester")
 
@@ -2252,7 +2254,7 @@
                 div.getElementsByClassName("Level")[0].innerText = "Level " + our_player.level
                 div.getElementsByClassName("CS tip tpd-delegation-uid-1")[0].innerText = (our_player.kill_minion_num) + ` (${csm}) CS`
                 div.getElementsByClassName("CKRate tip")[0].innerText = parseInt(kp) + "%"
-                div.getElementsByClassName("GameLength")[0].innerText = gameLengthHR(jData.data.battle_info.duration)
+                div.getElementsByClassName("GameLength")[0].innerText = gameLengthHR(jdata.data.battle_info.duration)
                 div.getElementsByClassName("_timeago")[0].innerText = sinceGame(deltaT)
 
                 for (let i = 0; i <= 6; i++) {
@@ -2268,8 +2270,8 @@
             if (!isNaN(localStorage.key(i))) {
                 if (document.getElementById(localStorage.key(i))) {
                     let div = document.getElementById(localStorage.key(i))
-                    let jData = JSON.parse(localStorage.getItem(localStorage.key(i)))
-                    populateMatchDetails(div, jData)
+                    let jdata = JSON.parse(localStorage.getItem(localStorage.key(i)))
+                    populateMatchDetails(div, jdata)
                 }
             }
         }
@@ -2346,11 +2348,11 @@
         })
     }
 
-    function loading(bool){
-        if (bool){
+    function loading(bool) {
+        if (bool) {
             document.getElementsByClassName("lds-ellipsis")[0].style.display = "inline-block"
         }
-        else{
+        else {
             document.getElementsByClassName("lds-ellipsis")[0].style.display = "none"
         }
     }
@@ -2410,7 +2412,7 @@
             try {
                 JSON.parse(message.data)
             } catch (e) {
-                console.log("Message isn't jData")
+                console.log("Message isn't jdata")
                 console.log(message.data)
                 if (message.data === "loading") {
                     loading(true)
@@ -2423,13 +2425,14 @@
                     loading(false)
                     document.getElementsByClassName("GameItemWrap")[0].innerHTML = "<h1>Player Not Found</h1>"
                 }
-                
+
             }
             let jMessage = JSON.parse(message.data)
             console.log("I got a message: " + message.data)
             if (jMessage.type === "profile-basic-reply") {
                 loading(false)
-                if ("player_battle_brief_list" in jMessage){
+                if ("player_battle_brief_list" in jMessage) {
+                    populatePlayerCard(jMessage)
                     setRecent(jMessage.data)
                     populateMatchHistory(jMessage)
                     populateMostPlayed(jMessage)
@@ -2438,6 +2441,7 @@
                     localStorage.setItem("last_profile", JSON.stringify(jMessage))
                 }
                 else {
+                    populatePlayerCard(jMessage)
                     document.getElementsByClassName("GameItemWrap")[0].innerHTML = "<h1>Play found but no games on record</h1>"
                 }
             }
