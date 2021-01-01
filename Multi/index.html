@@ -308,9 +308,11 @@
                     document.getElementsByClassName("multi2__list")[0].innerHTML = ""
                 }
                 if (message.data === "ticket-error") {
-                    document.body.innerHTML = "<h1>Ticket Error</h1>"
+                    loading(false)
+                    document.getElementsByClassName("multi2__list")[0].innerHTML = "<h1>Ticket Error</h1>"
                 }
                 if (message.data === "error-slol-id-not-found") {
+                    loading(false)
                     console.log("Player not found: " + message.data.role_name)
                 }
             }
