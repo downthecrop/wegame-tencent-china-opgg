@@ -2271,6 +2271,7 @@
                 if (document.getElementById(localStorage.key(i))) {
                     let div = document.getElementById(localStorage.key(i))
                     let jdata = JSON.parse(localStorage.getItem(localStorage.key(i)))
+                    populatePlayerCard(jdata)
                     populateMatchDetails(div, jdata)
                 }
             }
