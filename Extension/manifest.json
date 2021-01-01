@@ -12,7 +12,7 @@
     {
       "matches": ["*://www.wegame.com.cn/*"],
       "js": ["script.js"],
-      "css": ["crop.css"]
+      "css": ["style.css"]
     }
   ],
   "manifest_version": 2
