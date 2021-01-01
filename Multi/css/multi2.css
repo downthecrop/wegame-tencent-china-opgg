@@ -1,3 +1,19 @@
+.tier__icon {
+    vertical-align: baseline !important;
+}
+
+.multi2__item .summoner-summary .last-updated {
+    text-align: center;
+}
+
+body {
+    padding: 10px;
+}
+
+#name-input {
+    width: 430px;
+}
+
 .multi2 .error-msg{position:absolute;top:164px;font-size:12px;line-height:1.33;color:#e84057;white-space:pre-line;padding-left:10px;}
 .multi2__box{border-radius:4px;background-color:#ffffff;}.multi2__box>.title{border-bottom:solid 1px #ebeef1;padding:8px 16px;font-size:14px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:1.43;letter-spacing:normal;color:#202d37;}
 .multi2__box>.content{text-align:center;}.multi2__box>.content .content-title{padding-top:47px;margin-top:0;font-size:20px;font-weight:bold;color:#202d37;}

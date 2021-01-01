@@ -1,0 +1,45 @@
+:root {
+    --default-icon: url("../res/champions/0.png");
+}
+
+body {
+    padding: 10px;
+}
+
+.c12:hover {
+    text-decoration: underline;
+}
+
+#recent_wrapper {
+    margin-top: 10px;
+}
+
+#recent_searches li {
+    display: inline;
+    padding-right: 10px;
+}
+
+.__spSite.__spSite-194.Off {
+    opacity: 20%;
+}
+
+.refresh_button {
+    display: inline;
+    opacity: 20%;
+    padding-top: 10px;
+}
+
+.expand_button {
+    display: inline;
+    width: 50%;
+    opacity: 20%;
+    padding-top: 100%;
+}
+
+.refresh_button_parent:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.expand_button_parent:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
