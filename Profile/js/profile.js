@@ -755,7 +755,13 @@ const champs_JSON = {
     "555": "Pyke",
     "777": "Yone",
     "875": "Sett",
-    "876": "Lillia"
+    "876": "Lillia",
+    "234": "Viego",
+    "887": "Gwen",
+    "166": "Akshan",
+    "711": "Vex",
+    "221": "Zeri",
+    "888": "Renata Glasc"
 }
 
 const we_data2 = {
