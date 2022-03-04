@@ -1,5 +1,5 @@
-const battle_list = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_list'
-const battle_details = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_detail'
+const battle_list = 'https://m.wegame.com.cn/api/trpc/Proxy/Forward/trpc.wegameapp.lol_common_service.DataLogic/GetBattleList'
+const battle_details = 'https://m.wegame.com.cn/api/trpc/Proxy/Forward/trpc.wegameapp.lol_common_service.DataLogic/GetBattleDetail'
 const query_by_nick = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/query_by_nick'
 const get_battle_topbar_info = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_topbar_info'
 const get_often_used = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_often_used_champion'
@@ -286,7 +286,7 @@ function main() {
     if (loginStatus) {
 
         //begin GUI injection
-        let topbar = document.getElementsByClassName("widget-header-nav")[0];
+        let topbar = document.getElementsByClassName("wgnav")[0];
         let cropsearch_li = document.createElement("li")
         let cropsearch_a = document.createElement("a")
         let cropsearch_t = document.createTextNode("Cropsearch")
@@ -294,6 +294,7 @@ function main() {
         cropsearch_li.appendChild(cropsearch_a)
         cropsearch_a.href = "#"
         cropsearch_a.id = "myBtn"
+        cropsearch_li.setAttribute("style","width: 100px;height: 100px;display: block;background-color: white;")
 
         cropsearch_li.onclick = function () {
             document.getElementById("myModal").style.display = "block"
