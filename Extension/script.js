@@ -292,9 +292,10 @@ function main() {
         let cropsearch_t = document.createTextNode("Cropsearch")
         cropsearch_a.appendChild(cropsearch_t)
         cropsearch_li.appendChild(cropsearch_a)
+        cropsearch_li.className = "wgnav-item"
         cropsearch_a.href = "#"
         cropsearch_a.id = "myBtn"
-        cropsearch_li.setAttribute("style","width: 100px;height: 100px;display: block;background-color: white;")
+        cropsearch_a.className = "wgnav-link"
 
         cropsearch_li.onclick = function () {
             document.getElementById("myModal").style.display = "block"
