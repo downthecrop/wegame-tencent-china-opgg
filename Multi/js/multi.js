@@ -123,7 +123,9 @@ function requestMatchHistory_slol(slol_id) {
 
 document.getElementById("submit-name").addEventListener('click', function () {
     let names = document.getElementById("name-input").value
-    let usernames = names.replaceAll("加入了队伍聊天", "").split(/\r?\n/)
+	// Cleanup input
+    let usernames = names.replaceAll("加入了队伍聊天", "")
+	usernames = usernames.replaceAll(" joined the lobby", "").split(/\r?\n/)
     console.log(usernames)
     for (k in usernames) {
         if (usernames[k] != "") {
