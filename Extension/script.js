@@ -237,27 +237,27 @@ window.addEventListener('message', function (message) {
 });
 
 function multi_active() {
-    let d_multi = document.getElementById("multi-page")
-    let d_profile = document.getElementById("profile-page")
-    let d_iframe_multi = document.getElementById("myiFrame")
-    let d_iframe_profile = document.getElementById("myiFrame2")
+    let d_multi = document.getElementById("multi-button")
+    let d_profile = document.getElementById("profile-button")
+    let d_iframe_multi = document.getElementById("multi-iframe")
+    let d_iframe_profile = document.getElementById("profile-iframe")
     d_multi.style.backgroundColor = color_active
     d_profile.style.backgroundColor = color_inactive
     d_iframe_multi.style.display = "block"
     d_iframe_profile.style.display = "none"
-    activeFrame = "myiFrame"
+    activeFrame = "multi-iframe"
 }
 
 function profile_active() {
-    let d_multi = document.getElementById("multi-page")
-    let d_profile = document.getElementById("profile-page")
-    let d_iframe_multi = document.getElementById("myiFrame")
-    let d_iframe_profile = document.getElementById("myiFrame2")
+    let d_multi = document.getElementById("multi-button")
+    let d_profile = document.getElementById("profile-button")
+    let d_iframe_multi = document.getElementById("multi-iframe")
+    let d_iframe_profile = document.getElementById("profile-iframe")
     d_profile.style.backgroundColor = color_active
     d_multi.style.backgroundColor = color_inactive
     d_iframe_multi.style.display = "none"
     d_iframe_profile.style.display = "block"
-    activeFrame = "myiFrame2"
+    activeFrame = "profile-iframe"
 }
 
 let checkExist = setInterval(function () {
@@ -322,21 +322,21 @@ function main() {
 
         let multi_button = document.createElement("button")
         let multi_text = document.createTextNode("Multisearch")
-        multi_button.id = "multi-page"
+        multi_button.id = "multi-button"
         multi_button.appendChild(multi_text)
 
         let profile_button = document.createElement("button")
         let profile_text = document.createTextNode("Profile")
-        profile_button.id = "profile-page"
+        profile_button.id = "profile-button"
         profile_button.appendChild(profile_text)
 
         let embed_multi = document.createElement("iframe")
-        embed_multi.id = "myiFrame"
+        embed_multi.id = "multi-iframe"
         embed_multi.src = multi_url
         embed_multi.style.display = "none"
 
         let embed_profile = document.createElement("iframe")
-        embed_profile.id = "myiFrame2"
+        embed_profile.id = "profile-iframe"
         embed_profile.src = profile_url
 
         modalContent.appendChild(close_button)
@@ -353,13 +353,11 @@ function main() {
             }
         }
 
-        let d_multi = document.getElementById("multi-page")
-        let d_profile = document.getElementById("profile-page")
-        let d_iframe_multi = document.getElementById("myiFrame")
-        let d_iframe_profile = document.getElementById("myiFrame2")
+        let d_multi = document.getElementById("multi-button")
+        let d_profile = document.getElementById("profile-button")
 
         d_profile.style.backgroundColor = color_active
-        activeFrame = "myiFrame2"
+        activeFrame = "profile-iframe"
 
         d_multi.onclick = function () {
             multi_active()

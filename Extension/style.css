@@ -27,21 +27,16 @@
     text-decoration: none;
     cursor: pointer;
 }
-#myiFrame{
-    width:100%;
-    height:95%;
-    border:0px;
-}
-#myiFrame2{
+#multi-iframe,
+#profile-iframe{
     width:100%;
     height:95%;
     border:0px;
 }
 
-#multi-page,
-#profile-page {
+#multi-button,
+#profile-button {
     padding: 10px;
     background-color: #3c3c3c;
     color:hsla(0,0%,100%,.5);
-    
 }
