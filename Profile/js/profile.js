@@ -1101,7 +1101,12 @@ function populatePlayerCard(jdata) {
     document.getElementsByClassName("MostChampionContent tabItem overview-stats--all")[0].innerHTML = ""
     p_slol_id = jdata.slol_id
     player_name = jdata.data.role_name
-    d("TierRank").innerText = rankJSON[jdata.data.tier] + ` ${parseInt(jdata.data.rank + 1)}`
+	if(!rankJSON[jdata.data.tier]){
+		d("TierRank").innerText = "Unranked"
+	} else {
+		d("TierRank").innerText = rankJSON[jdata.data.tier] + ` ${parseInt(jdata.data.rank + 1)}`
+	}
+    
     d("LeaguePoints").innerText = `${jdata.data.league_point} LP`
     d("winratio").innerText = "Win Ratio " + jdata.data.win_rate + "%"
     d("Username").innerText = jdata.data.role_name
