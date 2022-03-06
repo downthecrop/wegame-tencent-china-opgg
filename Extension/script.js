@@ -3,66 +3,39 @@ const battle_details = 'https://m.wegame.com.cn/api/trpc/Proxy/Forward/trpc.wega
 const query_by_nick = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/query_by_nick'
 const get_battle_topbar_info = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_topbar_info'
 const get_often_used = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_often_used_champion'
-const multi_url = "https://downthecrop.github.io/wegame-tencent-china-opgg/Multi/"
-const profile_url = "https://downthecrop.github.io/wegame-tencent-china-opgg/Profile/"
+const web_url = "https://downthecrop.github.io/wegame-tencent-china-opgg/"
+const multi_url = web_url + "Multi/"
+const profile_url = web_url + "Profile/"
 const color_active = "hsla(0,0%,100%,.12)"
 const color_inactive = "#3c3c3c"
 
 let loginStatus = false
 let activeFrame = ""
 
-async function get_profile_multi(uname, area_id) {
+async function get_user_from_name(name, area_id) {
     const nickJSON = {
-        "search_nick": uname,
+        "search_nick": name,
     }
-    const battleJSON = {
-        "area_id": area_id,
-        "area_name": "",
-        "filter_type": 0,
-        "game_id": 26,
-        "limit": 10,
-        "offset": 0,
-        "slol_id": "",
-        "totalNum": 0
-    }
-    apiRequest(query_by_nick, nickJSON).then((data) => {
+    return apiRequest(query_by_nick, nickJSON).then((data) => {
         console.log(data)
         if (data.code === 402) {
-            console.log("ticket error")
-            ticket_flag = true;
+            console.log("ticket-error")
             sendMessage("ticket-error")
+            return
         }
-        else if(!("player_list" in data.data)){
+        if (!("player_list" in data.data)) {
             console.log("No player list")
             sendMessage("error-slol-id-not-found")
+            return
         }
-        else {
-            for (var i = 0; i < Object.keys(data.data.player_list).length; i += 1) {
-                if (data.data.player_list[i].area_id === area_id) {
-                    var player_data = data.data.player_list[i]
-                    battleJSON.slol_id = data.data.player_list[i].slol_id
-                    console.log("User " + nickJSON.search_nick + " Found on " + area_id + " with slol_id=" + battleJSON.slol_id)
-                    console.log(battleJSON)
-                    apiRequest(battle_list, battleJSON).then((battle_data) => {
-                        apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
-                            var jVal = profile_multi_buildJSON(player_data, battle_data, topbar_data)
-                            sendMessage(jVal)
-                        })
-                    })
-                    break
-                }
-            }
-            if (battleJSON.slol_id === ""){
-                sendMessage("error-slol-id-not-found")
-            }
+        for (player of data.data.player_list) {
+            if (player.area_id === area_id)
+                return player
         }
     })
 }
 
-async function get_profile_by_name(uname, area_id) {
-    const nickJSON = {
-        "search_nick": uname,
-    }
+async function get_profile_multi(name, area_id) {
     const battleJSON = {
         "area_id": area_id,
         "area_name": "",
@@ -73,38 +46,41 @@ async function get_profile_by_name(uname, area_id) {
         "slol_id": "",
         "totalNum": 0
     }
-    apiRequest(query_by_nick, nickJSON).then((data) => {
-        console.log(data)
-        if (data.code === 402) {
-            console.log("ticket error")
-            ticket_flag = true
-            sendMessage("ticket-error")
-        }
-        else if(!("player_list" in data.data)){
-            console.log("No player list")
-            sendMessage("error-slol-id-not-found")
-        }
-        else {
-            for (let i = 0; i < Object.keys(data.data.player_list).length; i += 1) {
-                if (data.data.player_list[i].area_id === area_id) {
-                    let player_data = data.data.player_list[i]
-                    battleJSON.slol_id = data.data.player_list[i].slol_id
-                    console.log("User " + nickJSON.search_nick + " Found on " + area_id + " with slol_id=" + battleJSON.slol_id)
-                    apiRequest(battle_list, battleJSON).then((battle_data) => {
-                        apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
-                            apiRequest(get_often_used, battleJSON).then((often_used_data) => {
-                                let jRepsonse = profile_basic_builderJSON(battle_data, topbar_data, often_used_data)
-                                sendMessage(jRepsonse)
-                            })
-                        })
-                    })
-                    break
-                }
-            }
-            if (battleJSON.slol_id === ""){
-                sendMessage("error-slol-id-not-found")
-            }
-        }
+    get_user_from_name(name, area_id).then((player) => {
+        battleJSON.slol_id = player.slol_id
+    }).then(() => {
+        console.log("User " + name + " Found on " + area_id + " with slol_id=" + battleJSON.slol_id)
+        console.log(battleJSON)
+        apiRequest(battle_list, battleJSON).then((battle_data) => {
+            apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
+                sendMessage(profile_multi_buildJSON(player, battle_data, topbar_data))
+            })
+        })
+    })
+}
+
+async function get_profile_by_name(name, area_id) {
+    const battleJSON = {
+        "area_id": area_id,
+        "area_name": "",
+        "filter_type": 0,
+        "game_id": 26,
+        "limit": 10,
+        "offset": 0,
+        "slol_id": "",
+        "totalNum": 0
+    }
+    get_user_from_name(name, area_id).then((player) => {
+        battleJSON.slol_id = player.slol_id
+    }).then(() => {
+        console.log("User " + name + " Found on " + area_id + " with slol_id=" + battleJSON.slol_id)
+        apiRequest(battle_list, battleJSON).then((battle_data) => {
+            apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
+                apiRequest(get_often_used, battleJSON).then((often_used_data) => {
+                    sendMessage(profile_basic_builderJSON(battle_data, topbar_data, often_used_data))
+                })
+            })
+        })
     })
 }
 
@@ -122,18 +98,15 @@ async function get_profile_by_slol_id(slol_id, area_id) {
     apiRequest(battle_list, battleJSON).then((battle_data) => {
         console.log(battle_data)
         if (battle_data.code === 402) {
-            console.log("ticket error")
-            ticket_flag = true
+            console.log("ticket-error")
             sendMessage("ticket-error")
+            return
         }
-        else {
-            apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
-                apiRequest(get_often_used, battleJSON).then((often_used_data) => {
-                    let jRepsonse = profile_basic_builderJSON(battle_data, topbar_data, often_used_data)
-                    sendMessage(jRepsonse)
-                })
+        apiRequest(get_battle_topbar_info, battleJSON).then((topbar_data) => {
+            apiRequest(get_often_used, battleJSON).then((often_used_data) => {
+                sendMessage(profile_basic_builderJSON(battle_data, topbar_data, often_used_data))
             })
-        }
+        })
     })
 }
 
@@ -148,14 +121,11 @@ async function get_game_details(slol_id, battle_id, area_id) {
     apiRequest(battle_details, requestBody).then((data) => {
         console.log(data)
         if (data.code === 402) {
-            console.log("ticket error")
-            ticket_flag = true
+            console.log("ticket-error")
             sendMessage("ticket-error")
+            return
         }
-        else {
-            let jRepsonse = game_details_builderJSON(data)
-            sendMessage(jRepsonse)
-        }
+        sendMessage(game_details_builderJSON(data))
     })
 }
 
@@ -203,35 +173,34 @@ function game_details_builderJSON(jdata) {
 
 function sendMessage(message) {
     let receiver = document.getElementById(activeFrame).contentWindow;
-    receiver.postMessage(message, 'https://downthecrop.github.io/wegame-tencent-china-opgg/');
+    receiver.postMessage(message, web_url);
 }
 
-window.addEventListener('message', function (message) {
+window.addEventListener('message', function (messageEvent) {
+    let message
     if (message.origin === "https://downthecrop.github.io") {
         try {
-            JSON.parse(message.data)
+            message = JSON.parse(messageEvent.data)
         } catch (e) {
             console.log("Message isn't json")
             console.log(message.data)
         }
-        let jMessage = JSON.parse(message.data)
-        console.log(jMessage)
-        if (jMessage.type === "profile-multi") {
-            sendMessage("loading")
-            get_profile_multi(jMessage.name, parseInt(jMessage.area_id))
-        }
-        if (jMessage.type === "profile-basic") {
-            sendMessage("loading")
-            get_profile_by_name(jMessage.name, parseInt(jMessage.area_id))
-        }
-        if (jMessage.type === "profile-basic-slol-id") {
-            profile_active()
-            sendMessage("loading")
-            get_profile_by_slol_id(jMessage.slol_id, parseInt(jMessage.area_id))
-        }
-        if (jMessage.type === "profile-detailedmatch") {
-            sendMessage("loading")
-            get_game_details(jMessage.slol_id, jMessage.battle_id, parseInt(jMessage.area_id))
+        console.log(message)
+        sendMessage("loading")
+        switch (message.type) {
+            case "profile-multi":
+                get_profile_multi(message.name, parseInt(message.area_id))
+                break;
+            case "profile-basic":
+                get_profile_by_name(message.name, parseInt(message.area_id))
+                break;
+            case "profile-basic-slol-id":
+                profile_active()
+                get_profile_by_slol_id(message.slol_id, parseInt(message.area_id))
+                break;
+            case "profile-detailedmatch":
+                get_game_details(message.slol_id, message.battle_id, parseInt(message.area_id))
+                break;
         }
     }
 });
@@ -262,27 +231,20 @@ function profile_active() {
 
 let checkExist = setInterval(function () {
     if (document.getElementsByClassName("widget-header-nav")) {
-        main()
+        init_gui()
         clearInterval(checkExist);
     }
 }, 1000);
 
-function main() {
+function init_gui() {
     if (window.location.href.includes("https://www.wegame.com.cn/")) {
-        function listCookies() {
-            const theCookies = document.cookie.split(';');
-            let aString = ''
-            for (let i = 1; i <= theCookies.length; i++) {
-                aString += i + ' ' + theCookies[i - 1] + "\n"
-                if (theCookies[i - 1].includes("tgp_id")) {
-                    loginStatus = true
-                }
-            }
-            return aString
+        const cookies = document.cookie.split(';');
+        for (cookie of cookies) {
+            if (cookie.includes("tgp_id"))
+                loginStatus = true;
         }
-        console.log(listCookies())
     }
-
+    
     if (loginStatus) {
 
         //begin GUI injection
