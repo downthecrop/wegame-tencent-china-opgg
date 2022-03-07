@@ -17,7 +17,6 @@ async function get_player_from_name(name, area_id) {
         "search_nick": name,
     }
     return apiRequest(query_by_nick, nickJSON).then((data) => {
-        console.log(data)
         if (!("player_list" in data.data)) {
             console.log("No player list")
             sendMessage("error-slol-id-not-found")
@@ -43,7 +42,6 @@ async function get_profile_multi(name, area_id) {
     }
     let player = await get_player_from_name(name, area_id)
     battleJSON.slol_id = player.slol_id
-    console.log("User " + name + " Found on " + area_id + " with slol_id=" + battleJSON.slol_id)
     sendMessage(
         profile_multi_buildJSON(
             player,
@@ -66,7 +64,6 @@ async function get_profile_by_name(name, area_id) {
     }
     let player = await get_player_from_name(name, area_id)
     battleJSON.slol_id = player.slol_id
-    console.log("User " + name + " Found on " + area_id + " with slol_id=" + battleJSON.slol_id)
     sendMessage(
         profile_basic_builderJSON(
             await apiRequest(battle_list, battleJSON),
@@ -134,26 +131,21 @@ async function apiRequest(myurl, body) {
 }
 
 function profile_multi_buildJSON(user, games, topbar) {
-    let player = { "type": "profile-multi-reply" }
-    user = Object.assign(user, player)
-    user = Object.assign(games.data, user)
-    user = Object.assign(topbar.data, user)
-    console.log(user)
-    return JSON.stringify(user)
+    let reply = { "type": "profile-multi-reply" }
+    Object.assign(reply, user, games.data, topbar.data)
+    return JSON.stringify(reply)
 }
 
 function profile_basic_builderJSON(battle_data, topbar_data, often_used_data) {
-    let player = { "type": "profile-basic-reply" }
-    player = Object.assign(topbar_data, player)
-    player = Object.assign(often_used_data.data, player)
-    player = Object.assign(battle_data.data, player)
-    return JSON.stringify(player)
+    let reply = { "type": "profile-basic-reply" }
+    Object.assign(reply, topbar_data, often_used_data.data, battle_data.data)
+    return JSON.stringify(reply)
 }
 
-function game_details_builderJSON(jdata) {
-    let data = { "type": "profile-detailedmatch-reply" }
-    data = Object.assign(jdata, data)
-    return JSON.stringify(data)
+function game_details_builderJSON(game_details) {
+    let reply = { "type": "profile-detailedmatch-reply" }
+    Object.assign(reply, game_details)
+    return JSON.stringify(reply)
 }
 
 function sendMessage(message) {
