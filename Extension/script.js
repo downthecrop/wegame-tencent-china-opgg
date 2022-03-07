@@ -1,8 +1,8 @@
-const battle_list = 'https://m.wegame.com.cn/api/trpc/Proxy/Forward/trpc.wegameapp.lol_common_service.DataLogic/GetBattleList'
-const battle_details = 'https://m.wegame.com.cn/api/trpc/Proxy/Forward/trpc.wegameapp.lol_common_service.DataLogic/GetBattleDetail'
-const query_by_nick = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/query_by_nick'
-const get_battle_topbar_info = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_topbar_info'
-const get_often_used = 'https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_often_used_champion'
+const battle_list = "https://m.wegame.com.cn/api/trpc/Proxy/Forward/trpc.wegameapp.lol_common_service.DataLogic/GetBattleList"
+const battle_details = "https://m.wegame.com.cn/api/trpc/Proxy/Forward/trpc.wegameapp.lol_common_service.DataLogic/GetBattleDetail"
+const query_by_nick = "https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/query_by_nick"
+const get_battle_topbar_info = "https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_battle_topbar_info"
+const get_often_used = "https://m.wegame.com.cn/api/mobile/lua/proxy/index/mwg_lol_proxy/get_often_used_champion"
 const web_url = "https://downthecrop.github.io/wegame-tencent-china-opgg/"
 const multi_url = web_url + "Multi/"
 const profile_url = web_url + "Profile/"
@@ -110,12 +110,12 @@ async function get_game_details(slol_id, battle_id, area_id) {
 
 async function apiRequest(myurl, body) {
     return await fetch(myurl, {
-        method: 'post',
-        credentials: 'include',
+        method: "post",
+        credentials: "include",
         headers: {
-            'User-Agent': 'WeGame/1778 CFNetwork/1121.2.2 Darwin/19.3.0',
-            'Host': 'm.wegame.com.cn',
-            'Content-Type': 'application/json',
+            "User-Agent": "WeGame/1778 CFNetwork/1121.2.2 Darwin/19.3.0",
+            "Host": "m.wegame.com.cn",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify(body)
     }).then(data => {
@@ -126,7 +126,7 @@ async function apiRequest(myurl, body) {
         }
         return data;
     }).catch(function (error) {
-        console.log('Request failed', error)
+        console.log("Request failed", error)
     })
 }
 
@@ -153,7 +153,7 @@ function sendMessage(message) {
     receiver.postMessage(message, web_url);
 }
 
-window.addEventListener('message', function (messageEvent) {
+window.addEventListener("message", function (messageEvent) {
     if (messageEvent.origin === "https://downthecrop.github.io") {
         try {
             let message = JSON.parse(messageEvent.data)
@@ -213,95 +213,95 @@ let checkExist = setInterval(function () {
 
 function init_gui() {
     if (window.location.href.includes("https://www.wegame.com.cn/")) {
-        const cookies = document.cookie.split(';');
+        let cookies = document.cookie.split(";");
         for (cookie of cookies) {
             if (cookie.includes("tgp_id"))
                 loginStatus = true;
         }
     }
 
-    if (loginStatus) {
+    if (!loginStatus)
+        return
 
-        //begin GUI injection
-        let topbar = document.getElementsByClassName("wgnav")[0];
-        let cropsearch_li = document.createElement("li")
-        let cropsearch_a = document.createElement("a")
-        let cropsearch_t = document.createTextNode("Cropsearch")
-        cropsearch_a.appendChild(cropsearch_t)
-        cropsearch_li.appendChild(cropsearch_a)
-        cropsearch_li.className = "wgnav-item"
-        cropsearch_a.href = "#"
-        cropsearch_a.id = "myBtn"
-        cropsearch_a.className = "wgnav-link"
+    //begin GUI injection
+    let topbar = document.getElementsByClassName("wgnav")[0];
+    let cropsearch_li = document.createElement("li")
+    let cropsearch_a = document.createElement("a")
+    let cropsearch_t = document.createTextNode("Cropsearch")
+    cropsearch_a.appendChild(cropsearch_t)
+    cropsearch_li.appendChild(cropsearch_a)
+    cropsearch_li.className = "wgnav-item"
+    cropsearch_a.href = "#"
+    cropsearch_a.id = "myBtn"
+    cropsearch_a.className = "wgnav-link"
 
-        cropsearch_li.onclick = function () {
-            document.getElementById("myModal").style.display = "block"
-        }
+    cropsearch_li.onclick = function () {
+        document.getElementById("myModal").style.display = "block"
+    }
 
-        topbar.appendChild(cropsearch_li)
+    topbar.appendChild(cropsearch_li)
 
-        let myModal = document.createElement("div")
-        myModal.id = "myModal"
-        myModal.setAttribute("class", "modal-crop")
+    let myModal = document.createElement("div")
+    myModal.id = "myModal"
+    myModal.setAttribute("class", "modal-crop")
 
-        let modalContent = document.createElement("div")
-        modalContent.className = "modal-content-crop"
+    let modalContent = document.createElement("div")
+    modalContent.className = "modal-content-crop"
 
-        let close_button = document.createElement("span")
-        close_button.className = "close-crop"
+    let close_button = document.createElement("span")
+    close_button.className = "close-crop"
 
-        close_button.onclick = function () {
+    close_button.onclick = function () {
+        document.getElementById("myModal").style.display = "none"
+    }
+
+    let close_text = document.createTextNode("x")
+    close_button.appendChild(close_text)
+
+    let multi_button = document.createElement("button")
+    let multi_text = document.createTextNode("Multisearch")
+    multi_button.id = "multi-button"
+    multi_button.appendChild(multi_text)
+
+    let profile_button = document.createElement("button")
+    let profile_text = document.createTextNode("Profile")
+    profile_button.id = "profile-button"
+    profile_button.appendChild(profile_text)
+
+    let embed_multi = document.createElement("iframe")
+    embed_multi.id = "multi-iframe"
+    embed_multi.src = multi_url
+    embed_multi.style.display = "none"
+
+    let embed_profile = document.createElement("iframe")
+    embed_profile.id = "profile-iframe"
+    embed_profile.src = profile_url
+
+    modalContent.appendChild(close_button)
+    modalContent.appendChild(profile_button)
+    modalContent.appendChild(multi_button)
+    modalContent.appendChild(embed_multi)
+    modalContent.appendChild(embed_profile)
+    myModal.appendChild(modalContent)
+    document.body.prepend(myModal)
+
+    window.onclick = function (event) {
+        if (event.target === document.getElementById("myModal")) {
             document.getElementById("myModal").style.display = "none"
         }
+    }
 
-        let close_text = document.createTextNode("x")
-        close_button.appendChild(close_text)
+    let d_multi = document.getElementById("multi-button")
+    let d_profile = document.getElementById("profile-button")
 
-        let multi_button = document.createElement("button")
-        let multi_text = document.createTextNode("Multisearch")
-        multi_button.id = "multi-button"
-        multi_button.appendChild(multi_text)
+    d_profile.style.backgroundColor = color_active
+    activeFrame = "profile-iframe"
 
-        let profile_button = document.createElement("button")
-        let profile_text = document.createTextNode("Profile")
-        profile_button.id = "profile-button"
-        profile_button.appendChild(profile_text)
+    d_multi.onclick = function () {
+        multi_active()
+    }
 
-        let embed_multi = document.createElement("iframe")
-        embed_multi.id = "multi-iframe"
-        embed_multi.src = multi_url
-        embed_multi.style.display = "none"
-
-        let embed_profile = document.createElement("iframe")
-        embed_profile.id = "profile-iframe"
-        embed_profile.src = profile_url
-
-        modalContent.appendChild(close_button)
-        modalContent.appendChild(profile_button)
-        modalContent.appendChild(multi_button)
-        modalContent.appendChild(embed_multi)
-        modalContent.appendChild(embed_profile)
-        myModal.appendChild(modalContent)
-        document.body.prepend(myModal)
-
-        window.onclick = function (event) {
-            if (event.target === document.getElementById("myModal")) {
-                document.getElementById("myModal").style.display = "none"
-            }
-        }
-
-        let d_multi = document.getElementById("multi-button")
-        let d_profile = document.getElementById("profile-button")
-
-        d_profile.style.backgroundColor = color_active
-        activeFrame = "profile-iframe"
-
-        d_multi.onclick = function () {
-            multi_active()
-        }
-
-        d_profile.onclick = function () {
-            profile_active()
-        }
+    d_profile.onclick = function () {
+        profile_active()
     }
 }
