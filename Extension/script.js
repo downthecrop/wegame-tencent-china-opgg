@@ -17,6 +17,17 @@ const headers = {
     "Content-Type": "application/json",
 };
 
+const requestBody = {
+    "area_id": 0,
+    "area_name": "",
+    "filter_type": 0,
+    "game_id": 26,
+    "limit": 10,
+    "offset": 0,
+    "slol_id": "",
+    "totalNum": 0
+};
+
 let activeFrame = "";
 
 async function get_player_from_name(name, area_id) {
@@ -37,72 +48,47 @@ async function get_player_from_name(name, area_id) {
 }
 
 async function get_profile_multi(name, area_id) {
-    const requestBody = {
-        "area_id": area_id,
-        "area_name": "",
-        "filter_type": 0,
-        "game_id": 26,
-        "limit": 10,
-        "offset": 0,
-        "slol_id": "",
-        "totalNum": 0
-    };
-    const player = await get_player_from_name(name, area_id);
-    requestBody.slol_id = player.slol_id;
+    const body = requestBody;
+    body.area_id = area_id;
+    body.slol_id = Object(await get_player_from_name(name, area_id)).slol_id;
     sendMessage(
         profile_multi_buildJSON(
-            player,
-            await apiRequest(battle_list, requestBody),
-            await apiRequest(get_battle_topbar_info, requestBody)
+            await apiRequest(battle_list, body),
+            await apiRequest(get_battle_topbar_info, body)
         )
     );
 }
 
 async function get_profile_by_name(name, area_id) {
-    const requestBody = {
-        "area_id": area_id,
-        "area_name": "",
-        "filter_type": 0,
-        "game_id": 26,
-        "limit": 10,
-        "offset": 0,
-        "slol_id": "",
-        "totalNum": 0
-    };
-    requestBody.slol_id = Object(await get_player_from_name(name, area_id)).slol_id;
+    const body = requestBody;
+    body.area_id = area_id;
+    body.slol_id = Object(await get_player_from_name(name, area_id)).slol_id;
     sendMessage(
         profile_basic_builderJSON(
-            await apiRequest(battle_list, requestBody),
-            await apiRequest(get_battle_topbar_info, requestBody),
-            await apiRequest(get_often_used, requestBody)
+            await apiRequest(battle_list, body),
+            await apiRequest(get_battle_topbar_info, body),
+            await apiRequest(get_often_used, body)
         )
     );
 }
 
 async function get_profile_by_slol_id(slol_id, area_id) {
-    const requestBody = {
-        "area_id": area_id,
-        "area_name": "",
-        "filter_type": 0,
-        "game_id": 26,
-        "limit": 10,
-        "offset": 0,
-        "slol_id": slol_id,
-        "totalNum": 0
-    };
+    const body = requestBody;
+    body.area_id = area_id;
+    body.slol_id = slol_id;
     sendMessage(
         profile_basic_builderJSON(
-            await apiRequest(battle_list, requestBody),
-            await apiRequest(get_battle_topbar_info, requestBody),
-            await apiRequest(get_often_used, requestBody)
+            await apiRequest(battle_list, body),
+            await apiRequest(get_battle_topbar_info, body),
+            await apiRequest(get_often_used, body)
         )
     );
 }
 
 async function get_game_details(slol_id, battle_id, area_id) {
     const requestBody = {
-        "area_id": parseInt(area_id),
-        "battle_id": parseInt(battle_id),
+        "area_id": area_id,
+        "battle_id": battle_id,
         "dst_slol_id": slol_id,
         "game_id": 26,
         "req_slol_id": slol_id
@@ -128,15 +114,14 @@ async function apiRequest(url, body) {
             throw "ticket-error";
         }
         return data;
-    }
-    catch(error) {
+    } catch(error) {
         console.log("Request failed", error);
     }
 }
 
-function profile_multi_buildJSON(user, games, topbar) {
+function profile_multi_buildJSON(games, topbar) {
     const reply = { "type": "profile-multi-reply" };
-    Object.assign(reply, user, games.data, topbar.data);
+    Object.assign(reply, games.data, topbar.data);
     return JSON.stringify(reply);
 }
 
