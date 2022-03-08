@@ -17,7 +17,7 @@ const headers = {
     "Content-Type": "application/json",
 };
 
-const requestBody = {
+const request_body = {
     "area_id": 0,
     "area_name": "",
     "filter_type": 0,
@@ -31,62 +31,62 @@ const requestBody = {
 let activeFrame = "";
 
 async function get_player_from_name(name, area_id) {
-    const nickJSON = {
-        "search_nick": name,
+    const body = {
+        "search_nick": name
     };
-    return apiRequest(query_by_nick, nickJSON).then((data) => {
-        if (!("player_list" in data.data)) {
-            console.log("No player list");
-            sendMessage("error-slol-id-not-found");
-            return;
-        }
+    const data = await request(query_by_nick, body);
+    try{
         for (const player of data.data.player_list) {
             if (player.area_id === area_id)
                 return player;
         }
-    });
+    } catch(e){
+        console.log("No player list");
+        sendMessage("error-slol-id-not-found");
+        return;
+    }
 }
 
 async function get_profile_multi(name, area_id) {
-    const body = requestBody;
+    const body = request_body;
     body.area_id = area_id;
     body.slol_id = Object(await get_player_from_name(name, area_id)).slol_id;
     sendMessage(
-        profile_multi_buildJSON(
-            await apiRequest(battle_list, body),
-            await apiRequest(get_battle_topbar_info, body)
+        profile_multi_builder(
+            await request(battle_list, body),
+            await request(get_battle_topbar_info, body)
         )
     );
 }
 
 async function get_profile_by_name(name, area_id) {
-    const body = requestBody;
+    const body = request_body;
     body.area_id = area_id;
     body.slol_id = Object(await get_player_from_name(name, area_id)).slol_id;
     sendMessage(
-        profile_basic_builderJSON(
-            await apiRequest(battle_list, body),
-            await apiRequest(get_battle_topbar_info, body),
-            await apiRequest(get_often_used, body)
+        profile_basic_builder(
+            await request(battle_list, body),
+            await request(get_battle_topbar_info, body),
+            await request(get_often_used, body)
         )
     );
 }
 
 async function get_profile_by_slol_id(slol_id, area_id) {
-    const body = requestBody;
+    const body = request_body;
     body.area_id = area_id;
     body.slol_id = slol_id;
     sendMessage(
-        profile_basic_builderJSON(
-            await apiRequest(battle_list, body),
-            await apiRequest(get_battle_topbar_info, body),
-            await apiRequest(get_often_used, body)
+        profile_basic_builder(
+            await request(battle_list, body),
+            await request(get_battle_topbar_info, body),
+            await request(get_often_used, body)
         )
     );
 }
 
 async function get_game_details(slol_id, battle_id, area_id) {
-    const requestBody = {
+    const body = {
         "area_id": area_id,
         "battle_id": battle_id,
         "dst_slol_id": slol_id,
@@ -94,13 +94,13 @@ async function get_game_details(slol_id, battle_id, area_id) {
         "req_slol_id": slol_id
     };
     sendMessage(
-        game_details_builderJSON(
-            await apiRequest(battle_details, requestBody)
+        game_details_builder(
+            await request(battle_details, body)
         )
     );
 }
 
-async function apiRequest(url, body) {
+async function request(url, body) {
     try{
         const response = await fetch(url, {
             method: "post",
@@ -119,19 +119,19 @@ async function apiRequest(url, body) {
     }
 }
 
-function profile_multi_buildJSON(games, topbar) {
+function profile_multi_builder(games, topbar) {
     const reply = { "type": "profile-multi-reply" };
     Object.assign(reply, games.data, topbar.data);
     return JSON.stringify(reply);
 }
 
-function profile_basic_builderJSON(battle_data, topbar_data, often_used_data) {
+function profile_basic_builder(battle_data, topbar_data, often_used_data) {
     const reply = { "type": "profile-basic-reply" };
     Object.assign(reply, topbar_data, often_used_data.data, battle_data.data);
     return JSON.stringify(reply);
 }
 
-function game_details_builderJSON(game_details) {
+function game_details_builder(game_details) {
     const reply = { "type": "profile-detailedmatch-reply" };
     Object.assign(reply, game_details);
     return JSON.stringify(reply);
