@@ -39,7 +39,7 @@ async function get_player_from_name(name, area_id) {
         for (const player of data.data.player_list) {
             if (player.area_id === area_id)
                 return player;
-        }
+        } 
     } catch(e){
         console.log("No player list");
         sendMessage("error-slol-id-not-found");
@@ -52,9 +52,10 @@ async function get_profile_multi(name, area_id) {
     body.area_id = area_id;
     body.slol_id = Object(await get_player_from_name(name, area_id)).slol_id;
     sendMessage(
-        profile_multi_builder(
-            await request(battle_list, body),
-            await request(get_battle_topbar_info, body)
+        generic_builder(
+            { "type": "profile-multi-reply" },
+            Object(await request(battle_list, body)).data,
+            Object(await request(get_battle_topbar_info, body)).data
         )
     );
 }
@@ -64,10 +65,11 @@ async function get_profile_by_name(name, area_id) {
     body.area_id = area_id;
     body.slol_id = Object(await get_player_from_name(name, area_id)).slol_id;
     sendMessage(
-        profile_basic_builder(
-            await request(battle_list, body),
-            await request(get_battle_topbar_info, body),
-            await request(get_often_used, body)
+        generic_builder(
+            { "type": "profile-basic-reply" },
+            Object(await request(battle_list, body)).data,
+            Object(await request(get_often_used, body)).data,
+            await request(get_battle_topbar_info, body)
         )
     );
 }
@@ -77,10 +79,11 @@ async function get_profile_by_slol_id(slol_id, area_id) {
     body.area_id = area_id;
     body.slol_id = slol_id;
     sendMessage(
-        profile_basic_builder(
-            await request(battle_list, body),
-            await request(get_battle_topbar_info, body),
-            await request(get_often_used, body)
+        generic_builder(
+            { "type": "profile-basic-reply" },
+            Object(await request(battle_list, body)).data,
+            Object(await request(get_often_used, body)).data,
+            await request(get_battle_topbar_info, body)
         )
     );
 }
@@ -94,7 +97,8 @@ async function get_game_details(slol_id, battle_id, area_id) {
         "req_slol_id": slol_id
     };
     sendMessage(
-        game_details_builder(
+        generic_builder(
+            { "type": "profile-detailedmatch-reply" },
             await request(battle_details, body)
         )
     );
@@ -119,21 +123,11 @@ async function request(url, body) {
     }
 }
 
-function profile_multi_builder(games, topbar) {
-    const reply = { "type": "profile-multi-reply" };
-    Object.assign(reply, games.data, topbar.data);
-    return JSON.stringify(reply);
-}
-
-function profile_basic_builder(battle_data, topbar_data, often_used_data) {
-    const reply = { "type": "profile-basic-reply" };
-    Object.assign(reply, topbar_data, often_used_data.data, battle_data.data);
-    return JSON.stringify(reply);
-}
-
-function game_details_builder(game_details) {
-    const reply = { "type": "profile-detailedmatch-reply" };
-    Object.assign(reply, game_details);
+function generic_builder() {
+    const reply = {}
+    for (argument of arguments){
+        Object.assign(reply, argument);
+    }
     return JSON.stringify(reply);
 }
 
