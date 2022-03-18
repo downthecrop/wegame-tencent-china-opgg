@@ -35,12 +35,12 @@ async function get_player_from_name(name, area_id) {
         "search_nick": name
     };
     const data = await request(query_by_nick, body);
-    try{
+    try {
         for (const player of data.data.player_list) {
             if (player.area_id === area_id)
                 return player;
-        } 
-    } catch(e){
+        }
+    } catch (e) {
         console.log("No player list");
         sendMessage("error-slol-id-not-found");
         return;
@@ -105,7 +105,7 @@ async function get_game_details(slol_id, battle_id, area_id) {
 }
 
 async function request(url, body) {
-    try{
+    try {
         const response = await fetch(url, {
             method: "post",
             credentials: "include",
@@ -118,14 +118,14 @@ async function request(url, body) {
             throw "ticket-error";
         }
         return data;
-    } catch(error) {
-        console.log("Request failed", error);
+    } catch (e) {
+        console.log("Request failed", e);
     }
 }
 
 function generic_builder() {
     const reply = {}
-    for (argument of arguments){
+    for (argument of arguments) {
         Object.assign(reply, argument);
     }
     return JSON.stringify(reply);
